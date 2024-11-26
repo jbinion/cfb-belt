@@ -1,0 +1,19 @@
+{
+  "name": "data",
+  "version": "1.0.0",
+  "main": "app.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ./src/app.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "eslint": "^9.15.0"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5"
+  }
+}
