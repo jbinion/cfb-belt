@@ -7,6 +7,6 @@ export const load: PageLoad = async () => {
 	const lastTen = data.reverse().slice(0, 10);
 	return {
 		current: lastTen[0],
-		data: lastTen.slice(1)
+		recent: lastTen.slice(1)
 	};
 };
