@@ -1,59 +1,49 @@
 <script lang="ts">
-	import Counter from './Counter.svelte';
-	import welcome from '$lib/images/svelte-welcome.webp';
-	import welcomeFallback from '$lib/images/svelte-welcome.png';
+	import type { PageData } from './$types';
+
+	let { data }: { data: PageData } = $props();
+	console.log(data);
 </script>
 
-<svelte:head>
-	<title>Home</title>
-	<meta name="description" content="Svelte demo app" />
-</svelte:head>
+<div class="mt-12">
+	<div class=" flex flex-row space-x-24 overflow-auto px-4">
+		<div class="sticky top-0 flex-1 space-y-4">
+			<h1>CFB Belt</h1>
+			<p>
+				The College Football Belt is an unoffical trophy that traces the lineage of the best teams
+				in college football history.
+			</p>
 
-<section>
-	<h1>
-		<span class="welcome">
-			<picture>
-				<source srcset={welcome} type="image/webp" />
-				<img src={welcomeFallback} alt="Welcome" />
-			</picture>
-		</span>
+			<p>There are three suggested starting points</p>
+			<ul class="font-mono text-xs font-bold">
+				<li>The first college football game, Rutgers vs Whoever, 1869</li>
+				<li>The 1936 Minnesota Golden Gophers</li>
+				<li>The 1971 Nebraska Cornhuskers</li>
+			</ul>
 
-		to your new<br />SvelteKit app
-	</h1>
+			<p>
+				Regardless of starting point, all three lineages converge to give us the current,
+				undisputed, College Football Belt.
+			</p>
+			<div class="space-x-4">
+				<a class="font-mono">Stats</a>
+				<a class="font-mono">Search Teams</a>
+			</div>
+		</div>
 
-	<h2>
-		try editing <strong>src/routes/+page.svelte</strong>
-	</h2>
-
-	<Counter />
-</section>
-
-<style>
-	section {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		flex: 0.6;
-	}
-
-	h1 {
-		width: 100%;
-	}
-
-	.welcome {
-		display: block;
-		position: relative;
-		width: 100%;
-		height: 0;
-		padding: 0 0 calc(100% * 495 / 2048) 0;
-	}
-
-	.welcome img {
-		position: absolute;
-		width: 100%;
-		height: 100%;
-		top: 0;
-		display: block;
-	}
-</style>
+		<div class="flex-1">
+			{#if data}
+				<div class="border p-4">
+					<p class="text-xl font-bold">Florida</p>
+					<p class="font-mono text-sm">Held since November 6th, 2024</p>
+				</div>
+				<ul class="divide-y">
+					{#each data.data as item}
+						<li class="p-2">{item}</li>
+					{/each}
+				</ul>
+			{/if}
+			<a class="my-4 font-mono" href="/history">Complete Lineage</a>
+		</div>
+	</div>
+</div>
