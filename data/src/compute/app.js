@@ -49,7 +49,7 @@ const main = () => {
 
   fs.writeFileSync(
     './out/lineageWithGames.json',
-    JSON.stringify(lineageWithGames)
+    JSON.stringify(lineageWithDates)
   );
   fs.writeFileSync('./out/stats.json', JSON.stringify(teamTotals));
 };
