@@ -5,10 +5,10 @@
 	let { children } = $props();
 </script>
 
-<div>
+<div class="flex min-h-[100vh] flex-col">
 	<!-- <Header /> -->
 
-	<main>
+	<main class="mx-auto flex w-full max-w-screen-lg flex-1 flex-col px-8">
 		{@render children()}
 	</main>
 
@@ -20,17 +20,6 @@
 </div>
 
 <style>
-	main {
-		display: flex;
-		flex-direction: column;
-		padding: 1rem;
-		width: 100%;
-		max-width: 64rem;
-		margin: 0 auto;
-		box-sizing: border-box;
-		min-height: 100vh;
-	}
-
 	footer {
 		display: flex;
 		flex-direction: column;
