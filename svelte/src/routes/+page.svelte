@@ -1,8 +1,8 @@
 <script lang="ts">
+	import TeamCard from '../components/TeamCard.svelte';
 	import type { PageData } from './$types';
 
-	let { data }: { data: PageData } = $props();
-	console.log(data);
+	// let { data }: { data: PageData } = $props();
 </script>
 
 <div class="mt-8">
@@ -39,14 +39,14 @@
 						<p>Florida vs Georgia</p>
 					</div>
 				</div> -->
-				{#if data}
+				<!-- {#if data}
 					<p class="mb-2 font-mono text-sm font-semibold">Recent Lineage</p>
 					<ul class="divide-y">
-						{#each data.recent as item}
-							<li class="py-2">{item}</li>
+						{#each data.recent as item (item.key) }
+							<TeamCard logo={item.logo} name={item.name} />
 						{/each}
 					</ul>
-				{/if}
+				{/if} -->
 			</div>
 		</div>
 	</div>
