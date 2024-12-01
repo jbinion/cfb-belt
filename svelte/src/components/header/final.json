@@ -1,0 +1,27 @@
+{
+	"current": {
+		"name": "Florida",
+		"displayName": "Florida Gators",
+		"color": "0021a5",
+		"alternateColor": "fa4616",
+		"logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/57.png",
+		"holder": "Florida",
+		"games": [
+			{
+				"start_date": "2024-11-23T17:00:00.000Z",
+				"home_team": "Florida",
+				"away_team": "Ole Miss",
+				"home_points": 24,
+				"away_points": 17
+			},
+			{
+				"start_date": "2024-11-30T05:00:00.000Z",
+				"home_team": "Florida State",
+				"away_team": "Florida",
+				"home_points": null,
+				"away_points": null
+			}
+		],
+		"days": 7
+	}
+}

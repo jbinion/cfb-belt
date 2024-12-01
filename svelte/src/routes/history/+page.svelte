@@ -1,4 +1,5 @@
 <script lang="ts">
+	import TeamCardFull from '../../components/TeamCardFull.svelte';
 	import type { PageData } from './$types';
 
 	let { data }: { data: PageData } = $props();
@@ -13,14 +14,12 @@
 				<ul class="divide-y">
 					{#each data.data as item}
 						<li class=" py-2">
-							<p class="flex-1 text-lg font-bold">{item.holder}</p>
-							<div class="flex flex-row space-x-4">
-								<p class=" text-sm">{item.games.length - 2} Defenses</p>
-								<p class=" text-sm">
-									{item.days} days {new Date(item.games[0].start_date).toLocaleDateString()}-
-									{new Date(item.games.at(-1).start_date).toLocaleDateString()}
-								</p>
-							</div>
+							<TeamCardFull
+								name={item.holder}
+								days={item.days}
+								games={item.games}
+								logo={item.logo}
+							/>
 						</li>
 					{/each}
 				</ul>
