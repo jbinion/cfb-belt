@@ -1,36 +1,29 @@
-<script>
-	import { onMount } from 'svelte';
-	let searchQuery = '';
-	let teams = [];
-	let filteredTeams = [];
+<script lang="ts">
+	import type { PageData } from './$types';
+	import LogoCard from './LogoCard.svelte';
 
-	onMount(async () => {
-		// Fetch the list of teams (replace with your actual data source)
-		const response = await fetch('/api/teams');
-		teams = await response.json();
-		filteredTeams = teams;
-	});
-
-	function handleSearch() {
-		filteredTeams = teams.filter((team) =>
-			team.name.toLowerCase().includes(searchQuery.toLowerCase())
-		);
-	}
+	let { data }: { data: PageData } = $props();
+	console.log(data);
 </script>
 
+<!-- 
 <div class="search-container">
-	<input
-		type="text"
-		placeholder="Search teams..."
-		bind:value={searchQuery}
-		on:input={handleSearch}
-	/>
-</div>
+	<input type="text" placeholder="Search teams..." />
+</div> -->
 
 <div class="team-list">
-	{#each filteredTeams as team}
-		<div>{team.name}</div>
-	{/each}
+	{#if data.teams.length}
+		<div class="grid grid-cols-4 gap-4">
+			{#each data.teams as team}
+				<LogoCard logo={team.logo} name={team.name} />
+				<!-- <div class="flex flex-col items-center space-y-2 p-4">
+					<img src={team.logo} class="h-24" alt={`${team.name} logo`} />
+
+					<p class=" flex-1 font-semibold">{team.name}</p>
+				</div> -->
+			{/each}
+		</div>
+	{/if}
 </div>
 
 <style>

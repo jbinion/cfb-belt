@@ -6,24 +6,17 @@
 	console.log(data);
 </script>
 
-<div class="mt-12">
-	<h2 class="text-2xl font-semibold">Complete College Football Belt Lineage</h2>
-	<div class="my-8 flex flex-row">
-		<div class="flex-1">
-			{#if data}
-				<ul class="divide-y">
-					{#each data.data as item}
-						<li class=" py-2">
-							<TeamCardFull
-								name={item.holder}
-								days={item.days}
-								games={item.games}
-								logo={item.logo}
-							/>
-						</li>
-					{/each}
-				</ul>
-			{/if}
-		</div>
+<h2 class="text-2xl font-semibold">Complete College Football Belt Lineage</h2>
+<div class="my-8 flex flex-row">
+	<div class="flex-1">
+		{#if data}
+			<ul class="divide-y">
+				{#each data.data as item}
+					<li class=" py-2">
+						<TeamCardFull name={item.holder} days={item.days} games={item.games} logo={item.logo} />
+					</li>
+				{/each}
+			</ul>
+		{/if}
 	</div>
 </div>
