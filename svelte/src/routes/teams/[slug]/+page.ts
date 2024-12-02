@@ -1,6 +1,7 @@
+export const prerender = true;
 import type { PageLoad } from './$types';
 import { data } from '../../final.json';
-export const prerender = true;
+
 export async function entries() {
 	const teams = data.map((x) => x.holder.toLowerCase());
 	const uniqueTeams = [...new Set(teams)];

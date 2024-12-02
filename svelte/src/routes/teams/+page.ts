@@ -1,3 +1,4 @@
+export const prerender = true;
 import type { PageLoad } from './$types';
 import { data } from '../final.json';
 
