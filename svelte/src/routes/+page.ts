@@ -10,10 +10,7 @@ export const load: PageLoad = async () => {
 	);
 	const lastTen = sorted.slice(0, 10);
 	const teams = lastTen.map((x) => ({
-		name: x.name,
-		color: x.color,
-		alternatColor: x.alternateColor,
-		logo: x.logo,
+		...x,
 		key: x.games[0].start_date
 	}));
 	return {

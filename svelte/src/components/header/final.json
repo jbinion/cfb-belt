@@ -4,7 +4,7 @@
 		"displayName": "Florida Gators",
 		"color": "0021a5",
 		"alternateColor": "fa4616",
-		"logo": "https://a.espncdn.com/i/teamlogos/ncaa/500/57.png",
+		"logoFile": "57.png",
 		"holder": "Florida",
 		"games": [
 			{

@@ -42,7 +42,7 @@
 				<p class="mb-2 font-mono text-sm font-semibold">Recent Lineage</p>
 				<ul class="divide-y">
 					{#each data.recent as item (item.key)}
-						<TeamCard logo={item.logo} name={item.name} />
+						<TeamCard logo={`logos/${item.logoFile}`} name={item.name} />
 					{/each}
 				</ul>
 			{/if}

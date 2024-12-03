@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { current } from './final.json';
-	console.log(current);
+	import { base } from '$app/paths';
 </script>
 
 <header class="mx-auto mb-12 flex w-full max-w-screen-lg flex-col px-8">
@@ -19,8 +19,8 @@
 			<div class="flex flex-row items-center space-x-4 border p-4">
 				{#if current}
 					<img
-						src={current.logo}
-						class="h-[90px]"
+						src={`/logos/${current.logoFile}`}
+						class="h-[90px] w-[90px]"
 						alt={`logo of current belt holder; ${current.name}`}
 					/>
 

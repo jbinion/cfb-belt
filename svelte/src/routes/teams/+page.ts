@@ -8,12 +8,12 @@ export const load: PageLoad = async () => {
 	// console.log(uniqueTeams);
 	const teamData = uniqueTeams.map((t) => {
 		const index = data.findIndex((x) => x.holder === t);
-		const { displayName, color, alternateColor, logo, name } = data[index];
+		const { displayName, color, alternateColor, logoFile, name } = data[index];
 		return {
 			displayName,
 			color,
 			alternateColor,
-			logo,
+			logoFile,
 			name
 		};
 	});

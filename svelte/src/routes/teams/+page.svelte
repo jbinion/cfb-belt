@@ -15,12 +15,7 @@
 	{#if data.teams.length}
 		<div class="grid grid-cols-4 gap-4">
 			{#each data.teams as team}
-				<LogoCard logo={team.logo} name={team.name} />
-				<!-- <div class="flex flex-col items-center space-y-2 p-4">
-					<img src={team.logo} class="h-24" alt={`${team.name} logo`} />
-
-					<p class=" flex-1 font-semibold">{team.name}</p>
-				</div> -->
+				<LogoCard logo={`logos/${team.logoFile}`} name={team.name} />
 			{/each}
 		</div>
 	{/if}

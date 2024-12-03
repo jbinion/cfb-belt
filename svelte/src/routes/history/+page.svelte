@@ -13,7 +13,12 @@
 			<ul class="divide-y">
 				{#each data.data as item}
 					<li class=" py-2">
-						<TeamCardFull name={item.holder} days={item.days} games={item.games} logo={item.logo} />
+						<TeamCardFull
+							name={item.holder}
+							days={item.days}
+							games={item.games}
+							logo={`logos/${item.logoFile}`}
+						/>
 					</li>
 				{/each}
 			</ul>
