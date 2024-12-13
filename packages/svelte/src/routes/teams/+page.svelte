@@ -3,18 +3,33 @@
 	import LogoCard from './LogoCard.svelte';
 
 	let { data }: { data: PageData } = $props();
-	console.log(data);
+	let sortDirection = $state<'asc' | 'desc'>('asc');
+
+	const sortedTeams = $derived(
+		[...data.teams].sort((a, b) => {
+			const modifier = sortDirection === 'asc' ? 1 : -1;
+			return a.name.localeCompare(b.name) * modifier;
+		})
+	);
+
+	function toggleSort() {
+		sortDirection = sortDirection === 'asc' ? 'desc' : 'asc';
+	}
 </script>
 
-<!-- 
-<div class="search-container">
-	<input type="text" placeholder="Search teams..." />
-</div> -->
+<div class="sort-container">
+	<button
+		class="mb-4 rounded bg-blue-500 px-4 py-2 text-white hover:bg-blue-600"
+		on:click={toggleSort}
+	>
+		Sort {sortDirection === 'asc' ? '↑' : '↓'}
+	</button>
+</div>
 
 <div class="team-list">
-	{#if data.teams.length}
+	{#if sortedTeams.length}
 		<div class="grid grid-cols-4 gap-4">
-			{#each data.teams as team}
+			{#each sortedTeams as team}
 				<LogoCard logo={`logos/${team.logoFile}`} name={team.name} />
 			{/each}
 		</div>
@@ -22,7 +37,7 @@
 </div>
 
 <style>
-	.search-container {
+	.sort-container {
 		margin: 20px;
 	}
 	.team-list {
