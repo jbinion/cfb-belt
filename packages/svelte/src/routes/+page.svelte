@@ -15,7 +15,7 @@
 
 			<p>There are three suggested starting points</p>
 			<ul class="font-mono text-xs font-bold">
-				<li>The first college football game, Rutgers vs Whoever, 1869</li>
+				<li>The first college football game; Rutgers vs Princeton, 1869</li>
 				<li>The 1936 Minnesota Golden Gophers</li>
 				<li>The 1971 Nebraska Cornhuskers</li>
 			</ul>

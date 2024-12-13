@@ -5,14 +5,14 @@
 	let { children } = $props();
 </script>
 
-<div class="flex min-h-[110vh] flex-col">
+<div class="flex min-h-[100vh] flex-col">
 	<Header />
 
 	<main class="mx-auto flex w-full max-w-screen-lg flex-1 flex-col px-8">
 		{@render children()}
 	</main>
 
-	<footer>
+	<footer class="mb-2 mt-24">
 		<p>
 			visit <a href="https://svelte.dev/docs/kit">svelte.dev/docs/kit</a> to learn about SvelteKit
 		</p>
