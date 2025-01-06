@@ -12,11 +12,7 @@
 		{@render children()}
 	</main>
 
-	<footer class="mb-2 mt-24">
-		<p>
-			visit <a href="https://svelte.dev/docs/kit">svelte.dev/docs/kit</a> to learn about SvelteKit
-		</p>
-	</footer>
+	<footer class="mb-2 mt-24"></footer>
 </div>
 
 <style>
