@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { current } from './final.json';
-	import { base } from '$app/paths';
 </script>
 
 <header class="mx-auto mb-12 flex w-full max-w-screen-lg flex-col px-8">

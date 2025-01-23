@@ -3,6 +3,8 @@
 	import type { PageData } from './$types';
 
 	let { data }: { data: PageData } = $props();
+	console.log(data);
+	console.log(data.reigns[0]);
 </script>
 
 <div class="  flex flex-col">
@@ -32,17 +34,21 @@
 		</div>
 
 		<div class="flex-1">
-			<!-- <div class="mb-12">
-					<p>Next Game</p>
-					<div>
-						<p>Florida vs Georgia</p>
-					</div>
-				</div> -->
+			<div class="mb-12">
+				<p>Next Game</p>
+				<div>
+					<p>Florida vs Georgia</p>
+				</div>
+			</div>
 			{#if data}
 				<p class="mb-2 font-mono text-sm font-semibold">Recent Lineage</p>
 				<ul class="divide-y">
-					{#each data.recent as item (item.key)}
-						<TeamCard logo={`logos/${item.logoFile}`} name={item.name} />
+					{#each data.reigns as item (item._id)}
+						<TeamCard
+							logo={`logos/${item.team.logoFile}`}
+							name={item.team.name}
+							slug={item.team.slug}
+						/>
 					{/each}
 				</ul>
 			{/if}
