@@ -12,7 +12,13 @@ export async function load({ params }) {
 		console.log(params);
 		const team = await Team.findOne({ slug: params.slug });
 		if (!team) throw new Error('Team not found');
-		const reigns = await Reign.find({ team: team._id }).populate('games');
+		const reigns = await Reign.find({ team: team._id })
+			.populate({
+				path: 'games',
+				populate: [{ path: 'home_team' }, { path: 'away_team' }],
+				options: { sort: { start_date: -1 } }
+			})
+			.sort({ startDate: -1 });
 		console.log(team);
 		console.log(reigns);
 		return {

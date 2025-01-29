@@ -3,7 +3,8 @@
 	export let days = 0;
 	export let games = [];
 	export let logo = '';
-	const href = `/teams/${encodeURIComponent(name.toLocaleLowerCase())}`;
+	export let slug = '';
+	const href = `/teams/${slug}`;
 	// take in games
 	// figure out who team won from and who lost too
 </script>
@@ -13,8 +14,8 @@
 		<img src={logo} class="mr-6 h-12" alt={`${name} logo`} />
 
 		<p class=" w-48">{name}</p>
-		<p class="w-24 text-sm">{games.length - 2} Defenses</p>
-		<p class="ml-auto font-mono text-sm font-thin">
+		<p class="w-24 text-sm">{games.length} Defenses</p>
+		<!-- <p class="ml-auto font-mono text-sm font-thin">
 			{new Date(games[0].start_date).toLocaleDateString('default', {
 				month: 'long',
 				year: 'numeric',
@@ -25,6 +26,6 @@
 				year: 'numeric',
 				day: 'numeric'
 			})}
-		</p>
+		</p> -->
 	</div>
 </a>
