@@ -10,7 +10,6 @@ export async function load() {
 		await connectDB();
 		const reigns = (await Reign.find()
 			.populate('team')
-			.limit(10)
 			.sort({ startDate: -1 })) as IReignDocument[];
 
 		return {

@@ -1,5 +1,6 @@
 <script lang="ts">
-	import { current } from './final.json';
+	import { page } from '$app/stores';
+	$: current = $page.data.current;
 </script>
 
 <header class="mx-auto mb-12 flex w-full max-w-screen-lg flex-col px-8">
@@ -18,16 +19,20 @@
 			<div class="flex flex-row items-center space-x-4 border p-4">
 				{#if current}
 					<img
-						src={`/logos/${current.logoFile}`}
+						src={`/logos/${current.team.logoFile}`}
 						class="h-[90px] w-[90px]"
-						alt={`logo of current belt holder; ${current.name}`}
+						alt={`logo of current belt holder; ${current.team.name}`}
 					/>
 
 					<div class="flex-1">
-						<p class="text-xl font-bold">
-							{current.name} <span class="font-normal">Current Holder</span>
-						</p>
-						<p class="font-mono text-sm">since November 6th, 2024</p>
+						<a href={`/teams/${current.team.slug}`} class="text-black">
+							<p class="text-xl font-bold">
+								{current.team.name} <span class="font-normal">Current Holder</span>
+							</p>
+							<p class="font-mono text-sm">
+								since {new Date(current.startDate).toLocaleDateString()}
+							</p>
+						</a>
 					</div>
 				{/if}
 			</div>

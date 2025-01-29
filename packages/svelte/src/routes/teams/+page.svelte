@@ -13,9 +13,9 @@
 			if (sortBy === 'name') {
 				return a.name.localeCompare(b.name) * modifier;
 			} else if (sortBy === 'reigns') {
-				return (a.totalReigns - b.totalReigns) * modifier;
+				return (a.reigns - b.reigns) * modifier;
 			} else {
-				return (a.totalDefenses - b.totalDefenses) * modifier;
+				return (a.defenses - b.defenses) * modifier;
 			}
 		})
 	);
@@ -76,18 +76,28 @@
 		{#if viewMode === 'grid'}
 			<div class="grid grid-cols-4 gap-4">
 				{#each sortedTeams as team}
-					<LogoCard logo={`logos/${team.logoFile}`} name={team.name} slug={team.slug} />
+					{#key `${sortBy}-${sortDirection}-${team.slug}`}
+						<LogoCard
+							logo={`logos/${team.logoFile}`}
+							name={team.name}
+							slug={team.slug}
+							reigns={team.reigns}
+							defenses={team.defenses}
+						/>
+					{/key}
 				{/each}
 			</div>
 		{:else}
 			<div class="space-y-4">
 				{#each sortedTeams as team}
-					<div class="flex items-center rounded-lg border p-4 shadow-sm">
-						<img src={`logos/${team.logoFile}`} alt={`${team.name} logo`} class="h-16 w-16" />
-						<div class="ml-4 flex-1">
-							<h3 class="text-lg font-semibold">{team.name}</h3>
+					{#key `${sortBy}-${sortDirection}-${team.slug}`}
+						<div class="flex items-center rounded-lg border p-4 shadow-sm">
+							<img src={`logos/${team.logoFile}`} alt={`${team.name} logo`} class="h-16 w-16" />
+							<div class="ml-4 flex-1">
+								<h3 class="text-lg font-semibold">{team.name}</h3>
+							</div>
 						</div>
-					</div>
+					{/key}
 				{/each}
 			</div>
 		{/if}

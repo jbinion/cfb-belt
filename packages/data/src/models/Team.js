@@ -13,8 +13,7 @@ const teamSchema = new mongoose.Schema({
   color: { type: String },
   logoFile: {
     type: String,
-    unique: true,
-    sparse: true,
+    default: '',
   },
   altColor: {
     type: String,

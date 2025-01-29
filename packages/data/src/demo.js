@@ -32,7 +32,7 @@ const createLineage = async (team, startYear, maxYear) => {
       if (games) {
         games.forEach((game) => beltTracker.addGame(game));
       }
-      await delay(700);
+      await delay(400);
     }
     year++;
     if (year >= maxYear) active = false;
@@ -41,7 +41,7 @@ const createLineage = async (team, startYear, maxYear) => {
 };
 
 // create belt lineage
-const { reigns, teams } = await createLineage('Nebraska', 1971, 1974);
+const { reigns, teams } = await createLineage('Nebraska', 1971, 2025);
 const teamArray = Array.from(teams);
 console.log(JSON.stringify(reigns, null, 2));
 console.log(teams);

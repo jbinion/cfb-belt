@@ -27,12 +27,12 @@ class NewTracker {
     const winner = getGameWinner(game, this.currentHolder);
     this.currentHolder = winner;
     if (winner === this.reigns.at(-1)?.team) {
-      this.reigns.at(-1).games.push(game);
+      this.reigns.at(-1).games.push({ ...game, type: 'defense' });
       return;
     }
     this.reigns.push({
       team: winner,
-      games: [game],
+      games: [{ ...game, type: 'win' }],
       startDate: game.start_date,
     });
   }

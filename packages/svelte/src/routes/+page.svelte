@@ -8,7 +8,7 @@
 </script>
 
 <div class="  flex flex-col">
-	<div class="flex flex-col space-y-12 md:flex-row md:space-x-24 md:space-y-0">
+	<div class="flex flex-col-reverse md:flex-row md:space-x-24 md:space-y-0">
 		<div class=" flex-1 space-y-4">
 			<p>
 				The College Football Belt is an unoffical trophy that traces the lineage of the best teams
@@ -33,8 +33,8 @@
 			</p>
 		</div>
 
-		<div class="flex-1">
-			<div class="mb-12">
+		<div class="mb-12 flex-1 space-y-12">
+			<div>
 				<p>Next Game</p>
 				<div>
 					<p>Florida vs Georgia</p>

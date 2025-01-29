@@ -11,13 +11,13 @@
 	<div class="flex-1">
 		{#if data}
 			<ul class="divide-y">
-				{#each data.data as item}
+				{#each data.reigns as item}
 					<li class=" py-2">
 						<TeamCardFull
-							name={item.holder}
-							days={item.days}
+							name={item.team?.name}
+							slug={item.team?.slug}
 							games={item.games}
-							logo={`logos/${item.logoFile}`}
+							logo={`logos/${item.team?.logoFile}`}
 						/>
 					</li>
 				{/each}
