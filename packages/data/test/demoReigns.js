@@ -12,6 +12,9 @@ export const demoTeams = [
   'California',
   'Oregon State',
   'Notre Dame',
+  'Miami (OH)',
+  'Lafayette',
+  'Tampa',
 ];
 
 const demoReigns = [
