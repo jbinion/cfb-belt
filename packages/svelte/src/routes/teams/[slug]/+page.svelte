@@ -46,30 +46,8 @@
 					defenses={reign.games.length - 1}
 					start={reign.games[0].start_date}
 					end={reign.games.at(-1).start_date}
+					games={reign.games}
 				/>
-				<!-- {`${JSON.stringify(reign.games)}`} -->
-				<div>
-					{#each reign.games as game}
-						<div class="py-4">
-							<a href={`/teams/${game.away_team.slug}`}>
-								<img
-									src={`/logos/${game.away_team.logoFile}`}
-									class="h-[50px] w-[50px]"
-									alt={`logo of ${game.away_team.name}`}
-								/>
-							</a>
-							<p>{game.away_team.name} {game.away_points}</p>
-							<a href={`/teams/${game.home_team.slug}`}>
-								<img
-									src={`/logos/${game.home_team.logoFile}`}
-									class="h-[50px] w-[50px]"
-									alt={`logo of ${game.home_team.name}`}
-								/>
-							</a>
-							<p>{game.home_team.name} {game.home_points}</p>
-						</div>
-					{/each}
-				</div>
 			{/each}
 		</div>
 	{/if}

@@ -14,11 +14,10 @@
 				{#each data.reigns as item}
 					<li class=" py-2">
 						<TeamCardFull
-							name={item.team.name}
-							days={item.days}
+							name={item.team?.name}
+							slug={item.team?.slug}
 							games={item.games}
-							slug={item.team.slug}
-							logo={`logos/${item.team.logoFile}`}
+							logo={`logos/${item.team?.logoFile}`}
 						/>
 					</li>
 				{/each}
