@@ -1,7 +1,8 @@
 <script>
 	export let name = '';
 	export let logo = '';
-	const href = `/teams/${encodeURIComponent(name.toLocaleLowerCase())}`;
+	export let slug = '';
+	const href = `/teams/${slug}`;
 </script>
 
 <li>

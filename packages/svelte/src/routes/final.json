@@ -18114,24 +18114,6 @@
 				}
 			],
 			"days": 7
-		},
-		{
-			"name": "Florida State",
-			"displayName": "Florida State Seminoles",
-			"color": "782f40",
-			"alternateColor": "ceb888",
-			"logoFile": "52.png",
-			"holder": "Florida State",
-			"games": [
-				{
-					"start_date": "2024-11-30T05:00:00.000Z",
-					"home_team": "Florida State",
-					"away_team": "Florida",
-					"home_points": null,
-					"away_points": null
-				}
-			],
-			"days": 0
 		}
 	]
 }
