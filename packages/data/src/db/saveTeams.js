@@ -6,7 +6,6 @@ const saveTeams = async (teamData) => {
     ...t,
     slug: encodeURIComponent(t.name.replace(/\s/g, '').toLowerCase()),
   }));
-  console.log(teamObj);
   return await Team.bulkWrite(
     teamObj.map((team) => ({
       updateOne: {

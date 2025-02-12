@@ -25,6 +25,18 @@ const gameSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  week: {
+    type: String,
+    required: true,
+  },
+  year: {
+    type: String,
+    required: true,
+  },
+  type: {
+    type: String,
+    required: true,
+  },
 });
 gameSchema.index(
   { start_date: 1, home_team: 1, away_team: 1 },

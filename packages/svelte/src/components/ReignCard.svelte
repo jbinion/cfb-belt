@@ -45,13 +45,13 @@
 						logoFile={game.away_team.logoFile}
 						name={game.away_team.name}
 						points={game.away_points}
-						end={true}
 					/>
 					<GameCard
 						slug={game.home_team.slug}
 						logoFile={game.home_team.logoFile}
 						name={game.home_team.name}
 						points={game.home_points}
+						end={true}
 					/>
 				</div>
 			{/each}

@@ -9,37 +9,30 @@
 </script>
 
 <div class="space-y-2">
-	{#if !data}
-		<div>Loading...</div>
-	{/if}
-	<!-- nest with else -->
-
-	<!-- {#if !data.reigns}
-		<div>
-			{teamName} has never held the CFB
-		</div>
-	{/if} -->
-
-	{#if data.team}
-		<p>{data.team.name}</p>
-	{/if}
 	{#if data.reigns}
-		<div class="flex flex-row space-x-4 p-4">
+		<div class="flex flex-row items-center space-x-6 p-4">
 			<img
 				src={`/logos/${data.team.logoFile}`}
 				class="h-[90px] w-[90px]"
 				alt={`logo of current belt holder; ${data.team.name}`}
 			/>
-			<div class="flex flex-col justify-center">
+			<div class="flex flex-col justify-center text-black">
 				<h2 class="text-4xl font-bold">
 					{data.team.name}
 				</h2>
 			</div>
+
+			<div class="flex flex-1 flex-row items-center justify-center">
+				<div class="p-4">
+					<p>{data.reigns.length} Reigns</p>
+				</div>
+
+				<div class="p-4">
+					<p>{data.reigns.reduce((acc, curr) => acc + curr.games.length - 1, 0)} Defenses</p>
+				</div>
+			</div>
 		</div>
-		<div>
-			{data.reigns.length} Reigns
-			{data.reigns.reduce((acc, curr) => acc + curr.games.length - 1, 0)} Defenses
-		</div>
+		<div></div>
 		<div class="flex flex-col space-y-4">
 			{#each data.reigns as reign}
 				<ReignCard
