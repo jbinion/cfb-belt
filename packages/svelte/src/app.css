@@ -46,3 +46,7 @@ h1 {
 h2 {
 	font-size: 1rem;
 }
+
+.sectionTitle {
+	@apply font-mono text-lg font-semibold text-black;
+}
