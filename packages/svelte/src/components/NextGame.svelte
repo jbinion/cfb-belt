@@ -13,6 +13,6 @@
 
 			<TeamName logo={'/logos/57.png'} name={'Florida'} end={true} />
 		</div>
-		<p class="sectionTitle">Aug 30</p>
+		<p class="font-mono text-sm">Aug 30</p>
 	</div>
 </div>
