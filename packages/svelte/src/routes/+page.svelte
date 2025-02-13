@@ -5,8 +5,6 @@
 	import type { PageData } from './$types';
 
 	let { data }: { data: PageData } = $props();
-	console.log(data);
-	console.log(data.reigns[0]);
 </script>
 
 <div class="  flex flex-col">
