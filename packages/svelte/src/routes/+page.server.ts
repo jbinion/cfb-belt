@@ -1,5 +1,5 @@
 import { connectDB } from '$lib/db/mongoose';
-import { Reign, type IReignDocument } from '$lib/models/index';
+import { Reign, type IReignDocument } from 'models';
 // Import all models to ensure schemas are registered
 import '$lib/models/index';
 

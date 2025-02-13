@@ -7,17 +7,22 @@
     "test": "vitest",
     "start": "node ./src/app.js",
     "images": "node ./src/images/getTeams.js",
-    "compute": "node ./src/compute/app.js"
+    "compute": "node ./src/compute/app.js",
+    "lint": "eslint --fix ."
   },
   "author": "",
   "license": "ISC",
   "description": "",
   "devDependencies": {
+    "@eslint/eslintrc": "^3.2.0",
+    "@eslint/js": "^9.20.0",
     "eslint": "^9.15.0",
+    "eslint-plugin-import": "^2.31.0",
     "vitest": "^2.0.4"
   },
   "dependencies": {
     "dotenv": "^16.4.5",
+    "models": "link:..\\models",
     "mongoose": "^8.9.5"
   }
 }

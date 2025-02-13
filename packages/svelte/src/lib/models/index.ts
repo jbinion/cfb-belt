@@ -1,3 +1,3 @@
-export * from './Game';
-export * from './Reign';
-export * from './Team';
+import { Game, Reign, Team } from 'models';
+
+export { Game, Reign, Team };

@@ -1,5 +1,4 @@
-import Reign from '../models/Reign.js';
-import Team from '../models/Team.js';
+import { Reign, Team } from 'models';
 import saveGames from './saveGames.js';
 
 const saveReign = async (reign, beltName) => {

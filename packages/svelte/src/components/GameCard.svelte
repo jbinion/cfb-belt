@@ -12,7 +12,7 @@
 			src={`/logos/${logoFile}`}
 			class={end ? 'ml-2' : 'mr-2'}
 			class:w-[32px]={true}
-			alt={`logo of ${name}`}
+			alt={`${name} logo `}
 		/>
 		<p class="text-sm text-neutral-800">{name}</p>
 	</div>
