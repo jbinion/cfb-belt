@@ -1,9 +1,9 @@
-import Game from '../models/Game.js';
-import Team from '../models/Team.js';
+import { Game, Team } from 'models';
 
 const saveGames = async (gameArray) => {
   const games = await Promise.all(
     gameArray.map(async (g) => {
+      console.log(g);
       const homeTeamId = await Team.findOne({ name: g.home_team }).select(
         '_id'
       );

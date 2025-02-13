@@ -6,7 +6,6 @@ export async function load() {
 	try {
 		await connectDB();
 		const current = await Reign.findOne().sort({ startDate: -1 }).populate('team');
-		console.log(current?.team.name);
 		return {
 			current: JSON.parse(JSON.stringify(current))
 		};

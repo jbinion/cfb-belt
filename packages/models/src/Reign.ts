@@ -29,4 +29,5 @@ const reignSchema = new mongoose.Schema({
 	}
 });
 
-export const Reign = mongoose.model<IReignDocument>('Reign', reignSchema);
+const Reign = mongoose.model<IReignDocument>('Reign', reignSchema);
+export default Reign

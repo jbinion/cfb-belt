@@ -1,8 +1,6 @@
 import { connectDB } from '$lib/db/mongoose';
-// Import all models to ensure schemas are registered
 import '$lib/models/index';
-import { Reign } from '$lib/models/index';
-import Team from '$lib/models/Team';
+import { Reign, Team } from '$lib/models/index';
 
 export const prerender = true;
 

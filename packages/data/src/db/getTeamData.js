@@ -1,5 +1,5 @@
 import getTeamsFromEspn from '../api/getTeamsFromEspn.js';
-import normalizeTeamNames from '../images/normalizeTeamNames.js';
+import normalizeTeamNames from '../utils/normalizeTeamNames.js';
 
 const getTeamData = async (teamArray) => {
   const espnTeamData = await getTeamsFromEspn();

@@ -24,7 +24,6 @@ test('getTeamData', async () => {
 
 test('saveTeams', async () => {
   const teamData = await getTeamData(demoTeams);
-  console.log(teamData);
   expect(await saveTeams(teamData)).resolves();
 });
 
@@ -35,8 +34,6 @@ test('saveGames', async () => {
   expect(x.length).toBe(testGames.length);
 });
 test('saveReign', async () => {
-  console.log(demoReigns[0]);
   const result = await saveReign(demoReigns[0], 'testBelt');
-  console.log(result);
   expect(result).toBeTruthy();
 });
