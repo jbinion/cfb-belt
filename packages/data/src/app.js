@@ -11,6 +11,13 @@ import saveReign from './db/saveReign.js';
 await mongoose();
 console.log('connected');
 
+const settings = {
+  startTeam: 'Rutgers',
+  startYear: '1869',
+  endYear: '2025',
+  title: 'og',
+};
+
 const createLineage = async (team, startYear, maxYear) => {
   console.log(`creating lineage for team ${team} from year ${startYear}`);
   const beltTracker = NewTracker.getInstance(team);
@@ -41,7 +48,11 @@ const createLineage = async (team, startYear, maxYear) => {
 };
 
 // create belt lineage
-const { reigns, teams } = await createLineage('Nebraska', 1971, 2025);
+const { reigns, teams } = await createLineage(
+  settings.startTeam,
+  settings.startYear,
+  settings.endYear
+);
 const teamArray = Array.from(teams);
 console.log(JSON.stringify(reigns, null, 2));
 console.log(teams);
@@ -50,7 +61,7 @@ const teamData = await getTeamData(teamArray);
 await saveTeams(teamData);
 await Promise.all(
   reigns.map(async (reign) => {
-    await saveReign(reign, '1971_Nebraska');
+    await saveReign(reign, settings.title);
   })
 );
 console.log('done');

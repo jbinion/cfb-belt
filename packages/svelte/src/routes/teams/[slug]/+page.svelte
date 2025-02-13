@@ -22,12 +22,12 @@
 				</h2>
 			</div>
 
-			<div class="flex flex-1 flex-row items-center justify-center">
-				<div class="p-4">
+			<div class="flex flex-1 flex-row items-center justify-center space-x-4">
+				<div class="border p-4">
 					<p>{data.reigns.length} Reigns</p>
 				</div>
 
-				<div class="p-4">
+				<div class="border p-4">
 					<p>{data.reigns.reduce((acc, curr) => acc + curr.games.length - 1, 0)} Defenses</p>
 				</div>
 			</div>

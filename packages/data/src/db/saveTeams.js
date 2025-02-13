@@ -1,4 +1,4 @@
-import Team from '../models/Team.js';
+import { Team } from 'models';
 
 const saveTeams = async (teamData) => {
   // Set slug directly as a regular property

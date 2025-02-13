@@ -1,6 +1,7 @@
 <script lang="ts">
 	import Header from '../components/header/Header.svelte';
 	import '../app.css';
+	import Footer from '../components/footer/Footer.svelte';
 
 	let { children } = $props();
 </script>
@@ -12,7 +13,7 @@
 		{@render children()}
 	</main>
 
-	<footer class="mb-2 mt-24"></footer>
+	<footer class="mb-2 mt-24"><Footer /></footer>
 </div>
 
 <style>

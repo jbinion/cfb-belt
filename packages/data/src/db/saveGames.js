@@ -1,5 +1,4 @@
-import Game from '../models/Game.js';
-import Team from '../models/Team.js';
+import { Game, Team } from 'models';
 
 const saveGames = async (gameArray) => {
   const games = await Promise.all(
