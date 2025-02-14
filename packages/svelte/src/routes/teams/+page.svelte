@@ -33,61 +33,96 @@
 	}
 </script>
 
-<div class="controls mb-8 flex flex-col justify-center gap-4">
-	<p class="font-mono">Sort By:</p>
-	<div>
-		<button
-			class="sortButton"
-			class:text-blue-700={sortBy === 'name'}
-			on:click={() => setSortBy('name')}
-		>
-			Name
-			<span class="inline-block w-2">
-				{sortBy === 'name' ? (sortDirection === 'asc' ? '↑' : '↓') : ''}</span
+<svelte:head>
+	<title>College Football Belt Teams | CFB Belt Tracker</title>
+	<meta
+		name="description"
+		content="View all college football teams that have held the belt, including their reign counts and successful defenses."
+	/>
+</svelte:head>
+
+<main>
+	<h1 class="mb-8 text-center text-3xl font-bold text-black">College Football Belt Teams</h1>
+
+	<nav
+		class="controls mb-8 flex flex-wrap items-center justify-center gap-4"
+		aria-label="Sort options"
+	>
+		<fieldset class="flex items-center gap-4">
+			<legend class="mb-2 font-mono">Sort By:</legend>
+			<button
+				class="sortButton"
+				class:text-blue-700={sortBy === 'name'}
+				on:click={() => setSortBy('name')}
+				aria-pressed={sortBy === 'name'}
+				aria-label="Sort by team name {sortBy === 'name'
+					? sortDirection === 'asc'
+						? 'ascending'
+						: 'descending'
+					: ''}"
 			>
-		</button>
+				Name
+				<span class="inline-block w-2" aria-hidden="true">
+					{sortBy === 'name' ? (sortDirection === 'asc' ? '↑' : '↓') : ''}</span
+				>
+			</button>
 
-		<button
-			class="sortButton"
-			class:text-blue-700={sortBy === 'name'}
-			on:click={() => setSortBy('reigns')}
-		>
-			Reigns
-			<span class="inline-block w-2">
-				{sortBy === 'reigns' ? (sortDirection === 'asc' ? '↑' : '↓') : ''}</span
+			<button
+				class="sortButton"
+				class:text-blue-700={sortBy === 'reigns'}
+				on:click={() => setSortBy('reigns')}
+				aria-pressed={sortBy === 'reigns'}
+				aria-label="Sort by number of reigns {sortBy === 'reigns'
+					? sortDirection === 'asc'
+						? 'ascending'
+						: 'descending'
+					: ''}"
 			>
-		</button>
+				Reigns
+				<span class="inline-block w-2" aria-hidden="true">
+					{sortBy === 'reigns' ? (sortDirection === 'asc' ? '↑' : '↓') : ''}</span
+				>
+			</button>
 
-		<button
-			class="sortButton"
-			class:text-blue-700={sortBy === 'name'}
-			on:click={() => setSortBy('defenses')}
-		>
-			Defenses
-			<span class="inline-block w-2">
-				{sortBy === 'defenses' ? (sortDirection === 'asc' ? '↑' : '↓') : ''}
-			</span>
-		</button>
-	</div>
-</div>
+			<button
+				class="sortButton"
+				class:text-blue-700={sortBy === 'defenses'}
+				on:click={() => setSortBy('defenses')}
+				aria-pressed={sortBy === 'defenses'}
+				aria-label="Sort by number of defenses {sortBy === 'defenses'
+					? sortDirection === 'asc'
+						? 'ascending'
+						: 'descending'
+					: ''}"
+			>
+				Defenses
+				<span class="inline-block w-2" aria-hidden="true">
+					{sortBy === 'defenses' ? (sortDirection === 'asc' ? '↑' : '↓') : ''}
+				</span>
+			</button>
+		</fieldset>
+	</nav>
 
-<div class="team-list">
-	{#if sortedTeams.length}
-		<div class="grid grid-cols-4 gap-4">
-			{#each sortedTeams as team}
-				{#key `${sortBy}-${sortDirection}-${team.slug}`}
-					<LogoCard
-						logo={`${team.logoFile}`}
-						name={team.name}
-						slug={team.slug}
-						reigns={team.reigns}
-						defenses={team.defenses}
-					/>
-				{/key}
-			{/each}
-		</div>
-	{/if}
-</div>
+	<section class="team-list" aria-label="Team List">
+		{#if sortedTeams.length}
+			<div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+				{#each sortedTeams as team}
+					{#key `${sortBy}-${sortDirection}-${team.slug}`}
+						<LogoCard
+							logo={`${team.logoFile}`}
+							name={team.name}
+							slug={team.slug}
+							reigns={team.reigns}
+							defenses={team.defenses}
+						/>
+					{/key}
+				{/each}
+			</div>
+		{:else}
+			<p class="text-center">No teams found.</p>
+		{/if}
+	</section>
+</main>
 
 <style>
 	.team-list {

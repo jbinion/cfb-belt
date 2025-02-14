@@ -3,16 +3,37 @@
 	import type { PageData } from './$types';
 
 	let { data }: { data: PageData } = $props();
-	console.log(data);
 </script>
 
-<h2 class="text-2xl font-semibold text-black">Complete College Football Belt Lineage</h2>
-<div class="my-8 flex flex-row">
-	<div class="flex-1">
-		{#if data}
-			<ul class="divide-y">
+<svelte:head>
+	<title>College Football Belt History | Complete Championship Lineage</title>
+	<meta
+		name="description"
+		content="Explore the complete history of the College Football Belt, tracking every championship reign from its inception to the present day."
+	/>
+	<script type="application/ld+json">
+		{JSON.stringify({
+			"@context": "https://schema.org",
+			"@type": "CollectionPage",
+			"name": "College Football Belt History",
+			"description": "Complete history of College Football Belt championships",
+			"about": {
+				"@type": "SportsOrganization",
+				"name": "College Football Belt",
+				"sport": "American Football"
+			}
+		})}
+	</script>
+</svelte:head>
+
+<main>
+	<h1 class="text-2xl font-semibold text-black">Complete College Football Belt Lineage</h1>
+
+	<section class="my-8" aria-label="Championship History">
+		{#if data?.reigns?.length}
+			<ul class="divide-y" aria-label="List of all championship reigns">
 				{#each data.reigns as item}
-					<li class=" py-2">
+					<li class="py-2">
 						<TeamCardFull
 							name={item.team?.name}
 							slug={item.team?.slug}
@@ -24,6 +45,8 @@
 					</li>
 				{/each}
 			</ul>
+		{:else}
+			<p class="text-center">Loading championship history...</p>
 		{/if}
-	</div>
-</div>
+	</section>
+</main>
