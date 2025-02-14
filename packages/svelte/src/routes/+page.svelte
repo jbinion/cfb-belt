@@ -7,22 +7,35 @@
 	let { data }: { data: PageData } = $props();
 </script>
 
-<div class="  flex flex-col">
+<svelte:head>
+	<title>College Football Belt Tracker</title>
+	<meta
+		name="description"
+		content="Track the history and current holder of the College Football Belt - a fan-created championship title that traces its lineage through decades of college football."
+	/>
+</svelte:head>
+
+<main class="flex flex-col">
 	<div class="flex flex-col-reverse md:flex-row md:space-x-24 md:space-y-0">
-		<AboutText />
+		<section class="about-section flex-1" aria-label="About the College Football Belt">
+			<AboutText />
+		</section>
 
 		<div class="mb-12 flex-1 space-y-12">
-			<NextGame />
+			<section aria-label="Next Championship Game">
+				<NextGame />
+			</section>
+
 			{#if data}
-				<div>
-					<p class="sectionTitle">Recent Lineage</p>
-					<ul class="space-y-2">
+				<section aria-label="Recent Belt History">
+					<h2 class="sectionTitle">Recent Lineage</h2>
+					<ul class="space-y-2" aria-label="Recent belt holders">
 						{#each data.reigns as item (item._id)}
 							<TeamCard logo={item.team.logoFile} name={item.team.name} slug={item.team.slug} />
 						{/each}
 					</ul>
-				</div>
+				</section>
 			{/if}
 		</div>
 	</div>
-</div>
+</main>
