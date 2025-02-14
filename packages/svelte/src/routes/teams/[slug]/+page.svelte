@@ -15,8 +15,8 @@
 		<div class="mb-12 flex flex-row items-center justify-between">
 			<div class="flex flex-row space-x-6">
 				<img
-					src={`/webp/original/${data.team.logoFile}.webp`}
-					class="h-[90px] w-[90px]"
+					src={`/webp/large/${data.team.logoFile}.webp`}
+					class="h-[96px] w-[96px]"
 					alt={`logo of current belt holder; ${data.team.name}`}
 				/>
 				<div class="flex flex-col justify-center text-black">
