@@ -6,7 +6,7 @@
 	console.log(data);
 </script>
 
-<h2 class="text-2xl font-semibold">Complete College Football Belt Lineage</h2>
+<h2 class="text-2xl font-semibold text-black">Complete College Football Belt Lineage</h2>
 <div class="my-8 flex flex-row">
 	<div class="flex-1">
 		{#if data}
@@ -17,7 +17,9 @@
 							name={item.team?.name}
 							slug={item.team?.slug}
 							games={item.games}
-							logo={`logos/${item.team?.logoFile}`}
+							startDate={item.startDate}
+							endDate={item.endDate}
+							logo={`${item.team?.logoFile}`}
 						/>
 					</li>
 				{/each}

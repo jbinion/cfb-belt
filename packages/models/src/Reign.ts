@@ -24,6 +24,10 @@ const reignSchema = new mongoose.Schema({
 		type: Date,
 		required: true
 	},
+	endDate: {
+		type: Date,
+		required: true
+	},
 	beltName: {
 		type: String
 	}

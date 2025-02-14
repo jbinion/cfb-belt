@@ -4,37 +4,43 @@
 <script lang="ts">
 	import type { PageData } from './$types';
 	import ReignCard from '../../../components/ReignCard.svelte';
-
+	import { BsShield } from 'svelte-icons-pack/bs';
+	import { Icon } from 'svelte-icons-pack';
+	import { BsTrophy } from 'svelte-icons-pack/bs';
 	let { data }: { data: PageData } = $props();
 </script>
 
 <div class="space-y-2">
 	{#if data.reigns}
-		<div class="flex flex-row items-center space-x-6 p-4">
-			<img
-				src={`/logos/${data.team.logoFile}`}
-				class="h-[90px] w-[90px]"
-				alt={`logo of current belt holder; ${data.team.name}`}
-			/>
-			<div class="flex flex-col justify-center text-black">
-				<h2 class="text-4xl font-bold">
-					{data.team.name}
-				</h2>
+		<div class="mb-12 flex flex-row items-center justify-between">
+			<div class="flex flex-row space-x-6">
+				<img
+					src={`/webp/original/${data.team.logoFile}.webp`}
+					class="h-[90px] w-[90px]"
+					alt={`logo of current belt holder; ${data.team.name}`}
+				/>
+				<div class="flex flex-col justify-center text-black">
+					<h2 class="text-4xl font-bold">
+						{data.team.name}
+					</h2>
+				</div>
 			</div>
 
-			<div class="flex flex-1 flex-row items-center justify-center space-x-4">
-				<div class="border p-4">
+			<div class="flex flex-row items-center justify-center space-x-4">
+				<div class=" flex flex-row items-center space-x-4 p-4">
+					<Icon src={BsTrophy} />
 					<p>{data.reigns.length} Reigns</p>
 				</div>
 
-				<div class="border p-4">
+				<div class=" flex flex-row items-center space-x-4 p-4">
+					<Icon src={BsShield} />
 					<p>{data.reigns.reduce((acc, curr) => acc + curr.games.length - 1, 0)} Defenses</p>
 				</div>
 			</div>
 		</div>
 		<div></div>
 		<div class="flex flex-col space-y-4">
-			{#each data.reigns as reign}
+			{#each data.reigns as reign (reign._id)}
 				<ReignCard
 					defenses={reign.games.length - 1}
 					start={reign.games[0].start_date}

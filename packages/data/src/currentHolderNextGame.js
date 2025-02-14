@@ -1,8 +1,8 @@
 import 'dotenv/config';
-import getGame from './api/getGame.js';
+//import getGame from './api/getGame.js';
 import Reign from './models/Reign.js';
-import Team from './models/Team.js';
-import Game from './models/Game.js';
+// import Team from './models/Team.js';
+// import Game from './models/Game.js';
 
 import mongoose from './mongoose.js';
 
@@ -15,10 +15,10 @@ const currentHolder = await Reign.findOne({})
   .populate('games');
 console.log(currentHolder);
 
-const game = await getGame({
-  year: '2025',
-  week: '1',
-  team: currentHolder.team.name,
-  type: 'regular',
-});
-console.log(game);
+// const game = await getGame({
+//   year: '2025',
+//   week: '1',
+//   team: currentHolder.team.name,
+//   type: 'regular',
+// });
+// console.log(game);
