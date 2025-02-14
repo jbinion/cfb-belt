@@ -1,0 +1,4 @@
+[build]
+
+publish = "packages/svelte/build"
+command = "pnpm i &&  pnpm run --filter=models build &&  pnpm run --filter=svelte build"
