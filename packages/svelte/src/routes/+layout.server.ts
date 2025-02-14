@@ -2,6 +2,8 @@ import { connectDB } from '$lib/db/mongoose';
 import '$lib/models/index';
 import { Reign } from '$lib/models/index';
 
+export const prerender = true;
+
 export async function load() {
 	try {
 		await connectDB();

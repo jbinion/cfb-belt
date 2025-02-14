@@ -6,8 +6,9 @@
   "scripts": {
     "test": "vitest",
     "start": "node ./src/app.js",
-    "images": "node ./src/images/getTeams.js",
+    "images": "node ./src/images/createImages.js",
     "compute": "node ./src/compute/app.js",
+    "downloadEspnData": "node ./src/utils/downloadEspnData.js",
     "lint": "eslint --fix ."
   },
   "author": "",
@@ -18,11 +19,13 @@
     "@eslint/js": "^9.20.0",
     "eslint": "^9.15.0",
     "eslint-plugin-import": "^2.31.0",
+    "eslint-plugin-vitest": "^0.5.4",
     "vitest": "^2.0.4"
   },
   "dependencies": {
     "dotenv": "^16.4.5",
     "models": "link:..\\models",
-    "mongoose": "^8.9.5"
+    "mongoose": "^8.9.5",
+    "sharp": "^0.33.5"
   }
 }

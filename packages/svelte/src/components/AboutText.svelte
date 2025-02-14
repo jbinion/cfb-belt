@@ -1,4 +1,5 @@
 <div class=" flex-1 space-y-4">
+	<h2 class="sectionTitle">About</h2>
 	<p>
 		The College Football Belt is an unoffical trophy that traces the lineage of the best teams in
 		college football history.

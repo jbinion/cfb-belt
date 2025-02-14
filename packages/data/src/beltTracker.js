@@ -1,11 +1,11 @@
-class NewTracker {
+class BeltTracker {
   static instance;
 
   static getInstance(startTeam) {
-    if (!NewTracker.instance) {
-      NewTracker.instance = new NewTracker(startTeam);
+    if (!BeltTracker.instance) {
+      BeltTracker.instance = new BeltTracker(startTeam);
     }
-    return NewTracker.instance;
+    return BeltTracker.instance;
   }
   constructor(startTeam) {
     this.currentHolder = startTeam;
@@ -26,10 +26,11 @@ class NewTracker {
 
     const winner = getGameWinner(game, this.currentHolder);
     this.currentHolder = winner;
-    if (winner === this.reigns.at(-1)?.team) {
+    if (winner === this.reigns.at(-1).team) {
       this.reigns.at(-1).games.push({ ...game, type: 'defense' });
       return;
     }
+    this.reigns.at(-1).endDate = game.start_date;
     this.reigns.push({
       team: winner,
       games: [{ ...game, type: 'win' }],
@@ -38,7 +39,7 @@ class NewTracker {
   }
 }
 
-export default NewTracker;
+export default BeltTracker;
 
 const getGameWinner = (game, currentHolder) => {
   if (game.home_points === game.away_points) return currentHolder;

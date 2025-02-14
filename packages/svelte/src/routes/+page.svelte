@@ -15,14 +15,10 @@
 			<NextGame />
 			{#if data}
 				<div>
-					<p class="sectionTitle mb-2">Recent Lineage</p>
-					<ul class="divide-y">
+					<p class="sectionTitle">Recent Lineage</p>
+					<ul class="space-y-2">
 						{#each data.reigns as item (item._id)}
-							<TeamCard
-								logo={`logos/${item.team.logoFile}`}
-								name={item.team.name}
-								slug={item.team.slug}
-							/>
+							<TeamCard logo={item.team.logoFile} name={item.team.name} slug={item.team.slug} />
 						{/each}
 					</ul>
 				</div>

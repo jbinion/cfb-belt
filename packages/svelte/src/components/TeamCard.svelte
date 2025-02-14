@@ -7,7 +7,7 @@
 	const href = `/teams/${slug}`;
 </script>
 
-<li class="py-2">
+<li class="card py-2">
 	<a {href}>
 		<TeamName {logo} {name} />
 	</a>

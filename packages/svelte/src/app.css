@@ -48,5 +48,13 @@ h2 {
 }
 
 .sectionTitle {
-	@apply font-mono text-lg font-semibold text-black;
+	@apply mb-6 font-mono text-lg font-medium text-black;
+}
+
+.card {
+	@apply border bg-white;
+}
+
+.sortButton {
+	@apply mx-2 w-36 bg-gray-100 px-4 py-2 font-mono uppercase text-black hover:bg-gray-200;
 }

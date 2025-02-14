@@ -1,9 +1,15 @@
 import { connectDB } from '$lib/db/mongoose';
 // Import all models to ensure schemas are registered
 import '$lib/models/index';
-import { Reign, Team } from '$lib/models/index';
+import { Reign, Team, type ITeamDocument } from 'models';
 
 export const prerender = true;
+
+export const entries = async () => {
+	await connectDB();
+	const teams = (await Team.find({}).select('slug')) as ITeamDocument[];
+	return teams.map((t) => ({ slug: t.slug }));
+};
 
 export async function load({ params }) {
 	try {

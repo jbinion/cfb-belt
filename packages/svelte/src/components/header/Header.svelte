@@ -16,10 +16,10 @@
 			</div>
 		</div>
 		<div class="flex-1">
-			<div class="flex flex-row items-center space-x-4 border p-4">
+			<div class="card flex flex-row items-center space-x-4 p-4">
 				{#if current}
 					<img
-						src={`/logos/${current.team.logoFile}`}
+						src={`/webp/large/${current.team.logoFile}.webp`}
 						class="h-[90px] w-[90px]"
 						alt={`logo of current belt holder; ${current.team.name}`}
 					/>
