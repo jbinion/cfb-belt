@@ -12,7 +12,7 @@
 		<img src={`/webp/large/${logo}.webp`} class="h-24" alt={`${name} logo`} />
 
 		<p class=" flex-1 font-semibold">{name}</p>
-		<p>{reigns} reigns</p>
-		<p>{defenses} defenses</p>
+		<p class="text-sm text-gray-700">{reigns} Reigns</p>
+		<p class="text-sm text-gray-700">{defenses} Defenses</p>
 	</div>
 </a>
