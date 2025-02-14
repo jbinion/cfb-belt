@@ -12,7 +12,7 @@
 			<div class="space-x-4">
 				<a class="my-4 font-mono" href="/history">Complete Lineage</a>
 				<a class="font-mono" href="/teams">Teams</a>
-				<a class="font-mono" href="/about">About</a>
+				<!-- <a class="font-mono" href="/about">About</a> -->
 			</div>
 		</div>
 		<div class="flex-1">

@@ -8,10 +8,10 @@ export const prerender = true;
 export async function load() {
 	try {
 		await connectDB();
-		const reigns = (await Reign.find()
+		const reigns = (await Reign.find({ beltName: 'og' })
 			.populate('team')
 			.sort({ startDate: -1 })) as IReignDocument[];
-
+		console.log(reigns);
 		return {
 			reigns: JSON.parse(JSON.stringify(reigns))
 		};

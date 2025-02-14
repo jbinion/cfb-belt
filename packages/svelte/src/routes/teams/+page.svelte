@@ -33,40 +33,42 @@
 	}
 </script>
 
-<div class="controls mb-8 flex flex-wrap items-center justify-center gap-4">
+<div class="controls mb-8 flex flex-col justify-center gap-4">
 	<p class="font-mono">Sort By:</p>
-	<button
-		class="sortButton"
-		class:text-blue-700={sortBy === 'name'}
-		on:click={() => setSortBy('name')}
-	>
-		Name
-		<span class="inline-block w-2">
-			{sortBy === 'name' ? (sortDirection === 'asc' ? '↑' : '↓') : ''}</span
+	<div>
+		<button
+			class="sortButton"
+			class:text-blue-700={sortBy === 'name'}
+			on:click={() => setSortBy('name')}
 		>
-	</button>
+			Name
+			<span class="inline-block w-2">
+				{sortBy === 'name' ? (sortDirection === 'asc' ? '↑' : '↓') : ''}</span
+			>
+		</button>
 
-	<button
-		class="sortButton"
-		class:text-blue-700={sortBy === 'name'}
-		on:click={() => setSortBy('reigns')}
-	>
-		Reigns
-		<span class="inline-block w-2">
-			{sortBy === 'reigns' ? (sortDirection === 'asc' ? '↑' : '↓') : ''}</span
+		<button
+			class="sortButton"
+			class:text-blue-700={sortBy === 'name'}
+			on:click={() => setSortBy('reigns')}
 		>
-	</button>
+			Reigns
+			<span class="inline-block w-2">
+				{sortBy === 'reigns' ? (sortDirection === 'asc' ? '↑' : '↓') : ''}</span
+			>
+		</button>
 
-	<button
-		class="sortButton"
-		class:text-blue-700={sortBy === 'name'}
-		on:click={() => setSortBy('defenses')}
-	>
-		Defenses
-		<span class="inline-block w-2">
-			{sortBy === 'defenses' ? (sortDirection === 'asc' ? '↑' : '↓') : ''}
-		</span>
-	</button>
+		<button
+			class="sortButton"
+			class:text-blue-700={sortBy === 'name'}
+			on:click={() => setSortBy('defenses')}
+		>
+			Defenses
+			<span class="inline-block w-2">
+				{sortBy === 'defenses' ? (sortDirection === 'asc' ? '↑' : '↓') : ''}
+			</span>
+		</button>
+	</div>
 </div>
 
 <div class="team-list">
