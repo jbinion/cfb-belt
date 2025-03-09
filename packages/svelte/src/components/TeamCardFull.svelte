@@ -1,4 +1,7 @@
 <script>
+	import { Icon } from 'svelte-icons-pack';
+	import { BsShield } from 'svelte-icons-pack/bs';
+
 	export let name = '';
 
 	export let logo = '';
@@ -13,13 +16,18 @@
 
 <a class=" text-black" {href}>
 	<div class="flex items-center hover:bg-gray-100">
-		<img src={`/webp/large/${logo}.webp`} class="mr-6 h-12 w-12" alt={`${name} logo`} />
-
+		<p class="mr-6 w-24 font-mono text-sm font-thin">
+			{new Date(startDate).toLocaleDateString('default')}
+		</p>
+		<div class="mr-12">
+			<img src={`/webp/large/${logo}.webp`} class="  h-12 w-12" alt={`${name} logo`} />
+		</div>
 		<p class=" w-48">{name}</p>
-		<p class="w-24 text-sm">{games.length - 1} {games.length - 1 === 1 ? 'Defense' : 'Defenses'}</p>
-		<p class="ml-auto font-mono text-sm font-thin">
-			{new Date(startDate).toLocaleDateString('default')} -
-			{new Date(endDate).toLocaleDateString('default')}
+
+		<p class="ml-auto w-24 text-sm">
+			<!-- <Icon src={BsShield} /> -->
+			{games.length - 1}
+			{games.length - 1 === 1 ? 'Defense' : 'Defenses'}
 		</p>
 	</div>
 </a>

@@ -1,5 +1,6 @@
 <script lang="ts">
 	import AboutText from '../components/AboutText.svelte';
+	import CurrentHolderCard from '../components/CurrentHolderCard.svelte';
 	import NextGame from '../components/NextGame.svelte';
 	import TeamCard from '../components/TeamCard.svelte';
 	import type { PageData } from './$types';
@@ -22,6 +23,7 @@
 		</section>
 
 		<div class="mb-12 flex-1 space-y-12">
+			<CurrentHolderCard />
 			<section aria-label="Next Championship Game">
 				<NextGame />
 			</section>
