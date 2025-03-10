@@ -2,17 +2,42 @@
 	import TeamName from './TeamName.svelte';
 </script>
 
-<div>
-	<p class="sectionTitle">Next Game</p>
-	<div class="card flex flex-col items-center p-4">
-		<div class="flex flex-row justify-center space-x-4 py-1">
-			<div class="flex flex-row">
-				<TeamName logo={'LIUl'} name={'LIU'} />
-			</div>
-			<span class="my-auto">vs</span>
+<div class="flex flex-col items-center">
+	<div class="mb-6 flex w-full items-center justify-center">
+		<div class="relative flex w-full max-w-md flex-col items-center">
+			<div class="mb-4 flex w-full items-center justify-between">
+				<div class="flex-1 text-center">
+					<img
+						src={`/webp/large/LIUl.webp`}
+						class="mx-auto mb-2 h-16 w-16 rounded-full border-2 border-gray-200 bg-white object-contain p-1 shadow-md"
+						alt="LIU logo"
+					/>
+					<p class="font-bold">LIU</p>
+				</div>
 
-			<TeamName logo={'57'} name={'Florida'} end={true} />
+				<div class="mx-4 flex h-16 items-center">
+					<div
+						class="relative flex h-12 w-12 items-center justify-center rounded-full bg-blue-800 text-white shadow-md"
+					>
+						<span class="font-bold">VS</span>
+					</div>
+				</div>
+
+				<div class="flex-1 text-center">
+					<img
+						src={`/webp/large/57.webp`}
+						class="mx-auto mb-2 h-16 w-16 rounded-full border-2 border-gray-200 bg-white object-contain p-1 shadow-md"
+						alt="Florida logo"
+					/>
+					<p class="font-bold">Florida</p>
+				</div>
+			</div>
+
+			<div
+				class="mt-2 rounded-full bg-blue-100 px-4 py-1 text-center font-mono text-sm font-semibold text-blue-800"
+			>
+				August 30, 2025
+			</div>
 		</div>
-		<p class="font-mono text-sm">Aug 30</p>
 	</div>
 </div>
