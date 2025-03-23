@@ -18,8 +18,8 @@
 
 <div class="hero-section bg-gradient-to-br from-blue-900 to-blue-700 py-12 text-white">
 	<div class="container mx-auto px-4 text-center">
-		<h1 class="mb-4 text-4xl font-bold md:text-5xl">College Football Belt</h1>
-		<p class="mx-auto max-w-2xl text-lg text-blue-100">
+		<h1 class="mb-4 text-4xl font-bold text-zinc-900 md:text-5xl">College Football Belt</h1>
+		<p class="mx-auto max-w-2xl text-lg text-zinc-700">
 			Tracking the unofficial championship title that traces its lineage through decades of college
 			football
 		</p>

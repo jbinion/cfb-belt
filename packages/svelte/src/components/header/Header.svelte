@@ -30,10 +30,19 @@
 	<div class="mx-auto flex w-full max-w-screen-lg flex-col px-4 md:px-8">
 		<div class="flex items-center justify-between py-4">
 			<a href="/" class="flex items-center space-x-2 text-blue-900 hover:text-blue-700">
-				<div class="flex h-10 w-10 items-center justify-center rounded-full bg-blue-900 text-white">
-					<span class="font-bold">CFB</span>
+				<div class="flex h-10 w-10 items-center justify-center">
+					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" class="h-10 w-10">
+						<path
+							d="M12 2L9 4L6 3L4 6L3 9L2 12L3 15L4 18L6 21L9 20L12 22L15 20L18 21L20 18L21 15L22 12L21 9L20 6L18 3L15 4L12 2Z"
+							fill="#D4AF37"
+							stroke="#8B7300"
+						/>
+						<circle cx="12" cy="12" r="4" fill="#D4AF37" stroke="#8B7300" />
+						<path d="M12 8V16" stroke="#8B7300" />
+						<path d="M8 12H16" stroke="#8B7300" />
+					</svg>
 				</div>
-				<h1 class="text-xl font-bold">College Football Belt</h1>
+				<h1 class="text-xl font-bold">CFB-Belt.com</h1>
 			</a>
 
 			<!-- Mobile menu button -->
