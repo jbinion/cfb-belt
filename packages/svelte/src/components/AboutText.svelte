@@ -1,24 +1,21 @@
 <div class=" flex-1 space-y-4">
 	<h2 class="sectionTitle">About</h2>
+	<p>To win the College Football Belt, you must defeat the current holder on the field</p>
 	<p>
-		The College Football Belt is an unoffical trophy that traces the lineage of the best teams in
-		college football history.
+		Starting from the first college football game,Rutgers vs Princeton in 1869, This creates a
+		continuous lineage of champions tracing its way through the best college football teams of all
+		time.
 	</p>
 
-	<p>There are three suggested starting points</p>
-	<ul class="font-mono text-xs font-bold">
-		<li>The first college football game; Rutgers vs Princeton, 1869</li>
-		<li>The 1936 Minnesota Golden Gophers</li>
-		<li>The 1971 Nebraska Cornhuskers</li>
-	</ul>
+	<!-- <p>Ties revert to the current holder.</p> -->
+	<!-- <p>
+		The College Football Belt traces a continuous lineage of champions back to the first college
+		football game.
+	</p>
+	<p>The premise is simple: To win the belt, you must defeat the current holder.</p> -->
 
-	<p>
-		Regardless of starting point, all three lineages converge to give us the current, undisputed,
-		College Football Belt.
-	</p>
-	<p>
-		Data for this site comes from <a href="https://collegefootballdata.com"
-			>collegefootballdata.com</a
-		>
-	</p>
+	<p>There have been 452 CFB Belt Games</p>
+	<p>49 Distinct holders</p>
+	<p>118 Reigns</p>
+	<p>342 Defenses</p>
 </div>
