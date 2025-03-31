@@ -3,8 +3,8 @@
 </script>
 
 <div>
-	<p class="sectionTitle">Next Game</p>
 	<div class="card flex flex-col items-center p-4">
+		<p class="sectionTitle">Next Game</p>
 		<div class="flex flex-row justify-center space-x-4 py-1">
 			<div class="flex flex-row">
 				<TeamName logo={'LIUl'} name={'LIU'} />

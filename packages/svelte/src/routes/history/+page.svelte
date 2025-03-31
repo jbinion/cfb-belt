@@ -26,9 +26,11 @@
 	</script>
 </svelte:head>
 
-<main>
-	<h1 class="text-2xl font-semibold text-black">Complete College Football Belt Lineage</h1>
+<div class="my-24 text-center">
+	<h1 class="text-4xl font-semibold text-black">College Football Belt Complete Lineage</h1>
+</div>
 
+<main>
 	<section class="my-8" aria-label="Championship History">
 		{#if data?.reigns?.length}
 			<ul class="divide-y" aria-label="List of all championship reigns">

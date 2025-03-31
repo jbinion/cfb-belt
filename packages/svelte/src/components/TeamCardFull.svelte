@@ -12,14 +12,16 @@
 </script>
 
 <a class=" text-black" {href}>
-	<div class="flex items-center hover:bg-gray-100">
+	<div class="flex items-center text-sm hover:bg-gray-100 md:text-sm">
+		<p class="w-24">{new Date(startDate).toLocaleDateString('default')}</p>
+
 		<img src={`/webp/large/${logo}.webp`} class="mr-6 h-12 w-12" alt={`${name} logo`} />
 
-		<p class=" w-48">{name}</p>
-		<p class="w-24 text-sm">{games.length - 1} {games.length - 1 === 1 ? 'Defense' : 'Defenses'}</p>
-		<p class="ml-auto font-mono text-sm font-thin">
-			{new Date(startDate).toLocaleDateString('default')} -
-			{new Date(endDate).toLocaleDateString('default')}
+		<p>{name}</p>
+
+		<p class="ml-auto font-mono font-thin">
+			{games.length - 1}
+			{games.length - 1 === 1 ? 'Defense' : 'Defenses'}
 		</p>
 	</div>
 </a>
