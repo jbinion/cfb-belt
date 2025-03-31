@@ -1,11 +1,16 @@
 <script lang="ts">
 	import AboutText from '../components/AboutText.svelte';
 	import CurrentHolderCard from '../components/CurrentHolderCard.svelte';
+	import NewCurrentHolderCard from '../components/NewCurrentHolderCard.svelte';
+	import NewNextGameCard from '../components/NewNextGameCard.svelte';
 	import NextGame from '../components/NextGame.svelte';
 	import TeamCard from '../components/TeamCard.svelte';
 	import type { PageData } from './$types';
 
 	let { data }: { data: PageData } = $props();
+	console.log(data.totalGames);
+	console.log(data.totalReigns);
+	console.log(data.teamCount);
 </script>
 
 <svelte:head>
@@ -16,18 +21,29 @@
 	/>
 </svelte:head>
 
-<main class="mt-12 flex flex-col space-y-24 px-4">
-	<div>
-		<h1 class=" text-center text-5xl font-semibold text-black">College Football Belt</h1>
-	</div>
+<div class="my-24">
+	<h1 class=" text-center text-5xl font-semibold text-black">College Football Belt</h1>
+</div>
+
+<main class="flex flex-col space-y-24 px-4">
 	<div class="grid grid-cols-2 gap-8">
 		<CurrentHolderCard />
 		<section aria-label="Next Championship Game">
 			<NextGame />
 		</section>
 	</div>
+
+	<!-- <div class="grid grid-cols-2 gap-8">
+		<NewCurrentHolderCard />
+		<NewNextGameCard />
+	</div> -->
+
 	<section class="about-section flex-1" aria-label="About the College Football Belt">
-		<AboutText />
+		<AboutText
+			totalGames={data.totalGames}
+			totalReigns={data.totalReigns}
+			teamCount={data.teamCount}
+		/>
 	</section>
 	{#if data}
 		<section aria-label="Recent Belt History">

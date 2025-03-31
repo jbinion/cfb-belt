@@ -1,4 +1,4 @@
-<header class="mx-auto my-8 flex w-full max-w-screen-lg flex-col px-8">
+<header class="mx-auto mt-4 flex w-full max-w-screen-lg flex-col px-8">
 	<div class=" flex flex-1 flex-row items-center justify-between">
 		<a href="/" class="text-xl text-black hover:text-gray-700"> CFB-Belt.com </a>
 		<div class="space-x-4">

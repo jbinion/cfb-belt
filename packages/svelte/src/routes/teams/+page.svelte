@@ -42,7 +42,7 @@
 </svelte:head>
 
 <main>
-	<h1 class="mb-8 text-center text-3xl font-bold text-black">College Football Belt Teams</h1>
+	<h1 class="my-8 text-center text-3xl font-bold text-black">College Football Belt Teams</h1>
 
 	<nav
 		class="controls mb-8 flex flex-wrap items-center justify-center gap-4"
