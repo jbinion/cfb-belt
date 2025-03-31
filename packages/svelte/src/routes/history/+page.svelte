@@ -26,8 +26,8 @@
 	</script>
 </svelte:head>
 
-<div class="my-24 text-center">
-	<h1 class="text-4xl font-semibold text-black">College Football Belt Complete Lineage</h1>
+<div class="titleContainer">
+	<h1 class="pageTitle">College Football Belt Complete Lineage</h1>
 </div>
 
 <main>

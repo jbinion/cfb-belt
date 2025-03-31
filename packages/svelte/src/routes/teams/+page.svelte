@@ -41,9 +41,11 @@
 	/>
 </svelte:head>
 
-<main>
-	<h1 class="my-8 text-center text-3xl font-bold text-black">College Football Belt Teams</h1>
+<div class="titleContainer">
+	<h1 class="pageTitle">College Football Belt Teams</h1>
+</div>
 
+<main>
 	<nav
 		class="controls mb-8 flex flex-wrap items-center justify-center gap-4"
 		aria-label="Sort options"

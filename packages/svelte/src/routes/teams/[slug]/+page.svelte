@@ -34,7 +34,10 @@
 
 <main class="space-y-2">
 	{#if data.reigns}
-		<section class="mb-12 flex flex-row items-center justify-between" aria-label="Team Overview">
+		<section
+			class="mb-12 flex flex-col items-center justify-between md:flex-row"
+			aria-label="Team Overview"
+		>
 			<div class="my-24 flex flex-row space-x-6">
 				<img
 					src={`/webp/original/${data.team.logoFile}.webp`}

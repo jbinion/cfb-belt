@@ -21,8 +21,8 @@
 	/>
 </svelte:head>
 
-<div class="my-24">
-	<h1 class=" text-center text-5xl font-semibold text-black">College Football Belt</h1>
+<div class="titleContainer">
+	<h1 class="pageTitle">College Football Belt</h1>
 </div>
 
 <main class="flex flex-col space-y-24 px-4">
