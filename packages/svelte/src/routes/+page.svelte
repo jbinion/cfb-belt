@@ -26,7 +26,7 @@
 </div>
 
 <main class="flex flex-col space-y-24 px-4">
-	<div class="grid grid-cols-2 gap-8">
+	<div class="grid grid-cols-1 gap-8 md:grid-cols-2">
 		<CurrentHolderCard />
 		<section aria-label="Next Championship Game">
 			<NextGame />
