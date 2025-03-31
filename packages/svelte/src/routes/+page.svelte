@@ -37,14 +37,11 @@
 		<NewCurrentHolderCard />
 		<NewNextGameCard />
 	</div> -->
-
-	<section class="about-section flex-1" aria-label="About the College Football Belt">
-		<AboutText
-			totalGames={data.totalGames}
-			totalReigns={data.totalReigns}
-			teamCount={data.teamCount}
-		/>
-	</section>
+	<AboutText
+		totalGames={data.totalGames}
+		totalReigns={data.totalReigns}
+		teamCount={data.teamCount}
+	/>
 	{#if data}
 		<section aria-label="Recent Belt History">
 			<h2 class="sectionTitle">Recent Lineage</h2>
