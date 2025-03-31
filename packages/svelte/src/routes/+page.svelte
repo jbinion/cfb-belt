@@ -21,8 +21,8 @@
 	/>
 </svelte:head>
 
-<div class="my-24">
-	<h1 class=" text-center text-5xl font-semibold text-black">College Football Belt</h1>
+<div class="titleContainer">
+	<h1 class="pageTitle">College Football Belt</h1>
 </div>
 
 <main class="flex flex-col space-y-24 px-4">
@@ -37,14 +37,11 @@
 		<NewCurrentHolderCard />
 		<NewNextGameCard />
 	</div> -->
-
-	<section class="about-section flex-1" aria-label="About the College Football Belt">
-		<AboutText
-			totalGames={data.totalGames}
-			totalReigns={data.totalReigns}
-			teamCount={data.teamCount}
-		/>
-	</section>
+	<AboutText
+		totalGames={data.totalGames}
+		totalReigns={data.totalReigns}
+		teamCount={data.teamCount}
+	/>
 	{#if data}
 		<section aria-label="Recent Belt History">
 			<h2 class="sectionTitle">Recent Lineage</h2>

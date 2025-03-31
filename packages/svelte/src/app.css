@@ -58,3 +58,10 @@ h2 {
 .sortButton {
 	@apply mx-2 w-36 px-4 py-2 font-mono uppercase text-gray-700 hover:text-black;
 }
+
+.titleContainer {
+	@apply my-24 text-center;
+}
+.pageTitle {
+	@apply font-mono text-4xl font-semibold text-black;
+}
