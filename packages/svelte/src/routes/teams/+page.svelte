@@ -42,7 +42,7 @@
 </svelte:head>
 
 <div class="titleContainer">
-	<h1 class="pageTitle">College Football Belt Teams</h1>
+	<h1 class="pageTitle">All College Football Belt Holders</h1>
 </div>
 
 <main>

@@ -21,11 +21,16 @@
 </svelte:head>
 
 <div class="titleContainer">
-	<h1 class="pageTitle mb-4 uppercase tracking-wide">The College Football Belt</h1>
+	<div class="mb-8 flex justify-center">
+		<h1 class="pageTitle text-start uppercase tracking-wide md:text-center">
+			<span class="!text-start !text-xl">The<br /></span> College Football Belt
+		</h1>
+	</div>
+
 	<div>
 		<p>Tracking the lineal championship of college football since 1869</p>
 		<!-- <p class="sectionTitle mt-4">There have been</p> -->
-		<div class="mt-4 flex items-center justify-center">
+		<div class="mt-8 flex items-center justify-center">
 			<div class="grid grid-cols-3 gap-6">
 				<div class="px-4 text-center">
 					<p class=" text-lg font-semibold">{data.totalGames}</p>
