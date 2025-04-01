@@ -63,6 +63,7 @@ h2 {
 	@apply my-24 text-center;
 }
 .pageTitle {
+
 	@apply font-mono text-5xl font-semibold text-black;
 }
 
