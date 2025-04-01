@@ -63,5 +63,10 @@ h2 {
 	@apply my-24 text-center;
 }
 .pageTitle {
-	@apply font-mono text-4xl font-semibold text-black;
+
+	@apply font-mono text-5xl font-semibold text-black;
+}
+
+.container {
+	@apply mx-auto w-full max-w-screen-lg px-8;
 }

@@ -1,5 +1,5 @@
-<div class="flex w-full flex-col items-center justify-around space-x-4 md:flex-row">
-	<p>College Football Belt Tracker</p>
+<div class="container flex flex-col items-center justify-between space-x-4 md:flex-row">
+	<p>The College Football Belt</p>
 	<div class="flex-cold flex space-x-4 space-y-2 md:flex-row md:space-x-6 md:space-y-0">
 		<a class="text-gray-600" href="/history"> Complete Lineage</a>
 		<a class="text-gray-600" href="/teams"> Teams</a>
