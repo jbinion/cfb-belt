@@ -21,6 +21,7 @@
 </svelte:head>
 
 <div class="titleContainer">
+
 	<h1 class="pageTitle mb-4 uppercase tracking-wide">The College Football Belt</h1>
 	<div>
 		<p>Tracking the lineal championship of college football since 1869</p>
@@ -42,6 +43,7 @@
 			</div>
 		</div>
 	</div>
+
 </div>
 
 <main class="flex flex-col space-y-24 px-4">
@@ -52,7 +54,9 @@
 		</section>
 	</div>
 
+
 	<AboutText />
+
 
 	{#if data}
 		<section aria-label="Recent Belt History">
