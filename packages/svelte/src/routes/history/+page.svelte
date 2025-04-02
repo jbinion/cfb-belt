@@ -27,7 +27,9 @@
 </svelte:head>
 
 <div class="titleContainer">
-	<h1 class="pageTitle">College Football Belt Complete Lineage</h1>
+	<h1 class="pageTitle text-start uppercase tracking-wide md:text-center">Complete Lineage</h1>
+	<p class="pageTitle text-start !text-xl uppercase md:text-center">Of The</p>
+	<h1 class="pageTitle text-start uppercase tracking-wide md:text-center">College Football Belt</h1>
 </div>
 
 <main>

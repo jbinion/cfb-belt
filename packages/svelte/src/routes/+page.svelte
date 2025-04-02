@@ -20,39 +20,35 @@
 	/>
 </svelte:head>
 
-<div class="titleContainer">
-	<div class="mb-8 flex justify-center">
-		<h1 class="pageTitle text-start uppercase tracking-wide md:text-center">
+<div class="titleContainer space-y-8">
+	<div class=" ">
+		<h1 class="pageTitle mb-2 text-start uppercase tracking-wide md:text-center">
 			<span class="!text-start !text-xl">The<br /></span> College Football Belt
 		</h1>
+		<p class="text-start md:text-center">
+			Tracking the lineal championship of college football since 1869
+		</p>
 	</div>
 
-	<div>
-		<p>Tracking the lineal championship of college football since 1869</p>
-		<!-- <p class="sectionTitle mt-4">There have been</p> -->
-		<div class="mt-8 flex items-center justify-center">
-			<div class="grid grid-cols-3 gap-6">
-				<div class="text-center">
-					<p class=" text-lg font-semibold">{data.teamCount}</p>
-					<p class="text-sm text-gray-500">Belt Holders</p>
-				</div>
-				<div class="text-center">
-					<p class=" text-lg font-semibold">{data.totalReigns}</p>
-					<p class="text-sm text-gray-500">Reigns</p>
-				</div>
-				<div class="px-4 text-center">
-					<p class=" text-lg font-semibold">{data.totalGames}</p>
-					<p class="text-sm text-gray-500">Total Games</p>
-				</div>
+	<!-- <p class="sectionTitle mt-4">There have been</p> -->
+	<div class=" flex items-center justify-center">
+		<div class="grid grid-cols-3 gap-6">
+			<div class="text-center">
+				<p class=" text-lg font-semibold">{data.teamCount}</p>
+				<p class="text-sm text-gray-500">Belt Holders</p>
+			</div>
+			<div class="text-center">
+				<p class=" text-lg font-semibold">{data.totalReigns}</p>
+				<p class="text-sm text-gray-500">Reigns</p>
+			</div>
+			<div class="px-4 text-center">
+				<p class=" text-lg font-semibold">{data.totalGames}</p>
+				<p class="text-sm text-gray-500">Total Games</p>
 			</div>
 		</div>
 	</div>
-</div>
 
-<main class="flex flex-col space-y-24 px-4">
-	<div
-		class="flex flex-col items-center justify-center space-y-4 md:flex-row md:space-x-8 md:space-y-0"
-	>
+	<div class="flex flex-col justify-center space-y-4 md:flex-row md:space-x-8 md:space-y-0">
 		<a
 			href="/history"
 			class="text-mono border-2 border-black px-8 py-3 text-lg font-semibold uppercase text-black"
@@ -64,14 +60,15 @@
 			>All Belt Holders</a
 		>
 	</div>
+</div>
+
+<main class="flex flex-col space-y-24">
 	<div class="grid grid-cols-1 gap-8 md:grid-cols-2">
 		<CurrentHolderCard />
 		<section aria-label="Next Championship Game">
 			<NextGame />
 		</section>
 	</div>
-
-	<AboutText />
 
 	{#if data}
 		<section aria-label="Recent Belt History">
@@ -83,4 +80,5 @@
 			</ul>
 		</section>
 	{/if}
+	<AboutText />
 </main>

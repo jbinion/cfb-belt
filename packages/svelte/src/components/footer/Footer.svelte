@@ -1,6 +1,6 @@
-<div class="container flex flex-col items-center justify-between space-x-4 md:flex-row">
+<div class="container flex flex-col items-center justify-between md:flex-row md:space-x-4">
 	<p>The College Football Belt</p>
-	<div class="flex-cold flex space-x-4 space-y-2 md:flex-row md:space-x-6 md:space-y-0">
+	<div class="flex-cold flex space-x-4 md:flex-row md:space-x-6">
 		<a class="text-gray-600" href="/history"> Complete Lineage</a>
 		<a class="text-gray-600" href="/teams"> Teams</a>
 	</div>
