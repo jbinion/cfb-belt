@@ -28,7 +28,7 @@
 
 	<div class="flex-1">
 		<p class="text-xl font-bold">
-			LIU <span class="font-normal">Next Contender</span>
+			LIU <span class="font-normal">Next Game</span>
 		</p>
 		<p class="font-mono text-sm">August 30th</p>
 	</div>
