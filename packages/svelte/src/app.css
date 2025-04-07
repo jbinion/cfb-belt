@@ -18,6 +18,18 @@
 	font-family: var(--font-body);
 	color: var(--color-text);
 }
+@layer base {
+	* {
+		@apply border-border;
+	}
+	body {
+		@apply bg-background text-foreground;
+	}
+}
+
+.container {
+	@apply mx-auto w-full max-w-screen-lg px-8;
+}
 
 body {
 	min-height: 100vh;
@@ -48,11 +60,12 @@ h2 {
 }
 
 .sectionTitle {
-	@apply mb-6 font-mono text-lg font-medium text-black;
+	@apply mb-6 text-lg font-semibold uppercase text-black;
 }
 
 .card {
-	@apply border bg-white;
+	@apply border border-black bg-white;
+	/*  border-black border-2 */
 }
 
 .sortButton {
@@ -63,8 +76,11 @@ h2 {
 	@apply my-24 text-center;
 }
 .pageTitle {
-
 	@apply font-mono text-5xl font-semibold text-black;
+}
+
+.container {
+	@apply mx-auto w-full max-w-screen-lg px-8;
 }
 
 .container {
