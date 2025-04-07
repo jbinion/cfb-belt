@@ -1,4 +1,5 @@
 <script lang="ts">
+	import * as Table from '$lib/components/ui/table';
 	import type { PageData } from './$types';
 	import LogoCard from './LogoCard.svelte';
 
@@ -42,9 +43,7 @@
 </svelte:head>
 
 <div class="titleContainer">
-
 	<h1 class="pageTitle">All College Football Belt Holders</h1>
-
 </div>
 
 <main>
@@ -109,7 +108,7 @@
 
 	<section class="team-list" aria-label="Team List">
 		{#if sortedTeams.length}
-			<div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+			<div class="flex flex-col">
 				{#each sortedTeams as team}
 					{#key `${sortBy}-${sortDirection}-${team.slug}`}
 						<LogoCard
