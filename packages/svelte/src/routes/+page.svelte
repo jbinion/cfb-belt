@@ -25,9 +25,7 @@
 		<h1 class="pageTitle mb-2 text-start uppercase tracking-wide md:text-center">
 			<span class="!text-start !text-xl">The<br /></span> College Football Belt
 		</h1>
-		<p class="text-start md:text-center">
-			Tracking the lineal championship of college football since 1869
-		</p>
+		<p class="text-start md:text-center">Tracking the lineal championship of college football</p>
 	</div>
 
 	<!-- <p class="sectionTitle mt-4">There have been</p> -->
@@ -51,19 +49,19 @@
 	<div class="flex flex-col justify-center space-y-4 md:flex-row md:space-x-8 md:space-y-0">
 		<a
 			href="/history"
-			class="text-mono border-2 border-black px-8 py-3 text-lg font-semibold uppercase text-black"
+			class="text-mono border border-black px-8 py-3 text-lg font-semibold uppercase text-black"
 			>Complete Lineage</a
 		>
 		<a
 			href="/teams "
-			class="text-mono border-2 border-black px-8 py-3 text-lg font-semibold uppercase text-black"
+			class="text-mono border border-black px-8 py-3 text-lg font-semibold uppercase text-black"
 			>All Belt Holders</a
 		>
 	</div>
 </div>
 
-<main class="flex flex-col space-y-24">
-	<div class="grid grid-cols-1 gap-8 md:grid-cols-2">
+<main class="mb-24 flex flex-col space-y-24">
+	<div class="mx-auto flex w-full max-w-screen-sm flex-col space-y-16">
 		<CurrentHolderCard />
 		<section aria-label="Next Championship Game">
 			<NextGame />
@@ -71,7 +69,7 @@
 	</div>
 
 	{#if data}
-		<section aria-label="Recent Belt History">
+		<section aria-label="Recent Belt History  " class="mx-auto w-full max-w-screen-sm">
 			<h2 class="sectionTitle">Recent Lineage</h2>
 			<ul class="space-y-2" aria-label="Recent belt holders">
 				{#each data.reigns as item (item._id)}

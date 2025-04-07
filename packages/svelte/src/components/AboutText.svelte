@@ -1,4 +1,4 @@
-<div class="space-y-4">
+<div class="mx-auto w-full max-w-screen-sm space-y-4">
 	<h2 class="sectionTitle">About</h2>
 	<p class="text-xl">
 		The College Football Belt is a lineal champhionship starting from the first college football
