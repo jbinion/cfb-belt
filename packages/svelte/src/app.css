@@ -18,18 +18,8 @@
 	font-family: var(--font-body);
 	color: var(--color-text);
 }
-@layer base {
-	* {
-		@apply border-border;
-	}
-	body {
-		@apply bg-background text-foreground;
-	}
-}
 
-.container {
-	@apply mx-auto w-full max-w-screen-lg px-8;
-}
+
 
 body {
 	min-height: 100vh;
