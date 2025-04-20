@@ -21,14 +21,13 @@
 </svelte:head>
 
 <div class="titleContainer space-y-8">
-	<div class=" ">
+	<div>
 		<h1 class="pageTitle mb-2 text-start uppercase tracking-wide md:text-center">
 			<span class="!text-start !text-xl">The<br /></span> College Football Belt
 		</h1>
 		<p class="text-start md:text-center">Tracking the lineal championship of college football</p>
 	</div>
 
-	<!-- <p class="sectionTitle mt-4">There have been</p> -->
 	<div class=" flex items-center justify-center">
 		<div class="grid grid-cols-3 gap-6">
 			<div class="text-center">

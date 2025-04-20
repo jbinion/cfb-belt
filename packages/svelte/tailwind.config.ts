@@ -5,7 +5,11 @@ export default {
 	content: ['./src/**/*.{html,js,svelte,ts}'],
 
 	theme: {
-		extend: {}
+		extend: {
+			colors: {
+				'background-color': 'var(--background-color)'
+			}
+		}
 	},
 
 	plugins: [typography]
