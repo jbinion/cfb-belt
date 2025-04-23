@@ -11,7 +11,7 @@
 		name="description"
 		content="Explore the complete history of the College Football Belt, tracking every championship reign from its inception to the present day."
 	/>
-	<script type="application/ld+json">
+	<!-- <script type="application/ld+json">
 		{JSON.stringify({
 			"@context": "https://schema.org",
 			"@type": "CollectionPage",
@@ -23,7 +23,7 @@
 				"sport": "American Football"
 			}
 		})}
-	</script>
+	</script> -->
 </svelte:head>
 
 <div class="titleContainer">

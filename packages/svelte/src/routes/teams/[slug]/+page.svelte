@@ -1,6 +1,3 @@
-<!-- <script>
-</script> -->
-
 <script lang="ts">
 	import type { PageData } from './$types';
 	import ReignCard from '../../../components/ReignCard.svelte';
@@ -20,7 +17,7 @@
 			0
 		) || 0} successful defenses."
 	/>
-	<script type="application/ld+json">
+	<!-- <script type="application/ld+json">
 		{JSON.stringify({
 			"@context": "https://schema.org",
 			"@type": "SportsTeam",
@@ -29,7 +26,7 @@
 			"sport": "American Football",
 			"description": `${data.team.name}'s College Football Belt history, including ${data.reigns?.length || 0} championship reigns.`
 		})}
-	</script>
+	</script> -->
 </svelte:head>
 
 <main class="space-y-2">
