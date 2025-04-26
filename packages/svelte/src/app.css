@@ -10,15 +10,11 @@
 	--font-mono: 'Fira Mono', 'Roboto Mono', monospace;
 
 	--color-primary: #1e293b;
-	--color-gold: #ffd700;
 	--color-white: #ffffff;
-	--color-crimson: #b91c1c;
 	--color-slate: #64748b;
-	--color-bg-light: #f8fafc;
-	--color-emerald: #059669;
-	--color-orange: #ff8c42;
+	--color-bg-light: #F0F0F0;
 
-	--color-accent: #ffd700;
+	--accent: #ffd700;
 	background-color: var(--color-bg-light);
 	color: var(--color-primary);
 	font-family: var(--font-body);
@@ -36,7 +32,6 @@ h1,
 h2,
 h3 {
 	font-family: var(--font-heading);
-	color: var(--color-primary);
 	font-weight: 700;
 }
 
@@ -61,19 +56,18 @@ ol {
 }
 
 a {
-	color: var(--color-orange);
 	text-decoration: none;
 	transition: color 0.2s;
 }
 
 a:hover,
 a:focus {
-	color: var(--color-gold);
+	color: var(--accent);
 }
 
 .sectionTitle {
-	@apply mb-6 text-lg font-semibold uppercase;
-	color: var(--color-slate);
+	@apply mb-6 text-lg font-semibold uppercase text-neutral-700;
+	/* color: var(--color-slate); */
 	font-family: var(--font-heading);
 }
 
@@ -83,7 +77,7 @@ a:focus {
 }
 
 .highlight {
-	color: var(--color-gold);
+	@apply text-accent;
 	font-weight: 700;
 }
 
@@ -98,29 +92,18 @@ a:focus {
 }
 
 .sortButton:hover {
-	background: var(--color-gold);
+	background: var(--color-accent);
 	color: var(--color-primary);
 }
 
-.pageTitle {
-	font-family: var(--font-heading);
-	font-size: 3rem;
-	font-weight: 700;
-	letter-spacing: 0.08em;
-}
+
 
 .container {
-	@apply mx-auto w-full max-w-screen-lg px-8;
+	@apply mx-auto w-full max-w-screen-sm px-8;
 }
 
-.linkCard {
+.textHeading {
 	text-decoration: none;
 	font-family: var(--font-heading);
 }
 
-.linkCard:hover,
-.linkCard:focus {
-	background: var(--color-gold);
-	color: var(--color-primary);
-	text-decoration: underline;
-}

@@ -7,7 +7,7 @@
 </script>
 
 <a
-	class="textHeading flex cursor-pointer flex-row items-center justify-between gap-2 rounded-lg bg-[var(--color-accent)] px-6 py-3 shadow-md transition-colors duration-150"
+	class="textHeading flex cursor-pointer flex-row items-center justify-between gap-2 rounded-lg bg-accent hover:bg-white px-6 py-3 shadow-md transition-colors duration-150"
 	href={dest}
 >
 	<p class="text-lg">
@@ -17,5 +17,5 @@
 		{title}
 	</p>
 	<p class="opacity-80"></p>
-	<Icon src={HiSolidArrowLongRight} className="text-blue-600" size={'24'} color={'black'} />
+	<Icon src={HiSolidArrowLongRight} size={'24'} color={'black'} />
 </a>

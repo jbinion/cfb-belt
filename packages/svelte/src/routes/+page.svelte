@@ -8,7 +8,6 @@
 	import type { PageData } from './$types';
 
 	let { data }: { data: PageData } = $props();
-
 </script>
 
 <svelte:head>
@@ -19,18 +18,13 @@
 	/>
 </svelte:head>
 
+	<CurrentHolderCard />
+	<section aria-label="Next Championship Game">
+		<NextGame />
+	</section>
+	<!-- <NewNextGame /> -->
 
-
-<main class="my-24 flex flex-col space-y-24">
-	<div class="mx-auto flex w-full max-w-screen-sm flex-col space-y-16">
-		<CurrentHolderCard />
-		<section aria-label="Next Championship Game">
-			<NextGame />
-		</section>
-		<NewNextGame/>
-	</div>
-
-	<!-- {#if data}
+	{#if data}
 		<section aria-label="Recent Belt History  " class="mx-auto w-full max-w-screen-sm">
 			<h2 class="sectionTitle">Recent Lineage</h2>
 			<ul class="space-y-2" aria-label="Recent belt holders">
@@ -39,6 +33,5 @@
 				{/each}
 			</ul>
 		</section>
-	{/if} -->
+	{/if} 
 	<AboutText />
-</main>

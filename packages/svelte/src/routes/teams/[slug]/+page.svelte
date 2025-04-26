@@ -29,13 +29,12 @@
 	</script> -->
 </svelte:head>
 
-<main class="space-y-2">
 	{#if data.reigns}
 		<section
-			class="mb-12 flex flex-col items-center justify-between md:flex-row"
+			class="flex flex-col items-center justify-between md:flex-row"
 			aria-label="Team Overview"
 		>
-			<div class="my-24 flex flex-row space-x-6">
+			<div class=" flex flex-row space-x-6">
 				<img
 					src={`/webp/original/${data.team.logoFile}.webp`}
 					class="h-[90px] w-[90px]"
@@ -87,4 +86,3 @@
 	{:else}
 		<p class="text-center">No championship history found for {data.team.name}.</p>
 	{/if}
-</main>

@@ -30,6 +30,7 @@
 
 <main>
 	<section class="my-8" aria-label="Championship History">
+		<h2 class="sectionTitle">Complete Lineage</h2>
 		{#if data?.reigns?.length}
 			<ul class="divide-y" aria-label="List of all championship reigns">
 				{#each data.reigns as item}
