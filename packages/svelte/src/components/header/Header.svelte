@@ -1,7 +1,25 @@
-<header class="container mt-4 flex flex-row items-center justify-between">
-	<a href="/" class="text-md font-mono text-black hover:text-gray-700"> CFB-Belt.com </a>
-	<div class="space-x-4 text-sm">
-		<a class="my-4 font-mono" href="/history">Complete Lineage</a>
-		<a class="font-mono" href="/teams">Teams</a>
+<script lang="ts">
+	import { page } from '$app/stores';
+	import Link from './Link.svelte';
+	$: data = $page.data;
+</script>
+
+<header class="bg-[#1f2122] pb-12 pt-6 text-white shadow-md">
+	<div class="container space-y-8 text-center">
+		<a href="/">
+			<h1 class=" mb-2 text-start uppercase tracking-wide text-white md:text-center">
+				<span class="!text-start !text-xl text-accent">The<br /></span> College Football
+				Belt
+			</h1>
+			<p class="text-start font-semibold text-accent md:text-center">
+				Tracking the lineal championship of college football
+			</p>
+		</a>
+
+		<div class="mx-auto flex w-full max-w-md flex-col gap-6">
+			<Link dest="/teams" value={data.teamCount} title="Belt Holders" />
+			<Link dest="/history" value={data.totalReigns} title="Reigns" />
+			<Link dest="/history" value={data.totalGames} title="Total Games" />
+		</div>
 	</div>
 </header>

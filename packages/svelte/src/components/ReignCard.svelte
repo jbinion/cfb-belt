@@ -7,17 +7,22 @@
 	export let games = [];
 	const startDate = new Date(start).toLocaleDateString();
 	const endDate = new Date(end).toLocaleDateString();
-
+	import { HiSolidChevronRight } from 'svelte-icons-pack/hi';
+	import { HiSolidChevronDown } from 'svelte-icons-pack/hi';
+	import { Icon } from 'svelte-icons-pack';
+	
+	
 	let showGames = false;
 </script>
 
 <div>
 	<button
 		on:click={() => (showGames = !showGames)}
-		class="card flex w-full flex-row items-center justify-between p-4 font-mono hover:bg-gray-100"
+		class="card  w-full justify-between px-3 py-3 font-mono hover:bg-gray-100 flex flex-row space-x-8 items-center"
 	>
-		<div class="flex flex-row space-x-8">
-			<div class=" ">
+
+			<div class="flex items-center gap-2">
+				<Icon src={showGames ? HiSolidChevronDown : HiSolidChevronRight} size={'16'} color={'black'} />
 				<p class="m-0 leading-6">
 					{startDate} -
 					{endDate}
@@ -30,9 +35,6 @@
 					{defenses === 1 ? 'Defense' : 'Defenses'}
 				</p>
 			</div>
-		</div>
-
-		{showGames ? 'Hide Games' : 'Show Games'}
 	</button>
 
 	{#if showGames}

@@ -7,7 +7,8 @@ export default {
 	theme: {
 		extend: {
 			colors: {
-				'background-color': 'var(--background-color)'
+				'background-color': 'var(--background-color)',
+				accent: 'var(--accent)'
 			}
 		}
 	},

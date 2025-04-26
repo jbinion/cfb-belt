@@ -8,12 +8,11 @@
 
 <div class="flex min-h-[100vh] flex-col ">
 	<Header />
-
-	<main class="mx-auto flex w-full max-w-screen-lg flex-1 flex-col px-8">
+	<main class="mx-auto my-12 flex w-full max-w-screen-sm flex-col space-y-12 px-4 md:px-0">
 		{@render children()}
 	</main>
 
-	<footer class="mb-2 mt-24"><Footer /></footer>
+	<Footer />
 </div>
 
 <style>

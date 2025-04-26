@@ -1,15 +1,13 @@
 <script lang="ts">
 	import AboutText from '../components/AboutText.svelte';
 	import CurrentHolderCard from '../components/CurrentHolderCard.svelte';
+	import NewNextGame from '../components/NewNextGame.svelte';
 
 	import NextGame from '../components/NextGame.svelte';
 	import TeamCard from '../components/TeamCard.svelte';
 	import type { PageData } from './$types';
 
 	let { data }: { data: PageData } = $props();
-	console.log(data.totalGames);
-	console.log(data.totalReigns);
-	console.log(data.teamCount);
 </script>
 
 <svelte:head>
@@ -20,52 +18,11 @@
 	/>
 </svelte:head>
 
-<div class="titleContainer space-y-8">
-	<div>
-		<h1 class="pageTitle mb-2 text-start uppercase tracking-wide md:text-center">
-			<span class="!text-start !text-xl">The<br /></span> College Football Belt
-		</h1>
-		<p class="text-start md:text-center">Tracking the lineal championship of college football</p>
-	</div>
-
-	<div class=" flex items-center justify-center">
-		<div class="grid grid-cols-3 gap-6">
-			<div class="text-center">
-				<p class=" text-lg font-semibold">{data.teamCount}</p>
-				<p class="text-sm text-gray-500">Belt Holders</p>
-			</div>
-			<div class="text-center">
-				<p class=" text-lg font-semibold">{data.totalReigns}</p>
-				<p class="text-sm text-gray-500">Reigns</p>
-			</div>
-			<div class="px-4 text-center">
-				<p class=" text-lg font-semibold">{data.totalGames}</p>
-				<p class="text-sm text-gray-500">Total Games</p>
-			</div>
-		</div>
-	</div>
-
-	<div class="flex flex-col justify-center space-y-4 md:flex-row md:space-x-8 md:space-y-0">
-		<a
-			href="/history"
-			class="text-mono border border-black px-8 py-3 text-lg font-semibold uppercase text-black"
-			>Complete Lineage</a
-		>
-		<a
-			href="/teams "
-			class="text-mono border border-black px-8 py-3 text-lg font-semibold uppercase text-black"
-			>All Belt Holders</a
-		>
-	</div>
-</div>
-
-<main class="mb-24 flex flex-col space-y-24">
-	<div class="mx-auto flex w-full max-w-screen-sm flex-col space-y-16">
-		<CurrentHolderCard />
-		<section aria-label="Next Championship Game">
-			<NextGame />
-		</section>
-	</div>
+	<CurrentHolderCard />
+	<section aria-label="Next Championship Game">
+		<NextGame />
+	</section>
+	<!-- <NewNextGame /> -->
 
 	{#if data}
 		<section aria-label="Recent Belt History  " class="mx-auto w-full max-w-screen-sm">
@@ -76,6 +33,5 @@
 				{/each}
 			</ul>
 		</section>
-	{/if}
+	{/if} 
 	<AboutText />
-</main>
