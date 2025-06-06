@@ -11,7 +11,11 @@ const getWeeks = async (year) => {
       `error fetching ${url} : ${res.status} : ${JSON.stringify(config.reqOptions)}`
     );
   const data = await res.json();
-  const weeks = data.map((x) => ({ week: x.week, type: x.seasonType }));
+  const weeks = data
+    .map((x) => ({ week: x.week, type: x.seasonType }))
+    .filter(
+      (x) => x.type !== 'spring_regular' && x.type !== 'spring_postseason'
+    );
   return weeks;
 };
 
