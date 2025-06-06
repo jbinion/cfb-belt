@@ -4,7 +4,7 @@
 </script>
 
 <nav class="bg-navBackground text-white shadow-md">
-	<div class="content flex items-center justify-between py-2">
+	<div class="content flex items-center justify-between py-4">
 		<a
 			href="/"
 			class="text-accent flex items-center text-lg font-bold tracking-wide transition-colors hover:text-white"
@@ -13,7 +13,7 @@
 		</a>
 		<div class="flex gap-4">
 			<a href="/teams" class="hover:text-accent transition-colors">Belt Holders</a>
-			<a href="/history" class="hover:text-accent transition-colors">Reigns</a>
+			<a href="/history" class="hover:text-accent transition-colors">Complete Lineage</a>
 		</div>
 	</div>
 </nav>

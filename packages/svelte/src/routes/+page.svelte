@@ -1,8 +1,7 @@
 <script lang="ts">
 	import AboutText from '../components/AboutText.svelte';
 	import CurrentHolderCard from '../components/CurrentHolderCard.svelte';
-	import NewNextGame from '../components/NewNextGame.svelte';
-
+	// import NewNextGame from '../components/NewNextGame.svelte';
 	import NextGame from '../components/NextGame.svelte';
 	import TeamCard from '../components/TeamCard.svelte';
 	import type { PageData } from './$types';
@@ -18,20 +17,20 @@
 	/>
 </svelte:head>
 
-	<CurrentHolderCard />
-	<section aria-label="Next Championship Game">
-		<NextGame />
-	</section>
-	<!-- <NewNextGame /> -->
+<CurrentHolderCard />
+<section aria-label="Next Championship Game">
+	<NextGame />
+</section>
+<!-- <NewNextGame /> -->
 
-	{#if data}
-		<section aria-label="Recent Belt History  " class="mx-auto w-full max-w-screen-sm">
-			<h2 class="sectionTitle">Recent Lineage</h2>
-			<ul class="space-y-2" aria-label="Recent belt holders">
-				{#each data.reigns as item (item._id)}
-					<TeamCard logo={item.team.logoFile} name={item.team.name} slug={item.team.slug} />
-				{/each}
-			</ul>
-		</section>
-	{/if} 
-	<AboutText />
+{#if data}
+	<section aria-label="Recent Belt History  " class="mx-auto w-full max-w-screen-sm">
+		<h2 class="sectionTitle">Recent Lineage</h2>
+		<ul class="space-y-2" aria-label="Recent belt holders">
+			{#each data.reigns as item (item._id)}
+				<TeamCard logo={item.team.logoFile} name={item.team.name} slug={item.team.slug} />
+			{/each}
+		</ul>
+	</section>
+{/if}
+<AboutText />
