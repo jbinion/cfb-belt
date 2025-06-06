@@ -61,11 +61,6 @@ a {
 	transition: color 0.2s;
 }
 
-a:hover,
-a:focus {
-	color: var(--accent);
-}
-
 .sectionTitle {
 	@apply mb-6 text-xl font-semibold uppercase;
 	/* color: var(--color-slate); */
@@ -104,13 +99,6 @@ a:focus {
 .textHeading {
 	text-decoration: none;
 	font-family: var(--font-heading);
-}
-footer {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	padding: 12px;
 }
 
 @media (min-width: 480px) {
