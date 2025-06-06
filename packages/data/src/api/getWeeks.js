@@ -6,6 +6,10 @@ const getWeeks = async (year) => {
   const url = config.baseUrl + '/calendar?' + searchParams;
 
   const res = await fetch(url, config.reqOptions);
+  if (!res.ok)
+    throw new Error(
+      `error fetching ${url} : ${res.status} : ${JSON.stringify(config.reqOptions)}`
+    );
   const data = await res.json();
   const weeks = data.map((x) => ({ week: x.week, type: x.seasonType }));
   return weeks;
