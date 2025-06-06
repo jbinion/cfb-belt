@@ -15,10 +15,10 @@
 			</p>
 		</a>
 
-		<div class="mx-auto flex w-full max-w-md flex-col gap-6">
+		<div class="mx-auto flex w-full max-w-md flex-col gap-4">
 			<Link dest="/teams" value={data.teamCount} title="Belt Holders" />
 			<Link dest="/history" value={data.totalReigns} title="Reigns" />
-			<Link dest="/history" value={data.totalGames} title="Total Games" />
+			<!-- <Link dest="/history" value={data.totalGames} title="Total Games" /> -->
 		</div>
 	</div>
 </header>
