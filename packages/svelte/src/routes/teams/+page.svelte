@@ -41,15 +41,14 @@
 	/>
 </svelte:head>
 
-
-
 <main>
+	<h2 class="sectionTitle">All College Football Belt Holders</h2>
 	<nav
 		class="controls mb-8 flex flex-wrap items-center justify-center gap-4"
 		aria-label="Sort options"
 	>
 		<fieldset class="flex flex-row items-center gap-4">
-			<legend class=" font-mono uppercase contents">Sort:</legend>
+			<legend class=" contents font-mono uppercase">Sort:</legend>
 			<button
 				class="sortButton"
 				class:text-blue-700={sortBy === 'name'}
@@ -63,7 +62,7 @@
 			>
 				Name
 				<span class="inline-block w-2" aria-hidden="true">
-					{sortBy === 'name' ? (sortDirection === 'asc' ?   '↓':'↑') : ''}</span
+					{sortBy === 'name' ? (sortDirection === 'asc' ? '↓' : '↑') : ''}</span
 				>
 			</button>
 

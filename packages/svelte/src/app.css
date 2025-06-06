@@ -12,12 +12,13 @@
 	--color-primary: #1e293b;
 	--color-white: #ffffff;
 	--color-slate: #64748b;
-	--color-bg-light: #F0F0F0;
+	--color-bg-light: #f0f0f0;
 
 	--accent: #ffd700;
 	background-color: var(--color-bg-light);
 	color: var(--color-primary);
 	font-family: var(--font-body);
+	--nav-background: #1f2122;
 }
 
 body {
@@ -66,7 +67,7 @@ a:focus {
 }
 
 .sectionTitle {
-	@apply mb-6 text-lg font-semibold uppercase text-neutral-700;
+	@apply mb-6 text-xl font-semibold uppercase;
 	/* color: var(--color-slate); */
 	font-family: var(--font-heading);
 }
@@ -96,14 +97,24 @@ a:focus {
 	color: var(--color-primary);
 }
 
-
-
-.container {
-	@apply mx-auto w-full max-w-screen-sm px-8;
+.content {
+	@apply mx-auto w-full max-w-screen-sm px-4 md:px-0;
 }
 
 .textHeading {
 	text-decoration: none;
 	font-family: var(--font-heading);
 }
+footer {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding: 12px;
+}
 
+@media (min-width: 480px) {
+	footer {
+		padding: 12px 0;
+	}
+}

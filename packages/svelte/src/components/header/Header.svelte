@@ -4,14 +4,13 @@
 	$: data = $page.data;
 </script>
 
-<header class="bg-[#1f2122] pb-12 pt-6 text-white shadow-md">
-	<div class="container space-y-8 text-center">
+<header class="bg-navBackground pb-12 pt-6 text-white shadow-md">
+	<div class="content space-y-8 text-center">
 		<a href="/">
 			<h1 class=" mb-2 text-start uppercase tracking-wide text-white md:text-center">
-				<span class="!text-start !text-xl text-accent">The<br /></span> College Football
-				Belt
+				<span class="text-accent !text-start !text-xl">The<br /></span> College Football Belt
 			</h1>
-			<p class="text-start font-semibold text-accent md:text-center">
+			<p class="text-accent text-start font-semibold md:text-center">
 				Tracking the lineal championship of college football
 			</p>
 		</a>

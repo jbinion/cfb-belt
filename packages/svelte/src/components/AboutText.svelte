@@ -1,6 +1,3 @@
-<script lang="ts">
-	// AboutText component for CFB Belt
-</script>
 <div>
 	<h2 class="sectionTitle mb-2">About the College Football Belt</h2>
 

@@ -1,5 +1,6 @@
-<footer class="mb-4 mt-24 container flex flex-col items-center justify-between md:flex-row md:space-x-4">
-
+<footer
+	class="content mb-4 mt-24 flex flex-col items-center justify-between md:flex-row md:space-x-4"
+>
 	<div class="flex-cold flex space-x-4 md:flex-row md:space-x-6">
 		<a class="text-gray-600" href="/history"> Complete Lineage</a>
 		<a class="text-gray-600" href="/teams"> Teams</a>
@@ -14,5 +15,4 @@
 	<div class="text-xs text-gray-500">
 		© {new Date().getFullYear()} CFB-Belt.com
 	</div>
-
 </footer>

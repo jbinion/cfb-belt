@@ -8,7 +8,8 @@ export default {
 		extend: {
 			colors: {
 				'background-color': 'var(--background-color)',
-				accent: 'var(--accent)'
+				accent: 'var(--accent)',
+				navBackground: 'var(--nav-background)'
 			}
 		}
 	},
