@@ -9,7 +9,7 @@ export const prerender = true;
 export const entries = async () => {
 	await connectDB();
 	const teams = (await Team.find({}).select('slug')) as ITeamDocument[];
-	return teams.map((t) => ({ slug: t.slug }));
+	return teams.map((t) => ({ slug: decodeURIComponent(t.slug) }));
 };
 
 export async function load({ params }) {
@@ -17,6 +17,7 @@ export async function load({ params }) {
 		await connectDB();
 		console.log(params);
 		const decodedSlug = encodeURIComponent(params.slug);
+		console.log(decodedSlug);
 		const team = await Team.findOne({ slug: decodedSlug });
 		if (!team) throw new Error('Team not found');
 		const reigns = await Reign.find({ team: team._id, beltName: config.beltName })
