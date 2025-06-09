@@ -1,6 +1,8 @@
 <script lang="ts">
 	import { page } from '$app/stores';
+	export let currentHolderTotalReigns = 0;
 	$: current = $page.data.current;
+	import numberSuffix from '../lib/numberSuffix';
 </script>
 
 <div>
@@ -11,7 +13,7 @@
 		{#if current}
 			<img
 				src={`/webp/large/${current.team.logoFile}.webp`}
-				class="h-[90px] w-[90px] rounded-full border-4 border-accent bg-[var(--color-bg-light)] shadow"
+				class="border-accent h-[90px] w-[90px] rounded-full border-4 bg-[var(--color-bg-light)] shadow"
 				alt={`logo of current belt holder; ${current.team.name}`}
 			/>
 
@@ -26,16 +28,12 @@
 							since {new Date(current.startDate).toLocaleDateString()}
 						</p>
 					</div>
-					<div class="mt-2 flex flex-col space-y-4 md:space-y-0 md:flex-row md:space-x-4">
-						<p
-							class="rounded bg-accent px-2 py-1 font-mono text-sm text-[var(--color-primary)]"
-						>
-							4th Reign
+					<div class="mt-2 flex flex-col space-y-4 md:flex-row md:space-x-4 md:space-y-0">
+						<p class="bg-accent rounded px-2 py-1 font-mono text-sm text-[var(--color-primary)]">
+							{`${currentHolderTotalReigns}${numberSuffix(currentHolderTotalReigns)} `} Reign
 						</p>
-						<p
-							class="rounded bg-accent px-2 py-1 font-mono text-sm text-[var(--color-primary)]"
-						>
-							3 Defenses
+						<p class="bg-accent rounded px-2 py-1 font-mono text-sm text-[var(--color-primary)]">
+							{current.games.length - 1} Defenses
 						</p>
 					</div>
 				</a>
