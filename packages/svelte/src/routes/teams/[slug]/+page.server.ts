@@ -33,7 +33,7 @@ export async function load({ params }) {
 			reigns: JSON.parse(JSON.stringify(reigns))
 		};
 	} catch (error) {
-		console.error('Error loading reigns:', error);
+		console.error(`Error loading team from params ${JSON.stringify(params)}`, error);
 		return {
 			teams: []
 		};
