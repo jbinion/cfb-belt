@@ -12,13 +12,13 @@ export async function load() {
 			.sort({ startDate: -1 })
 			.populate('team');
 		const totalReigns = await Reign.find({ beltName: config.beltName }).countDocuments(); // Get the total count of reigns for pagination or other purposes
-		const totalGames = await Game.find({ beltName: config.beltName }).countDocuments(); // Get the total count of games for potential use in UI or logic
+		// const totalGames = await Game.find({ beltName: config.beltName }).countDocuments(); // Get the total count of games for potential use in UI or logic
 		const teamCount = await Reign.find({ beltName: config.beltName }).distinct('team'); // Count distinct teams that have held the belt
 
 		return {
 			current: JSON.parse(JSON.stringify(current)),
 			totalReigns,
-			totalGames,
+			// totalGames,
 			teamCount: teamCount.length // Return the count of distinct teams that have held the belt
 		};
 	} catch (error) {
