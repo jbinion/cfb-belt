@@ -1,7 +1,6 @@
 import { Team } from 'models';
 
 const saveTeams = async (teamData) => {
-  // Set slug directly as a regular property
   const teamObj = teamData.map((t) => ({
     ...t,
     slug: encodeURIComponent(t.name.replace(/\s/g, '').toLowerCase()),

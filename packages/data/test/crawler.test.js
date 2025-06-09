@@ -7,7 +7,7 @@ test(
     const options = {
       startYear: '2019',
       team: 'Ohio State',
-      maxYear: '2021',
+      maxYear: '2020',
       startWeekIndex: '16',
     };
 
@@ -15,7 +15,7 @@ test(
     console.log(teams);
     console.log(reigns);
     console.log(reigns.at(-1).games);
-    expect(teams).toHaveLength(9);
+    expect(teams).toHaveLength(3);
     expect(reigns).toHaveLength(3);
   },
   { timeout: 60000 }

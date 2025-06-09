@@ -8,5 +8,6 @@ const config = {
       Authorization: 'Bearer ' + process.env.API_KEY,
     },
   },
+  delayAmount: 300,
 };
 export default config;

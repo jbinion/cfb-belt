@@ -1,4 +1,4 @@
-import config from '../utils/config.js';
+import config from '../config.js';
 import formatGame from './formatGame.js';
 
 const getGame = async ({ year, week, team, type }) => {

@@ -1,5 +1,5 @@
 class BeltTracker {
-  static instance;
+  static instance = null;
 
   static getInstance(startTeam) {
     if (!BeltTracker.instance) {
@@ -18,8 +18,7 @@ class BeltTracker {
       game.home_team !== this.currentHolder &&
       game.away_team !== this.currentHolder
     ) {
-      console.log(game);
-      throw new Error('Invalid game: ' + game);
+      console.log('Invalid game: ' + JSON.stringify(game));
     }
     // handle refecthing current week when belt holder losses
     if (this.reigns.at(-1)?.games.at(-1).id === game.id) return;

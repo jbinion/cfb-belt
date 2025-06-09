@@ -30,6 +30,7 @@ const reignSchema = new mongoose.Schema({
   },
   beltName: {
     type: String,
+    required: true,
   },
 });
 
