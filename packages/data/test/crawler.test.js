@@ -5,15 +5,17 @@ test(
   'crawler',
   async () => {
     const options = {
-      startYear: '1995',
-      team: 'Alabama',
-      maxYear: '1996',
+      startYear: '2019',
+      team: 'Ohio State',
+      maxYear: '2020',
+      startWeekIndex: '16',
     };
 
     const { reigns, teams } = await crawler(options);
     console.log(teams);
     console.log(reigns);
-    expect(teams).toHaveLength(9);
+    console.log(reigns.at(-1).games);
+    expect(teams).toHaveLength(3);
     expect(reigns).toHaveLength(3);
   },
   { timeout: 60000 }

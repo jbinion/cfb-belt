@@ -1,17 +1,27 @@
-import getGame from './api/getGame';
-import getWeeks from './api/getWeeks';
-import BeltTracker from './beltTracker';
-import delay from './utils/delay';
+import getGame from './api/getGame.js';
+import getWeeks from './api/getWeeks.js';
+import BeltTracker, { getGameWinner } from './beltTracker.js';
+import config from './config.js';
+import delay from './utils/delay.js';
 
-const crawler = async ({ team, startYear, maxYear }) => {
+const crawler = async ({ team, startYear, maxYear, startWeekIndex = 0 }) => {
   console.log(`creating lineage for team ${team} from year ${startYear}`);
   const beltTracker = BeltTracker.getInstance(team);
-  let active = true;
   let year = startYear;
+  // used for testing
+  let initialStart = startWeekIndex;
 
-  while (active) {
+  while (year < maxYear) {
     const weeks = await getWeeks(year);
-    for (let i = 0; i < weeks.length; i++) {
+    console.log(weeks);
+    if (!weeks.length) {
+      console.log('no games found for year ' + year);
+      year++;
+      continue;
+    }
+    for (let i = initialStart; i < weeks.length; ) {
+      await delay(config.delayAmount);
+      const initalHolder = beltTracker.currentHolder || null;
       const games = await getGame({
         year,
         week: weeks[i].week,
@@ -19,13 +29,28 @@ const crawler = async ({ team, startYear, maxYear }) => {
         type: weeks[i].type,
       });
       console.log(games);
+      if (!games || games.length == 0) {
+        i++;
+        continue;
+      }
+      console.log(games);
       if (games) {
         games.forEach((game) => beltTracker.addGame(game));
       }
-      await delay(400);
+      // a team can play more than one game per 'week'
+      // if the current belt holder loses the first game,
+      // we need to refetch the week for the new belt holder to get potential second games, likely a championship
+      // this assumes there will never be more than 2 games in a week.
+
+      let firstGameWinner = getGameWinner(games[0], initalHolder);
+      if (firstGameWinner === initalHolder) {
+        i++;
+      }
     }
+
+    //reset testing value which is meant to start crawler at season x week y
+    initialStart = 0;
     year++;
-    if (year >= maxYear) active = false;
   }
   return { reigns: beltTracker.reigns, teams: Array.from(beltTracker.teams) };
 };

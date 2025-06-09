@@ -11,6 +11,10 @@ export interface IGameDocument extends Document {
 }
 
 const gameSchema = new mongoose.Schema({
+  id: {
+    type: String,
+    required: true,
+  },
   start_date: {
     type: Date,
     required: true,
@@ -19,9 +23,15 @@ const gameSchema = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: "Team",
   },
+  home_team_name: {
+    type: String,
+  },
   away_team: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "Team",
+  },
+  away_team_name: {
+    type: String,
   },
   home_points: {
     type: Number,
@@ -29,6 +39,10 @@ const gameSchema = new mongoose.Schema({
   },
   away_points: {
     type: Number,
+    required: true,
+  },
+  beltName: {
+    type: String,
     required: true,
   },
 });
