@@ -7,6 +7,7 @@
 	import type { PageData } from './$types';
 
 	let { data }: { data: PageData } = $props();
+	console.log(data);
 </script>
 
 <svelte:head>
@@ -17,7 +18,7 @@
 	/>
 </svelte:head>
 
-<CurrentHolderCard />
+<CurrentHolderCard currentHolderTotalReigns={data.currentHolderTotalReigns} />
 <section aria-label="Next Championship Game">
 	<NextGame />
 </section>

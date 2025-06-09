@@ -1,6 +1,5 @@
 import { connectDB } from '$lib/db/mongoose';
 import { Reign, type IReignDocument } from 'models';
-// Import all models to ensure schemas are registered
 import '$lib/models/index';
 import config from '../config';
 
@@ -13,9 +12,13 @@ export async function load() {
 			.populate('team')
 			.limit(10)
 			.sort({ startDate: -1 })) as IReignDocument[];
-
+		const currentHolderTotalReigns = await Reign.find({
+			team: reigns[0].team._id,
+			beltName: config.beltName
+		}).countDocuments();
 		return {
-			reigns: JSON.parse(JSON.stringify(reigns))
+			reigns: JSON.parse(JSON.stringify(reigns)),
+			currentHolderTotalReigns
 		};
 	} catch (error) {
 		console.error('Error loading reigns:', error);
