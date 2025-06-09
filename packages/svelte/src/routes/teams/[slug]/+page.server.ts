@@ -2,6 +2,7 @@ import { connectDB } from '$lib/db/mongoose';
 // Import all models to ensure schemas are registered
 import '$lib/models/index';
 import { Reign, Team, type ITeamDocument } from 'models';
+import config from '../../../config';
 
 export const prerender = true;
 
@@ -15,9 +16,10 @@ export async function load({ params }) {
 	try {
 		await connectDB();
 		console.log(params);
-		const team = await Team.findOne({ slug: params.slug });
+		const decodedSlug = encodeURIComponent(params.slug);
+		const team = await Team.findOne({ slug: decodedSlug });
 		if (!team) throw new Error('Team not found');
-		const reigns = await Reign.find({ team: team._id })
+		const reigns = await Reign.find({ team: team._id, beltName: config.beltName })
 			.populate({
 				path: 'games',
 				populate: [{ path: 'home_team' }, { path: 'away_team' }],

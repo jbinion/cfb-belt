@@ -1,6 +1,7 @@
 import { connectDB } from '$lib/db/mongoose';
 import '$lib/models/index';
 import { Reign, Team } from '$lib/models/index';
+import config from '../../config';
 
 export const prerender = true;
 
@@ -8,10 +9,9 @@ export async function load() {
 	try {
 		await connectDB();
 
-		const teamsThatHeldBelt = await Reign.find().distinct('team');
+		const teamsThatHeldBelt = await Reign.find({ beltName: config.beltName }).distinct('team');
 
 		const teams = await Team.find({ _id: { $in: teamsThatHeldBelt } }).sort({ name: 1 });
-		console.log(teams);
 
 		const result = await Promise.all(
 			teams.map(async (team) => {
@@ -20,7 +20,6 @@ export async function load() {
 				return { ...team.toObject(), reigns: reigns.length, defenses };
 			})
 		);
-		console.log(result);
 		return {
 			teams: JSON.parse(JSON.stringify(result))
 		};
