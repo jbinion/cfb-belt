@@ -1,9 +1,12 @@
 import 'dotenv/config';
-import { Reign } from 'models';
+import { Reign, NextGame } from 'models';
 
 import mongoose from './mongoose.js';
 import config from './config.js';
 import getWeeks from './api/getWeeks.js';
+import populateTeamData from './populateTeamData.js';
+import saveTeams from './db/saveTeams.js';
+import saveNextGame from './db/saveNextGame.js';
 
 const main = async () => {
   await mongoose();
@@ -113,12 +116,30 @@ const main = async () => {
 
   if (nextGame) {
     console.log('Next game found:', {
+      id: nextGame.id,
       week: nextGame.week,
       seasonType: nextGame.seasonType,
       homeTeam: nextGame.homeTeam,
       awayTeam: nextGame.awayTeam,
-      startDate: nextGame.start_date,
+      startDate: nextGame.startDate,
     });
+
+    await NextGame.deleteMany();
+    const { teamData, noData } = await populateTeamData([
+      nextGame.homeTeam,
+      nextGame.awayTeam,
+    ]);
+    console.log(teamData);
+    await saveTeams(teamData);
+
+    await saveNextGame({
+      home_team: nextGame.homeTeam,
+      away_team: nextGame.awayTeam,
+      start_date: nextGame.startDate,
+      gameId: nextGame.id,
+    });
+
+    process.exit();
   } else {
     console.log('No next game found');
   }
