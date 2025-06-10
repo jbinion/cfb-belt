@@ -1,5 +1,5 @@
 import 'dotenv/config';
-import mongoose from './mongoose.js';
+import mongoose from '../src/mongoose.js';
 
 import { Reign, Team } from 'models';
 
