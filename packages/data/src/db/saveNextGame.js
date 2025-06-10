@@ -1,10 +1,10 @@
-import { Game, Team } from 'models';
+import { NextGame, Team } from 'models';
 
 const saveNextGame = async ({ home_team, away_team, gameId, start_date }) => {
   const homeTeamId = await Team.findOne({ name: home_team }).select('_id');
   const awayTeamId = await Team.findOne({ name: away_team }).select('_id');
 
-  return await Game.findOneAndUpdate(
+  return await NextGame.findOneAndUpdate(
     {
       start_date: start_date,
       home_team: homeTeamId._id,
