@@ -8,7 +8,12 @@ const saveReign = async ({ reign, beltName }) => {
 
   return Reign.findOneAndUpdate(
     { team: teamId._id, startDate: reign.startDate },
-    { games: gameIds, beltName, startDate: reign.startDate },
+    {
+      games: gameIds,
+      beltName,
+      startDate: reign.startDate,
+      endDate: reign.endDate,
+    },
     { upsert: true, new: true }
   );
 };
