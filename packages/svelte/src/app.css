@@ -51,7 +51,6 @@ li,
 ul,
 ol {
 	font-family: var(--font-body);
-	color: var(--color-primary);
 	font-weight: 400;
 	line-height: 1.6;
 }

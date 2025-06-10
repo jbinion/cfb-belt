@@ -29,60 +29,60 @@
 	</script> -->
 </svelte:head>
 
-	{#if data.reigns}
-		<section
-			class="flex flex-col items-center justify-between md:flex-row"
-			aria-label="Team Overview"
-		>
-			<div class=" flex flex-row space-x-6">
-				<img
-					src={`/webp/original/${data.team.logoFile}.webp`}
-					class="h-[90px] w-[90px]"
-					alt=""
-					aria-hidden="true"
-				/>
-				<div class="flex flex-col justify-center text-black">
-					<h1 class="text-4xl font-bold">
-						{data.team.name}
-					</h1>
-				</div>
+{#if data.reigns}
+	<section
+		class="flex flex-col items-center justify-between md:flex-row"
+		aria-label="Team Overview"
+	>
+		<div class=" flex flex-row space-x-6">
+			<img
+				src={`/webp/original/${data.team.logoFile}.webp`}
+				class="h-[90px] w-[90px]"
+				alt=""
+				aria-hidden="true"
+			/>
+			<div class="flex flex-col justify-center text-black">
+				<h1 class="text-4xl font-bold">
+					{data.team.name}
+				</h1>
+			</div>
+		</div>
+
+		<dl class="flex flex-row items-center justify-center space-x-4">
+			<div class="flex flex-row items-center space-x-4 p-4">
+				<dt class="sr-only">Championship Reigns</dt>
+				<span aria-hidden="true">
+					<Icon src={BsTrophy} className="text-blue-600" />
+				</span>
+				<dd>{data.reigns.length} Reigns</dd>
 			</div>
 
-			<dl class="flex flex-row items-center justify-center space-x-4">
-				<div class="flex flex-row items-center space-x-4 p-4">
-					<dt class="sr-only">Championship Reigns</dt>
-					<span aria-hidden="true">
-						<Icon src={BsTrophy} className="text-blue-600" />
-					</span>
-					<dd>{data.reigns.length} Reigns</dd>
-				</div>
+			<div class="flex flex-row items-center space-x-4 p-4">
+				<dt class="sr-only">Successful Defenses</dt>
+				<span aria-hidden="true">
+					<Icon src={BsShield} className="text-blue-600" />
+				</span>
+				<dd>
+					{data.reigns.reduce(
+						(acc: number, curr: { games: any[] }) => acc + curr.games.length - 1,
+						0
+					)} Defenses
+				</dd>
+			</div>
+		</dl>
+	</section>
 
-				<div class="flex flex-row items-center space-x-4 p-4">
-					<dt class="sr-only">Successful Defenses</dt>
-					<span aria-hidden="true">
-						<Icon src={BsShield} className="text-blue-600" />
-					</span>
-					<dd>
-						{data.reigns.reduce(
-							(acc: number, curr: { games: any[] }) => acc + curr.games.length - 1,
-							0
-						)} Defenses
-					</dd>
-				</div>
-			</dl>
-		</section>
-
-		<section class="flex flex-col space-y-4" aria-label="Championship History">
-			<h2 class="sr-only">Championship Reigns</h2>
-			{#each data.reigns as reign (reign._id)}
-				<ReignCard
-					defenses={reign.games.length - 1}
-					start={reign.games[0].start_date}
-					end={reign.games.at(-1).start_date}
-					games={reign.games}
-				/>
-			{/each}
-		</section>
-	{:else}
-		<p class="text-center">No championship history found for {data.team.name}.</p>
-	{/if}
+	<section class="flex flex-col space-y-4" aria-label="Championship History">
+		<h2 class="sr-only">Championship Reigns</h2>
+		{#each data.reigns as reign (reign._id)}
+			<ReignCard
+				defenses={reign.games.length - 1}
+				start={reign.startDate}
+				end={reign.endDate}
+				games={reign.games}
+			/>
+		{/each}
+	</section>
+{:else}
+	<p class="text-center">No championship history found for {data.team.name}.</p>
+{/if}

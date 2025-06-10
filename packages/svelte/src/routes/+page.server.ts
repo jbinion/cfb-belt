@@ -17,7 +17,6 @@ export async function load() {
 			beltName: config.beltName
 		}).countDocuments();
 		const nextGame = await NextGame.findOne().populate('home_team').populate('away_team');
-		console.log(nextGame);
 		return {
 			reigns: JSON.parse(JSON.stringify(reigns)),
 			currentHolderTotalReigns,
