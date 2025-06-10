@@ -3,7 +3,7 @@
 	$: data = $page.data;
 </script>
 
-<nav class="bg-navBackground text-white shadow-md">
+<nav class="bg-navBackground text-white">
 	<div class="content flex items-center justify-between py-4">
 		<a
 			href="/"
@@ -11,9 +11,11 @@
 		>
 			CFB-Belt
 		</a>
-		<div class="flex gap-4">
-			<a href="/teams" class="hover:text-accent transition-colors">Belt Holders</a>
-			<a href="/history" class="hover:text-accent transition-colors">Complete Lineage</a>
+		<div class="flex gap-8">
+			<a href="/history" class="hover:text-accent text-sm font-semibold transition-colors"
+				>History</a
+			>
+			<a href="/teams" class="hover:text-accent text-sm font-semibold transition-colors">Teams</a>
 		</div>
 	</div>
 </nav>

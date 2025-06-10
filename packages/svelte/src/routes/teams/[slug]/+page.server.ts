@@ -15,9 +15,7 @@ export const entries = async () => {
 export async function load({ params }) {
 	try {
 		await connectDB();
-		console.log(params);
 		const decodedSlug = encodeURIComponent(params.slug);
-		console.log(decodedSlug);
 		const team = await Team.findOne({ slug: decodedSlug });
 		if (!team) throw new Error('Team not found');
 		const reigns = await Reign.find({ team: team._id, beltName: config.beltName })
@@ -27,8 +25,7 @@ export async function load({ params }) {
 				options: { sort: { start_date: -1 } }
 			})
 			.sort({ startDate: -1 });
-		console.log(team);
-		console.log(reigns);
+
 		return {
 			team: JSON.parse(JSON.stringify(team)),
 			reigns: JSON.parse(JSON.stringify(reigns))
