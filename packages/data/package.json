@@ -9,6 +9,7 @@
     "images": "node ./src/images/createImages.js",
     "compute": "node ./src/compute/app.js",
     "downloadEspnData": "node ./src/utils/downloadEspnData.js",
+    "nextGame": "node ./src/currentHolderNextGame.js",
     "lint": "eslint --fix ."
   },
   "author": "",

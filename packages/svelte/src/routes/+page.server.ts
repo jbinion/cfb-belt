@@ -1,5 +1,5 @@
 import { connectDB } from '$lib/db/mongoose';
-import { Reign, type IReignDocument } from 'models';
+import { NextGame, Reign, type IReignDocument } from 'models';
 import '$lib/models/index';
 import config from '../config';
 
@@ -16,9 +16,12 @@ export async function load() {
 			team: reigns[0].team._id,
 			beltName: config.beltName
 		}).countDocuments();
+		const nextGame = await NextGame.findOne().populate('home_team').populate('away_team');
+		console.log(nextGame);
 		return {
 			reigns: JSON.parse(JSON.stringify(reigns)),
-			currentHolderTotalReigns
+			currentHolderTotalReigns,
+			nextGame: JSON.parse(JSON.stringify(nextGame))
 		};
 	} catch (error) {
 		console.error('Error loading reigns:', error);
