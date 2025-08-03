@@ -18,6 +18,7 @@ export async function load() {
 
 		const yearsSince = currentDate.getFullYear() - firstReign.startDate.getFullYear();
 		const totalGames = await Game.find({ beltName: config.beltName }).countDocuments();
+		console.log('Current holder:', current);
 		return {
 			current: JSON.parse(JSON.stringify(current)),
 			totalReigns,

@@ -10,7 +10,7 @@
 	<p class="sectionTitle">Next Game</p>
 
 	<div class="flex flex-1 flex-row justify-between">
-		<p class=" my-auto font-bold">
+		<p class=" my-auto">
 			{new Date(date).toLocaleDateString('en-US', {
 				weekday: 'long', // Saturday
 				year: 'numeric', // 2025

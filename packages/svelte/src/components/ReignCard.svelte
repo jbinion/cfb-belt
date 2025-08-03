@@ -10,35 +10,37 @@
 	import { HiSolidChevronRight } from 'svelte-icons-pack/hi';
 	import { HiSolidChevronDown } from 'svelte-icons-pack/hi';
 	import { Icon } from 'svelte-icons-pack';
-	
-	
+
 	let showGames = false;
 </script>
 
 <div>
 	<button
 		on:click={() => (showGames = !showGames)}
-		class="card  w-full justify-between px-3 py-3 font-mono hover:bg-gray-100 flex flex-row space-x-8 items-center"
+		class="card flex w-full flex-row items-center justify-between space-x-8 px-3 py-3 font-mono hover:bg-gray-100"
 	>
+		<div class="flex items-center gap-2">
+			<Icon
+				src={showGames ? HiSolidChevronDown : HiSolidChevronRight}
+				size={'16'}
+				color={'black'}
+			/>
+			<p class="m-0 leading-6">
+				{startDate} -
+				{endDate}
+			</p>
+		</div>
 
-			<div class="flex items-center gap-2">
-				<Icon src={showGames ? HiSolidChevronDown : HiSolidChevronRight} size={'16'} color={'black'} />
-				<p class="m-0 leading-6">
-					{startDate} -
-					{endDate}
-				</p>
-			</div>
-
-			<div class="flex flex-row justify-center space-x-2">
-				<p class=" ">
-					{defenses}
-					{defenses === 1 ? 'Defense' : 'Defenses'}
-				</p>
-			</div>
+		<div class="flex flex-row justify-center space-x-2">
+			<p class=" ">
+				{defenses}
+				{defenses === 1 ? 'Defense' : 'Defenses'}
+			</p>
+		</div>
 	</button>
 
 	{#if showGames}
-		<div class="mx-auto my-4 w-full max-w-lg rounded bg-gray-100">
+		<div class="mx-auto my-4 w-full max-w-lg rounded">
 			{#each games as game}
 				<div class="flex flex-row justify-center space-x-4">
 					<GameCard

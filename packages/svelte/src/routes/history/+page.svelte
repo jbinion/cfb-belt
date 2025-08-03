@@ -29,20 +29,18 @@
 
 <section aria-label="Championship History">
 	{#if data?.reigns?.length}
-		<ul class="divide-y" aria-label="List of all championship reigns">
+		<div class="divide-y" aria-label="List of all championship reigns">
 			{#each data.reigns as item}
-				<li class="py-2">
-					<TeamCardFull
-						name={item.team?.name}
-						slug={item.team?.slug}
-						games={item.games}
-						startDate={item.startDate}
-						endDate={item.endDate}
-						logo={`${item.team?.logoFile}`}
-					/>
-				</li>
+				<TeamCardFull
+					name={item.team?.name}
+					slug={item.team?.slug}
+					games={item.games}
+					startDate={item.startDate}
+					endDate={item.endDate}
+					logo={`${item.team?.logoFile}`}
+				/>
 			{/each}
-		</ul>
+		</div>
 	{:else}
 		<p class="text-center">Loading championship history...</p>
 	{/if}

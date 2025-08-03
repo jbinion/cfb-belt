@@ -1,8 +1,9 @@
 <script lang="ts">
 	import AboutText from '../components/AboutText.svelte';
 	import CurrentHolderCard from '../components/CurrentHolderCard.svelte';
+	import Hero from '../components/hero/Hero.svelte';
 	import NextGame from '../components/NextGame.svelte';
-	import TeamCard from '../components/TeamCard.svelte';
+	import TeamCardFull from '../components/TeamCardFull.svelte';
 	import type { PageData } from './$types';
 
 	let { data }: { data: PageData } = $props();
@@ -15,6 +16,8 @@
 		content="Track the history and current holder of the College Football Belt - a fan-created championship title that traces its lineage through decades of college football."
 	/>
 </svelte:head>
+
+<Hero />
 <CurrentHolderCard currentHolderTotalReigns={data.currentHolderTotalReigns} />
 <section aria-label="Next Championship Game">
 	<NextGame
@@ -28,12 +31,19 @@
 
 {#if data}
 	<section aria-label="Recent Belt History" class="mx-auto w-full max-w-screen-sm">
-		<h2 class="sectionTitle">Recent Lineage</h2>
-		<ul class="space-y-2" aria-label="Recent belt holders">
+		<h2 class="sectionTitle">Recent</h2>
+		<div class="divide-y" aria-label="Recent belt holders">
 			{#each data.reigns as item (item._id)}
-				<TeamCard logo={item.team.logoFile} name={item.team.name} slug={item.team.slug} />
+				<TeamCardFull
+					name={item.team?.name}
+					slug={item.team?.slug}
+					games={item.games}
+					startDate={item.startDate}
+					endDate={item.endDate}
+					logo={`${item.team?.logoFile}`}
+				/>
 			{/each}
-		</ul>
+		</div>
 	</section>
 {/if}
 <AboutText />
