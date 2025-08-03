@@ -25,7 +25,7 @@
 		})}
 	</script> -->
 </svelte:head>
-<h2 class="sectionTitle text-center lg:text-start">Complete Lineage</h2>
+<h2 class="sectionTitle text-center !text-2xl lg:text-start">Complete Lineage</h2>
 
 <section aria-label="Championship History">
 	{#if data?.reigns?.length}

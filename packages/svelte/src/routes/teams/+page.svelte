@@ -20,6 +20,11 @@
 	);
 
 	function setSortBy(type: 'name' | 'reigns' | 'defenses') {
+		if (type === 'name') {
+			sortBy = type;
+			sortDirection = 'asc';
+			return;
+		}
 		sortBy = type;
 		sortDirection = 'desc';
 	}
@@ -33,40 +38,42 @@
 	/>
 </svelte:head>
 
-<h2 class="sectionTitle text-center">All College Football Belt Holders</h2>
-<nav class="controls flex flex-wrap items-center justify-start" aria-label="Sort options">
-	<fieldset class="flex flex-row gap-4">
-		<button
-			class="sortButton"
-			class:text-blue-700={sortBy === 'name'}
-			onclick={() => setSortBy('name')}
-			aria-pressed={sortBy === 'name'}
-			aria-label="Sort by team name"
-		>
-			Name
-		</button>
+<div>
+	<h2 class="sectionTitle text-center text-2xl lg:text-start">All College Football Belt Holders</h2>
+	<nav class="controls flex flex-wrap items-center justify-start" aria-label="Sort options">
+		<fieldset class="flex flex-row gap-4">
+			<button
+				class="sortButton"
+				class:text-blue-700={sortBy === 'name'}
+				onclick={() => setSortBy('name')}
+				aria-pressed={sortBy === 'name'}
+				aria-label="Sort by team name"
+			>
+				Name
+			</button>
 
-		<button
-			class="sortButton"
-			class:text-blue-700={sortBy === 'reigns'}
-			onclick={() => setSortBy('reigns')}
-			aria-pressed={sortBy === 'reigns'}
-			aria-label="Sort by number of reigns "
-		>
-			Reigns
-		</button>
+			<button
+				class="sortButton"
+				class:text-blue-700={sortBy === 'reigns'}
+				onclick={() => setSortBy('reigns')}
+				aria-pressed={sortBy === 'reigns'}
+				aria-label="Sort by number of reigns "
+			>
+				Reigns
+			</button>
 
-		<button
-			class="sortButton"
-			class:text-blue-700={sortBy === 'defenses'}
-			onclick={() => setSortBy('defenses')}
-			aria-pressed={sortBy === 'defenses'}
-			aria-label="Sort by number of defenses "
-		>
-			Defenses
-		</button>
-	</fieldset>
-</nav>
+			<button
+				class="sortButton"
+				class:text-blue-700={sortBy === 'defenses'}
+				onclick={() => setSortBy('defenses')}
+				aria-pressed={sortBy === 'defenses'}
+				aria-label="Sort by number of defenses "
+			>
+				Defenses
+			</button>
+		</fieldset>
+	</nav>
+</div>
 
 <section class="team-list" aria-label="Team List">
 	{#if sortedTeams.length}
