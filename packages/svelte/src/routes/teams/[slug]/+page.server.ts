@@ -26,6 +26,20 @@ export async function load({ params }) {
 			})
 			.sort({ startDate: -1 });
 
+		const teamsBeatenForBelt = reigns.map((reign) => {
+			const firstGame = reign.games[0];
+			console.log('First game for reign:', firstGame);
+			console.log('home team id', firstGame.home_team._id);
+			console.log('away team id', firstGame.away_team._id);
+			console.log('team id', team._id);
+			if (firstGame.home_team._id.toString() !== team._id.toString()) return firstGame.home_team;
+			return firstGame.away_team;
+		});
+		console.log('Teams beaten for belt:', teamsBeatenForBelt);
+		// reigns.forEach((reign) => {
+		// 	console.log(reign.games);
+		// });
+
 		return {
 			team: JSON.parse(JSON.stringify(team)),
 			reigns: JSON.parse(JSON.stringify(reigns))
