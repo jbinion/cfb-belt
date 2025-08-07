@@ -30,14 +30,11 @@
 </svelte:head>
 
 {#if data.reigns}
-	<section
-		class="flex flex-col items-center justify-between md:flex-row"
-		aria-label="Team Overview"
-	>
+	<section class="flex flex-col items-center justify-between" aria-label="Team Overview">
 		<div class=" flex flex-row space-x-6">
 			<img
 				src={`/webp/original/${data.team.logoFile}.webp`}
-				class="h-[90px] w-[90px]"
+				class="h-[128px] w-[128px]"
 				alt=""
 				aria-hidden="true"
 			/>

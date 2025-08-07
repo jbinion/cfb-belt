@@ -19,17 +19,14 @@
 		})
 	);
 
-	function toggleSort() {
-		sortDirection = sortDirection === 'asc' ? 'desc' : 'asc';
-	}
-
 	function setSortBy(type: 'name' | 'reigns' | 'defenses') {
-		if (sortBy === type) {
-			toggleSort();
-		} else {
+		if (type === 'name') {
 			sortBy = type;
-			sortDirection = 'desc';
+			sortDirection = 'asc';
+			return;
 		}
+		sortBy = type;
+		sortDirection = 'desc';
 	}
 </script>
 
@@ -41,66 +38,46 @@
 	/>
 </svelte:head>
 
-<h2 class="sectionTitle text-center">All College Football Belt Holders</h2>
-<nav class="controls flex flex-wrap items-center justify-center gap-4" aria-label="Sort options">
-	<fieldset class="flex flex-row items-center gap-4">
-		<legend class=" contents font-mono uppercase">Sort:</legend>
-		<button
-			class="sortButton"
-			class:text-blue-700={sortBy === 'name'}
-			onclick={() => setSortBy('name')}
-			aria-pressed={sortBy === 'name'}
-			aria-label="Sort by team name {sortBy === 'name'
-				? sortDirection === 'asc'
-					? 'ascending'
-					: 'descending'
-				: ''}"
-		>
-			Name
-			<span class="inline-block w-2" aria-hidden="true">
-				{sortBy === 'name' ? (sortDirection === 'asc' ? '↓' : '↑') : ''}</span
+<div>
+	<h2 class="sectionTitle text-center text-2xl lg:text-start">All College Football Belt Holders</h2>
+	<nav class="controls flex flex-wrap items-center justify-start" aria-label="Sort options">
+		<fieldset class="flex flex-row gap-4">
+			<button
+				class="sortButton"
+				class:text-blue-700={sortBy === 'name'}
+				onclick={() => setSortBy('name')}
+				aria-pressed={sortBy === 'name'}
+				aria-label="Sort by team name"
 			>
-		</button>
+				Name
+			</button>
 
-		<button
-			class="sortButton"
-			class:text-blue-700={sortBy === 'reigns'}
-			onclick={() => setSortBy('reigns')}
-			aria-pressed={sortBy === 'reigns'}
-			aria-label="Sort by number of reigns {sortBy === 'reigns'
-				? sortDirection === 'asc'
-					? 'ascending'
-					: 'descending'
-				: ''}"
-		>
-			Reigns
-			<span class="inline-block w-2" aria-hidden="true">
-				{sortBy === 'reigns' ? (sortDirection === 'asc' ? '↑' : '↓') : ''}</span
+			<button
+				class="sortButton"
+				class:text-blue-700={sortBy === 'reigns'}
+				onclick={() => setSortBy('reigns')}
+				aria-pressed={sortBy === 'reigns'}
+				aria-label="Sort by number of reigns "
 			>
-		</button>
+				Reigns
+			</button>
 
-		<button
-			class="sortButton"
-			class:text-blue-700={sortBy === 'defenses'}
-			onclick={() => setSortBy('defenses')}
-			aria-pressed={sortBy === 'defenses'}
-			aria-label="Sort by number of defenses {sortBy === 'defenses'
-				? sortDirection === 'asc'
-					? 'ascending'
-					: 'descending'
-				: ''}"
-		>
-			Defenses
-			<span class="inline-block w-2" aria-hidden="true">
-				{sortBy === 'defenses' ? (sortDirection === 'asc' ? '↑' : '↓') : ''}
-			</span>
-		</button>
-	</fieldset>
-</nav>
+			<button
+				class="sortButton"
+				class:text-blue-700={sortBy === 'defenses'}
+				onclick={() => setSortBy('defenses')}
+				aria-pressed={sortBy === 'defenses'}
+				aria-label="Sort by number of defenses "
+			>
+				Defenses
+			</button>
+		</fieldset>
+	</nav>
+</div>
 
 <section class="team-list" aria-label="Team List">
 	{#if sortedTeams.length}
-		<div class="flex flex-col">
+		<div class=" divide-y">
 			{#each sortedTeams as team}
 				{#key `${sortBy}-${sortDirection}-${team.slug}`}
 					<LogoCard

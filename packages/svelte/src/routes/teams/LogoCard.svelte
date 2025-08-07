@@ -9,28 +9,20 @@
 	const href = `/teams/${slug}`;
 </script>
 
-<article>
-	<a {href} class="" aria-label="View details for {name}">
-		<div class="card my-2 flex flex-row items-center space-x-2 p-2 text-black">
-			<TinyImage {logo} />
-			<!-- <img
-				src={`/webp/large/${logo}.webp`}
-				class="h-24 w-auto"
-				width="96"
-				height="96"
-				alt=""
-				aria-hidden="true"
-			/> -->
+<a
+	{href}
+	class="flex items-center space-x-2 py-2 text-black hover:bg-gray-100"
+	aria-label="View details for {name}"
+>
+	<img src={`/webp/large/${logo}.webp`} class="mr-6 h-12 w-12" alt={`${name} logo`} />
 
-			<h2 class="flex-1 text-lg font-medium">{name}</h2>
+	<h2 class="flex-1 text-lg font-medium">{name}</h2>
 
-			<dl class="grid grid-cols-2 gap-x-4 text-sm">
-				<dt class="sr-only">Number of championship reigns</dt>
-				<dd>{reigns} Reigns</dd>
+	<dl class="flex flex-row gap-x-4 text-sm">
+		<dt class="sr-only">Number of championship reigns</dt>
+		<dd class="w-[90px] text-end font-mono">{reigns} Reigns</dd>
 
-				<dt class="sr-only">Number of successful defenses</dt>
-				<dd>{defenses} Defenses</dd>
-			</dl>
-		</div>
-	</a>
-</article>
+		<dt class="sr-only">Number of successful defenses</dt>
+		<dd class="w-[110px] text-end font-mono">{defenses} Defenses</dd>
+	</dl>
+</a>
