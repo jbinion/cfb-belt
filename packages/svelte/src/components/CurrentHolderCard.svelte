@@ -6,7 +6,7 @@
 </script>
 
 <div>
-	<p class="sectionTitle">Current</p>
+	<p class="sectionTitle">Current Holder</p>
 	<div class="card flex flex-row items-center space-x-6 overflow-hidden">
 		{#if current}
 			<div style={`background-color: #${current.team.color}`} class="flex items-center p-4">
@@ -20,7 +20,7 @@
 			<div class="flex-1">
 				<a href={`/teams/${current.team.slug}`} class="flex flex-col text-[var(--color-primary)]">
 					<div class="mb-1 flex flex-row items-center space-x-4">
-						<p class="font-heading text-3xl font-bold" style={`color: #${current.team.color}`}>
+						<p class="font-heading text-3xl font-bold">
 							{current.team.name}
 						</p>
 					</div>
