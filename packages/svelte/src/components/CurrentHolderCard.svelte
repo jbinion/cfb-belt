@@ -31,9 +31,9 @@
 							day: 'numeric'
 						})}
 					</p>
-					<div class="flex w-full flex-row space-x-8">
+					<div class="flex w-full flex-row space-x-6">
 						<p class="font-mono text-sm text-[var(--color-slate)]">
-							Successful Defenses: {current.games.length - 1}
+							Defenses: {current.games.length - 1}
 						</p>
 						<p class="font-mono text-sm text-[var(--color-slate)]">
 							{`${currentHolderTotalReigns}${numberSuffix(currentHolderTotalReigns)} `} Reign

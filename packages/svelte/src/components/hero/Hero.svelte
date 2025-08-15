@@ -7,7 +7,7 @@
 <header class="text-start md:text-center">
 	<div>
 		<p class="!text-xl font-bold uppercase tracking-wide">The</p>
-		<h1 class="mb-2 text-start text-4xl uppercase tracking-wide md:text-center">
+		<h1 class="mb-2 text-start text-4xl font-bold uppercase tracking-wide md:text-center">
 			College Football Belt
 		</h1>
 	</div>
