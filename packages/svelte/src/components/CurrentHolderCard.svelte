@@ -7,7 +7,7 @@
 
 <div>
 	<p class="sectionTitle">Current</p>
-	<div class="card flex flex-row items-center space-x-6">
+	<div class="card flex flex-row items-center space-x-6 overflow-hidden">
 		{#if current}
 			<div style={`background-color: #${current.team.color}`} class="flex items-center p-4">
 				<img
