@@ -8,7 +8,7 @@
 	const href = `/teams/${slug}`;
 </script>
 
-<a class="flex items-center py-2 text-black hover:bg-gray-100" {href}>
+<a class="hover:bg-card-hover text-foreground flex items-center py-2" {href}>
 	<img src={`/webp/large/${logo}.webp`} class="mr-6 h-12 w-12" alt={`${name} logo`} />
 	<h2 class="flex-1">{name}</h2>
 

@@ -12,7 +12,8 @@ export default {
 				'foreground-muted': 'var(--foreground-muted)',
 				border: 'var(--border)',
 				link: 'var(--link)',
-				'link-hover': 'var(--link-hover)'
+				'link-hover': 'var(--link-hover)',
+				'card-hover': 'var(--card-hover)'
 			}
 		}
 	},

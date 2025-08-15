@@ -17,7 +17,7 @@
 <div>
 	<button
 		on:click={() => (showGames = !showGames)}
-		class="card flex w-full flex-row items-center justify-between space-x-8 px-3 py-3 font-mono hover:bg-gray-100"
+		class="card hover:bg-card-hover flex w-full flex-row items-center justify-between space-x-8 px-3 py-3 font-mono"
 	>
 		<div class="flex items-center gap-2">
 			<Icon

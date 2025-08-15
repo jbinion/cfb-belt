@@ -9,7 +9,7 @@
 
 <a
 	{href}
-	class="flex items-center space-x-2 py-2 text-black hover:bg-gray-100"
+	class="text-foreground hover:bg-card-hover flex items-center space-x-2 py-2"
 	aria-label="View details for {name}"
 >
 	<img src={`/webp/large/${logo}.webp`} class="mr-6 h-12 w-12" alt={`${name} logo`} />
