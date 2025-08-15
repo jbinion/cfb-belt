@@ -1,6 +1,4 @@
 <script>
-	import TinyImage from '../../components/images/TinyImage.svelte';
-
 	export let logo = '';
 	export let name = '';
 	export let slug = '';
@@ -16,9 +14,9 @@
 >
 	<img src={`/webp/large/${logo}.webp`} class="mr-6 h-12 w-12" alt={`${name} logo`} />
 
-	<h2 class="flex-1 text-lg font-medium">{name}</h2>
+	<h2 class="flex-1">{name}</h2>
 
-	<dl class="flex flex-row gap-x-4 text-sm">
+	<dl class="text-foreground-muted flex flex-row gap-x-4 text-sm">
 		<dt class="sr-only">Number of championship reigns</dt>
 		<dd class="w-[90px] text-end font-mono">{reigns} Reigns</dd>
 

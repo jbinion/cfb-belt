@@ -21,9 +21,9 @@
 
 <main class="prose mx-auto max-w-3xl px-4">
 	<article>
-		<h1 class="mb-8 text-3xl font-bold">About the College Football Belt</h1>
+		<h1 class=" text-3xl font-bold">About the College Football Belt</h1>
 
-		<section class="mb-8">
+		<section>
 			<h2 class="text-xl font-semibold">What is the College Football Belt?</h2>
 			<p>
 				The College Football Belt is a fan-created championship system inspired by boxing's title
@@ -33,7 +33,7 @@
 			</p>
 		</section>
 
-		<section class="mb-8">
+		<section>
 			<h2 class="text-xl font-semibold">How Does It Work?</h2>
 			<ul class="list-disc pl-6">
 				<li>The belt holder must defend their title in every game they play</li>
@@ -43,7 +43,7 @@
 			</ul>
 		</section>
 
-		<section class="mb-8">
+		<section>
 			<h2 class="text-xl font-semibold">Belt History</h2>
 			<p>
 				The concept traces back to the first intercollegiate football game between Rutgers and

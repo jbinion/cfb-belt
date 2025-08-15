@@ -18,13 +18,13 @@
 			</div>
 
 			<div class="flex-1">
-				<a href={`/teams/${current.team.slug}`} class="flex flex-col text-[var(--color-primary)]">
+				<a href={`/teams/${current.team.slug}`} class="text-foreground flex flex-col">
 					<div class="mb-1 flex flex-row items-center space-x-4">
 						<p class="font-heading text-3xl font-bold">
 							{current.team.name}
 						</p>
 					</div>
-					<p class="mb-1 font-mono text-sm text-[var(--color-slate)]">
+					<p class="text-foreground-muted mb-1 font-mono text-sm">
 						Since: {new Date(current.startDate).toLocaleDateString('en-US', {
 							year: 'numeric',
 							month: 'long',
@@ -32,10 +32,10 @@
 						})}
 					</p>
 					<div class="flex w-full flex-row space-x-6">
-						<p class="font-mono text-sm text-[var(--color-slate)]">
+						<p class="text-foreground-muted font-mono text-sm">
 							Defenses: {current.games.length - 1}
 						</p>
-						<p class="font-mono text-sm text-[var(--color-slate)]">
+						<p class="text-foreground-muted font-mono text-sm">
 							{`${currentHolderTotalReigns}${numberSuffix(currentHolderTotalReigns)} `} Reign
 						</p>
 					</div>

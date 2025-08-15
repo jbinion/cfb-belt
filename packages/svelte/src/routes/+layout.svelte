@@ -8,7 +8,7 @@
 <div class="mx-auto flex min-h-[100vh] w-full max-w-screen-sm flex-col px-4 md:px-0">
 	<Navbar />
 
-	<main class="my-24 flex-1 space-y-24">
+	<main class="my-24 flex-1">
 		{@render children()}
 	</main>
 

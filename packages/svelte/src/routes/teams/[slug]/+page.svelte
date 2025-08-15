@@ -49,7 +49,7 @@
 			<div class="flex flex-row items-center space-x-4 p-4">
 				<dt class="sr-only">Championship Reigns</dt>
 				<span aria-hidden="true">
-					<Icon src={BsTrophy} className="text-blue-600" />
+					<Icon src={BsTrophy} />
 				</span>
 				<dd>{data.reigns.length} Reigns</dd>
 			</div>
@@ -57,7 +57,7 @@
 			<div class="flex flex-row items-center space-x-4 p-4">
 				<dt class="sr-only">Successful Defenses</dt>
 				<span aria-hidden="true">
-					<Icon src={BsShield} className="text-blue-600" />
+					<Icon src={BsShield} />
 				</span>
 				<dd>
 					{data.reigns.reduce(

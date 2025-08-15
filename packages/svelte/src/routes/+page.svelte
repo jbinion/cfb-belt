@@ -17,33 +17,34 @@
 	/>
 </svelte:head>
 
-<Hero />
-<CurrentHolderCard currentHolderTotalReigns={data.currentHolderTotalReigns} />
-<section aria-label="Next Championship Game">
-	<NextGame
-		homeTeam={data.nextGame.home_team_name}
-		awayTeam={data.nextGame.away_team_name}
-		homeLogo={data.nextGame.home_team.logoFile}
-		awayLogo={data.nextGame.away_team.logoFile}
-		date={data.nextGame.start_date}
-	/>
-</section>
-
-{#if data}
-	<section aria-label="Recent Belt History" class="mx-auto w-full max-w-screen-sm">
-		<h2 class="sectionTitle">Recent</h2>
-		<div class="divide-y" aria-label="Recent belt holders">
-			{#each data.reigns as item (item._id)}
-				<TeamCardFull
-					name={item.team?.name}
-					slug={item.team?.slug}
-					games={item.games}
-					startDate={item.startDate}
-					endDate={item.endDate}
-					logo={`${item.team?.logoFile}`}
-				/>
-			{/each}
-		</div>
+<div class="space-y-24">
+	<Hero />
+	<CurrentHolderCard currentHolderTotalReigns={data.currentHolderTotalReigns} />
+	<section aria-label="Next Championship Game">
+		<NextGame
+			homeTeam={data.nextGame.home_team_name}
+			awayTeam={data.nextGame.away_team_name}
+			homeLogo={data.nextGame.home_team.logoFile}
+			awayLogo={data.nextGame.away_team.logoFile}
+			date={data.nextGame.start_date}
+		/>
 	</section>
-{/if}
-<AboutText />
+
+	{#if data}
+		<section aria-label="Recent Belt History" class="mx-auto w-full max-w-screen-sm">
+			<h2 class="sectionTitle">Recent</h2>
+			<div class="divide-border divide-y" aria-label="Recent belt holders">
+				{#each data.reigns as item (item._id)}
+					<TeamCardFull
+						name={item.team?.name}
+						slug={item.team?.slug}
+						defendCount={item.games.length - 1}
+						startDate={item.startDate}
+						logo={`${item.team?.logoFile}`}
+					/>
+				{/each}
+			</div>
+		</section>
+	{/if}
+	<AboutText />
+</div>

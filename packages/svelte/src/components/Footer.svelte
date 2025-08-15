@@ -4,10 +4,10 @@
 </script>
 
 <footer class="content mt-24 flex flex-row items-center justify-between">
-	<p class=" text-xs text-gray-600">
+	<p class=" text-foreground-muted text-xs">
 		Data for this site comes from <a
 			href="https://collegefootballdata.com"
-			class="text-blue-500 hover:text-blue-700"
+			class="text-link hover:text-link-hover"
 			target="_blank">collegefootballdata.com</a
 		>
 	</p>
@@ -17,7 +17,7 @@
 			> -->
 
 		<a
-			class="cursor-pointer text-gray-600 hover:text-black"
+			class="text-foreground-muted hover:text-foreground cursor-pointer"
 			href="https://github.com/jbinion/cfb-belt"
 			target="_blank"
 		>
