@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { PageData } from './$types';
-	import LogoCard from './LogoCard.svelte';
+	import LogoCard from '../../components/LogoCard.svelte';
 
 	let { data }: { data: PageData } = $props();
 	let sortDirection = $state<'asc' | 'desc'>('asc');
@@ -38,68 +38,49 @@
 	/>
 </svelte:head>
 
-<div>
-	<h2 class="sectionTitle text-center text-2xl lg:text-start">All College Football Belt Holders</h2>
-	<nav class="controls flex flex-wrap items-center justify-start" aria-label="Sort options">
-		<fieldset class="flex flex-row gap-4">
-			<button
-				class="sortButton"
-				class:text-blue-700={sortBy === 'name'}
-				onclick={() => setSortBy('name')}
-				aria-pressed={sortBy === 'name'}
-				aria-label="Sort by team name"
-			>
-				Name
-			</button>
+<h2 class="pageTitle">All College Football Belt Holders</h2>
+<nav class="space-x-6" aria-label="Sort options">
+	<button
+		class="sortButton"
+		class:active={sortBy === 'name'}
+		onclick={() => setSortBy('name')}
+		aria-pressed={sortBy === 'name'}
+		aria-label="Sort by team name"
+	>
+		Name
+	</button>
 
-			<button
-				class="sortButton"
-				class:text-blue-700={sortBy === 'reigns'}
-				onclick={() => setSortBy('reigns')}
-				aria-pressed={sortBy === 'reigns'}
-				aria-label="Sort by number of reigns "
-			>
-				Reigns
-			</button>
+	<button
+		class="sortButton"
+		class:active={sortBy === 'reigns'}
+		onclick={() => setSortBy('reigns')}
+		aria-pressed={sortBy === 'reigns'}
+		aria-label="Sort by number of reigns "
+	>
+		Reigns
+	</button>
 
-			<button
-				class="sortButton"
-				class:text-blue-700={sortBy === 'defenses'}
-				onclick={() => setSortBy('defenses')}
-				aria-pressed={sortBy === 'defenses'}
-				aria-label="Sort by number of defenses "
-			>
-				Defenses
-			</button>
-		</fieldset>
-	</nav>
-</div>
+	<button
+		class="sortButton"
+		class:active={sortBy === 'defenses'}
+		onclick={() => setSortBy('defenses')}
+		aria-pressed={sortBy === 'defenses'}
+		aria-label="Sort by number of defenses "
+	>
+		Defenses
+	</button>
+</nav>
 
-<section class="team-list" aria-label="Team List">
-	{#if sortedTeams.length}
-		<div class=" divide-y">
-			{#each sortedTeams as team}
-				{#key `${sortBy}-${sortDirection}-${team.slug}`}
-					<LogoCard
-						logo={`${team.logoFile}`}
-						name={team.name}
-						slug={team.slug}
-						reigns={team.reigns}
-						defenses={team.defenses}
-					/>
-				{/key}
-			{/each}
-		</div>
-	{:else}
-		<p class="text-center">No teams found.</p>
-	{/if}
+<section class="mt-8" aria-label="Team List">
+	<div class="divide-y">
+		{#each sortedTeams as team (`${sortBy}-${sortDirection}-${team.slug}`)}
+			<LogoCard
+				logo={`${team.logoFile}`}
+				name={team.name}
+				slug={team.slug}
+				reigns={team.reigns}
+				defenses={team.defenses}
+			/>
+		{/each}
+	</div>
 </section>
-
-<style>
-	.team-list {
-		margin-top: 20px;
-	}
-	.controls {
-		padding: 1rem 0;
-	}
-</style>

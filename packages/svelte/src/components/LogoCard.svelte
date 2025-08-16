@@ -1,6 +1,4 @@
 <script>
-	import TinyImage from '../../components/images/TinyImage.svelte';
-
 	export let logo = '';
 	export let name = '';
 	export let slug = '';
@@ -11,14 +9,14 @@
 
 <a
 	{href}
-	class="flex items-center space-x-2 py-2 text-black hover:bg-gray-100"
+	class="text-foreground hover:bg-card-hover flex items-center space-x-2 py-2"
 	aria-label="View details for {name}"
 >
 	<img src={`/webp/large/${logo}.webp`} class="mr-6 h-12 w-12" alt={`${name} logo`} />
 
-	<h2 class="flex-1 text-lg font-medium">{name}</h2>
+	<h2 class="flex-1">{name}</h2>
 
-	<dl class="flex flex-row gap-x-4 text-sm">
+	<dl class="text-foreground-muted flex flex-row gap-x-4 text-sm">
 		<dt class="sr-only">Number of championship reigns</dt>
 		<dd class="w-[90px] text-end font-mono">{reigns} Reigns</dd>
 

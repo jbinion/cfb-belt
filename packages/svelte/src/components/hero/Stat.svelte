@@ -3,4 +3,4 @@
 	export let title = '';
 </script>
 
-<p><span class=" font-mono font-bold">{value}</span> {title}</p>
+<p><span class="font-semibold">{value}</span> {title}</p>

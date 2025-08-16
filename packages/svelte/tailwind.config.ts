@@ -8,8 +8,12 @@ export default {
 		extend: {
 			colors: {
 				'background-color': 'var(--background-color)',
-				accent: 'var(--accent)',
-				navBackground: 'var(--nav-background)'
+				foreground: 'var(--foreground)',
+				'foreground-muted': 'var(--foreground-muted)',
+				border: 'var(--border)',
+				link: 'var(--link)',
+				'link-hover': 'var(--link-hover)',
+				'card-hover': 'var(--card-hover)'
 			}
 		}
 	},
