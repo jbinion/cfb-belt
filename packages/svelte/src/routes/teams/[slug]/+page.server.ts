@@ -36,9 +36,6 @@ export async function load({ params }) {
 			return firstGame.away_team;
 		});
 		console.log('Teams beaten for belt:', teamsBeatenForBelt);
-		// reigns.forEach((reign) => {
-		// 	console.log(reign.games);
-		// });
 
 		return {
 			team: JSON.parse(JSON.stringify(team)),

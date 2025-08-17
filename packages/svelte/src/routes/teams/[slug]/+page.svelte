@@ -9,14 +9,7 @@
 
 <svelte:head>
 	<title>{data.team.name} Belt History | CFB Belt Tracker</title>
-	<meta
-		name="description"
-		content="View {data.team.name}'s College Football Belt history, including {data.reigns
-			?.length || 0} championship reigns and {data.reigns?.reduce(
-			(acc: number, curr: { games: any[] }) => acc + curr.games.length - 1,
-			0
-		) || 0} successful defenses."
-	/>
+	<meta name="description" content="{data.team.name}'s College Football Belt history" />
 	<!-- <script type="application/ld+json">
 		{JSON.stringify({
 			"@context": "https://schema.org",
