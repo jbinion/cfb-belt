@@ -1,14 +1,15 @@
 class BeltTracker {
   static instance = null;
 
-  static getInstance(startTeam) {
+  static getInstance(startTeam, startReignId = null) {
     if (!BeltTracker.instance) {
-      BeltTracker.instance = new BeltTracker(startTeam);
+      BeltTracker.instance = new BeltTracker(startTeam, startReignId);
     }
     return BeltTracker.instance;
   }
-  constructor(startTeam) {
+  constructor(startTeam, startReignId) {
     this.currentHolder = startTeam;
+    this.startReignId = startReignId;
     this.teams = new Set([]);
     this.reigns = [];
   }
@@ -19,6 +20,7 @@ class BeltTracker {
       game.away_team !== this.currentHolder
     ) {
       console.log('Invalid game: ' + JSON.stringify(game));
+      throw new Error('Game does not involve current belt holder');
     }
     // handle refecthing current week when belt holder losses
     if (this.reigns.at(-1)?.games.at(-1).id === game.id) return;
@@ -33,6 +35,7 @@ class BeltTracker {
         team: winner,
         games: [{ ...game, type: 'win' }],
         startDate: game.start_date,
+        _id: this.startReignId || null,
       });
       return;
     }

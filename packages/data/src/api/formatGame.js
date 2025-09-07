@@ -9,6 +9,7 @@ const formatGame = (game) => {
     week: game.week,
     type: game.seasonType,
     year: game.season,
+    completed: game.completed,
   };
 };
 
