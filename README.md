@@ -38,10 +38,11 @@ Check out the live site: [cfb-belt.com](https://cfb-belt.com)
 
    Then, edit these `.env` files to add your API key and your MongoDB connection URI
 
-3. **Install dependencies for both packages:**
+3. **Install dependencies & build models:**
 
    ```sh
    pnpm install
+   cd packages/models && npm run build
    ```
 
 4. **Run the data scripts (optional, for contributors):**
