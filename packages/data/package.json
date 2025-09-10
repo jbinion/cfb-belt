@@ -18,6 +18,7 @@
     "eslint": "^9.15.0",
     "eslint-plugin-import": "^2.31.0",
     "eslint-plugin-vitest": "^0.5.4",
+    "find-config": "^1.0.0",
     "vitest": "^2.0.4"
   },
   "dependencies": {
