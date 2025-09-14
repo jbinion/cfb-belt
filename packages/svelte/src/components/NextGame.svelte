@@ -21,9 +21,9 @@
 		<div class=" flex flex-row items-center space-x-2">
 			<p class="text-sm text-gray-600">vs</p>
 			<div class="flex flex-row items-center gap-2">
-				<img src={`/webp/large/${homeLogo}.webp`} class="h-8 w-8" alt="{homeTeam} logo" />
+				<img src={`/webp/large/${57}.webp`} class="h-8 w-8" alt="Florida logo" />
 
-				<p>{homeTeam}</p>
+				<p>Florida</p>
 			</div>
 		</div>
 	</div>
