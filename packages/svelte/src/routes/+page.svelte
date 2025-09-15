@@ -22,11 +22,11 @@
 	<CurrentHolderCard currentHolderTotalReigns={data.currentHolderTotalReigns} />
 	<section aria-label="Next Championship Game">
 		<NextGame
-			homeTeam={data.nextGame.home_team_name}
-			awayTeam={data.nextGame.away_team_name}
-			homeLogo={data.nextGame.home_team.logoFile}
-			awayLogo={data.nextGame.away_team.logoFile}
-			date={data.nextGame.start_date}
+			homeTeam={data.nextGame?.home_team_name}
+			awayTeam={data.nextGame?.away_team_name}
+			homeLogo={data.nextGame?.home_team.logoFile}
+			awayLogo={data.nextGame?.away_team.logoFile}
+			date={data.nextGame?.start_date}
 		/>
 	</section>
 
