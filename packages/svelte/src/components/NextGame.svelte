@@ -1,9 +1,6 @@
 <script lang="ts">
 	export let date = '';
-	export let awayTeam = '';
-	export let awayLogo = '';
-	export let homeTeam = '';
-	export let homeLogo = '';
+	export let challenger = { name: 'TBD', logoFile: 'placeholder', slug: 'tbd' };
 </script>
 
 <div class="flex w-full flex-col">
@@ -20,11 +17,13 @@
 		</p>
 		<div class=" flex flex-row items-center space-x-2">
 			<p class="text-sm text-gray-600">vs</p>
-			<div class="flex flex-row items-center gap-2">
-				<img src={`/webp/large/${57}.webp`} class="h-8 w-8" alt="Florida logo" />
+			<a href={`/teams/${challenger.slug}`} class="hover:underline">
+				<div class="flex flex-row items-center gap-2">
+					<img src={`/webp/large/${challenger.logoFile}.webp`} class="h-8 w-8" alt="Florida logo" />
 
-				<p>Florida</p>
-			</div>
+					<p>{challenger.name}</p>
+				</div>
+			</a>
 		</div>
 	</div>
 </div>
