@@ -12,9 +12,13 @@ export async function load() {
 			.sort({ startDate: -1 })
 			.populate('team')
 			.populate('games');
-
+		const currentHolderTotalReigns = await Reign.find({
+			team: current.team._id,
+			beltName: config.beltName
+		}).countDocuments();
 		return {
-			current: JSON.parse(JSON.stringify(current))
+			current: JSON.parse(JSON.stringify(current)),
+			currentHolderTotalReigns
 		};
 	} catch (error) {
 		console.error('Error loading current holder:', error);

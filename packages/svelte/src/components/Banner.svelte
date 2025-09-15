@@ -2,10 +2,6 @@
 	import { page } from '$app/stores';
 	$: current = $page.data.current;
 
-	$: if (current) {
-		console.log('current', current);
-		console.log('last game', current.games.at(-1));
-	}
 	$: mostRecentGame = current?.games.at(-1);
 	$: challenger =
 		mostRecentGame?.home_team_name === current?.team.name
