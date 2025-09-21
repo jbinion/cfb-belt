@@ -15,5 +15,5 @@
 >
 	<img src={`/webp/large/${current.team.logoFile}.webp`} class="h-8 w-8" alt="Florida logo" />
 
-	<p>{current.team.name} defeats {challenger} 49-12 to claim their 6th CFB Belt reign</p>
+	<p>{current.team.name} defeats {challenger} 26-7 to  claim their 6th CFB Belt reign</p>
 </div>
