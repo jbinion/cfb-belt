@@ -35,16 +35,17 @@ const crawler = async ({
         type: weeks[i].type,
       });
       console.log(games);
+
+      if (!games || games.length == 0) {
+        i++;
+        continue;
+      }
       if (games[0].completed === false) {
         console.log('reached future games, exiting');
         return {
           reigns: beltTracker.reigns,
           teams: Array.from(beltTracker.teams),
         };
-      }
-      if (!games || games.length == 0) {
-        i++;
-        continue;
       }
       if (games) {
         games.forEach((game) => beltTracker.addGame(game));
