@@ -6,15 +6,15 @@
 <nav class=" flex items-center space-x-8 py-4">
 	<a
 		href="/"
-		class=" flex items-center text-sm font-bold tracking-wide"
-		class:border-b-2={currentPath === '/'}
+		class="flex items-center border-b-2 border-transparent text-sm font-bold tracking-wide"
+		class:border-black={currentPath === '/'}
 	>
 		CFB Belt
 	</a>
 	<a
 		href="/history"
-		class=" text-sm font-semibold transition-colors"
-		class:border-b-2={currentPath.startsWith('/history')}>History</a
+		class=" border-b-2 border-transparent text-sm font-semibold transition-colors"
+		class:border-black={currentPath.startsWith('/history')}>Lineage</a
 	>
 	<a
 		href="/teams"
