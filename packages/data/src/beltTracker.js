@@ -35,7 +35,7 @@ class BeltTracker {
         team: winner,
         games: [{ ...game, type: 'win' }],
         startDate: game.start_date,
-        _id: this.startReignId || null,
+        _id: this.startReignId || null, // this breaks on updates. if the current team loses, we will still create a new reign with the old id
       });
       return;
     }

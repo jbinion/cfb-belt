@@ -23,11 +23,13 @@ export async function load() {
 
 		// get next game challenger team info
 		const nextGame = await NextGame.findOne().populate('home_team').populate('away_team');
+		console.log(nextGame);
 		let nextChallenger;
 		nextGame.home_team_name === reigns[0].team.name
 			? (nextChallenger = nextGame.away_team)
 			: (nextChallenger = nextGame.home_team);
 		//
+		console.log(nextChallenger);
 		return {
 			reigns: JSON.parse(JSON.stringify(reigns)),
 			totalReigns,

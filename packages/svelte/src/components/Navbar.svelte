@@ -3,24 +3,22 @@
 	$: currentPath = $page.url.pathname;
 </script>
 
-<nav class="text-foreground-muted flex items-center justify-between py-4">
+<nav class=" flex items-center space-x-8 py-4">
 	<a
 		href="/"
-		class="hover:text-foreground flex items-center text-sm font-bold tracking-wide"
-		class:text-foreground={currentPath === '/'}
+		class=" flex items-center text-sm font-bold tracking-wide"
+		class:border-b-2={currentPath === '/'}
 	>
 		CFB Belt
 	</a>
-	<div class="flex gap-8">
-		<a
-			href="/history"
-			class=" hover:text-foreground text-sm font-semibold transition-colors"
-			class:text-foreground={currentPath.startsWith('/history')}>History</a
-		>
-		<a
-			href="/teams"
-			class=" hover:text-foreground text-sm font-semibold transition-colors"
-			class:text-foreground={currentPath.startsWith('/teams')}>Teams</a
-		>
-	</div>
+	<a
+		href="/history"
+		class=" text-sm font-semibold transition-colors"
+		class:border-b-2={currentPath.startsWith('/history')}>History</a
+	>
+	<a
+		href="/teams"
+		class=" border-b-2 border-transparent text-sm font-semibold transition-colors"
+		class:!border-black={currentPath.startsWith('/teams')}>Teams</a
+	>
 </nav>

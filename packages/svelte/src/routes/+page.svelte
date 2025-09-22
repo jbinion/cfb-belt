@@ -1,9 +1,12 @@
 <script lang="ts">
 	import AboutText from '../components/AboutText.svelte';
+	import Card from '../components/Card.svelte';
+	import CurrentCard from '../components/CurrentCard.svelte';
 	import CurrentHolderCard from '../components/CurrentHolderCard.svelte';
 	import Hero from '../components/hero/Hero.svelte';
 	import NextGame from '../components/NextGame.svelte';
 	import TeamCardFull from '../components/TeamCardFull.svelte';
+	import TeamCardSmall from '../components/TeamCardSmall.svelte';
 	import type { PageData } from './$types';
 
 	let { data }: { data: PageData } = $props();
@@ -23,6 +26,42 @@
 	<section aria-label="Next Championship Game">
 		<NextGame challenger={data.nextChallenger} date={data.nextGameStartDate} />
 	</section>
+	<div class="grid grid-cols-3 gap-8">
+		<CurrentCard currentHolderTotalReigns={data.currentHolderTotalReigns} />
+		<Card
+			title="Current Holder"
+			color={data.current.team.color}
+			logoFile={data.current.team.logoFile}
+			teamName={data.current.team.name}
+		/>
+		<Card
+			title="Next Game"
+			color={data.nextChallenger.color}
+			logoFile={data.nextChallenger.logoFile}
+			teamName={data.nextChallenger.name}
+		/>
+		<!-- <div class="bg-[#005030] p-4 text-white">
+			<p>Current Holder</p>
+			<p>Miami</p>
+		</div> -->
+		<!--  -->
+		<div class=" bg-zinc-200 p-4">
+			<p>Next Game</p>
+			<p>Florida</p>
+		</div>
+		<div class=" bg-zinc-200 p-4">
+			<p>Recent</p>
+			{#each data.reigns as item (item._id)}
+				<TeamCardSmall
+					name={item.team?.name}
+					slug={item.team?.slug}
+					defendCount={item.games.length - 1}
+					startDate={item.startDate}
+					logo={`${item.team?.logoFile}`}
+				/>
+			{/each}
+		</div>
+	</div>
 
 	{#if data}
 		<section aria-label="Recent Belt History" class="mx-auto w-full max-w-screen-sm">

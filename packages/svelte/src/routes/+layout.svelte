@@ -8,7 +8,7 @@
 
 <Banner />
 
-<div class="mx-auto flex min-h-[100vh] w-full max-w-screen-sm flex-col px-4 md:px-0">
+<div class="mx-auto flex min-h-[100vh] w-full max-w-screen-lg flex-col">
 	<Navbar />
 
 	<main class="my-24 flex-1">
