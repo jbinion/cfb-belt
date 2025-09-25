@@ -22,6 +22,14 @@
 	</script> -->
 </svelte:head>
 
+{#if data.teamsBeatenForBelt}
+	{#each data.teamsBeatenForBelt as teamBeaten}
+		<div>
+			{teamBeaten.name}
+		</div>
+	{/each}
+{/if}
+
 {#if data.reigns}
 	<section class="flex flex-col items-center justify-between" aria-label="Team Overview">
 		<div class=" flex flex-row space-x-6">

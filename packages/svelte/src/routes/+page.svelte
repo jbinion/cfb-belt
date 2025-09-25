@@ -1,12 +1,8 @@
 <script lang="ts">
 	import AboutText from '../components/AboutText.svelte';
 	import Card from '../components/Card.svelte';
-	import CurrentCard from '../components/CurrentCard.svelte';
-	import CurrentHolderCard from '../components/CurrentHolderCard.svelte';
 	import Hero from '../components/hero/Hero.svelte';
-	import NextGame from '../components/NextGame.svelte';
 	import TeamCardFull from '../components/TeamCardFull.svelte';
-	import TeamCardSmall from '../components/TeamCardSmall.svelte';
 	import type { PageData } from './$types';
 	import numberSuffix from '../lib/numberSuffix';
 	let { data }: { data: PageData } = $props();
@@ -22,17 +18,25 @@
 
 <div class="space-y-24">
 	<Hero />
-	<!-- <CurrentHolderCard currentHolderTotalReigns={data.currentHolderTotalReigns} />
-	<section aria-label="Next Championship Game">
-		<NextGame challenger={data.nextChallenger} date={data.nextGameStartDate} />
-	</section> -->
-	<div class=" grid grid-cols-2 justify-center gap-8">
-		<p>Complete Lineage</p>
-		<p>All Teams</p>
+
+	<div class="flex items-center justify-center">
+		<div class=" grid grid-cols-2 justify-center gap-8">
+			<a
+				href="/history"
+				class="rounded bg-zinc-800 px-6 py-2 text-center text-lg font-semibold text-zinc-100 shadow-md transition hover:bg-zinc-700 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-zinc-400"
+			>
+				Complete Lineage
+			</a>
+			<a
+				href="/teams"
+				class="rounded bg-zinc-800 px-6 py-2 text-center text-lg font-semibold text-zinc-100 shadow-md transition hover:bg-zinc-700 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-zinc-400"
+			>
+				All Teams
+			</a>
+		</div>
 	</div>
 
 	<div class="mx-auto flex max-w-screen-sm flex-col gap-8">
-		<!-- <CurrentCard currentHolderTotalReigns={data.currentHolderTotalReigns} /> -->
 		<Card
 			title="Current Holder"
 			color={data.current.team.color}
@@ -80,29 +84,7 @@
 				month: 'long', // August
 				day: 'numeric' // 30
 			})}
-			<!-- {data.nextGameStartDate} -->
 		</Card>
-		<!-- <div class="bg-[#005030] p-4 text-white">
-			<p>Current Holder</p>
-			<p>Miami</p>
-		</div> -->
-		<!--  -->
-		<!-- <div class=" bg-zinc-200 p-4">
-			<p>Next Game</p>
-			<p>Florida</p>
-		</div> -->
-		<!-- <div class=" bg-zinc-200 p-4">
-			<p>Recent</p>
-			{#each data.reigns as item (item._id)}
-				<TeamCardSmall
-					name={item.team?.name}
-					slug={item.team?.slug}
-					defendCount={item.games.length - 1}
-					startDate={item.startDate}
-					logo={`${item.team?.logoFile}`}
-				/>
-			{/each}
-		</div> -->
 	</div>
 
 	{#if data}
