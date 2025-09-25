@@ -6,11 +6,11 @@
 	export let end = '';
 	export let games = [];
 	const startDate = new Date(start).toLocaleDateString();
-	const endDate = new Date(end).toLocaleDateString();
+	const endDate = end ? new Date(end).toLocaleDateString() : null;
 	import { HiSolidChevronRight } from 'svelte-icons-pack/hi';
 	import { HiSolidChevronDown } from 'svelte-icons-pack/hi';
 	import { Icon } from 'svelte-icons-pack';
-
+	export let beltLossGame = null;
 	let showGames = false;
 </script>
 
@@ -41,6 +41,20 @@
 
 	{#if showGames}
 		<div class="mx-auto my-4 w-full max-w-lg rounded">
+			{#if beltLossGame}
+				<GameCard
+					slug={beltLossGame.home_team.slug}
+					logoFile={beltLossGame.home_team.logoFile}
+					name={beltLossGame.home_team.name}
+					awaylogoFile={beltLossGame.away_team.logoFile}
+					awayname={beltLossGame.away_team.name}
+					points={beltLossGame.home_points}
+					away_points={beltLossGame.away_points}
+					end={true}
+					start_date={beltLossGame.start_date}
+				/>
+			{/if}
+
 			{#each games as game}
 				<GameCard
 					slug={game.home_team.slug}

@@ -24,6 +24,10 @@ export async function load({ params }) {
 				populate: [{ path: 'home_team' }, { path: 'away_team' }],
 				options: { sort: { start_date: -1 } }
 			})
+			.populate({
+				path: 'beltLossGame',
+				populate: [{ path: 'home_team' }, { path: 'away_team' }]
+			})
 			.sort({ startDate: -1 });
 
 		const teamsBeatenForBelt = reigns

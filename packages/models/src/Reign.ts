@@ -20,6 +20,10 @@ const reignSchema = new mongoose.Schema({
       ref: "Game",
     },
   ],
+  beltLossGame: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Game",
+  },
   startDate: {
     type: Date,
     required: true,

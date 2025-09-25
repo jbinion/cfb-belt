@@ -104,8 +104,9 @@
 			<ReignCard
 				defenses={reign.games.length - 1}
 				start={reign.startDate}
-				end={reign.endDate}
+				end={reign.beltLossGame?.start_date || ''}
 				games={reign.games}
+				beltLossGame={reign.beltLossGame || null}
 			/>
 		{/each}
 	</section>
