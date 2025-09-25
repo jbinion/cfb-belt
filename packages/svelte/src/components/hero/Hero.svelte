@@ -5,8 +5,8 @@
 </script>
 
 <header class="text-start md:text-center">
-	<p class="text-foreground !text-xl font-bold uppercase tracking-wide">The</p>
-	<h1 class="mb-6 text-start text-5xl font-bold uppercase tracking-wide md:text-center">
+	<p class="varsity text-foreground !text-xl font-bold uppercase tracking-wide">The</p>
+	<h1 class="varsity mb-6 text-start text-6xl font-bold uppercase tracking-wide md:text-center">
 		College Football Belt
 	</h1>
 
