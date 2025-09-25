@@ -31,12 +31,25 @@ export async function load({ params }) {
 				return [reign.games[0].home_team, reign.games[0].away_team];
 			})
 			.filter((t) => t.name !== team.name);
-		console.log('Teams beaten for belt:', teamsBeatenForBelt);
+		// console.log('Teams beaten for belt:', teamsBeatenForBelt);
 
-		const teamsDefended = reigns.map((r) => {
-			return r.games.slice(1);
-		});
-		console.log(teamsDefended);
+		// const teamsDefended = reigns
+		// 	.flatMap((reign) => {
+		// 		return [reign.games[0].home_team, reign.games[0].away_team];
+		// 	})
+		// 	.filter((t) => t.name !== team.name);
+		// console.log(teamsDefended);
+
+		const td = reigns.reduce((acc, cur) => {
+			let gamesExceptFirst = [...cur.games].splice(1);
+			// console.log(gamesExceptFirst);
+			console.log(cur.games.length);
+			console.log(gamesExceptFirst.length);
+			const teams = gamesExceptFirst.map((g) => [g.away_team, g.home_team]);
+			console.log(teams);
+			// cur.games.splice(1).forEach((game) => acc.push(...[game.home_team, game.away_team]));
+		}, []);
+		console.log(td);
 		return {
 			team: JSON.parse(JSON.stringify(team)),
 			reigns: JSON.parse(JSON.stringify(reigns)),

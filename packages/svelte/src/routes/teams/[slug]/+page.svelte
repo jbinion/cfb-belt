@@ -8,7 +8,7 @@
 </script>
 
 <svelte:head>
-	<title>{data.team.name} Belt History | CFB Belt Tracker</title>
+	<title>{data.team?.name} Belt History | CFB Belt Tracker</title>
 	<meta name="description" content="{data.team.name}'s College Football Belt history" />
 	<!-- <script type="application/ld+json">
 		{JSON.stringify({
@@ -21,14 +21,21 @@
 		})}
 	</script> -->
 </svelte:head>
-
-{#if data.teamsBeatenForBelt}
-	{#each data.teamsBeatenForBelt as teamBeaten}
-		<div>
-			{teamBeaten.name}
-		</div>
-	{/each}
-{/if}
+<p>Teams beat for belt</p>
+<div class="flex flex-row flex-wrap">
+	{#if data.teamsBeatenForBelt}
+		{#each data.teamsBeatenForBelt as teamBeaten}
+			<div>
+				<img
+					src={`/webp/original/${teamBeaten.logoFile}.webp`}
+					class="h-[24px] w-[24px]"
+					alt=""
+					aria-hidden="true"
+				/>
+			</div>
+		{/each}
+	{/if}
+</div>
 
 {#if data.reigns}
 	<section class="flex flex-col items-center justify-between" aria-label="Team Overview">
