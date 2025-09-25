@@ -27,33 +27,42 @@ export async function load({ params }) {
 			.sort({ startDate: -1 });
 
 		const teamsBeatenForBelt = reigns
-			.flatMap((reign) => {
-				return [reign.games[0].home_team, reign.games[0].away_team];
-			})
-			.filter((t) => t.name !== team.name);
-		// console.log('Teams beaten for belt:', teamsBeatenForBelt);
+			.map((reign) => {
+				if (!reign.games || reign.games.length === 0) return null;
 
-		// const teamsDefended = reigns
-		// 	.flatMap((reign) => {
-		// 		return [reign.games[0].home_team, reign.games[0].away_team];
-		// 	})
-		// 	.filter((t) => t.name !== team.name);
-		// console.log(teamsDefended);
+				const sortedGames = [...reign.games].sort(
+					(a, b) => new Date(a.start_date).getTime() - new Date(b.start_date).getTime()
+				);
+
+				return sortedGames[0].home_team.name === team.name
+					? sortedGames[0].away_team
+					: sortedGames[0].home_team;
+			})
+			.filter(Boolean);
 
 		const td = reigns.reduce((acc, cur) => {
-			let gamesExceptFirst = [...cur.games].splice(1);
-			// console.log(gamesExceptFirst);
-			console.log(cur.games.length);
-			console.log(gamesExceptFirst.length);
-			const teams = gamesExceptFirst.map((g) => [g.away_team, g.home_team]);
-			console.log(teams);
-			// cur.games.splice(1).forEach((game) => acc.push(...[game.home_team, game.away_team]));
+			const sortedGames = [...cur.games].sort(
+				(a, b) => new Date(a.start_date).getTime() - new Date(b.start_date).getTime()
+			);
+			let gamesExceptFirst = sortedGames.slice(1);
+			const teams = gamesExceptFirst.map((game) => {
+				const otherTeam = game.away_team.name === team.name ? game.home_team : game.away_team;
+
+				return otherTeam;
+			});
+
+			teams.forEach((t) => {
+				if (!acc.find((a) => a.name === t.name)) {
+					acc.push(t);
+				}
+			});
+			return acc;
 		}, []);
-		console.log(td);
 		return {
 			team: JSON.parse(JSON.stringify(team)),
 			reigns: JSON.parse(JSON.stringify(reigns)),
-			teamsBeatenForBelt: JSON.parse(JSON.stringify(teamsBeatenForBelt))
+			teamsBeatenForBelt: JSON.parse(JSON.stringify(teamsBeatenForBelt)),
+			teamsDefended: JSON.parse(JSON.stringify(td))
 		};
 	} catch (error) {
 		console.error(`Error loading team from params ${JSON.stringify(params)}`, error);

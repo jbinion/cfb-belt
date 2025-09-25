@@ -9,7 +9,7 @@
 
 <svelte:head>
 	<title>{data.team?.name} Belt History | CFB Belt Tracker</title>
-	<meta name="description" content="{data.team.name}'s College Football Belt history" />
+	<meta name="description" content="{data.team?.name}'s College Football Belt history" />
 	<!-- <script type="application/ld+json">
 		{JSON.stringify({
 			"@context": "https://schema.org",
@@ -21,21 +21,6 @@
 		})}
 	</script> -->
 </svelte:head>
-<p>Teams beat for belt</p>
-<div class="flex flex-row flex-wrap">
-	{#if data.teamsBeatenForBelt}
-		{#each data.teamsBeatenForBelt as teamBeaten}
-			<div>
-				<img
-					src={`/webp/original/${teamBeaten.logoFile}.webp`}
-					class="h-[24px] w-[24px]"
-					alt=""
-					aria-hidden="true"
-				/>
-			</div>
-		{/each}
-	{/if}
-</div>
 
 {#if data.reigns}
 	<section class="flex flex-col items-center justify-between" aria-label="Team Overview">
@@ -76,6 +61,42 @@
 			</div>
 		</dl>
 	</section>
+	<div class="grid grid-cols-2">
+		<div>
+			<p>Teams beat for belt</p>
+			<div class="flex flex-row flex-wrap">
+				{#if data.teamsBeatenForBelt}
+					{#each data.teamsBeatenForBelt as teamBeaten}
+						<div>
+							<img
+								src={`/webp/original/${teamBeaten.logoFile}.webp`}
+								class="h-[24px] w-[24px]"
+								alt=""
+								aria-hidden="true"
+							/>
+						</div>
+					{/each}
+				{/if}
+			</div>
+		</div>
+		<div>
+			<p>Teams defended</p>
+			<div class="flex flex-row flex-wrap">
+				{#if data.teamsDefended}
+					{#each data.teamsDefended as teamBeaten}
+						<div>
+							<img
+								src={`/webp/original/${teamBeaten.logoFile}.webp`}
+								class="h-[24px] w-[24px]"
+								alt=""
+								aria-hidden="true"
+							/>
+						</div>
+					{/each}
+				{/if}
+			</div>
+		</div>
+	</div>
 
 	<section class="flex flex-col space-y-4" aria-label="Championship History">
 		<h2 class="sr-only">Championship Reigns</h2>
@@ -89,5 +110,5 @@
 		{/each}
 	</section>
 {:else}
-	<p class="text-center">No championship history found for {data.team.name}.</p>
+	<p class="text-center">No championship history found for {data.team?.name}.</p>
 {/if}

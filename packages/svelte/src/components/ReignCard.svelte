@@ -42,21 +42,17 @@
 	{#if showGames}
 		<div class="mx-auto my-4 w-full max-w-lg rounded">
 			{#each games as game}
-				<div class="flex flex-row justify-center space-x-4">
-					<GameCard
-						slug={game.away_team.slug}
-						logoFile={game.away_team.logoFile}
-						name={game.away_team.name}
-						points={game.away_points}
-					/>
-					<GameCard
-						slug={game.home_team.slug}
-						logoFile={game.home_team.logoFile}
-						name={game.home_team.name}
-						points={game.home_points}
-						end={true}
-					/>
-				</div>
+				<GameCard
+					slug={game.home_team.slug}
+					logoFile={game.home_team.logoFile}
+					name={game.home_team.name}
+					awaylogoFile={game.away_team.logoFile}
+					awayname={game.away_team.name}
+					points={game.home_points}
+					away_points={game.away_points}
+					end={true}
+					start_date={game.start_date}
+				/>
 			{/each}
 		</div>
 	{/if}
