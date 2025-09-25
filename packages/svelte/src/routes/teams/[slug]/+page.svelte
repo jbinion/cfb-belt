@@ -4,6 +4,7 @@
 	import { BsShield } from 'svelte-icons-pack/bs';
 	import { Icon } from 'svelte-icons-pack';
 	import { BsTrophy } from 'svelte-icons-pack/bs';
+	import TeamsDisplay from '../../../components/TeamsDisplay.svelte';
 	let { data }: { data: PageData } = $props();
 </script>
 
@@ -62,40 +63,11 @@
 		</dl>
 	</section>
 	<div class="grid grid-cols-2">
-		<div>
-			<p>Teams beat for belt</p>
-			<div class="flex flex-row flex-wrap">
-				{#if data.teamsBeatenForBelt}
-					{#each data.teamsBeatenForBelt as teamBeaten}
-						<div>
-							<img
-								src={`/webp/original/${teamBeaten.logoFile}.webp`}
-								class="h-[24px] w-[24px]"
-								alt=""
-								aria-hidden="true"
-							/>
-						</div>
-					{/each}
-				{/if}
-			</div>
-		</div>
-		<div>
-			<p>Teams defended</p>
-			<div class="flex flex-row flex-wrap">
-				{#if data.teamsDefended}
-					{#each data.teamsDefended as teamBeaten}
-						<div>
-							<img
-								src={`/webp/original/${teamBeaten.logoFile}.webp`}
-								class="h-[24px] w-[24px]"
-								alt=""
-								aria-hidden="true"
-							/>
-						</div>
-					{/each}
-				{/if}
-			</div>
-		</div>
+		<TeamsDisplay title="Teams beat for belt" teams={data.teamsBeatenForBelt} />
+
+		<TeamsDisplay title="Teams defended" teams={data.teamsDefended} />
+
+		<TeamsDisplay title="Teams lost to" teams={data.teamsLostTo} />
 	</div>
 
 	<section class="flex flex-col space-y-4" aria-label="Championship History">

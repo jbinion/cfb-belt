@@ -62,11 +62,19 @@ export async function load({ params }) {
 			});
 			return acc;
 		}, []);
+
+		const teamsLostTo = reigns.map((reign) => {
+			return reign.beltLossGame.away_team.name === team.name
+				? reign.beltLossGame.home_team
+				: reign.beltLossGame.away_team;
+		});
+
 		return {
 			team: JSON.parse(JSON.stringify(team)),
 			reigns: JSON.parse(JSON.stringify(reigns)),
 			teamsBeatenForBelt: JSON.parse(JSON.stringify(teamsBeatenForBelt)),
-			teamsDefended: JSON.parse(JSON.stringify(td))
+			teamsDefended: JSON.parse(JSON.stringify(td)),
+			teamsLostTo: JSON.parse(JSON.stringify(teamsLostTo))
 		};
 	} catch (error) {
 		console.error(`Error loading team from params ${JSON.stringify(params)}`, error);
