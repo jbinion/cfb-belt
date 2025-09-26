@@ -1,7 +1,6 @@
 <script>
 	import GameCard from './GameCard.svelte';
 
-	export let defenses = 0;
 	export let start = '';
 	export let end = '';
 	export let games = [];
@@ -33,8 +32,8 @@
 
 		<div class="flex flex-row justify-center space-x-2">
 			<p class=" ">
-				{defenses}
-				{defenses === 1 ? 'Defense' : 'Defenses'}
+				{games.length - 1}
+				{games.length-1 === 1 ? 'Defense' : 'Defenses'}
 			</p>
 		</div>
 	</button>

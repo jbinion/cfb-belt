@@ -24,61 +24,77 @@
 </svelte:head>
 
 {#if data.reigns}
-	<section class="flex flex-col items-center justify-between" aria-label="Team Overview">
-		<div class=" flex flex-row space-x-6">
+	<div class="container mx-auto px-4  space-y-24">
+		<section
+			class="flex flex-col sm:flex-row items-center sm:items-start gap-6 rounded-xl bg-white/70 dark:bg-neutral-900/70 "
+			aria-label="Team Overview"
+		>
 			<img
 				src={`/webp/original/${data.team.logoFile}.webp`}
-				class="h-[128px] w-[128px]"
+				class="h-28 w-28 sm:h-32 sm:w-32 rounded-md bg-white "
 				alt=""
 				aria-hidden="true"
 			/>
-			<div class="flex flex-col justify-center text-black">
-				<h1 class="text-4xl font-bold">
+			<div class="flex flex-col justify-center text-black dark:text-white">
+				<h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight">
 					{data.team.name}
 				</h1>
-				<dl class="flex flex-row items-center justify-center space-x-4">
-					<div class="flex flex-row items-center space-x-4 p-4">
+				<dl class="mt-4 grid grid-cols-2 sm:grid-cols-3 gap-3">
+					<div class="flex items-center gap-3 rounded-lg bg-white/60 dark:bg-neutral-800/60 px-4 py-2">
 						<span aria-hidden="true">
-							<Icon src={BsTrophy} />
+							<Icon src={BsTrophy} size="1.25rem" />
 						</span>
-						<dd>{data.reigns.length} Reigns</dd>
+						<div class="flex flex-col leading-tight">
+							<dt class="sr-only">Reigns</dt>
+							<dd class="text-sm text-gray-600 dark:text-gray-300">Reigns</dd>
+							<dd class="text-lg font-semibold">{data.reigns.length}</dd>
+						</div>
 					</div>
 
-					<div class="flex flex-row items-center space-x-4 p-4">
+					<div class="flex items-center gap-3 rounded-lg bg-white/60 dark:bg-neutral-800/60 px-4 py-2">
 						<span aria-hidden="true">
-							<Icon src={BsShield} />
+							<Icon src={BsShield} size="1.25rem" />
 						</span>
-						<dd>
-							{data.reigns.reduce(
-								(acc: number, curr: { games: any[] }) => acc + curr.games.length - 1,
-								0
-							)} Defenses
-						</dd>
+						<div class="flex flex-col leading-tight">
+							<dt class="sr-only">Defenses</dt>
+							<dd class="text-sm text-gray-600 dark:text-gray-300">Defenses</dd>
+							<dd class="text-lg font-semibold">
+								{data.reigns.reduce(
+									(acc: number, curr: { games: any[] }) => acc + curr.games.length - 1,
+									0
+								)}
+								</dd>
+						</div>
 					</div>
 				</dl>
 			</div>
-		</div>
-	</section>
-	<div class="grid grid-cols-2">
-		<TeamsDisplay title="Teams beat for belt" teams={data.teamsBeatenForBelt} />
+		</section>
 
-		<TeamsDisplay title="Teams defended" teams={data.teamsDefended} />
+		<section class="flex flex-col space-y-6" aria-label="Opponent Matchups">
+			<h2 class="text-xl font-semibold tracking-tight">Teams Faced</h2>
+			<div class='grid grid-cols-2 gap-6'>
+				<TeamsDisplay title="Won belt from" teams={data.teamsBeatenForBelt} />
+				<TeamsDisplay title="Lost belt to" teams={data.teamsLostTo} />
+			
+			</div>
+			{#if data.teamsDefended.length > 0}
+			<TeamsDisplay title="Defended belt against" teams={data.teamsDefended} />
 
-		<TeamsDisplay title="Teams lost to" teams={data.teamsLostTo} />
+			{/if}
+		</section>
+
+		<section class="flex flex-col space-y-6" aria-label="Championship History">
+			<h2 class="text-xl font-semibold tracking-tight">Championship Reigns</h2>
+			{#each data.reigns as reign (reign._id)}
+				<ReignCard
+					start={reign.startDate}
+					end={reign.beltLossGame?.start_date || ''}
+					games={reign.games}
+					beltLossGame={reign.beltLossGame || null}
+				/>
+			{/each}
+		</section>
 	</div>
-
-	<section class="flex flex-col space-y-4" aria-label="Championship History">
-		<h2 class="sr-only">Championship Reigns</h2>
-		{#each data.reigns as reign (reign._id)}
-			<ReignCard
-				defenses={reign.games.length - 1}
-				start={reign.startDate}
-				end={reign.beltLossGame?.start_date || ''}
-				games={reign.games}
-				beltLossGame={reign.beltLossGame || null}
-			/>
-		{/each}
-	</section>
 {:else}
 	<p class="text-center">No championship history found for {data.team?.name}.</p>
 {/if}

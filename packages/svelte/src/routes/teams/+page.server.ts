@@ -1,7 +1,6 @@
 import { connectDB } from '$lib/db/mongoose';
 import '$lib/models/index';
 import { Reign, Team } from '$lib/models/index';
-import config from '../../config';
 
 export const prerender = true;
 
