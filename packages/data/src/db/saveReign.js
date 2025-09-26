@@ -1,10 +1,10 @@
 import { Reign, Team } from 'models';
 import saveGames from './saveGames.js';
 
-const saveReign = async ({ reign, beltName, _id = null }) => {
+const saveReign = async ({ reign, _id = null }) => {
   if (_id) console.log('updating reign id: ', _id);
   if (!_id) console.log('creating new reign for team: ', reign.team);
-  const gameIds = await saveGames(reign.games, beltName);
+  const gameIds = await saveGames(reign.games);
   const teamId = await Team.findOne({ name: reign.team }).select('_id');
   console.log(teamId);
 
@@ -13,7 +13,6 @@ const saveReign = async ({ reign, beltName, _id = null }) => {
       _id,
       {
         $push: { games: { $each: gameIds } },
-        endDate: reign.endDate,
       },
       { new: true }
     );
@@ -23,9 +22,7 @@ const saveReign = async ({ reign, beltName, _id = null }) => {
     { team: teamId._id, startDate: reign.startDate },
     {
       games: gameIds,
-      beltName,
       startDate: reign.startDate,
-      endDate: reign.endDate,
     },
     { upsert: true, new: true }
   );

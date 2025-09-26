@@ -44,9 +44,9 @@
 			{#if beltLossGame}
 				<GameCard
 					slug={beltLossGame.home_team.slug}
-					logoFile={beltLossGame.home_team.logoFile}
+					logoFile={beltLossGame?.home_team?.logoFile}
 					name={beltLossGame.home_team.name}
-					awaylogoFile={beltLossGame.away_team.logoFile}
+					awaylogoFile={beltLossGame?.away_team?.logoFile}
 					awayname={beltLossGame.away_team.name}
 					points={beltLossGame.home_points}
 					away_points={beltLossGame.away_points}
@@ -57,15 +57,15 @@
 
 			{#each games as game}
 				<GameCard
-					slug={game.home_team.slug}
-					logoFile={game.home_team.logoFile}
-					name={game.home_team.name}
-					awaylogoFile={game.away_team.logoFile}
-					awayname={game.away_team.name}
-					points={game.home_points}
-					away_points={game.away_points}
+					slug={game.home_team?.slug}
+					logoFile={game.home_team?.logoFile}
+					name={game.home_team?.name}
+					awaylogoFile={game.away_team?.logoFile}
+					awayname={game.away_team?.name}
+					points={game?.home_points}
+					away_points={game?.away_points}
 					end={true}
-					start_date={game.start_date}
+					start_date={game?.start_date}
 				/>
 			{/each}
 		</div>

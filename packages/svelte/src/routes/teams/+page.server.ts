@@ -9,7 +9,7 @@ export async function load() {
 	try {
 		await connectDB();
 
-		const teamsThatHeldBelt = await Reign.find({ beltName: config.beltName }).distinct('team');
+		const teamsThatHeldBelt = await Reign.find().distinct('team');
 
 		const teams = await Team.find({ _id: { $in: teamsThatHeldBelt } }).sort({ name: 1 });
 

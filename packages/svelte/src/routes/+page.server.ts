@@ -1,24 +1,23 @@
 import { connectDB } from '$lib/db/mongoose';
 import { Game, NextGame, Reign, Team, type IReignDocument } from 'models';
 import '$lib/models/index';
-import config from '../config';
 
 export const prerender = true;
 
 export async function load() {
 	try {
 		await connectDB();
-		const reigns = (await Reign.find({ beltName: config.beltName })
+		const reigns = (await Reign.find({})
 			.populate('team')
 			.limit(10)
 			.sort({ startDate: -1 })) as IReignDocument[];
 
 		// hero section stats
-		const totalReigns = await Reign.find({ beltName: config.beltName }).countDocuments();
-		const teamCount = await Reign.find({ beltName: config.beltName }).distinct('team');
-		const totalGames = await Game.find({ beltName: config.beltName }).countDocuments();
+		const totalReigns = await Reign.find({}).countDocuments();
+		const teamCount = await Reign.find({}).distinct('team');
+		const totalGames = await Game.find({}).countDocuments();
 		const currentDate = new Date();
-		const firstReign = await Reign.findOne({ beltName: config.beltName }).sort({ startDate: 1 });
+		const firstReign = await Reign.findOne({}).sort({ startDate: 1 });
 		const yearsSince = currentDate.getFullYear() - firstReign.startDate.getFullYear();
 
 		// get next game challenger team info

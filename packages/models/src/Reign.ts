@@ -6,7 +6,6 @@ export interface IReignDocument extends Document {
   team: Types.ObjectId;
   games: Types.ObjectId[];
   startDate: Date;
-  beltName?: string;
 }
 
 const reignSchema = new mongoose.Schema({
@@ -26,14 +25,6 @@ const reignSchema = new mongoose.Schema({
   },
   startDate: {
     type: Date,
-    required: true,
-  },
-  endDate: {
-    type: Date,
-    required: true,
-  },
-  beltName: {
-    type: String,
     required: true,
   },
 });

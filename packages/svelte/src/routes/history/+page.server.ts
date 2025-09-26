@@ -2,14 +2,13 @@ import { connectDB } from '$lib/db/mongoose';
 import { Reign, type IReignDocument } from 'models';
 // Import all models to ensure schemas are registered
 import '$lib/models/index';
-import config from '../../config';
 
 export const prerender = true;
 
 export async function load() {
 	try {
 		await connectDB();
-		const reigns = (await Reign.find({ beltName: config.beltName })
+		const reigns = (await Reign.find()
 			.populate('team')
 			.sort({ startDate: -1 })) as IReignDocument[];
 		return {

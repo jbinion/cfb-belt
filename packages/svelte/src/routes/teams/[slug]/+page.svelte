@@ -9,7 +9,7 @@
 </script>
 
 <svelte:head>
-	<title>{data.team?.name} Belt History | CFB Belt Tracker</title>
+	<title>{data.team?.name} CFB Belt History</title>
 	<meta name="description" content="{data.team?.name}'s College Football Belt history" />
 	<!-- <script type="application/ld+json">
 		{JSON.stringify({
@@ -36,31 +36,28 @@
 				<h1 class="text-4xl font-bold">
 					{data.team.name}
 				</h1>
+				<dl class="flex flex-row items-center justify-center space-x-4">
+					<div class="flex flex-row items-center space-x-4 p-4">
+						<span aria-hidden="true">
+							<Icon src={BsTrophy} />
+						</span>
+						<dd>{data.reigns.length} Reigns</dd>
+					</div>
+
+					<div class="flex flex-row items-center space-x-4 p-4">
+						<span aria-hidden="true">
+							<Icon src={BsShield} />
+						</span>
+						<dd>
+							{data.reigns.reduce(
+								(acc: number, curr: { games: any[] }) => acc + curr.games.length - 1,
+								0
+							)} Defenses
+						</dd>
+					</div>
+				</dl>
 			</div>
 		</div>
-
-		<dl class="flex flex-row items-center justify-center space-x-4">
-			<div class="flex flex-row items-center space-x-4 p-4">
-				<dt class="sr-only">Championship Reigns</dt>
-				<span aria-hidden="true">
-					<Icon src={BsTrophy} />
-				</span>
-				<dd>{data.reigns.length} Reigns</dd>
-			</div>
-
-			<div class="flex flex-row items-center space-x-4 p-4">
-				<dt class="sr-only">Successful Defenses</dt>
-				<span aria-hidden="true">
-					<Icon src={BsShield} />
-				</span>
-				<dd>
-					{data.reigns.reduce(
-						(acc: number, curr: { games: any[] }) => acc + curr.games.length - 1,
-						0
-					)} Defenses
-				</dd>
-			</div>
-		</dl>
 	</section>
 	<div class="grid grid-cols-2">
 		<TeamsDisplay title="Teams beat for belt" teams={data.teamsBeatenForBelt} />

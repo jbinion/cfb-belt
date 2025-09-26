@@ -2,7 +2,7 @@ import { connectDB } from '$lib/db/mongoose';
 // Import all models to ensure schemas are registered
 import '$lib/models/index';
 import { Reign, Team, type ITeamDocument } from 'models';
-import config from '../../../config';
+import countTeamAppearances from '$lib/countTeamAppearances';
 
 export const prerender = true;
 
@@ -17,8 +17,9 @@ export async function load({ params }) {
 		await connectDB();
 		const decodedSlug = encodeURIComponent(params.slug);
 		const team = await Team.findOne({ slug: decodedSlug });
+		console.log(team);
 		if (!team) throw new Error('Team not found');
-		const reigns = await Reign.find({ team: team._id, beltName: config.beltName })
+		const reigns = await Reign.find({ team: team._id })
 			.populate({
 				path: 'games',
 				populate: [{ path: 'home_team' }, { path: 'away_team' }],
@@ -28,10 +29,12 @@ export async function load({ params }) {
 				path: 'beltLossGame',
 				populate: [{ path: 'home_team' }, { path: 'away_team' }]
 			})
-			.sort({ startDate: -1 });
+			.sort({ startDate: -1 })
+			.lean();
 
 		const teamsBeatenForBelt = reigns
 			.map((reign) => {
+				console.log(reign);
 				if (!reign.games || reign.games.length === 0) return null;
 
 				const sortedGames = [...reign.games].sort(
@@ -44,37 +47,37 @@ export async function load({ params }) {
 			})
 			.filter(Boolean);
 
-		const td = reigns.reduce((acc, cur) => {
+		const teamsDefendedAgainst = reigns.reduce((acc, cur) => {
 			const sortedGames = [...cur.games].sort(
 				(a, b) => new Date(a.start_date).getTime() - new Date(b.start_date).getTime()
 			);
-			let gamesExceptFirst = sortedGames.slice(1);
-			const teams = gamesExceptFirst.map((game) => {
-				const otherTeam = game.away_team.name === team.name ? game.home_team : game.away_team;
+			if (sortedGames.length > 1) {
+				let gamesExceptFirst = sortedGames.slice(1);
 
-				return otherTeam;
-			});
+				gamesExceptFirst.forEach((game) => {
+					const otherTeam = game?.away_team?.name === team.name ? game.home_team : game?.away_team;
+					acc.push(otherTeam);
+				});
+			}
 
-			teams.forEach((t) => {
-				if (!acc.find((a) => a.name === t.name)) {
-					acc.push(t);
-				}
-			});
 			return acc;
 		}, []);
 
-		const teamsLostTo = reigns.map((reign) => {
-			return reign.beltLossGame.away_team.name === team.name
-				? reign.beltLossGame.home_team
-				: reign.beltLossGame.away_team;
-		});
+		const teamsLostTo = reigns
+			.map((reign) => {
+				if (!reign.beltLossGame) return null;
+				return reign.beltLossGame.away_team.name === team.name
+					? reign.beltLossGame.home_team
+					: reign.beltLossGame.away_team;
+			})
+			.filter(Boolean);
 
 		return {
 			team: JSON.parse(JSON.stringify(team)),
 			reigns: JSON.parse(JSON.stringify(reigns)),
-			teamsBeatenForBelt: JSON.parse(JSON.stringify(teamsBeatenForBelt)),
-			teamsDefended: JSON.parse(JSON.stringify(td)),
-			teamsLostTo: JSON.parse(JSON.stringify(teamsLostTo))
+			teamsBeatenForBelt: JSON.parse(JSON.stringify(countTeamAppearances(teamsBeatenForBelt))),
+			teamsDefended: JSON.parse(JSON.stringify(countTeamAppearances(teamsDefendedAgainst))),
+			teamsLostTo: JSON.parse(JSON.stringify(countTeamAppearances(teamsLostTo)))
 		};
 	} catch (error) {
 		console.error(`Error loading team from params ${JSON.stringify(params)}`, error);

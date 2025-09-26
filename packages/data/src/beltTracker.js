@@ -43,7 +43,6 @@ class BeltTracker {
       this.reigns.at(-1).games.push({ ...game, type: 'defense' });
       return;
     }
-    this.reigns.at(-1).endDate = game.start_date;
     this.reigns.push({
       team: winner,
       games: [{ ...game, type: 'win' }],

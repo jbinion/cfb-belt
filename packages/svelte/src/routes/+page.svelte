@@ -5,6 +5,7 @@
 	import TeamCardFull from '../components/TeamCardFull.svelte';
 	import type { PageData } from './$types';
 	import numberSuffix from '../lib/numberSuffix';
+	import formatDate from '$lib/formatDate';
 	let { data }: { data: PageData } = $props();
 </script>
 
@@ -48,11 +49,7 @@
 					<div class="">
 						<p class="text-[11px] font-semibold uppercase tracking-wide text-white/70">Since</p>
 						<p class="font-mono text-base text-zinc-100">
-							{new Date(data.current.startDate).toLocaleDateString('en-US', {
-								year: 'numeric',
-								month: 'long',
-								day: 'numeric'
-							})}
+							{formatDate(data.current.startDate, { month: 'long' })}
 						</p>
 					</div>
 
@@ -78,12 +75,7 @@
 			logoFile={data.nextChallenger.logoFile}
 			teamName={data.nextChallenger.name}
 		>
-			{new Date(data.nextGameStartDate).toLocaleDateString('en-US', {
-				weekday: 'long', // Saturday
-				year: 'numeric', // 2025
-				month: 'long', // August
-				day: 'numeric' // 30
-			})}
+			{formatDate(data.nextGameStartDate, { weekday: 'long', month: 'long' })}
 		</Card>
 	</div>
 

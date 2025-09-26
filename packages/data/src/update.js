@@ -61,7 +61,6 @@ const main = async () => {
     reigns.map(async (reign) => {
       await saveReign({
         reign,
-        beltName: currentReign.beltName,
         _id: reign._id,
       });
     })
