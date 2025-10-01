@@ -82,7 +82,7 @@
 	{#if data}
 		<section aria-label="Recent Belt History" class="mx-auto w-full max-w-screen-sm">
 			<h2 class="sectionTitle">Recent</h2>
-			<div class="divide-border divide-y" aria-label="Recent belt holders">
+			<div class="divide-y divide-border" aria-label="Recent belt holders">
 				{#each data.reigns as item (item._id)}
 					<TeamCardFull
 						name={item.team?.name}

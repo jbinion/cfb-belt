@@ -6,18 +6,18 @@
 
 /* Local font: VarsityTeam (served from static/VarsityTeamFont) */
 @font-face {
-  font-family: 'Varsity Team';
-  src: url('/VarsityTeamFont/VarsityTeam-Bold.otf') format('opentype');
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
+	font-family: 'Varsity Team';
+	src: url('/VarsityTeamFont/VarsityTeam-Bold.otf') format('opentype');
+	font-weight: 700;
+	font-style: normal;
+	font-display: swap;
 }
 
 :root {
 	--font-heading: 'Montserrat', Arial, sans-serif;
 	--font-body: 'Inter', 'Segoe UI', Arial, sans-serif;
 	--font-mono: 'Fira Mono', 'Roboto Mono', monospace;
-    --font-varsity: 'Varsity Team', 'Montserrat', Arial, sans-serif;
+	--font-varsity: 'Varsity Team', 'Montserrat', Arial, sans-serif;
 
 	--background: #ffffff;
 	--foreground: #000000;
@@ -86,10 +86,11 @@ ol {
 
 /* Utility classes for Varsity font usage */
 .varsity,
-.varisty { /* alias for convenience */
-    font-family: var(--font-varsity);
-    font-weight: 700;
-    letter-spacing: 0.02em;
+.varisty {
+	/* alias for convenience */
+	font-family: var(--font-varsity);
+	font-weight: 700;
+	letter-spacing: 0.02em;
 }
 
 @media (min-width: 480px) {
