@@ -1,22 +1,19 @@
 <script>
-	import GameCard from './GameCard.svelte';
-
 	export let start = '';
 	export let end = '';
-	export let games = [];
+	export let defenses = 0;
 	const startDate = new Date(start).toLocaleDateString();
 	const endDate = end ? new Date(end).toLocaleDateString() : null;
 	import { HiSolidChevronRight } from 'svelte-icons-pack/hi';
 	import { HiSolidChevronDown } from 'svelte-icons-pack/hi';
 	import { Icon } from 'svelte-icons-pack';
-	export let beltLossGame = null;
 	let showGames = false;
 </script>
 
 <div>
 	<button
 		on:click={() => (showGames = !showGames)}
-		class="card hover:bg-card-hover flex w-full flex-row items-center justify-between space-x-8 px-3 py-3 font-mono"
+		class="card flex w-full flex-row items-center justify-between space-x-8 px-3 py-3 font-mono hover:bg-card-hover"
 	>
 		<div class="flex items-center gap-2">
 			<Icon
@@ -32,41 +29,15 @@
 
 		<div class="flex flex-row justify-center space-x-2">
 			<p class=" ">
-				{games.length - 1}
-				{games.length-1 === 1 ? 'Defense' : 'Defenses'}
+				{defenses}
+				{defenses === 1 ? 'Defense' : 'Defenses'}
 			</p>
 		</div>
 	</button>
 
 	{#if showGames}
-		<div class="mx-auto my-4 w-full max-w-lg rounded">
-			{#if beltLossGame}
-				<GameCard
-					slug={beltLossGame.home_team.slug}
-					logoFile={beltLossGame?.home_team?.logoFile}
-					name={beltLossGame.home_team.name}
-					awaylogoFile={beltLossGame?.away_team?.logoFile}
-					awayname={beltLossGame.away_team.name}
-					points={beltLossGame.home_points}
-					away_points={beltLossGame.away_points}
-					end={true}
-					start_date={beltLossGame.start_date}
-				/>
-			{/if}
-
-			{#each games as game}
-				<GameCard
-					slug={game.home_team?.slug}
-					logoFile={game.home_team?.logoFile}
-					name={game.home_team?.name}
-					awaylogoFile={game.away_team?.logoFile}
-					awayname={game.away_team?.name}
-					points={game?.home_points}
-					away_points={game?.away_points}
-					end={true}
-					start_date={game?.start_date}
-				/>
-			{/each}
+		<div class="mx-auto my-4 w-full max-w-lg space-y-8 rounded">
+			<slot />
 		</div>
 	{/if}
 </div>
