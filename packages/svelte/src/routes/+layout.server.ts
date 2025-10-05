@@ -1,16 +1,15 @@
-import { connectDB } from '$lib/db/mongoose';
-import '$lib/models/index';
+import { connect } from '$lib/db/mongoose';
 import { Reign } from 'models';
 
 export const prerender = true;
 
 export async function load() {
 	try {
-		await connectDB();
+		await connect();
 		const current = await Reign.findOne({})
 			.sort({ startDate: -1 })
 			.populate('team')
-			.populate('games');
+			.populate('games')
 		const currentHolderTotalReigns = await Reign.find({
 			team: current.team._id
 		}).countDocuments();

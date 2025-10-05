@@ -1,34 +1,11 @@
-import mongoose from 'mongoose';
+import { connectDB } from 'models';
 import { MONGO_URI } from '$env/static/private';
 
-let isConnected = false;
-
-export async function connectDB() {
-	if (isConnected) {
-		return;
-	}
-
+export async function connect() {
 	try {
-		await mongoose.connect(MONGO_URI);
-		isConnected = true;
-		console.log('MongoDB connected successfully');
+		await connectDB(MONGO_URI);
 	} catch (error) {
 		console.error('MongoDB connection error:', error);
 		throw error;
 	}
 }
-
-export function disconnectDB() {
-	if (!isConnected) {
-		return;
-	}
-
-	return mongoose.disconnect();
-}
-
-// Ensure proper cleanup on app termination
-process.on('SIGTERM', async () => {
-	if (isConnected) {
-		await disconnectDB();
-	}
-});

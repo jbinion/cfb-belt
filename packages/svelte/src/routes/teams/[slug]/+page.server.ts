@@ -1,20 +1,19 @@
-import { connectDB } from '$lib/db/mongoose';
-// Import all models to ensure schemas are registered
-import '$lib/models/index';
+import { connect } from '$lib/db/mongoose';
+
 import { Reign, Team, type ITeamDocument } from 'models';
 import countTeamAppearances from '$lib/countTeamAppearances';
 
 export const prerender = true;
 
 export const entries = async () => {
-	await connectDB();
+	await connect();
 	const teams = (await Team.find({}).select('slug')) as ITeamDocument[];
 	return teams.map((t) => ({ slug: decodeURIComponent(t.slug) }));
 };
 
 export async function load({ params }) {
 	try {
-		await connectDB();
+		await connect();
 		const decodedSlug = encodeURIComponent(params.slug);
 		const team = await Team.findOne({ slug: decodedSlug });
 		console.log(team);

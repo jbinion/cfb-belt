@@ -1,7 +1,7 @@
 import mongoose, { type Document } from "mongoose";
 import type { Types } from "mongoose";
 
-export interface IGameDocument extends Document {
+export interface INextGameDocument extends Document {
   _id: Types.ObjectId;
   start_date: Date;
   home_team: Types.ObjectId;
@@ -38,6 +38,6 @@ const nextGameSchema = new mongoose.Schema({
 
 const NextGame =
   mongoose.models.NextGame ||
-  mongoose.model<IGameDocument>("NextGame", nextGameSchema);
+  mongoose.model<INextGameDocument>("NextGame", nextGameSchema);
 
 export default NextGame;

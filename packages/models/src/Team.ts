@@ -8,6 +8,7 @@ export interface ITeamDocument extends Document {
   color: string;
   logoFile: string;
   altColor: string;
+  slug: string;
 }
 
 const teamSchema = new mongoose.Schema({

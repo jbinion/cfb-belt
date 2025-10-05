@@ -1,12 +1,11 @@
-import { connectDB } from '$lib/db/mongoose';
-import '$lib/models/index';
-import { Reign, Team } from '$lib/models/index';
+import { connect } from '$lib/db/mongoose';
+import { Reign, Team } from 'models';
 
 export const prerender = true;
 
 export async function load() {
 	try {
-		await connectDB();
+		await connect();
 
 		const teamsThatHeldBelt = await Reign.find().distinct('team');
 
