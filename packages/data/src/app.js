@@ -6,7 +6,7 @@ import saveReign from './db/saveReign.js';
 import crawler from './crawler.js';
 import fs from 'fs';
 
-const app = async ({ startTeam, startYear, maxYear, title }) => {
+const app = async ({ startTeam, startYear, maxYear }) => {
   try {
     await mongoose();
     console.log('connected');
@@ -23,7 +23,7 @@ const app = async ({ startTeam, startYear, maxYear, title }) => {
     await saveTeams(teamData);
     await Promise.all(
       reigns.map(async (reign) => {
-        await saveReign({ reign, beltName: title });
+        await saveReign({ reign });
       })
     );
     console.log('done');
@@ -37,7 +37,6 @@ const settings = {
   startTeam: 'Rutgers', // should start with first ever game, so no initial team
   startYear: '1869',
   maxYear: '2025',
-  title: 'v2',
 };
 
 app(settings);

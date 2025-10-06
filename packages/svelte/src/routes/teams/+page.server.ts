@@ -1,15 +1,13 @@
-import { connectDB } from '$lib/db/mongoose';
-import '$lib/models/index';
-import { Reign, Team } from '$lib/models/index';
-import config from '../../config';
+import { connect } from '$lib/db/mongoose';
+import { Reign, Team } from 'models';
 
 export const prerender = true;
 
 export async function load() {
 	try {
-		await connectDB();
+		await connect();
 
-		const teamsThatHeldBelt = await Reign.find({ beltName: config.beltName }).distinct('team');
+		const teamsThatHeldBelt = await Reign.find().distinct('team');
 
 		const teams = await Team.find({ _id: { $in: teamsThatHeldBelt } }).sort({ name: 1 });
 

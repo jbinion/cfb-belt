@@ -41,10 +41,6 @@ const gameSchema = new mongoose.Schema({
     type: Number,
     required: true,
   },
-  beltName: {
-    type: String,
-    required: true,
-  },
 });
 
 const Game =

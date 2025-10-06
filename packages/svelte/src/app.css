@@ -4,10 +4,20 @@
 @import 'tailwindcss/utilities';
 @import '@fontsource/fira-mono';
 
+/* Local font: VarsityTeam (served from static/VarsityTeamFont) */
+@font-face {
+	font-family: 'Varsity Team';
+	src: url('/VarsityTeamFont/VarsityTeam-Bold.otf') format('opentype');
+	font-weight: 700;
+	font-style: normal;
+	font-display: swap;
+}
+
 :root {
 	--font-heading: 'Montserrat', Arial, sans-serif;
 	--font-body: 'Inter', 'Segoe UI', Arial, sans-serif;
 	--font-mono: 'Fira Mono', 'Roboto Mono', monospace;
+	--font-varsity: 'Varsity Team', 'Montserrat', Arial, sans-serif;
 
 	--background: #ffffff;
 	--foreground: #000000;
@@ -54,15 +64,15 @@ ol {
 }
 
 .sortButton {
-	@apply text-foreground-muted border-black;
+	@apply border-black text-foreground-muted;
 }
 
 .sortButton:hover {
-	@apply text-foreground border-b-2;
+	@apply border-b-2 text-foreground;
 }
 
 .sortButton.active {
-	@apply text-foreground border-b-2;
+	@apply border-b-2 text-foreground;
 }
 
 .content {
@@ -72,6 +82,15 @@ ol {
 .textHeading {
 	text-decoration: none;
 	font-family: var(--font-heading);
+}
+
+/* Utility classes for Varsity font usage */
+.varsity,
+.varisty {
+	/* alias for convenience */
+	font-family: var(--font-varsity);
+	font-weight: 700;
+	letter-spacing: 0.02em;
 }
 
 @media (min-width: 480px) {

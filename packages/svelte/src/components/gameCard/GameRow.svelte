@@ -1,16 +1,15 @@
-<script>
-	export let slug = '';
+<script lang="ts">
 	export let logoFile = '';
 	export let name = '';
 	export let points = '';
-	export let end = false;
+	export let slug = '';
 </script>
 
-<a href={`/teams/${slug}`} class="flex w-full items-center p-4 py-2" class:flex-row-reverse={end}>
-	<div class="flex w-full flex-row items-center" class:flex-row-reverse={end}>
+<a href={`/teams/${slug}`} class="flex w-full items-center p-4 py-2">
+	<div class="flex w-full flex-row items-center space-x-2">
 		<img
 			src={`/webp/small/${logoFile}.webp`}
-			class={end ? 'ml-2' : 'mr-2'}
+			class="ml-2"
 			class:w-[32px]={true}
 			alt={`${name} logo `}
 		/>

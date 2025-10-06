@@ -1,23 +1,19 @@
 <script>
-	import GameCard from './GameCard.svelte';
-
-	export let defenses = 0;
 	export let start = '';
 	export let end = '';
-	export let games = [];
+	export let defenses = 0;
 	const startDate = new Date(start).toLocaleDateString();
-	const endDate = new Date(end).toLocaleDateString();
+	const endDate = end ? new Date(end).toLocaleDateString() : null;
 	import { HiSolidChevronRight } from 'svelte-icons-pack/hi';
 	import { HiSolidChevronDown } from 'svelte-icons-pack/hi';
 	import { Icon } from 'svelte-icons-pack';
-
 	let showGames = false;
 </script>
 
 <div>
 	<button
 		on:click={() => (showGames = !showGames)}
-		class="card hover:bg-card-hover flex w-full flex-row items-center justify-between space-x-8 px-3 py-3 font-mono"
+		class="card flex w-full flex-row items-center justify-between space-x-8 px-3 py-3 font-mono hover:bg-card-hover"
 	>
 		<div class="flex items-center gap-2">
 			<Icon
@@ -40,24 +36,8 @@
 	</button>
 
 	{#if showGames}
-		<div class="mx-auto my-4 w-full max-w-lg rounded">
-			{#each games as game}
-				<div class="flex flex-row justify-center space-x-4">
-					<GameCard
-						slug={game.away_team.slug}
-						logoFile={game.away_team.logoFile}
-						name={game.away_team.name}
-						points={game.away_points}
-					/>
-					<GameCard
-						slug={game.home_team.slug}
-						logoFile={game.home_team.logoFile}
-						name={game.home_team.name}
-						points={game.home_points}
-						end={true}
-					/>
-				</div>
-			{/each}
+		<div class="mx-auto my-4 w-full max-w-lg space-y-8 rounded">
+			<slot />
 		</div>
 	{/if}
 </div>

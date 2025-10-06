@@ -1,14 +1,14 @@
 import 'dotenv/config';
-import config from './config.js';
+// import config from './config.js';
 import getWeeks from './api/getWeeks.js';
 
 import { Reign } from 'models';
 import mongoose from './mongoose.js';
 import getGameById from './api/getGameById.js';
 import crawler from './crawler.js';
-import populateTeamData from './populateTeamData.js';
+// import populateTeamData from './populateTeamData.js';
 import saveReign from './db/saveReign.js';
-import saveTeams from './db/saveTeams.js';
+// import saveTeams from './db/saveTeams.js';
 
 const main = async () => {
   await mongoose();
@@ -50,17 +50,17 @@ const main = async () => {
     startWeekIndex: currentGameIndex + 1,
     startReignId: currentReign._id,
   });
-  console.log(reigns);
-  console.log(teams);
+  // console.log(reigns);
+  // console.log(teams);
+  console.log('resulting reign(s)');
   console.log(JSON.stringify(reigns, null, 2));
-  const { teamData, noData } = await populateTeamData(teams);
-  if (noData.length) console.log('no data for: ', noData);
-  await saveTeams(teamData);
+  // const { teamData, noData } = await populateTeamData(teams);
+  // if (noData.length) console.log('no data for: ', noData);
+  // await saveTeams(teamData);
   await Promise.all(
     reigns.map(async (reign) => {
       await saveReign({
         reign,
-        beltName: currentReign.beltName,
         _id: reign._id,
       });
     })

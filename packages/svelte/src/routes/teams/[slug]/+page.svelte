@@ -1,15 +1,17 @@
 <script lang="ts">
 	import type { PageData } from './$types';
 	import ReignCard from '../../../components/ReignCard.svelte';
+	import GameCard from '../../../components/gameCard/GameCard.svelte';
 	import { BsShield } from 'svelte-icons-pack/bs';
 	import { Icon } from 'svelte-icons-pack';
 	import { BsTrophy } from 'svelte-icons-pack/bs';
+	import TeamsDisplay from '../../../components/TeamsDisplay.svelte';
 	let { data }: { data: PageData } = $props();
 </script>
 
 <svelte:head>
-	<title>{data.team.name} Belt History | CFB Belt Tracker</title>
-	<meta name="description" content="{data.team.name}'s College Football Belt history" />
+	<title>{data.team?.name} CFB Belt History</title>
+	<meta name="description" content="{data.team?.name}'s College Football Belt history" />
 	<!-- <script type="application/ld+json">
 		{JSON.stringify({
 			"@context": "https://schema.org",
@@ -23,56 +25,106 @@
 </svelte:head>
 
 {#if data.reigns}
-	<section class="flex flex-col items-center justify-between" aria-label="Team Overview">
-		<div class=" flex flex-row space-x-6">
+	<div class="container mx-auto space-y-24 px-4">
+		<section
+			class="flex flex-col items-center gap-6 rounded-xl bg-white/70 sm:flex-row sm:items-start dark:bg-neutral-900/70"
+			aria-label="Team Overview"
+		>
 			<img
 				src={`/webp/original/${data.team.logoFile}.webp`}
-				class="h-[128px] w-[128px]"
+				class="h-28 w-28 rounded-md bg-white sm:h-32 sm:w-32"
 				alt=""
 				aria-hidden="true"
 			/>
-			<div class="flex flex-col justify-center text-black">
-				<h1 class="text-4xl font-bold">
+			<div class="flex flex-col justify-center text-black dark:text-white">
+				<h1 class="text-3xl font-extrabold tracking-tight sm:text-4xl">
 					{data.team.name}
 				</h1>
-			</div>
-		</div>
+				<dl class="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-3">
+					<div
+						class="flex items-center gap-3 rounded-lg bg-white/60 px-4 py-2 dark:bg-neutral-800/60"
+					>
+						<span aria-hidden="true">
+							<Icon src={BsTrophy} size="1.25rem" />
+						</span>
+						<div class="flex flex-col leading-tight">
+							<dt class="sr-only">Reigns</dt>
+							<dd class="text-sm text-gray-600 dark:text-gray-300">Reigns</dd>
+							<dd class="text-lg font-semibold">{data.reigns.length}</dd>
+						</div>
+					</div>
 
-		<dl class="flex flex-row items-center justify-center space-x-4">
-			<div class="flex flex-row items-center space-x-4 p-4">
-				<dt class="sr-only">Championship Reigns</dt>
-				<span aria-hidden="true">
-					<Icon src={BsTrophy} />
-				</span>
-				<dd>{data.reigns.length} Reigns</dd>
+					<div
+						class="flex items-center gap-3 rounded-lg bg-white/60 px-4 py-2 dark:bg-neutral-800/60"
+					>
+						<span aria-hidden="true">
+							<Icon src={BsShield} size="1.25rem" />
+						</span>
+						<div class="flex flex-col leading-tight">
+							<dt class="sr-only">Defenses</dt>
+							<dd class="text-sm text-gray-600 dark:text-gray-300">Defenses</dd>
+							<dd class="text-lg font-semibold">
+								{data.reigns.reduce(
+									(acc: number, curr: { games: any[] }) => acc + curr.games.length - 1,
+									0
+								)}
+							</dd>
+						</div>
+					</div>
+				</dl>
 			</div>
+		</section>
 
-			<div class="flex flex-row items-center space-x-4 p-4">
-				<dt class="sr-only">Successful Defenses</dt>
-				<span aria-hidden="true">
-					<Icon src={BsShield} />
-				</span>
-				<dd>
-					{data.reigns.reduce(
-						(acc: number, curr: { games: any[] }) => acc + curr.games.length - 1,
-						0
-					)} Defenses
-				</dd>
+		<section class="flex flex-col space-y-6" aria-label="Opponent Matchups">
+			<h2 class="text-xl font-semibold tracking-tight">Teams Faced</h2>
+			<div class="grid grid-cols-2 gap-6">
+				<TeamsDisplay title="Won belt from" teams={data.teamsBeatenForBelt} />
+				<TeamsDisplay title="Lost belt to" teams={data.teamsLostTo} />
 			</div>
-		</dl>
-	</section>
+			{#if data.teamsDefended.length > 0}
+				<TeamsDisplay title="Defended belt against" teams={data.teamsDefended} />
+			{/if}
+		</section>
 
-	<section class="flex flex-col space-y-4" aria-label="Championship History">
-		<h2 class="sr-only">Championship Reigns</h2>
-		{#each data.reigns as reign (reign._id)}
-			<ReignCard
-				defenses={reign.games.length - 1}
-				start={reign.startDate}
-				end={reign.endDate}
-				games={reign.games}
-			/>
-		{/each}
-	</section>
+		<section class="flex flex-col space-y-6" aria-label="Championship History">
+			<h2 class="text-xl font-semibold tracking-tight">Championship Reigns</h2>
+			{#each data.reigns as reign (reign._id)}
+				<ReignCard
+					start={reign.startDate}
+					end={reign.beltLossGame?.start_date || ''}
+					defenses={reign.games.length - 1}
+				>
+					{#if reign.beltLossGame}
+						<GameCard
+							slug={reign.beltLossGame.home_team.slug}
+							logoFile={reign.beltLossGame?.home_team?.logoFile}
+							name={reign.beltLossGame.home_team.name}
+							awaylogoFile={reign.beltLossGame?.away_team?.logoFile}
+							awayname={reign.beltLossGame.away_team.name}
+							points={reign.beltLossGame.home_points}
+							away_points={reign.beltLossGame.away_points}
+							start_date={reign.beltLossGame.start_date}
+							title={'Belt Lost'}
+						/>
+					{/if}
+
+					{#each reign.games as game, i}
+						<GameCard
+							slug={game.home_team?.slug}
+							logoFile={game.home_team?.logoFile}
+							name={game.home_team?.name}
+							awaylogoFile={game.away_team?.logoFile}
+							awayname={game.away_team?.name}
+							points={game?.home_points}
+							away_points={game?.away_points}
+							start_date={game?.start_date}
+							title={i === reign.games.length - 1 ? 'Belt Won' : 'Defense'}
+						/>
+					{/each}
+				</ReignCard>
+			{/each}
+		</section>
+	</div>
 {:else}
-	<p class="text-center">No championship history found for {data.team.name}.</p>
+	<p class="text-center">No championship history found for {data.team?.name}.</p>
 {/if}
