@@ -6,7 +6,7 @@
 	let { children } = $props();
 </script>
 
-<Banner />
+<!-- <Banner /> -->
 
 <div class="mx-auto flex min-h-[100vh] w-full max-w-screen-lg flex-col px-4">
 	<Navbar />
