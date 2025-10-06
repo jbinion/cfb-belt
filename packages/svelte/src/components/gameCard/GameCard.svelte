@@ -1,11 +1,7 @@
-<script>
+<script lang="ts">
+	import type { Game } from '../../types';
 	import GameRow from './GameRow.svelte';
-
-	export let slug = '';
-	export let logoFile = '';
-	export let name = '';
-	export let awaylogoFile = '';
-	export let awayname = '';
+	export let game = {} as Game;
 	export let points = '';
 	export let away_points = '';
 	export let start_date = '';
@@ -25,7 +21,7 @@
 	</div>
 
 	<div class="divide-y">
-		<GameRow {slug} logoFile={awaylogoFile} name={awayname} points={away_points} />
-		<GameRow {slug} {logoFile} {name} {points} />
+		<GameRow team={game.away_team} points={away_points} />
+		<GameRow team={game.home_team} {points} />
 	</div>
 </div>

@@ -48,7 +48,10 @@ ol {
 	font-weight: 400;
 	line-height: 1.6;
 }
-
+td,
+th {
+	white-space: nowrap;
+}
 .sectionTitle {
 	@apply mb-6 text-xl font-semibold uppercase;
 	font-family: var(--font-heading);
