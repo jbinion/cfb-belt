@@ -96,11 +96,7 @@
 				>
 					{#if reign.beltLossGame}
 						<GameCard
-							slug={reign.beltLossGame.home_team.slug}
-							logoFile={reign.beltLossGame?.home_team?.logoFile}
-							name={reign.beltLossGame.home_team.name}
-							awaylogoFile={reign.beltLossGame?.away_team?.logoFile}
-							awayname={reign.beltLossGame.away_team.name}
+							game={reign.beltLossGame}
 							points={reign.beltLossGame.home_points}
 							away_points={reign.beltLossGame.away_points}
 							start_date={reign.beltLossGame.start_date}
@@ -110,14 +106,10 @@
 
 					{#each reign.games as game, i}
 						<GameCard
-							slug={game.home_team?.slug}
-							logoFile={game.home_team?.logoFile}
-							name={game.home_team?.name}
-							awaylogoFile={game.away_team?.logoFile}
-							awayname={game.away_team?.name}
-							points={game?.home_points}
-							away_points={game?.away_points}
-							start_date={game?.start_date}
+							{game}
+							points={game.home_points}
+							away_points={game.away_points}
+							start_date={game.start_date}
 							title={i === reign.games.length - 1 ? 'Belt Won' : 'Defense'}
 						/>
 					{/each}

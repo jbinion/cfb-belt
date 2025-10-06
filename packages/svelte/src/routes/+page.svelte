@@ -20,29 +20,13 @@
 <div class="space-y-24">
 	<Hero />
 
-	<div class="flex items-center justify-center">
-		<div class=" grid grid-cols-2 justify-center gap-8">
-			<a
-				href="/history"
-				class="rounded bg-zinc-800 px-6 py-2 text-center text-lg font-semibold text-zinc-100 shadow-md transition hover:bg-zinc-700 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-zinc-400"
-			>
-				Complete Lineage
-			</a>
-			<a
-				href="/teams"
-				class="rounded bg-zinc-800 px-6 py-2 text-center text-lg font-semibold text-zinc-100 shadow-md transition hover:bg-zinc-700 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-zinc-400"
-			>
-				All Teams
-			</a>
-		</div>
-	</div>
-
-	<div class="mx-auto flex max-w-screen-sm flex-col gap-8">
+	<div class="mx-auto flex max-w-screen-sm flex-col gap-24">
 		<Card
 			title="Current Holder"
 			color={data.current.team.color}
 			logoFile={data.current.team.logoFile}
 			teamName={data.current.team.name}
+			slug={data.current.team.slug}
 		>
 			<div class="space-y-2">
 				<div class="flex flex-row gap-8">
@@ -74,6 +58,7 @@
 			color={data.nextChallenger.color}
 			logoFile={data.nextChallenger.logoFile}
 			teamName={data.nextChallenger.name}
+			slug={data.nextChallenger.slug}
 		>
 			{formatDate(data.nextGameStartDate, { weekday: 'long', month: 'long' })}
 		</Card>
@@ -82,7 +67,7 @@
 	{#if data}
 		<section aria-label="Recent Belt History" class="mx-auto w-full max-w-screen-sm">
 			<h2 class="sectionTitle">Recent</h2>
-			<div class="divide-y divide-border" aria-label="Recent belt holders">
+			<div class="divide-border divide-y" aria-label="Recent belt holders">
 				{#each data.reigns as item (item._id)}
 					<TeamCardFull
 						name={item.team?.name}
