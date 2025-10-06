@@ -16,3 +16,11 @@ export type Game = {
 	away_points: number;
 	home_points: number;
 };
+
+export type Reign = {
+	_id: string;
+	team: Team;
+	startDate: Date;
+	games: Game[];
+	beltLossGame?: Game;
+};

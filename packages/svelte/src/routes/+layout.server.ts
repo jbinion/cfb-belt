@@ -9,7 +9,7 @@ export async function load() {
 		const current = await Reign.findOne({})
 			.sort({ startDate: -1 })
 			.populate('team')
-			.populate('games')
+			.populate('games');
 		const currentHolderTotalReigns = await Reign.find({
 			team: current.team._id
 		}).countDocuments();

@@ -4,19 +4,6 @@
 		name="description"
 		content="Learn about the College Football Belt - a fan-created championship title that traces its lineage back to the first college football game in history."
 	/>
-	<script type="application/ld+json">
-		{JSON.stringify({
-			"@context": "https://schema.org",
-			"@type": "AboutPage",
-			"name": "About the College Football Belt",
-			"description": "Information about the College Football Belt concept and history",
-			"about": {
-				"@type": "SportsOrganization",
-				"name": "College Football Belt",
-				"sport": "American Football"
-			}
-		})}
-	</script>
 </svelte:head>
 
 <main class="prose mx-auto max-w-3xl px-4">
