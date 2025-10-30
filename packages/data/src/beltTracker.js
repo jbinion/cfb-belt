@@ -15,6 +15,7 @@ class BeltTracker {
   }
 
   addGame(game) {
+    console.log('adding game ' + game.home_team + ' vs ' + game.away_team);
     if (
       game.home_team !== this.currentHolder &&
       game.away_team !== this.currentHolder
@@ -29,8 +30,10 @@ class BeltTracker {
     this.teams.add(game.away_team);
 
     const winner = getGameWinner(game, this.currentHolder);
-    this.currentHolder = winner;
-    if (this.reigns.length === 0) {
+    console.log('game winner: ' + winner);
+
+    if (this.reigns.length === 0 && winner === this.currentHolder) {
+      console.log('\n\n\n here \n\n\n');
       this.reigns.push({
         team: winner,
         games: [{ ...game, type: 'win' }],
@@ -39,7 +42,7 @@ class BeltTracker {
       });
       return;
     }
-    if (winner === this.reigns.at(-1).team) {
+    if (winner === this.reigns.at(-1)?.team) {
       this.reigns.at(-1).games.push({ ...game, type: 'defense' });
       return;
     }
@@ -48,6 +51,7 @@ class BeltTracker {
       games: [{ ...game, type: 'win' }],
       startDate: game.start_date,
     });
+    this.currentHolder = winner;
   }
 }
 

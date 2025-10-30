@@ -10,7 +10,8 @@
     "downloadEspnData": "node ./src/utils/downloadEspnData.js",
     "nextGame": "node ./src/currentHolderNextGame.js",
     "lint": "eslint --fix .",
-    "syncDb": "node ./src/syncDb.js"
+    "syncDb": "node ./src/syncDb.js",
+    "update": "node ./src/update.js"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3.2.0",

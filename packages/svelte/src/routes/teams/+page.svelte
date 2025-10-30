@@ -1,11 +1,12 @@
 <script lang="ts">
 	import type { PageData } from './$types';
 	import LogoCard from '../../components/LogoCard.svelte';
+	// import TeamCard from '../../components/TeamCard.svelte';
 
 	let { data }: { data: PageData } = $props();
 	let sortDirection = $state<'asc' | 'desc'>('asc');
 	let sortBy = $state<'name' | 'reigns' | 'defenses'>('name');
-
+	// let viewmode = $state<'list' | 'grid'>('list');
 	const sortedTeams = $derived(
 		[...data.teams].sort((a, b) => {
 			const modifier = sortDirection === 'asc' ? 1 : -1;
@@ -69,9 +70,25 @@
 	>
 		Defenses
 	</button>
+	<!-- <button onclick={() => viewmode = 'grid'}>Grid</button>
+	<button onclick={() => viewmode = 'list'}>List</button> -->
 </nav>
 
-<section class="mt-8" aria-label="Team List">
+<div class="mt-8">
+	<!-- {#if viewmode === 'grid'}
+	<div class="grid grid-cols-6 gap-6">
+		{#each sortedTeams as team (`${sortBy}-${sortDirection}-${team.slug}`)}
+			<TeamCard
+				logoFile={`${team.logoFile}`}
+				teamName={team.name}
+				slug={team.slug}
+				reigns={team.reigns}
+				defenses={team.defenses}
+				color={team.color}
+			/>
+		{/each}
+	</div>
+	{:else} -->
 	<div class="divide-y">
 		{#each sortedTeams as team (`${sortBy}-${sortDirection}-${team.slug}`)}
 			<LogoCard
@@ -83,4 +100,5 @@
 			/>
 		{/each}
 	</div>
-</section>
+	<!-- {/if} -->
+</div>
