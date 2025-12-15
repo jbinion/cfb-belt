@@ -53,7 +53,7 @@
 			</div>
 		</div>
 	</Card>
-	<Card
+	<!-- <Card
 		title="Next Game"
 		color={data.nextChallenger.color}
 		logoFile={data.nextChallenger.logoFile}
@@ -61,7 +61,7 @@
 		slug={data.nextChallenger.slug}
 	>
 		{formatDate(data.nextGameStartDate, { weekday: 'long', month: 'long' })}
-	</Card>
+	</Card> -->
 
 	<div>
 		<a href="/history">
