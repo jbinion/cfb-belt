@@ -3,8 +3,8 @@
 	import { Icon } from 'svelte-icons-pack';
 </script>
 
-<footer class="content mt-24 flex flex-row items-center justify-between">
-	<p class=" text-xs text-foreground-muted">
+<footer class=" mb-6 mt-24 flex flex-row items-center justify-between">
+	<p class=" text-foreground-muted text-xs">
 		Data for this site comes from <a
 			href="https://collegefootballdata.com"
 			class="text-link hover:text-link-hover"
@@ -17,7 +17,7 @@
 			> -->
 
 		<a
-			class="cursor-pointer text-foreground-muted hover:text-foreground"
+			class="text-foreground-muted hover:text-foreground cursor-pointer"
 			href="https://github.com/jbinion/cfb-belt"
 			target="_blank"
 		>

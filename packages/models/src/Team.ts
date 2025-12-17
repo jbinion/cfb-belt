@@ -1,15 +1,4 @@
-import mongoose, { type Document } from "mongoose";
-import type { Types } from "mongoose";
-
-export interface ITeamDocument extends Document {
-  _id: Types.ObjectId;
-  name: string;
-  displayName: string;
-  color: string;
-  logoFile: string;
-  altColor: string;
-  slug: string;
-}
+import mongoose from "mongoose";
 
 const teamSchema = new mongoose.Schema({
   name: {
@@ -34,7 +23,5 @@ const teamSchema = new mongoose.Schema({
   },
 });
 
-const Team =
-  mongoose.models.Team || mongoose.model<ITeamDocument>("Team", teamSchema);
-
-export default Team;
+export const Team = mongoose.models.Team || mongoose.model("Team", teamSchema);
+export type TeamType = mongoose.InferSchemaType<typeof teamSchema>;
