@@ -1,9 +1,9 @@
 import { defineConfig } from 'vitest/config';
 import { sveltekit } from '@sveltejs/kit/vite';
-import findConfig from 'find-config';
+import { findUp } from 'find-up';
 import dotenv from 'dotenv';
 
-const envPath = findConfig('.env');
+const envPath = await findUp('.env');
 if (envPath) {
 	dotenv.config({ path: envPath });
 }
