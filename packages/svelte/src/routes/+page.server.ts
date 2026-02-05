@@ -1,19 +1,18 @@
 import { connect } from '$lib/db/mongoose';
 import { serialize } from '$lib/db/serialize';
-import { Game, NextGame, Reign, type IReignDocument, type ITeamDocument } from 'models';
+import { Game, NextGame, Reign } from 'models';
 
 export const prerender = true;
-type ReignWithTeam = Omit<IReignDocument, 'team'> & { team: ITeamDocument };
 
 export async function load() {
 	try {
 		await connect();
-		const reigns = (await Reign.find()
+		const reigns = await Reign.find()
 			.populate('team')
 			.limit(10)
 			.sort({ startDate: -1 })
 			.lean()
-			.exec()) as ReignWithTeam[];
+			.exec();
 
 		// hero section stats
 		const totalReigns = await Reign.countDocuments();

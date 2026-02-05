@@ -1,4 +1,4 @@
-import 'dotenv/config';
+import '../dotenv';
 import { Team } from 'models';
 import mongoose from '../mongoose.js';
 import normalizeTeamNames from '../utils/normalizeTeamNames.js';

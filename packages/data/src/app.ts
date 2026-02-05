@@ -1,4 +1,4 @@
-import 'dotenv/config';
+import './dotenv';
 import mongoose from './mongoose.js';
 import populateTeamData from './populateTeamData.js';
 import saveTeams from './db/saveTeams.js';

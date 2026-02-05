@@ -1,13 +1,4 @@
-import mongoose, { type Document } from "mongoose";
-import type { Types } from "mongoose";
-
-export interface IReignDocument extends Document {
-  _id: Types.ObjectId;
-  team: Types.ObjectId;
-  games: Types.ObjectId[];
-  startDate: Date;
-  beltLossGame?: Types.ObjectId;
-}
+import mongoose, { Model } from "mongoose";
 
 const reignSchema = new mongoose.Schema({
   team: {
@@ -30,6 +21,8 @@ const reignSchema = new mongoose.Schema({
   },
 });
 
-const Reign =
-  mongoose.models.Reign || mongoose.model<IReignDocument>("Reign", reignSchema);
-export default Reign;
+export type ReignType = mongoose.InferSchemaType<typeof reignSchema>;
+
+export const Reign: Model<ReignType> =
+  (mongoose.models.Reign as Model<ReignType>) ??
+  mongoose.model<ReignType>("Reign", reignSchema);

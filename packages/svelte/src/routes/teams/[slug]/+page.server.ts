@@ -1,13 +1,13 @@
 import { connect } from '$lib/db/mongoose';
 
-import { Reign, Team, type ITeamDocument } from 'models';
+import { Reign, Team } from 'models';
 import countTeamAppearances from '$lib/countTeamAppearances';
 
 export const prerender = true;
 
 export const entries = async () => {
 	await connect();
-	const teams = (await Team.find({}).select('slug')) as ITeamDocument[];
+	const teams = await Team.find({}).select('slug');
 	return teams.map((t) => ({ slug: decodeURIComponent(t.slug) }));
 };
 

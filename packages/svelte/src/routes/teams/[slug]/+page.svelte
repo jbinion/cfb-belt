@@ -76,7 +76,7 @@
 		</section>
 
 		<section class="flex flex-col space-y-6" aria-label="Opponent Matchups">
-			<h2 class="text-xl font-semibold tracking-tight">Teams Faced</h2>
+			<!-- <h2 class="text-xl font-semibold tracking-tight">Teams Faced</h2> -->
 			<div class="grid grid-cols-2 gap-6">
 				<TeamsDisplay title="Won belt from" teams={data.teamsBeatenForBelt} />
 				<TeamsDisplay title="Lost belt to" teams={data.teamsLostTo} />
@@ -87,7 +87,7 @@
 		</section>
 
 		<section class="flex flex-col space-y-6" aria-label="Championship History">
-			<h2 class="text-xl font-semibold tracking-tight">Championship Reigns</h2>
+			<h2 class="text-xl font-semibold tracking-tight">Reigns</h2>
 			{#each data.reigns as reign (reign._id)}
 				<ReignCard
 					start={reign.startDate}

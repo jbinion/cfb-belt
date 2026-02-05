@@ -1,14 +1,4 @@
-import mongoose, { type Document } from "mongoose";
-import type { Types } from "mongoose";
-
-export interface INextGameDocument extends Document {
-  _id: Types.ObjectId;
-  start_date: Date;
-  home_team: Types.ObjectId;
-  away_team: Types.ObjectId;
-  home_points: Number;
-  away_points: Number;
-}
+import mongoose from "mongoose";
 
 const nextGameSchema = new mongoose.Schema({
   id: {
@@ -36,8 +26,6 @@ const nextGameSchema = new mongoose.Schema({
   },
 });
 
-const NextGame =
-  mongoose.models.NextGame ||
-  mongoose.model<INextGameDocument>("NextGame", nextGameSchema);
-
-export default NextGame;
+export const NextGame =
+  mongoose.models.NextGame || mongoose.model("NextGame", nextGameSchema);
+export type NextGameType = mongoose.InferSchemaType<typeof nextGameSchema>;

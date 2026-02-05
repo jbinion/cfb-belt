@@ -1,5 +1,5 @@
 import { MongoClient } from 'mongodb';
-import 'dotenv/config';
+import './dotenv';
 
 const DEV_URI = process.env.MONGO_URI;
 const MAIN_URI = process.env.MAIN_MONGO_URI;

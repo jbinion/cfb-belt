@@ -1,6 +1,5 @@
-import 'dotenv/config';
+import './dotenv';
 import { Reign, NextGame } from 'models';
-
 import mongoose from './mongoose.js';
 import config from './config.js';
 import getWeeks from './api/getWeeks.js';
