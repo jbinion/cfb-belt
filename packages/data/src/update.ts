@@ -1,14 +1,10 @@
-import 'dotenv/config';
-// import config from './config.js';
-import getWeeks from './api/getWeeks.js';
-
+import './dotenv';
+import getWeeks from './api/getWeeks';
 import { Reign } from 'models';
-import mongoose from './mongoose.js';
-import getGameById from './api/getGameById.js';
-import crawler from './crawler.js';
-// import populateTeamData from './populateTeamData.js';
-import saveReign from './db/saveReign.js';
-// import saveTeams from './db/saveTeams.js';
+import mongoose from './mongoose';
+import getGameById from './api/getGameById';
+import crawler from './crawler';
+import saveReign from './db/saveReign';
 
 const main = async () => {
   await mongoose();

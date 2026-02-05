@@ -1,6 +1,6 @@
 import { Reign } from 'models';
 import mongoose from './mongoose.js';
-import 'dotenv/config';
+import './dotenv';
 
 const main = async () => {
   await mongoose();
