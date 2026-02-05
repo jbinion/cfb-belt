@@ -8,12 +8,12 @@ export async function load() {
 		await connect();
 		const reigns = await Reign.find().populate('team').sort({ startDate: -1 });
 		return {
-			reigns: JSON.parse(JSON.stringify(reigns))
+			reigns: JSON.parse(JSON.stringify(reigns)),
 		};
 	} catch (error) {
 		console.error('Error loading reigns:', error);
 		return {
-			reigns: []
+			reigns: [],
 		};
 	}
 }

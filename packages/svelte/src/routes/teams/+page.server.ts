@@ -19,12 +19,12 @@ export async function load() {
 			})
 		);
 		return {
-			teams: JSON.parse(JSON.stringify(result))
+			teams: JSON.parse(JSON.stringify(result)),
 		};
 	} catch (error) {
 		console.error('Error loading reigns:', error);
 		return {
-			teams: []
+			teams: [],
 		};
 	}
 }

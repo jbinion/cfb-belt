@@ -1,0 +1,20 @@
+{
+	"name": "cfb-belt",
+	"devDependencies": {
+		"prettier": "^3.8.1",
+		"prettier-plugin-svelte": "^3.4.1",
+		"prettier-plugin-tailwindcss": "^0.7.2"
+	},
+	"scripts": {
+		"format": "prettier --write ."
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/jbinion/cfb-belt.git"
+	},
+	"author": "",
+	"bugs": {
+		"url": "https://github.com/jbinion/cfb-belt/issues"
+	},
+	"homepage": "https://github.com/jbinion/cfb-belt#readme"
+}

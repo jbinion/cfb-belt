@@ -6,34 +6,34 @@ import initMongoose from '../src/mongoose';
 import demoReigns, { demoTeams } from './demoReigns';
 
 beforeAll(async () => {
-  await initMongoose();
+	await initMongoose();
 });
 
 test('getTeamData', async () => {
-  const teamData = await getTeamData(demoTeams);
-  expect(teamData.length).toBe(demoTeams.length);
-  expect(teamData[0]).toStrictEqual({
-    name: 'UCLA',
-    displayName: 'UCLA Bruins',
-    color: '2774ae',
-    alternateColor: 'f2a900',
-    espnLogo: 'https://a.espncdn.com/i/teamlogos/ncaa/500/26.png',
-    logoFile: '26.png',
-  });
+	const teamData = await getTeamData(demoTeams);
+	expect(teamData.length).toBe(demoTeams.length);
+	expect(teamData[0]).toStrictEqual({
+		name: 'UCLA',
+		displayName: 'UCLA Bruins',
+		color: '2774ae',
+		alternateColor: 'f2a900',
+		espnLogo: 'https://a.espncdn.com/i/teamlogos/ncaa/500/26.png',
+		logoFile: '26.png',
+	});
 });
 
 test('saveTeams', async () => {
-  const teamData = await getTeamData(demoTeams);
-  expect(await saveTeams(teamData)).resolves();
+	const teamData = await getTeamData(demoTeams);
+	expect(await saveTeams(teamData)).resolves();
 });
 
 test('saveGames', async () => {
-  const testGames = demoReigns[0].games;
-  const x = await saveGames(testGames);
-  console.log(x);
-  expect(x.length).toBe(testGames.length);
+	const testGames = demoReigns[0].games;
+	const x = await saveGames(testGames);
+	console.log(x);
+	expect(x.length).toBe(testGames.length);
 });
 test('saveReign', async () => {
-  const result = await saveReign(demoReigns[0], 'testBelt');
-  expect(result).toBeTruthy();
+	const result = await saveReign(demoReigns[0], 'testBelt');
+	expect(result).toBeTruthy();
 });

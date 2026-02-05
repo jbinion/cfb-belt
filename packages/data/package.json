@@ -1,34 +1,33 @@
 {
-  "name": "data",
-  "version": "1.0.0",
-  "main": "app.js",
-  "type": "module",
-  "scripts": {
-    "test": "vitest",
-    "start": "node ./src/app.js",
-    "images": "node ./src/images/createImages.js",
-    "downloadEspnData": "node ./src/utils/downloadEspnData.js",
-    "nextGame": "node ./src/currentHolderNextGame.js",
-    "lint": "eslint --fix .",
-    "syncDb": "node ./src/syncDb.js",
-    "update": "tsx ./src/update.ts"
-  },
-  "devDependencies": {
-    "@eslint/eslintrc": "^3.2.0",
-    "@eslint/js": "^9.20.0",
-    "eslint": "^9.15.0",
-    "eslint-plugin-import": "^2.31.0",
-    "eslint-plugin-vitest": "^0.5.4",
-    "find-config": "^1.0.0",
-    "mongodb": "^6.20.0",
-    "tsx": "^4.21.0",
-    "vitest": "^2.0.4"
-  },
-  "dependencies": {
-    "dotenv": "^16.4.5",
-    "find-up": "^8.0.0",
-    "models": "link:..\\models",
-    "mongoose": "^8.9.5",
-    "sharp": "^0.33.5"
-  }
+	"name": "data",
+	"version": "1.0.0",
+	"main": "app.js",
+	"type": "module",
+	"scripts": {
+		"test": "vitest",
+		"start": "node ./src/app.js",
+		"images": "node ./src/images/createImages.js",
+		"downloadEspnData": "node ./src/utils/downloadEspnData.js",
+		"nextGame": "node ./src/currentHolderNextGame.js",
+		"lint": "eslint --fix .",
+		"syncDb": "node ./src/syncDb.js",
+		"update": "tsx ./src/update.ts"
+	},
+	"devDependencies": {
+		"@eslint/eslintrc": "^3.2.0",
+		"@eslint/js": "^9.20.0",
+		"eslint": "^9.15.0",
+		"eslint-plugin-import": "^2.31.0",
+		"eslint-plugin-vitest": "^0.5.4",
+		"mongodb": "^6.20.0",
+		"tsx": "^4.21.0",
+		"vitest": "^2.0.4"
+	},
+	"dependencies": {
+		"dotenv": "^16.4.5",
+		"find-up": "^8.0.0",
+		"models": "link:..\\models",
+		"mongoose": "^8.9.5",
+		"sharp": "^0.33.5"
+	}
 }

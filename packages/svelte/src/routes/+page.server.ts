@@ -40,12 +40,12 @@ export async function load() {
 			yearsTracked: yearsSince,
 			totalGames,
 			nextGameStartDate: nextGame.start_date.toISOString(),
-			nextChallenger: JSON.parse(JSON.stringify(nextChallenger))
+			nextChallenger: JSON.parse(JSON.stringify(nextChallenger)),
 		};
 	} catch (error) {
 		console.error('Error loading reigns:', error);
 		return {
-			reigns: []
+			reigns: [],
 		};
 	}
 }

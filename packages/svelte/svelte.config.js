@@ -20,8 +20,8 @@ const config = {
 		// 	precompress: false,
 		// 	strict: true
 		// })
-		adapter: adapter()
-	}
+		adapter: adapter(),
+	},
 };
 
 export default config;

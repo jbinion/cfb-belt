@@ -11,16 +11,16 @@ export async function load() {
 			.populate('team')
 			.populate('games');
 		const currentHolderTotalReigns = await Reign.find({
-			team: current.team._id
+			team: current.team._id,
 		}).countDocuments();
 		return {
 			current: JSON.parse(JSON.stringify(current)),
-			currentHolderTotalReigns
+			currentHolderTotalReigns,
 		};
 	} catch (error) {
 		console.error('Error loading current holder:', error);
 		return {
-			current: null
+			current: null,
 		};
 	}
 }

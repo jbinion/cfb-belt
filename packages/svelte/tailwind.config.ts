@@ -13,10 +13,10 @@ export default {
 				border: 'var(--border)',
 				link: 'var(--link)',
 				'link-hover': 'var(--link-hover)',
-				'card-hover': 'var(--card-hover)'
-			}
-		}
+				'card-hover': 'var(--card-hover)',
+			},
+		},
 	},
 
-	plugins: [typography]
+	plugins: [typography],
 } satisfies Config;

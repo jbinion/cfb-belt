@@ -14,7 +14,7 @@
 			{new Date(start_date).toLocaleDateString('en-US', {
 				year: 'numeric',
 				month: 'short',
-				day: 'numeric'
+				day: 'numeric',
 			})}
 		</p>
 		<p class="text-sm">{title}</p>

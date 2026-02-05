@@ -22,11 +22,11 @@ export async function load({ params }) {
 			.populate({
 				path: 'games',
 				populate: [{ path: 'home_team' }, { path: 'away_team' }],
-				options: { sort: { start_date: -1 } }
+				options: { sort: { start_date: -1 } },
 			})
 			.populate({
 				path: 'beltLossGame',
-				populate: [{ path: 'home_team' }, { path: 'away_team' }]
+				populate: [{ path: 'home_team' }, { path: 'away_team' }],
 			})
 			.sort({ startDate: -1 })
 			.lean();
@@ -76,12 +76,12 @@ export async function load({ params }) {
 			reigns: JSON.parse(JSON.stringify(reigns)),
 			teamsBeatenForBelt: JSON.parse(JSON.stringify(countTeamAppearances(teamsBeatenForBelt))),
 			teamsDefended: JSON.parse(JSON.stringify(countTeamAppearances(teamsDefendedAgainst))),
-			teamsLostTo: JSON.parse(JSON.stringify(countTeamAppearances(teamsLostTo)))
+			teamsLostTo: JSON.parse(JSON.stringify(countTeamAppearances(teamsLostTo))),
 		};
 	} catch (error) {
 		console.error(`Error loading team from params ${JSON.stringify(params)}`, error);
 		return {
-			teams: []
+			teams: [],
 		};
 	}
 }
