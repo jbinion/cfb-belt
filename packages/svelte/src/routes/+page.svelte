@@ -3,8 +3,8 @@
 	import Card from '../components/Card.svelte';
 	import Hero from '../components/hero/Hero.svelte';
 	import type { PageData } from './$types';
-	import numberSuffix from '../lib/numberSuffix';
-	import formatDate from '$lib/formatDate';
+	import numberSuffix from '../utils/numberSuffix';
+	import formatDate from '../utils/formatDate';
 	import Teamrow from '../components/TeamRow.svelte';
 	import ReignTable from '../components/ReignTable.svelte';
 	let { data }: { data: PageData } = $props();

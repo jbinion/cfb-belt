@@ -1,6 +1,6 @@
 <script lang="ts">
 	import ReignTable from '../../components/ReignTable.svelte';
-	import type { PageData } from './$types';
+	import type { PageData } from '../history/$types';
 
 	let { data }: { data: PageData } = $props();
 </script>

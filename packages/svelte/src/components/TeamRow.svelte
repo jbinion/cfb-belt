@@ -1,5 +1,5 @@
 <script lang="ts">
-	import formatDate from '$lib/formatDate';
+	import formatDate from '../utils/formatDate';
 
 	export let name = '';
 	export let logo = '';
