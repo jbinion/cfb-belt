@@ -1,5 +1,12 @@
 <script lang="ts">
-	let { color = 'E4E4E7', title = '', logoFile = '', teamName = '', slug = '' } = $props();
+	let {
+		color = 'E4E4E7',
+		title = '',
+		logoFile = '',
+		teamName = '',
+		slug = '',
+		children,
+	} = $props();
 </script>
 
 <div>
@@ -9,11 +16,7 @@
 		<div class="h-1 w-full" style="background-color: #{color}"></div>
 		<div class="flex flex-row items-center gap-6 p-6">
 			<div class="shrink-0 rounded-lg p-3" style="background-color: #{color}18">
-				<img
-					src={`/webp/large/${logoFile}.webp`}
-					alt={`logo of ${teamName}`}
-					class="h-20 w-20"
-				/>
+				<img src={`/webp/large/${logoFile}.webp`} alt={`logo of ${teamName}`} class="h-20 w-20" />
 			</div>
 
 			<div class="flex flex-col gap-3">
@@ -22,7 +25,7 @@
 						{teamName}
 					</h3>
 				</a>
-				<slot />
+				{@render children()}
 			</div>
 		</div>
 	</div>

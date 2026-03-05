@@ -1,18 +1,17 @@
 <script>
-	export let start = '';
-	export let end = '';
-	export let defenses = 0;
+	let { start = '', end = '', defenses = 0, children } = $props();
 	const startDate = new Date(start).toLocaleDateString();
 	const endDate = end ? new Date(end).toLocaleDateString() : null;
 	import { HiSolidChevronRight } from 'svelte-icons-pack/hi';
 	import { HiSolidChevronDown } from 'svelte-icons-pack/hi';
 	import { Icon } from 'svelte-icons-pack';
 	let showGames = false;
+	// let { children } = $props();
 </script>
 
 <div>
 	<button
-		on:click={() => (showGames = !showGames)}
+		onclick={() => (showGames = !showGames)}
 		class="card flex w-full flex-row items-center justify-between space-x-8 px-3 py-3 font-mono hover:bg-card-hover"
 	>
 		<div class="flex items-center gap-2">
@@ -37,7 +36,7 @@
 
 	{#if showGames}
 		<div class="mx-auto my-4 w-full max-w-lg space-y-8 rounded">
-			<slot />
+			{@render children()}
 		</div>
 	{/if}
 </div>
