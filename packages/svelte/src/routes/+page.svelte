@@ -22,7 +22,8 @@
 
 <Hero />
 <Statsbar />
-<div class="container">
+
+<div class="mx-auto mb-24 flex max-w-3xl flex-col gap-14 px-6">
 	<Card
 		title="Current Belt Holder"
 		color={data.current.team.color}
@@ -30,56 +31,34 @@
 		teamName={data.current.team.name}
 		slug={data.current.team.slug}
 	>
-		<div class="space-y-2">
-			<div class="flex flex-row gap-8">
-				<div class="">
-					<p class="text-[11px] font-semibold uppercase tracking-wide text-black/70">Claimed</p>
-					<p class="font-mono text-base">
-						{formatDate(data.current.startDate, { month: 'long' })}
-					</p>
-				</div>
+		<div class="flex flex-row gap-8">
+			<div>
+				<p class="text-[11px] font-semibold uppercase tracking-wide text-black/70">Claimed</p>
+				<p class="font-mono text-base">
+					{formatDate(data.current.startDate, { month: 'long' })}
+				</p>
+			</div>
 
-				<div class="">
-					<p class="text-[11px] font-semibold uppercase tracking-wide text-black/70">Reign</p>
-					<p class="font-mono text-base">
-						{`${data.currentHolderTotalReigns}${numberSuffix(data.currentHolderTotalReigns)}`}
-					</p>
-				</div>
+			<div>
+				<p class="text-[11px] font-semibold uppercase tracking-wide text-black/70">Reign</p>
+				<p class="font-mono text-base">
+					{`${data.currentHolderTotalReigns}${numberSuffix(data.currentHolderTotalReigns)}`}
+				</p>
+			</div>
 
-				<div class="">
-					<p class="text-[11px] font-semibold uppercase tracking-wide text-black/70">Defenses</p>
-					<p class="font-mono text-base">
-						{data.current.games.length - 1}
-					</p>
-				</div>
+			<div>
+				<p class="text-[11px] font-semibold uppercase tracking-wide text-black/70">Defenses</p>
+				<p class="font-mono text-base">
+					{data.current.games.length - 1}
+				</p>
 			</div>
 		</div>
 	</Card>
-</div>
 
-<section class="mx-auto mb-16 mt-12 max-w-[800px] px-8">
-	<h2 class="mb-4 text-sm font-semibold uppercase tracking-wide text-[#737373]">Last 10 Reigns</h2>
-	<div class="overflow-x-auto bg-white">
-		<FancyTable reigns={data.reigns} />
-	</div>
-</section>
-
-<div class="mx-auto mt-24 flex max-w-screen-sm flex-col gap-24">
-	<!-- <Card
-		title="Next Game"
-		color={data.nextChallenger.color}
-		logoFile={data.nextChallenger.logoFile}
-		teamName={data.nextChallenger.name}
-		slug={data.nextChallenger.slug}
-	>
-		{formatDate(data.nextGameStartDate, { weekday: 'long', month: 'long' })}
-	</Card> -->
-
-	<!-- <div>
-		<a href="/history">
-			<h2 class="sectionTitle">Recent</h2>
-		</a>
-		<ReignTable reigns={data.reigns} />
-	</div> -->
-	<!-- <AboutText />v -->
+	<section>
+		<h2 class="sectionTitle">Last 10 Reigns</h2>
+		<div class="overflow-x-auto bg-white">
+			<FancyTable reigns={data.reigns} />
+		</div>
+	</section>
 </div>
