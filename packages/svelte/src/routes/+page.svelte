@@ -1,14 +1,11 @@
 <script lang="ts">
-	import AboutText from '../components/AboutText.svelte';
 	import Card from '../components/Card.svelte';
 	import Hero from '../components/hero/Hero.svelte';
 	import type { PageData } from './$types';
 	import numberSuffix from '../utils/numberSuffix';
 	import formatDate from '../utils/formatDate';
-	import Teamrow from '../components/TeamRow.svelte';
-	import ReignTable from '../components/ReignTable.svelte';
 	import Statsbar from '../components/stats/Statsbar.svelte';
-	import FancyTable from '../components/table/FancyTable.svelte';
+	import Table from '../components/table/Table.svelte';
 	let { data }: { data: PageData } = $props();
 </script>
 
@@ -58,7 +55,7 @@
 	<section>
 		<h2 class="sectionTitle">Last 10 Reigns</h2>
 		<div class="overflow-x-auto bg-white">
-			<FancyTable reigns={data.reigns} />
+			<Table reigns={data.reigns} />
 		</div>
 	</section>
 </div>
