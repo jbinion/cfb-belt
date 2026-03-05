@@ -5,7 +5,7 @@
 	import { HiSolidChevronRight } from 'svelte-icons-pack/hi';
 	import { HiSolidChevronDown } from 'svelte-icons-pack/hi';
 	import { Icon } from 'svelte-icons-pack';
-	let showGames = false;
+	let showGames = $state(false);
 	// let { children } = $props();
 </script>
 
