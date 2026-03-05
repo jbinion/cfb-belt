@@ -17,7 +17,7 @@
 		</p>
 		<div class="mt-10 flex items-center justify-start">
 			<div class="grid grid-cols-2 justify-center gap-8">
-				<LinkButton href="/history" text="Complete Lineage" />
+				<LinkButton href="/lineage" text="Complete Lineage" />
 				<LinkButton href="/teams" text="All Teams" />
 			</div>
 		</div>
