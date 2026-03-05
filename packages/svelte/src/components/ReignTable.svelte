@@ -6,6 +6,18 @@
 </script>
 
 <table class="w-full">
+	<thead class="border-b border-black">
+		<tr>
+			<th class="px-4 py-3 text-xs font-semibold uppercase tracking-wide text-[#737373]">Claimed</th
+			>
+
+			<th class="px-4 py-3 text-xs font-semibold uppercase tracking-wide text-[#737373]">Team</th>
+
+			<th class="px-4 py-3 text-end text-xs font-semibold uppercase tracking-wide text-[#737373]"
+				>Defenses</th
+			>
+		</tr>
+	</thead>
 	<tbody class="divide-y divide-border">
 		{#each reigns as item (item._id)}
 			<TeamRow

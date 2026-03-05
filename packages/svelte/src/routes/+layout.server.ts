@@ -1,4 +1,5 @@
 import { connect } from '$lib/db/mongoose';
+import { serialize } from '$lib/db/serialize';
 import { Reign } from 'models';
 
 export const prerender = true;
@@ -14,7 +15,7 @@ export async function load() {
 			team: current.team._id,
 		}).countDocuments();
 		return {
-			current: JSON.parse(JSON.stringify(current)),
+			current: serialize(current),
 			currentHolderTotalReigns,
 		};
 	} catch (error) {

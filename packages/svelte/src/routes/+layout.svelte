@@ -8,10 +8,10 @@
 
 <!-- <Banner /> -->
 
-<div class="mx-auto flex min-h-[100vh] w-full max-w-screen-lg flex-col px-4">
+<div class="mx-auto flex min-h-[100vh] flex-col">
 	<Navbar />
 
-	<main class="my-24 flex-1">
+	<main class="flex-1">
 		{@render children()}
 	</main>
 

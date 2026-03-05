@@ -10,8 +10,7 @@
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
 		"check:types": "tsc --noEmit",
 		"lint": "eslint .",
-		"test:unit": "vitest",
-		"test": "npm run test:unit -- --run",
+		"test": "vitest",
 		"validate": "npm run check:types && npm run lint && npm run test"
 	},
 	"devDependencies": {

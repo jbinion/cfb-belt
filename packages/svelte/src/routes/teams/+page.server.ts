@@ -1,4 +1,5 @@
 import { connect } from '$lib/db/mongoose';
+import { serialize } from '$lib/db/serialize';
 import { Reign, Team } from 'models';
 
 export const prerender = true;
@@ -19,7 +20,7 @@ export async function load() {
 			})
 		);
 		return {
-			teams: JSON.parse(JSON.stringify(result)),
+			teams: serialize(result),
 		};
 	} catch (error) {
 		console.error('Error loading reigns:', error);
