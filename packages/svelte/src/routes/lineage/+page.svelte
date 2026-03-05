@@ -13,6 +13,8 @@
 	/>
 </svelte:head>
 
-<h2 class="pageTitle">Complete Lineage</h2>
+<div class="container py-12">
+	<h2 class="pageTitle">Complete Lineage</h2>
 
-<ReignTable reigns={data.reigns} />
+	<ReignTable reigns={data.reigns} />
+</div>

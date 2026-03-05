@@ -25,7 +25,7 @@
 </svelte:head>
 
 {#if data.reigns}
-	<div class="container mx-auto space-y-24 px-4">
+	<div class="container mx-auto space-y-24 px-4 py-12">
 		<section
 			class="flex flex-col items-center gap-6 rounded-xl bg-white/70 sm:flex-row sm:items-start dark:bg-neutral-900/70"
 			aria-label="Team Overview"
