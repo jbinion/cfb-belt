@@ -1,22 +1,18 @@
 # CFB Belt
 
-Tracking the College Football Belt with Svelte and Mongoose.
-
-## Project Structure
-
 - **packages/data**  
-  Scripts and utilities to fetch, process, and calculate the college football lineal championship lineage
+  Scripts and utilities to fetch, process, and calculate the college football lineal championship lineage, team data, etc
 
 - **packages/svelte**  
-  The Svelte app that displays the results
+  Svelte static pre rendered app that displays the results
 
 ## Data Source
 
 All data is sourced from the excellent [CollegeFootballData.com](https://collegefootballdata.com/).
 
-## Live Website
+## Preview
 
-Check out the live site: [cfb-belt.com](https://cfb-belt.com)
+[cfb-belt.com](https://cfb-belt.com)
 
 ## Getting Started
 
@@ -29,20 +25,18 @@ Check out the live site: [cfb-belt.com](https://cfb-belt.com)
 
 2. **Set up environment variables:**
 
-   Create `.env` files in both `packages/data` and `packages/svelte` by copying the provided `.env.example` files:
+   Create `.env` files in the project root by copying the provided `.env.example` files:
 
    ```sh
-   cp packages/data/.env.example packages/data/.env
-   cp packages/svelte/.env.example packages/svelte/.env
+   cp .env.example .env
    ```
 
    Then, edit these `.env` files to add your API key and your MongoDB connection URI
 
-3. **Install dependencies & build models:**
+3. **Install dependencies**
 
    ```sh
    pnpm install
-   cd packages/models && npm run build
    ```
 
 4. **Run the data scripts (optional, for contributors):**
@@ -60,4 +54,4 @@ Check out the live site: [cfb-belt.com](https://cfb-belt.com)
 
 ## Contributing
 
-Contributions are welcome! If you have ideas for new features or improvements, please feel free to open an issue or submit a pull request.
+Contributions are welcome. If you have ideas for new features or improvements, please feel free to open an issue or submit a pull request.
