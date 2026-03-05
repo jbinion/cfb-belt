@@ -1,5 +1,5 @@
 <script lang="ts">
-	import ReignTable from '../../components/ReignTable.svelte';
+	import Table from '../../components/table/Table.svelte';
 	import type { PageData } from '../lineage/$types';
 
 	let { data }: { data: PageData } = $props();
@@ -13,6 +13,8 @@
 	/>
 </svelte:head>
 
-<h2 class="pageTitle">Complete Lineage</h2>
+<div class="container py-12">
+	<h2 class="pageTitle">Complete Lineage</h2>
 
-<ReignTable reigns={data.reigns} />
+	<Table reigns={data.reigns} dateFirst={true} />
+</div>

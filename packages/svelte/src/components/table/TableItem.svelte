@@ -6,21 +6,24 @@
 	export let slug = '';
 	export let startDate = 0;
 	export let defendCount = 0;
+	export let dateFirst = false;
 
 	const href = `/teams/${slug}`;
 </script>
 
-<tr class="border-b border-[#e5e5e5] transition-colors hover:bg-[#fafafa]">
+<tr class="transition-colors hover:bg-card-hover">
+	{#if dateFirst}
+		<td class="w-0 px-4 py-3 text-[15px] text-foreground-muted">{formatDate(startDate)}</td>
+	{/if}
 	<td class="px-4 py-3 text-[15px]">
-		<a {href} class="flex items-center gap-3 font-semibold text-[#0a0a0a]">
+		<a {href} class="flex items-center gap-3 font-semibold text-foreground">
 			<img src={`/webp/large/${logo}.webp`} class="h-10 w-10 flex-shrink-0" alt={`${name} logo`} />
 			<span>{name}</span>
 		</a>
 	</td>
-	<td class="px-4 py-3 text-[15px]">
-		{formatDate(startDate)}
-	</td>
-
+	{#if !dateFirst}
+		<td class="px-4 py-3 text-[15px] text-foreground-muted">{formatDate(startDate)}</td>
+	{/if}
 	<td class="px-4 py-3 text-end text-[15px]">
 		{defendCount}
 		{defendCount === 1 ? 'Defense' : 'Defenses'}
