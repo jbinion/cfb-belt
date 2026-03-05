@@ -19,11 +19,11 @@ export async function load() {
 		return {
 			reigns: reigns.map(serialize),
 			totalReigns,
-			teamCount: teamCount.length,
+			teamCount: teamCount,
 			yearsTracked,
 			totalGames,
 			nextGameStartDate: nextGame.start_date.toISOString(),
-			nextChallenger: JSON.parse(JSON.stringify(nextChallenger)),
+			nextChallenger: serialize(nextChallenger),
 		};
 	} catch (error) {
 		console.error('Error loading reigns:', error);

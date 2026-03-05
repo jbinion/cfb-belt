@@ -3,7 +3,7 @@ import { NextGame, Reign } from 'models';
 const getNextChallenger = async () => {
 	const nextGame = await NextGame.findOne().populate('home_team').populate('away_team');
 
-	if (nextGame.start_date < Date.now()) {
+	if (nextGame.start_date < new Date()) {
 		return { nextChallenger: null, nextGame };
 	}
 

@@ -3,7 +3,7 @@ export function serialize<T extends Record<string, any>>(doc: T): any {
 	return JSON.parse(
 		JSON.stringify(doc, (key, value) => {
 			if (value instanceof Date) return value.toISOString();
-			if (typeof value === 'object' && value?._bsontype === 'ObjectID') {
+			if (typeof value === 'object' && value?._bsontype === 'ObjectId') {
 				return value.toString();
 			}
 			return value;

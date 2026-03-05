@@ -2,6 +2,7 @@ import { connect } from '$lib/db/mongoose';
 
 import { Reign, Team } from 'models';
 import countTeamAppearances from '$lib/countTeamAppearances';
+import { serialize } from '$lib/db/serialize';
 
 export const prerender = true;
 
@@ -16,13 +17,11 @@ export async function load({ params }) {
 		await connect();
 		const decodedSlug = encodeURIComponent(params.slug);
 		const team = await Team.findOne({ slug: decodedSlug });
-		console.log(team);
 		if (!team) throw new Error('Team not found');
 		const reigns = await Reign.find({ team: team._id })
 			.populate({
 				path: 'games',
 				populate: [{ path: 'home_team' }, { path: 'away_team' }],
-				options: { sort: { start_date: -1 } },
 			})
 			.populate({
 				path: 'beltLossGame',
@@ -72,11 +71,12 @@ export async function load({ params }) {
 			.filter(Boolean);
 
 		return {
-			team: JSON.parse(JSON.stringify(team)),
-			reigns: JSON.parse(JSON.stringify(reigns)),
-			teamsBeatenForBelt: JSON.parse(JSON.stringify(countTeamAppearances(teamsBeatenForBelt))),
-			teamsDefended: JSON.parse(JSON.stringify(countTeamAppearances(teamsDefendedAgainst))),
-			teamsLostTo: JSON.parse(JSON.stringify(countTeamAppearances(teamsLostTo))),
+			team: serialize(team),
+
+			reigns: serialize(reigns),
+			teamsBeatenForBelt: serialize(countTeamAppearances(teamsBeatenForBelt)),
+			teamsDefended: serialize(countTeamAppearances(teamsDefendedAgainst)),
+			teamsLostTo: serialize(countTeamAppearances(teamsLostTo)),
 		};
 	} catch (error) {
 		console.error(`Error loading team from params ${JSON.stringify(params)}`, error);
