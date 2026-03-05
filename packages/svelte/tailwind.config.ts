@@ -7,7 +7,7 @@ export default {
 	theme: {
 		extend: {
 			colors: {
-				'background-color': 'var(--background-color)',
+				background: 'var(--background)',
 				foreground: 'var(--foreground)',
 				'foreground-muted': 'var(--foreground-muted)',
 				border: 'var(--border)',
