@@ -18,9 +18,9 @@
 			</p>
 		</div>
 		<div class="flex items-center gap-6">
-			<a href="#about" class=" transition-colors hover:text-foreground">About</a>
-			<a href="#methodology" class=" transition-colors hover:text-foreground">Methodology</a>
-			<a href="#contact" class=" transition-colors hover:text-foreground">Contact</a>
+			<!-- <a href="#about" class=" transition-colors hover:text-foreground">About</a> -->
+			<!-- <a href="#methodology" class=" transition-colors hover:text-foreground">Methodology</a> -->
+			<!-- <a href="#contact" class=" transition-colors hover:text-foreground">Contact</a> -->
 			<a
 				class="cursor-pointer hover:text-foreground"
 				href="https://github.com/jbinion/cfb-belt"
