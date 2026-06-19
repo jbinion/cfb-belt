@@ -10,8 +10,8 @@ const getTeamsFromEspn = async () => {
 			displayName,
 			color,
 			alternateColor,
-			espnLogo: logos[0]?.href || '',
-			logoFile: logos[0]?.href.split('/').pop().split('.')[0] || 'default',
+			espnLogo: logos?.[0]?.href || '',
+			logoFile: logos?.[0]?.href.split('/').pop().split('.')[0] || 'default',
 		};
 	});
 };

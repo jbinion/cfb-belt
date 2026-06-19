@@ -1,34 +1,25 @@
-import { connect } from '$lib/db/mongoose';
-import { serialize } from '$lib/db/serialize';
 import getHeroStats from '$lib/getHeroStats';
 import getNextChallenger from '$lib/getNextChallenger';
 import { getReigns } from '$lib/getReigns';
-import { NextGame } from 'models';
 
 export const prerender = true;
 
 export async function load() {
 	try {
-		await connect();
-		const reigns = await getReigns();
-		const { totalReigns, teamCount, yearsTracked, totalGames } = await getHeroStats();
+		const [reigns, heroStats, { nextChallenger, nextGame }] = await Promise.all([
+			getReigns(10),
+			getHeroStats(),
+			getNextChallenger(),
+		]);
 
-		const { nextChallenger, nextGame } = await getNextChallenger();
-		//
-		console.log(nextChallenger);
 		return {
-			reigns: reigns.map(serialize),
-			totalReigns,
-			teamCount: teamCount,
-			yearsTracked,
-			totalGames,
-			nextGameStartDate: nextGame.start_date.toISOString(),
-			nextChallenger: serialize(nextChallenger),
+			reigns,
+			...heroStats,
+			nextGameStartDate: nextGame?.startDate ?? null,
+			nextChallenger,
 		};
 	} catch (error) {
-		console.error('Error loading reigns:', error);
-		return {
-			reigns: [],
-		};
+		console.error('Error loading page:', error);
+		return { reigns: [] };
 	}
 }

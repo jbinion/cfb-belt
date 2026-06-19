@@ -1,20 +1,13 @@
-import { connect } from '$lib/db/mongoose';
-import { serialize } from '$lib/db/serialize';
-import { Reign } from 'models';
+import { getReigns } from '$lib/getReigns';
 
 export const prerender = true;
 
 export async function load() {
 	try {
-		await connect();
-		const reigns = await Reign.find().populate('team').sort({ startDate: -1 });
-		return {
-			reigns: serialize(reigns),
-		};
+		const reigns = await getReigns();
+		return { reigns };
 	} catch (error) {
 		console.error('Error loading reigns:', error);
-		return {
-			reigns: [],
-		};
+		return { reigns: [] };
 	}
 }
