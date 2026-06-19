@@ -1,6 +1,5 @@
 import '../dotenv';
-import { Team } from 'models';
-import mongoose from '../mongoose.js';
+import { db, teamTable } from '@cfb/db';
 import normalizeTeamNames from '../utils/normalizeTeamNames.js';
 import fs from 'fs';
 import sharp from 'sharp';
@@ -76,10 +75,8 @@ const downloadAllImages = async (urls) => {
 
 const createImages = async () => {
 	createVariantFolders();
-	await mongoose();
 
-	const teams = await Team.find({}).select('name');
-
+	const teams = await db.select({ name: teamTable.name }).from(teamTable);
 	const onlyNames = teams.map((x) => normalizeTeamNames(x.name));
 	const { teamData } = await populateTeamData(onlyNames);
 	console.log(teamData);
