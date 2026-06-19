@@ -13,11 +13,11 @@ test(
 		};
 
 		const { reigns, teams } = await crawler(options);
-		console.log('teams ')
+		console.log('teams ');
 		console.log(teams);
-		console.log('\n\n\n')
+		console.log('\n\n\n');
 		console.log(reigns);
-		console.log('\n\n\n')
+		console.log('\n\n\n');
 
 		console.log(reigns.at(-1).games);
 		expect(teams).toHaveLength(3);

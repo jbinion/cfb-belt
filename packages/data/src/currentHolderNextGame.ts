@@ -55,10 +55,7 @@ const main = async () => {
 				team: teamName,
 			}).toString();
 
-			const gamesRes = await fetch(
-				config.baseUrl + '/games?' + gamesParams,
-				config.reqOptions
-			);
+			const gamesRes = await fetch(config.baseUrl + '/games?' + gamesParams, config.reqOptions);
 			const games = await gamesRes.json();
 
 			if (games?.length > 0) {
@@ -79,10 +76,7 @@ const main = async () => {
 					seasonType: firstWeek.type,
 					team: teamName,
 				}).toString();
-				const nextSeasonRes = await fetch(
-					config.baseUrl + '/games?' + params,
-					config.reqOptions
-				);
+				const nextSeasonRes = await fetch(config.baseUrl + '/games?' + params, config.reqOptions);
 				const nextSeasonGames = await nextSeasonRes.json();
 				if (nextSeasonGames?.length) nextGame = nextSeasonGames[0];
 			}

@@ -1,21 +1,21 @@
 {
-  "name": "@cfb/db",
-  "version": "1.0.0",
-  "exports": {
-    ".": "./src/index.ts"
-  },
-  "scripts": {
-    "migrate": "drizzle-kit push",
-    "generate": "drizzle-kit generate"
-  },
-  "dependencies": {
-    "better-sqlite3": "^12.6.2",
-    "drizzle-orm": "0.45.2"
-  },
-  "devDependencies": {
-    "@types/better-sqlite3": "^7.6.13",
-    "drizzle-kit": "^0.31.8",
-    "tsx": "^4.21.0",
-    "typescript": "^5.0.0"
-  }
+	"name": "@cfb/db",
+	"version": "1.0.0",
+	"exports": {
+		".": "./src/index.ts"
+	},
+	"scripts": {
+		"migrate": "drizzle-kit push",
+		"generate": "drizzle-kit generate"
+	},
+	"dependencies": {
+		"better-sqlite3": "^12.6.2",
+		"drizzle-orm": "0.45.2"
+	},
+	"devDependencies": {
+		"@types/better-sqlite3": "^7.6.13",
+		"drizzle-kit": "^0.31.8",
+		"tsx": "^4.21.0",
+		"typescript": "^5.0.0"
+	}
 }

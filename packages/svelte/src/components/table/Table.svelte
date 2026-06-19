@@ -16,13 +16,25 @@
 	<thead class="border-b border-foreground">
 		<tr>
 			{#if dateFirst}
-				<th class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide text-foreground-muted">Claimed</th>
+				<th
+					class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide text-foreground-muted"
+					>Claimed</th
+				>
 			{/if}
-			<th class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide text-foreground-muted">Team</th>
+			<th
+				class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide text-foreground-muted"
+				>Team</th
+			>
 			{#if !dateFirst}
-				<th class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide text-foreground-muted">Claimed</th>
+				<th
+					class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide text-foreground-muted"
+					>Claimed</th
+				>
 			{/if}
-			<th class="px-4 py-3 text-end text-xs font-semibold uppercase tracking-wide text-foreground-muted">Defenses</th>
+			<th
+				class="px-4 py-3 text-end text-xs font-semibold uppercase tracking-wide text-foreground-muted"
+				>Defenses</th
+			>
 		</tr>
 	</thead>
 	<tbody class="divide-y divide-border">

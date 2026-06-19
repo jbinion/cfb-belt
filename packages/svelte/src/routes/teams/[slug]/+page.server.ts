@@ -81,9 +81,7 @@ export async function load({ params }) {
 		type GameResult = (typeof games)[number];
 
 		const reignsWithGames = reigns.map((r) => {
-			const reignGameIds = allReignGameLinks
-				.filter((l) => l.reignId === r.id)
-				.map((l) => l.gameId);
+			const reignGameIds = allReignGameLinks.filter((l) => l.reignId === r.id).map((l) => l.gameId);
 
 			const reignGames = reignGameIds
 				.map((gId) => gameMap.get(gId))
