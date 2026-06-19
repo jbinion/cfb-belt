@@ -78,6 +78,7 @@ const testResult = [
 		start_date: '2019-12-29T01:20:00.000Z',
 		home_team: 'Ohio State',
 		away_team: 'Clemson',
+		completed:true,
 		home_points: 23,
 		away_points: 29,
 		week: 1,
@@ -87,6 +88,7 @@ const testResult = [
 	{
 		id: 401135295,
 		start_date: '2020-01-14T01:00:00.000Z',
+		completed:true,
 		home_team: 'LSU',
 		away_team: 'Clemson',
 		home_points: 42,
