@@ -21,36 +21,38 @@
 <Statsbar />
 
 <div class="mx-auto mb-24 flex max-w-3xl flex-col gap-14 px-6">
-	<Card
-		title="Current Belt Holder"
-		color={data.current.team.color}
-		logoFile={data.current.team.logoFile}
-		teamName={data.current.team.name}
-		slug={data.current.team.slug}
-	>
-		<div class="flex flex-row gap-8">
-			<div>
-				<p class="text-[11px] font-semibold uppercase tracking-wide text-black/70">Claimed</p>
-				<p class="font-mono text-base">
-					{formatDate(data.current.startDate, { month: 'long' })}
-				</p>
-			</div>
+	{#if data.current}
+		<Card
+			title="Current Belt Holder"
+			color={data.current.team?.color ?? 'E4E4E7'}
+			logoFile={data.current.team?.logoFile ?? 'default'}
+			teamName={data.current.team?.name ?? ''}
+			slug={data.current.team?.slug ?? ''}
+		>
+			<div class="flex flex-row gap-8">
+				<div>
+					<p class="text-[11px] font-semibold uppercase tracking-wide text-black/70">Claimed</p>
+					<p class="font-mono text-base">
+						{formatDate(data.current.startDate, { month: 'long' })}
+					</p>
+				</div>
 
-			<div>
-				<p class="text-[11px] font-semibold uppercase tracking-wide text-black/70">Reign</p>
-				<p class="font-mono text-base">
-					{`${data.currentHolderTotalReigns}${numberSuffix(data.currentHolderTotalReigns)}`}
-				</p>
-			</div>
+				<div>
+					<p class="text-[11px] font-semibold uppercase tracking-wide text-black/70">Reign</p>
+					<p class="font-mono text-base">
+						{`${data.currentHolderTotalReigns}${numberSuffix(data.currentHolderTotalReigns)}`}
+					</p>
+				</div>
 
-			<div>
-				<p class="text-[11px] font-semibold uppercase tracking-wide text-black/70">Defenses</p>
-				<p class="font-mono text-base">
-					{data.current.games.length - 1}
-				</p>
+				<div>
+					<p class="text-[11px] font-semibold uppercase tracking-wide text-black/70">Defenses</p>
+					<p class="font-mono text-base">
+						{data.currentDefenseCount}
+					</p>
+				</div>
 			</div>
-		</div>
-	</Card>
+		</Card>
+	{/if}
 
 	<section>
 		<h2 class="sectionTitle">Last 10 Reigns</h2>

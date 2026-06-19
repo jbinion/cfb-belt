@@ -42,7 +42,9 @@
 		"vitest": "^2.0.4"
 	},
 	"dependencies": {
+		"@cfb/db": "workspace:*",
 		"@tailwindcss/typography": "^0.5.15",
+		"drizzle-orm": "0.45.2",
 		"models": "link:..\\models",
 		"svelte-icons-pack": "^3.1.3"
 	}

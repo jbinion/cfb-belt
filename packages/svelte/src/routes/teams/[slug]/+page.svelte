@@ -7,7 +7,7 @@
 	let { data }: { data: PageData } = $props();
 
 	const totalDefenses =
-		data.reigns?.reduce((acc: number, curr: { games: any[] }) => acc + curr.games.length - 1, 0) ??
+		data.reigns?.reduce((acc: number, curr: { defenseCount: number }) => acc + curr.defenseCount, 0) ??
 		0;
 </script>
 
@@ -16,7 +16,7 @@
 	<meta name="description" content="{data.team?.name}'s College Football Belt history" />
 </svelte:head>
 
-{#if data.reigns}
+{#if data.team && data.reigns}
 	<div class="container space-y-12 py-12">
 		<!-- Header -->
 		<section aria-label="Team Overview">
@@ -72,18 +72,18 @@
 		<section aria-label="Championship History">
 			<h2 class="sectionTitle">Reigns</h2>
 			<div class="space-y-2">
-				{#each data.reigns as reign (reign._id)}
+				{#each data.reigns as reign (reign.id)}
 					<ReignCard
 						start={reign.startDate}
-						end={reign.beltLossGame?.start_date || ''}
-						defenses={reign.games.length - 1}
+						end={reign.beltLossGame?.startDate || ''}
+						defenses={reign.defenseCount}
 					>
 						{#if reign.beltLossGame}
 							<GameCard
 								game={reign.beltLossGame}
-								points={reign.beltLossGame.home_points}
-								away_points={reign.beltLossGame.away_points}
-								start_date={reign.beltLossGame.start_date}
+								points={reign.beltLossGame.homePoints}
+								awayPoints={reign.beltLossGame.awayPoints}
+								startDate={reign.beltLossGame.startDate}
 								title={'Belt Lost'}
 							/>
 						{/if}
@@ -91,9 +91,9 @@
 						{#each reign.games as game, i}
 							<GameCard
 								{game}
-								points={game.home_points}
-								away_points={game.away_points}
-								start_date={game.start_date}
+								points={game.homePoints}
+								awayPoints={game.awayPoints}
+								startDate={game.startDate}
 								title={i === reign.games.length - 1 ? 'Belt Won' : 'Defense'}
 							/>
 						{/each}

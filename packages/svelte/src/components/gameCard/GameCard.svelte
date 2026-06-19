@@ -1,11 +1,10 @@
 <script lang="ts">
-	import type { Game } from '../../types';
 	import GameRow from './GameRow.svelte';
 
-	export let game = {} as Game;
-	export let points = '';
-	export let away_points = '';
-	export let start_date = '';
+	export let game: { homeTeam: any; awayTeam: any };
+	export let points: number | string = '';
+	export let awayPoints: number | string = '';
+	export let startDate = '';
 	export let title = '';
 
 	const badgeClass: Record<string, string> = {
@@ -18,7 +17,7 @@
 <div class="overflow-hidden rounded-lg border border-[#e5e5e5] bg-white shadow-sm">
 	<div class="flex items-center justify-between border-b border-[#e5e5e5] px-4 py-2">
 		<span class="font-mono text-xs text-foreground-muted">
-			{new Date(start_date).toLocaleDateString('en-US', {
+			{new Date(startDate).toLocaleDateString('en-US', {
 				year: 'numeric',
 				month: 'short',
 				day: 'numeric',
@@ -33,7 +32,7 @@
 		</span>
 	</div>
 	<div class="divide-y divide-[#e5e5e5]">
-		<GameRow team={game.away_team} points={away_points} />
-		<GameRow team={game.home_team} {points} />
+		<GameRow team={game.awayTeam} points={awayPoints} />
+		<GameRow team={game.homeTeam} {points} />
 	</div>
 </div>

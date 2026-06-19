@@ -4,7 +4,7 @@
 	export let name = '';
 	export let logo = '';
 	export let slug = '';
-	export let startDate = 0;
+	export let startDate = '';
 	export let defendCount = 0;
 	export let dateFirst = false;
 

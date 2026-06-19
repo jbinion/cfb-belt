@@ -1,11 +1,11 @@
-<script>
+<script lang="ts">
 	import { HiSolidChevronRight } from 'svelte-icons-pack/hi';
 	import { HiSolidChevronDown } from 'svelte-icons-pack/hi';
 	import { Icon } from 'svelte-icons-pack';
 
 	let { start = '', end = '', defenses = 0, children } = $props();
 
-	const fmt = (d) =>
+	const fmt = (d: string) =>
 		new Date(d).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
 	const startDate = fmt(start);
 	const endDate = end ? fmt(end) : 'Present';
