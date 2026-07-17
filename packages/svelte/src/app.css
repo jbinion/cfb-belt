@@ -85,5 +85,5 @@ th {
 }
 
 .container {
-	@apply mx-auto max-w-[1400px] px-8;
+	@apply mx-auto max-w-5xl px-6;
 }

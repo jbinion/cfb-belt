@@ -6,7 +6,7 @@
 	/>
 </svelte:head>
 
-<main class="prose mx-auto max-w-3xl px-4">
+<main class="container prose mt-12">
 	<article>
 		<h1 class=" text-3xl font-bold">About the College Football Belt</h1>
 
