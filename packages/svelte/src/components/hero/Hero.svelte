@@ -2,13 +2,14 @@
 	import LinkButton from './LinkButton.svelte';
 </script>
 
+<!-- container -->
 <section class="container">
 	<div class="py-20">
 		<h1 class="mb-4 text-5xl font-bold tracking-tighter text-foreground">
 			The College Football Belt
 		</h1>
 
-		<p class="mb-5 text-foreground-muted">Tracking the lineal championship of college football</p>
+		<p class="mb-5 text-foreground-muted">The Lineal Championship of College Football</p>
 
 		<p class="mx-auto mb-6 max-w-[700px] text-[15px] leading-relaxed text-foreground-muted md:mx-0">
 			The College Football Belt represents the lineal championship of college football. Like a

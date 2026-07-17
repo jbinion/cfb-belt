@@ -8,7 +8,7 @@
 		class="container flex flex-col items-center justify-between gap-4 text-[13px] text-foreground-muted md:flex-row"
 	>
 		<div>
-			&copy; 2025 CFB Belt. Tracking lineal championships since 1869.
+			&copy; 2026 CFB Belt
 			<p class=" ">
 				Data for this site comes from <a
 					href="https://collegefootballdata.com"

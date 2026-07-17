@@ -2,8 +2,6 @@
 	import Card from '../components/Card.svelte';
 	import Hero from '../components/hero/Hero.svelte';
 	import type { PageData } from './$types';
-	import numberSuffix from '../utils/numberSuffix';
-	import formatDate from '../utils/formatDate';
 	import Statsbar from '../components/stats/Statsbar.svelte';
 	import Table from '../components/table/Table.svelte';
 	let { data }: { data: PageData } = $props();
@@ -18,40 +16,19 @@
 </svelte:head>
 
 <Hero />
-<Statsbar />
+<div class="container mb-24 flex flex-col gap-20">
+	<Statsbar />
 
-<div class="mx-auto mb-24 flex max-w-3xl flex-col gap-14 px-6">
 	{#if data.current}
 		<Card
-			title="Current Belt Holder"
 			color={data.current.team?.color ?? 'E4E4E7'}
 			logoFile={data.current.team?.logoFile ?? 'default'}
 			teamName={data.current.team?.name ?? ''}
 			slug={data.current.team?.slug ?? ''}
-		>
-			<div class="flex flex-row gap-8">
-				<div>
-					<p class="text-[11px] font-semibold uppercase tracking-wide text-black/70">Claimed</p>
-					<p class="font-mono text-base">
-						{formatDate(data.current.startDate, { month: 'long' })}
-					</p>
-				</div>
-
-				<div>
-					<p class="text-[11px] font-semibold uppercase tracking-wide text-black/70">Reign</p>
-					<p class="font-mono text-base">
-						{`${data.currentHolderTotalReigns}${numberSuffix(data.currentHolderTotalReigns)}`}
-					</p>
-				</div>
-
-				<div>
-					<p class="text-[11px] font-semibold uppercase tracking-wide text-black/70">Defenses</p>
-					<p class="font-mono text-base">
-						{data.currentDefenseCount}
-					</p>
-				</div>
-			</div>
-		</Card>
+			startDate={data.current.startDate}
+			currentHolderTotalReigns={data.currentHolderTotalReigns}
+			currentDefenseCount={data.currentDefenseCount}
+		/>
 	{/if}
 
 	<section>
