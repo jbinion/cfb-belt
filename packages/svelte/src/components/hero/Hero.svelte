@@ -2,7 +2,6 @@
 	import LinkButton from './LinkButton.svelte';
 </script>
 
-<!-- container -->
 <section class="container">
 	<div class="py-20">
 		<h1 class="mb-4 text-5xl font-bold tracking-tighter text-foreground">
@@ -12,9 +11,8 @@
 		<p class="mb-5 text-foreground-muted">The Lineal Championship of College Football</p>
 
 		<p class="mx-auto mb-6 max-w-[700px] text-[15px] leading-relaxed text-foreground-muted md:mx-0">
-			The College Football Belt represents the lineal championship of college football. Like a
-			boxing title, it passes from team to team through head-to-head competition. When the belt
-			holder loses, their opponent becomes the new champion.
+			The Lineal Championship of College Football, passed from team to team since Rutgers won the
+			first game ever played in 1869
 		</p>
 		<div class="mt-10 flex items-center justify-start">
 			<div class="grid grid-cols-2 justify-center gap-8">
