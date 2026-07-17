@@ -1,6 +1,7 @@
 {
 	"name": "cfb-belt",
 	"devDependencies": {
+		"husky": "^9.1.7",
 		"prettier": "^3.8.1",
 		"prettier-plugin-svelte": "^3.4.1",
 		"prettier-plugin-tailwindcss": "^0.7.2"
@@ -8,7 +9,8 @@
 	"scripts": {
 		"format": "prettier --write .",
 		"dev": "pnpm --filter svelte dev",
-		"postinstall": "pnpm --filter models build"
+		"postinstall": "pnpm --filter models build",
+		"prepare": "husky"
 	},
 	"repository": {
 		"type": "git",
