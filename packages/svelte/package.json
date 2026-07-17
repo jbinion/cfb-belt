@@ -19,7 +19,6 @@
 		"@fontsource/fira-mono": "^5.2.7",
 		"@neoconfetti/svelte": "^2.2.2",
 		"@sveltejs/adapter-auto": "^3.3.1",
-		"@sveltejs/adapter-netlify": "^4.4.2",
 		"@sveltejs/adapter-static": "^3.0.10",
 		"@sveltejs/kit": "^2.69.3",
 		"@sveltejs/vite-plugin-svelte": "^4.0.4",
@@ -27,6 +26,7 @@
 		"@types/node": "^22.20.1",
 		"@typescript-eslint/eslint-plugin": "^6.21.0",
 		"autoprefixer": "^10.5.4",
+		"better-sqlite3": "^12.6.2",
 		"dotenv": "^16.6.1",
 		"eslint": "^9.39.5",
 		"eslint-config-prettier": "^9.1.2",
@@ -44,7 +44,6 @@
 	"dependencies": {
 		"@cfb/db": "workspace:*",
 		"@tailwindcss/typography": "^0.5.20",
-		"better-sqlite3": "^12.6.2",
 		"drizzle-orm": "0.45.2",
 		"models": "link:..\\models",
 		"svelte-icons-pack": "^3.1.3"
