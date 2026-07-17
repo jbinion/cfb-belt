@@ -6,11 +6,12 @@
 
 	let { data }: { data: PageData } = $props();
 
-	const totalDefenses =
+	const totalDefenses = $derived(
 		data.reigns?.reduce(
 			(acc: number, curr: { defenseCount: number }) => acc + curr.defenseCount,
 			0
-		) ?? 0;
+		) ?? 0
+	);
 </script>
 
 <svelte:head>
