@@ -5,13 +5,13 @@
 	"type": "module",
 	"scripts": {
 		"test": "vitest",
-		"start": "node ./src/app.js",
-		"images": "node ./src/images/createImages.js",
+		"images": "tsx ./src/images/createImages.ts",
 		"downloadEspnData": "node ./src/utils/downloadEspnData.js",
-		"nextGame": "node ./src/currentHolderNextGame.js",
+		"nextGame": "tsx ./src/currentHolderNextGame.ts",
 		"lint": "eslint --fix .",
-		"syncDb": "node ./src/syncDb.js",
-		"update": "tsx ./src/update.ts"
+		"update": "tsx ./src/update.ts",
+		"buildSqlite": "tsx ./src/buildSqlite.ts",
+		"migrateToSqlite": "tsx ./src/migrateToSqlite.ts"
 	},
 	"devDependencies": {
 		"@eslint/eslintrc": "^3.2.0",
@@ -19,15 +19,13 @@
 		"eslint": "^9.15.0",
 		"eslint-plugin-import": "^2.31.0",
 		"eslint-plugin-vitest": "^0.5.4",
-		"mongodb": "^6.20.0",
 		"tsx": "^4.21.0",
 		"vitest": "^2.0.4"
 	},
 	"dependencies": {
+		"@cfb/db": "workspace:*",
 		"dotenv": "^16.4.5",
 		"find-up": "^8.0.0",
-		"models": "link:..\\models",
-		"mongoose": "^8.9.5",
 		"sharp": "^0.33.5"
 	}
 }

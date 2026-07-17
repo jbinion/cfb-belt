@@ -11,6 +11,12 @@ if (envPath) {
 export default defineConfig({
 	plugins: [sveltekit()],
 
+	ssr: {
+		// better-sqlite3 is a native CJS addon; bundling it into the ESM SSR
+		// output breaks its `bindings` loader, which relies on __filename.
+		external: ['better-sqlite3'],
+	},
+
 	test: {
 		include: ['test/**/*.{test,spec}.{js,ts}'],
 	},

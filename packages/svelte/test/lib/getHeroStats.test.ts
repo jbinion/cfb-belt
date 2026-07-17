@@ -1,10 +1,5 @@
-import { expect, test, beforeAll } from 'vitest';
+import { expect, test } from 'vitest';
 import getHeroStats from '../../src/lib/getHeroStats';
-import { connect } from '../../src/lib/db/mongoose';
-
-beforeAll(async () => {
-	await connect();
-});
 
 test('get Hero Stats', async () => {
 	const result = await getHeroStats();
