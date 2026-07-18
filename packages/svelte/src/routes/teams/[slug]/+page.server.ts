@@ -1,16 +1,17 @@
 import { db, teamTable, reignsTable, reignGamesTable, gamesTable } from '@cfb/db';
-import { asc, desc, eq, inArray } from 'drizzle-orm';
+import { desc, eq, inArray } from 'drizzle-orm';
 import { alias } from 'drizzle-orm/sqlite-core';
 import countTeamAppearances from '$lib/countTeamAppearances';
+import type { PageServerLoad, EntryGenerator } from './$types';
 
 export const prerender = true;
 
-export const entries = async () => {
+export const entries: EntryGenerator = async () => {
 	const teams = await db.select({ slug: teamTable.slug }).from(teamTable);
 	return teams.map((t) => ({ slug: decodeURIComponent(t.slug) }));
 };
 
-export async function load({ params }) {
+export const load: PageServerLoad = async ({ params }) => {
 	try {
 		const decodedSlug = encodeURIComponent(params.slug);
 
@@ -126,12 +127,12 @@ export async function load({ params }) {
 		return {
 			team,
 			reigns: reignsWithGames,
-			teamsBeatenForBelt: countTeamAppearances(teamsBeatenForBelt as any),
-			teamsDefended: countTeamAppearances(teamsDefendedAgainst as any),
-			teamsLostTo: countTeamAppearances(teamsLostTo as any),
+			teamsBeatenForBelt: countTeamAppearances(teamsBeatenForBelt),
+			teamsDefended: countTeamAppearances(teamsDefendedAgainst),
+			teamsLostTo: countTeamAppearances(teamsLostTo),
 		};
 	} catch (error) {
 		console.error(`Error loading team from params ${JSON.stringify(params)}`, error);
 		return { team: null, reigns: [], teamsBeatenForBelt: [], teamsDefended: [], teamsLostTo: [] };
 	}
-}
+};
