@@ -1,11 +1,4 @@
-interface Team {
-	name: string;
-	displayName: string;
-	color: string;
-	logoFile: string;
-	altColor: string;
-	slug: string;
-}
+import type { Team } from '@cfb/db';
 
 interface CountAppearancesResult extends Team {
 	count: number;
