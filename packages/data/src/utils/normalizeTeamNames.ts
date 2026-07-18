@@ -23,7 +23,7 @@ function normalizeTeamNames(teamName) {
 	if (teamName === 'George Washington') return 'G Washington';
 	if (teamName === 'Massachusetts') return 'UMass';
 	if (teamName === 'Long Island University') return 'Long Island';
-	let espnName = teamName.replace('State', 'St');
+	const espnName = teamName.replace('State', 'St');
 
 	return espnName;
 }

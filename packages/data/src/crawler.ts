@@ -49,7 +49,7 @@ const crawler = async ({ team, startYear, maxYear, startWeekIndex = 0, startReig
 			// we need to refetch the week for the new belt holder to get potential second games, likely a championship
 			// this assumes there will never be more than 2 games in a week.
 
-			let firstGameWinner = getGameWinner(games[0], initalHolder);
+			const firstGameWinner = getGameWinner(games[0], initalHolder);
 			if (firstGameWinner === initalHolder) {
 				i++; // both games are for initial holder, if current holder wins first game, second game will process correctly.
 			}
