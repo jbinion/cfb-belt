@@ -1,7 +1,11 @@
 <script lang="ts">
 	import GameRow from './GameRow.svelte';
+	import type { Team } from '@cfb/db';
 
-	export let game: { homeTeam: any; awayTeam: any };
+	export let game: {
+		homeTeam: Team | null;
+		awayTeam: Team | null;
+	};
 	export let points: number | string = '';
 	export let awayPoints: number | string = '';
 	export let startDate = '';

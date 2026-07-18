@@ -1,42 +1,20 @@
-export type TeamRow = {
-	id: number;
-	name: string;
-	displayName: string;
-	color: string | null;
-	logoFile: string;
-	altColor: string | null;
-	slug: string;
+import type { teamTable, gamesTable, reignsTable, nextGameTable } from './schema';
+
+export type Team = typeof teamTable.$inferSelect;
+
+export type GameRow = Omit<typeof gamesTable.$inferSelect, 'homeTeamId' | 'awayTeamId'> & {
+	homeTeam: Team | null;
+	awayTeam: Team | null;
 };
 
-export type GameRow = {
-	id: string;
-	startDate: string;
-	homePoints: number;
-	awayPoints: number;
-	homeTeamName: string | null;
-	awayTeamName: string | null;
-	homeTeam: TeamRow | null;
-	awayTeam: TeamRow | null;
-};
-
-export type ReignRow = {
-	id: number;
-	startDate: string;
-	teamId: number;
-	beltLossGameId: string | null;
-	team: TeamRow | null;
+export type ReignRow = typeof reignsTable.$inferSelect & {
+	team: Team | null;
 	games: GameRow[];
 	beltLossGame: GameRow | null;
 	defenseCount: number;
 };
 
-export type NextGameRow = {
-	id: string;
-	startDate: string;
-	homeTeamId: number | null;
-	homeTeamName: string | null;
-	awayTeamId: number | null;
-	awayTeamName: string | null;
-	homeTeam: TeamRow | null;
-	awayTeam: TeamRow | null;
+export type NextGameRow = typeof nextGameTable.$inferSelect & {
+	homeTeam: Team | null;
+	awayTeam: Team | null;
 };

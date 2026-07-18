@@ -4,7 +4,7 @@ node_modules/
 **/build
 dist/
 .netlify/
-
+.vscode
 # Env
 .env
 .env.*
