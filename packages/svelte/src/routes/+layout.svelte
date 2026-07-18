@@ -1,6 +1,6 @@
 <script lang="ts">
 	import '../app.css';
-	import Banner from '../components/Banner.svelte';
+	// import Banner from '../components/Banner.svelte';
 	import Footer from '../components/Footer.svelte';
 	import Navbar from '../components/Navbar.svelte';
 	let { children } = $props();

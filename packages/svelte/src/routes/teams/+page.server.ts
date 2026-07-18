@@ -1,5 +1,5 @@
 import { db, reignsTable, teamTable, reignGamesTable } from '@cfb/db';
-import { count, eq, inArray } from 'drizzle-orm';
+import { count, inArray } from 'drizzle-orm';
 
 export const prerender = true;
 

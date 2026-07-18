@@ -8,17 +8,11 @@
 		"images": "tsx ./src/images/createImages.ts",
 		"downloadEspnData": "node ./src/utils/downloadEspnData.js",
 		"nextGame": "tsx ./src/currentHolderNextGame.ts",
-		"lint": "eslint --fix .",
 		"update": "tsx ./src/update.ts",
 		"buildSqlite": "tsx ./src/buildSqlite.ts",
 		"migrateToSqlite": "tsx ./src/migrateToSqlite.ts"
 	},
 	"devDependencies": {
-		"@eslint/eslintrc": "^3.2.0",
-		"@eslint/js": "^9.20.0",
-		"eslint": "^9.15.0",
-		"eslint-plugin-import": "^2.31.0",
-		"eslint-plugin-vitest": "^0.5.4",
 		"tsx": "^4.21.0",
 		"vitest": "^2.0.4"
 	},

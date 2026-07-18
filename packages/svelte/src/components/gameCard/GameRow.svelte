@@ -1,6 +1,8 @@
 <script lang="ts">
+	import type { Team } from '@cfb/db';
+
 	export let points: number | string = '';
-	export let team: { name: string; logoFile: string; slug: string } | null = null;
+	export let team: Team | null = null;
 </script>
 
 <a
