@@ -49,10 +49,13 @@ export default tseslint.config(
 		},
 	},
 
-	// Vitest rules for test files (previously only in packages/data).
+	// Vitest rules + globals for test files (previously only in packages/data).
 	{
-		files: ['**/*.{test,spec}.{js,ts}', '**/tests/**'],
+		files: ['**/*.{test,spec}.{js,ts}', '**/test/**', '**/tests/**'],
 		plugins: { vitest },
+		languageOptions: {
+			globals: { ...vitest.environments.env.globals },
+		},
 		rules: {
 			...vitest.configs.recommended.rules,
 			'vitest/max-nested-describe': ['error', { max: 3 }],
