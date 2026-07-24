@@ -13,7 +13,7 @@
 				Data for this site comes from <a
 					href="https://collegefootballdata.com"
 					class="text-link hover:text-link-hover"
-					target="_blank">collegefootballdata.com</a
+					target="_blank">CollegeFootballData.com</a
 				>
 			</p>
 		</div>
