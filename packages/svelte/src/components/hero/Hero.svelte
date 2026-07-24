@@ -13,7 +13,7 @@
 			first game ever played in 1869
 		</p>
 		<div class="mt-10 flex items-center justify-start">
-			<div class="grid grid-cols-2 justify-center gap-8">
+			<div class="grid w-full grid-cols-1 justify-center gap-4 sm:w-auto sm:grid-cols-2 sm:gap-8">
 				<LinkButton href="/lineage" text="Complete Lineage" />
 				<LinkButton href="/teams" text="All Teams" />
 			</div>
