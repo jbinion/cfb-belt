@@ -8,8 +8,12 @@
 		team: { name: string; logoFile: string; slug: string } | null;
 	}
 
-	export let reigns: Reign[];
-	export let dateFirst = false;
+	interface Props {
+		reigns: Reign[];
+		dateFirst?: boolean;
+	}
+
+	let { reigns, dateFirst = false }: Props = $props();
 </script>
 
 <table class="w-full border-collapse">

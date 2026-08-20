@@ -1,6 +1,5 @@
-<script>
-	export let value = '';
-	export let title = '';
+<script lang="ts">
+	let { value = '', title = '' } = $props();
 </script>
 
 <div

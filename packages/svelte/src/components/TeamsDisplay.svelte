@@ -1,12 +1,17 @@
 <script lang="ts">
-	export let title: string = '';
 	type Team = {
 		slug: string;
 		logoFile: string;
 		name?: string;
 		count?: number;
 	};
-	export let teams: Team[] = [];
+
+	interface Props {
+		title?: string;
+		teams?: Team[];
+	}
+
+	let { title = '', teams = [] }: Props = $props();
 </script>
 
 <div>

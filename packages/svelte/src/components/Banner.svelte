@@ -1,12 +1,13 @@
 <script lang="ts">
-	import { page } from '$app/stores';
-	$: current = $page.data.current;
+	import { page } from '$app/state';
 
-	$: mostRecentGame = current?.games.at(-1);
-	$: challenger =
+	const current = $derived(page.data.current);
+	const mostRecentGame = $derived(current?.games.at(-1));
+	const challenger = $derived(
 		mostRecentGame?.home_team_name === current?.team.name
 			? mostRecentGame?.away_team_name
-			: mostRecentGame?.home_team_name;
+			: mostRecentGame?.home_team_name
+	);
 </script>
 
 <div

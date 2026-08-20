@@ -1,6 +1,10 @@
 <script lang="ts">
-	export let href = '';
-	export let text = '';
+	interface Props {
+		href?: string;
+		text?: string;
+	}
+
+	let { href = '', text = '' }: Props = $props();
 </script>
 
 <a

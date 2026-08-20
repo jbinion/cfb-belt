@@ -53,7 +53,9 @@ export default tseslint.config(
 	{
 		files: ['**/*.{test,spec}.{js,ts}', '**/test/**', '**/tests/**'],
 		plugins: { vitest },
-
+		languageOptions: {
+			globals: { ...vitest.environments.env.globals },
+		},
 		rules: {
 			...vitest.configs.recommended.rules,
 			'vitest/max-nested-describe': ['error', { max: 3 }],
