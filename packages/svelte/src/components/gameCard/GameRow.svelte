@@ -1,8 +1,12 @@
 <script lang="ts">
 	import type { Team } from '@cfb/db';
 
-	export let points: number | string = '';
-	export let team: Team | null = null;
+	interface Props {
+		points?: number | string;
+		team?: Team | null;
+	}
+
+	let { points = '', team = null }: Props = $props();
 </script>
 
 <a
