@@ -20,7 +20,6 @@
 		"format": "prettier --write .",
 		"lint": "eslint . --fix",
 		"dev": "pnpm --filter svelte dev",
-		"postinstall": "pnpm --filter models build",
 		"prepare": "husky"
 	},
 	"repository": {
