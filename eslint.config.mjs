@@ -2,7 +2,7 @@ import js from '@eslint/js';
 import tseslint from 'typescript-eslint';
 import svelte from 'eslint-plugin-svelte';
 import prettier from 'eslint-config-prettier';
-import vitest from 'eslint-plugin-vitest';
+import vitest from '@vitest/eslint-plugin';
 import globals from 'globals';
 
 import { includeIgnoreFile } from '@eslint/compat';
@@ -53,9 +53,7 @@ export default tseslint.config(
 	{
 		files: ['**/*.{test,spec}.{js,ts}', '**/test/**', '**/tests/**'],
 		plugins: { vitest },
-		languageOptions: {
-			globals: { ...vitest.environments.env.globals },
-		},
+
 		rules: {
 			...vitest.configs.recommended.rules,
 			'vitest/max-nested-describe': ['error', { max: 3 }],
