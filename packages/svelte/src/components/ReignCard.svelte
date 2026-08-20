@@ -2,8 +2,16 @@
 	import { HiSolidChevronRight } from 'svelte-icons-pack/hi';
 	import { HiSolidChevronDown } from 'svelte-icons-pack/hi';
 	import { Icon } from 'svelte-icons-pack';
+	import type { Snippet } from 'svelte';
 
-	let { start = '', end = '', defenses = 0, children } = $props();
+	interface Props {
+		start?: string;
+		end?: string;
+		defenses?: number;
+		children: Snippet;
+	}
+
+	let { start = '', end = '', defenses = 0, children }: Props = $props();
 
 	const fmt = (d: string) => {
 		return new Date(d).toLocaleDateString('en-US', {

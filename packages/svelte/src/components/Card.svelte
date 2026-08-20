@@ -1,6 +1,16 @@
 <script lang="ts">
 	import numberSuffix from '../utils/numberSuffix';
 	import formatDate from '../utils/formatDate';
+	interface Props {
+		color?: string;
+		logoFile?: string;
+		teamName?: string;
+		slug?: string;
+		startDate?: string;
+		currentHolderTotalReigns?: number;
+		currentDefenseCount?: number;
+	}
+
 	let {
 		color = 'E4E4E7',
 		logoFile = '',
@@ -9,7 +19,7 @@
 		startDate = '',
 		currentHolderTotalReigns = 0,
 		currentDefenseCount = 0,
-	} = $props();
+	}: Props = $props();
 </script>
 
 <div class="md:mx-12">

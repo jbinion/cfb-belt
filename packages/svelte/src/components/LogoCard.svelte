@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	let { logo = '', name = '', slug = '', reigns = 0, defenses = 0 } = $props();
 	const href = $derived(`/teams/${slug}`);
 </script>

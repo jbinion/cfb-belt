@@ -1,6 +1,5 @@
 <script lang="ts">
-	import { page } from '$app/stores';
-	$: currentPath = $page.url.pathname;
+	import { page } from '$app/state';
 </script>
 
 <nav class="sticky top-0 z-50 border-b-[1px] border-gray-200 bg-background py-3">
@@ -13,12 +12,12 @@
 				<a
 					href="/lineage"
 					class=" text-sm font-medium text-foreground-muted transition-colors hover:text-foreground"
-					class:!border-black={currentPath.startsWith('/lineage')}>Lineage</a
+					class:!border-black={page.url.pathname.startsWith('/lineage')}>Lineage</a
 				>
 				<a
 					href="/teams"
 					class="text-sm font-medium text-foreground-muted transition-colors hover:text-foreground"
-					class:!border-black={currentPath.startsWith('/teams')}>Teams</a
+					class:!border-black={page.url.pathname.startsWith('/teams')}>Teams</a
 				>
 			</ul>
 		</div>
