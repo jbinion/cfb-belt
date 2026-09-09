@@ -1,3 +1,8 @@
+import dotenv from 'dotenv';
+import { findUp } from 'find-up';
+
+dotenv.config({ path: await findUp('.env') });
+
 const config = {
 	baseUrl: 'https:api.collegefootballdata.com',
 	startYear: 1869,
