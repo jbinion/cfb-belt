@@ -10,7 +10,7 @@
 </script>
 
 <td
-	class={`${collapse && 'w-0'} px-4 py-3 text-[15px] text-foreground-muted ${textEnd && 'text-end'}`}
+	class={`${collapse && 'w-0'} px-2 py-2  text-sm text-foreground-muted md:px-4 md:py-3 md:text-[15px] ${textEnd && 'text-end'}`}
 >
 	{@render children()}</td
 >
