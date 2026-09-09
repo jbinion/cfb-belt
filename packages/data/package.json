@@ -1,16 +1,14 @@
 {
 	"name": "data",
 	"version": "1.0.0",
-	"main": "app.js",
 	"type": "module",
 	"scripts": {
 		"test": "vitest",
 		"images": "tsx ./src/images/createImages.ts",
-		"downloadEspnData": "node ./src/utils/downloadEspnData.js",
+		"downloadEspnData": "tsx ./src/utils/downloadEspnData.ts",
 		"nextGame": "tsx ./src/currentHolderNextGame.ts",
 		"update": "tsx ./src/update.ts",
-		"buildSqlite": "tsx ./src/buildSqlite.ts",
-		"migrateToSqlite": "tsx ./src/migrateToSqlite.ts"
+		"buildSqlite": "tsx ./src/buildSqlite.ts"
 	},
 	"devDependencies": {
 		"tsx": "^4.21.0",
@@ -19,6 +17,7 @@
 	"dependencies": {
 		"@cfb/db": "workspace:*",
 		"dotenv": "^16.4.5",
+		"drizzle-orm": "0.45.2",
 		"find-up": "^8.0.0",
 		"sharp": "^0.33.5"
 	}

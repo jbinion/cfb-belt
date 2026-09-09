@@ -3,24 +3,23 @@
 	"devDependencies": {
 		"@eslint/compat": "^1.4.1",
 		"@eslint/js": "^9.39.5",
+		"@vitest/eslint-plugin": "^1.6.27",
 		"eslint": "^9.39.5",
 		"eslint-config-prettier": "^9.1.2",
 		"eslint-plugin-svelte": "^2.46.1",
-		"eslint-plugin-vitest": "^0.5.4",
 		"globals": "^15.15.0",
 		"husky": "^9.1.7",
-		"prettier": "^3.8.1",
-		"prettier-plugin-svelte": "^3.4.1",
-		"prettier-plugin-tailwindcss": "^0.7.2",
-		"svelte": "^5.56.6",
+		"prettier": "^3.9.6",
+		"prettier-plugin-svelte": "^3.5.2",
+		"prettier-plugin-tailwindcss": "^0.7.4",
+		"svelte": "^5.56.9",
 		"typescript": "^5.9.3",
-		"typescript-eslint": "^8.64.0"
+		"typescript-eslint": "^8.67.0"
 	},
 	"scripts": {
 		"format": "prettier --write .",
 		"lint": "eslint . --fix",
 		"dev": "pnpm --filter svelte dev",
-		"postinstall": "pnpm --filter models build",
 		"prepare": "husky"
 	},
 	"repository": {

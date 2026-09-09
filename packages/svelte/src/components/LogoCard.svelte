@@ -1,10 +1,6 @@
-<script>
-	export let logo = '';
-	export let name = '';
-	export let slug = '';
-	export let reigns = 0;
-	export let defenses = 0;
-	const href = `/teams/${slug}`;
+<script lang="ts">
+	let { logo = '', name = '', slug = '', reigns = 0, defenses = 0 } = $props();
+	const href = $derived(`/teams/${slug}`);
 </script>
 
 <a

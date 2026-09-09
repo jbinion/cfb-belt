@@ -1,14 +1,25 @@
 <script lang="ts">
 	import formatDate from '../../utils/formatDate';
 
-	export let name = '';
-	export let logo = '';
-	export let slug = '';
-	export let startDate = '';
-	export let defendCount = 0;
-	export let dateFirst = false;
+	interface Props {
+		name?: string;
+		logo?: string;
+		slug?: string;
+		startDate?: string;
+		defendCount?: number;
+		dateFirst?: boolean;
+	}
 
-	const href = `/teams/${slug}`;
+	let {
+		name = '',
+		logo = '',
+		slug = '',
+		startDate = '',
+		defendCount = 0,
+		dateFirst = false,
+	}: Props = $props();
+
+	const href = $derived(`/teams/${slug}`);
 </script>
 
 <tr class="transition-colors hover:bg-card-hover">

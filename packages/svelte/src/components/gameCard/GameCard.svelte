@@ -2,14 +2,18 @@
 	import GameRow from './GameRow.svelte';
 	import type { Team } from '@cfb/db';
 
-	export let game: {
-		homeTeam: Team | null;
-		awayTeam: Team | null;
-	};
-	export let points: number | string = '';
-	export let awayPoints: number | string = '';
-	export let startDate = '';
-	export let title = '';
+	interface Props {
+		game: {
+			homeTeam: Team | null;
+			awayTeam: Team | null;
+		};
+		points?: number | string;
+		awayPoints?: number | string;
+		startDate?: string;
+		title?: string;
+	}
+
+	let { game, points = '', awayPoints = '', startDate = '', title = '' }: Props = $props();
 
 	const badgeClass: Record<string, string> = {
 		'Belt Won': 'border-green-200 bg-green-50 text-green-700',

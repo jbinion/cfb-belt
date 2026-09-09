@@ -19,7 +19,7 @@ const crawler = async ({ team, startYear, maxYear, startWeekIndex = 0, startReig
 			year++;
 			continue;
 		}
-		for (let i = initialStart; i < weeks.length; ) {
+		for (let i = initialStart; i < weeks.length;) {
 			await delay(config.delayAmount);
 			const initalHolder = beltTracker.currentHolder || null;
 			const games = await getGame({

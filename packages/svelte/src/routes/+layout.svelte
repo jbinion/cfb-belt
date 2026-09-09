@@ -3,7 +3,9 @@
 	// import Banner from '../components/Banner.svelte';
 	import Footer from '../components/Footer.svelte';
 	import Navbar from '../components/Navbar.svelte';
-	let { children } = $props();
+	import type { LayoutProps } from './$types';
+
+	let { children }: LayoutProps = $props();
 </script>
 
 <!-- <Banner /> -->
