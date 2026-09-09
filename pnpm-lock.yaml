@@ -59,6 +59,9 @@ importers:
       dotenv:
         specifier: ^16.4.5
         version: 16.6.1
+      drizzle-orm:
+        specifier: 0.45.2
+        version: 0.45.2(@types/better-sqlite3@7.6.13)(better-sqlite3@12.11.1)
       find-up:
         specifier: ^8.0.0
         version: 8.0.0

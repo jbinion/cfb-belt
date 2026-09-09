@@ -5,6 +5,7 @@ import getGameById from './api/getGameById';
 import getWeeks from './api/getWeeks';
 import crawler from './crawler';
 import saveReign from './sqlite/saveReign';
+import config from './config';
 
 const main = async () => {
 	const currentReign = await db
@@ -16,9 +17,10 @@ const main = async () => {
 		.then((r) => r[0] ?? null);
 
 	if (!currentReign) throw new Error('No current reign found');
+	console.log(`current reigning team: ${currentReign.teamName}`);
 
 	const lastGame = await db
-		.select({ espnId: gamesTable.id, startDate: gamesTable.startDate })
+		.select()
 		.from(reignGamesTable)
 		.innerJoin(gamesTable, eq(reignGamesTable.gameId, gamesTable.id))
 		.where(eq(reignGamesTable.reignId, currentReign.id))
@@ -27,8 +29,10 @@ const main = async () => {
 		.then((r) => r[0] ?? null);
 
 	if (!lastGame) throw new Error('Current reign has no games');
+	console.log('last game');
+	console.log(lastGame);
 
-	const { season, week, seasonType } = await getGameById(lastGame.espnId);
+	const { season, week, seasonType } = await getGameById(lastGame.games_table.id);
 	const weeks = await getWeeks(season);
 	const currentGameIndex = weeks.findIndex(
 		(x: { week: string; type: string }) => x.week === week && x.type === seasonType
@@ -42,7 +46,7 @@ const main = async () => {
 	const { reigns } = await crawler({
 		team: currentReign.teamName,
 		startYear: season,
-		maxYear: 2026,
+		maxYear: config.maxYear,
 		startWeekIndex: currentGameIndex + 1,
 		startReignId: currentReign.id,
 	});
