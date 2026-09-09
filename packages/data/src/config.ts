@@ -6,7 +6,7 @@ dotenv.config({ path: await findUp('.env') });
 const config = {
 	baseUrl: 'https:api.collegefootballdata.com',
 	startYear: 1869,
-	maxYear: 2025,
+	maxYear: process.env.MAX_YEAR,
 	reqOptions: {
 		method: 'GET',
 		headers: {
