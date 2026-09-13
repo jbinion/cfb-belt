@@ -33,8 +33,7 @@
 
 	<section>
 		<h2 class="sectionTitle">Last 10 Reigns</h2>
-		<div class="overflow-x-auto bg-white">
-			<Table reigns={data.reigns} />
-		</div>
+
+		<Table reigns={data.reigns} />
 	</section>
 </div>
