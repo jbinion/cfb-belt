@@ -13,7 +13,7 @@
 	/>
 </svelte:head>
 
-<div class="container py-12">
+<div class="container my-24 flex flex-col gap-20">
 	<h2 class="pageTitle">Complete Lineage</h2>
 
 	<Table reigns={data.reigns} dateFirst={true} />

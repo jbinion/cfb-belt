@@ -1,5 +1,6 @@
 <script lang="ts">
-	import TableItem from './TableItem.svelte';
+	import TableHeader from './TableHeader.svelte';
+	import TableRow from './TableRow.svelte';
 
 	interface Reign {
 		id: number;
@@ -20,30 +21,18 @@
 	<thead class="border-b border-foreground">
 		<tr>
 			{#if dateFirst}
-				<th
-					class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide text-foreground-muted"
-					>Claimed</th
-				>
+				<TableHeader title="Claimed" />
 			{/if}
-			<th
-				class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide text-foreground-muted"
-				>Team</th
-			>
+			<TableHeader title="Team" />
 			{#if !dateFirst}
-				<th
-					class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide text-foreground-muted"
-					>Claimed</th
-				>
+				<TableHeader title="Claimed" />
 			{/if}
-			<th
-				class="px-4 py-3 text-end text-xs font-semibold uppercase tracking-wide text-foreground-muted"
-				>Defenses</th
-			>
+			<TableHeader title="Defenses" textEnd={true} />
 		</tr>
 	</thead>
 	<tbody class="divide-y divide-border">
 		{#each reigns as item (item.id)}
-			<TableItem
+			<TableRow
 				name={item.team?.name}
 				logo={`${item.team?.logoFile}`}
 				slug={item.team?.slug}
