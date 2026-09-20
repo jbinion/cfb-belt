@@ -91,7 +91,7 @@
 							/>
 						{/if}
 
-						{#each reign.games as game, i}
+						{#each [...reign.games].reverse() as game, i}
 							<GameCard
 								{game}
 								points={game.homePoints}
