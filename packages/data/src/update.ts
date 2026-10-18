@@ -5,6 +5,7 @@ import getGameById from './api/getGameById';
 import getWeeks from './api/getWeeks';
 import crawler from './crawler';
 import saveReign from './sqlite/saveReign';
+import addGameLost from './sqlite/addGameLost';
 import config from './config';
 
 const main = async () => {
@@ -57,6 +58,8 @@ const main = async () => {
 	for (const reign of reigns) {
 		await saveReign({ reign, id: reign._id ?? null });
 	}
+
+	await addGameLost();
 
 	console.log('done');
 };
