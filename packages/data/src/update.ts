@@ -5,6 +5,8 @@ import getGameById from './api/getGameById';
 import getWeeks from './api/getWeeks';
 import crawler from './crawler';
 import saveReign from './sqlite/saveReign';
+import saveTeams from './sqlite/saveTeams';
+import populateTeamData from './populateTeamData';
 import addGameLost from './sqlite/addGameLost';
 import config from './config';
 
@@ -44,7 +46,7 @@ const main = async () => {
 	console.log('startWeekIndex:', currentGameIndex + 1);
 	console.log('start reign id:', currentReign.id);
 
-	const { reigns } = await crawler({
+	const { reigns, teams } = await crawler({
 		team: currentReign.teamName,
 		startYear: season,
 		maxYear: config.maxYear,
@@ -54,6 +56,17 @@ const main = async () => {
 
 	console.log('resulting reign(s)');
 	console.log(JSON.stringify(reigns, null, 2));
+
+	const existingTeams = await db.select({ name: teamTable.name }).from(teamTable);
+	const knownTeams = new Set(existingTeams.map((t) => t.name));
+	const missingTeams = teams.filter((name: string) => !knownTeams.has(name));
+
+	if (missingTeams.length) {
+		console.log('adding new teams:', missingTeams);
+		const { teamData, noData } = await populateTeamData(missingTeams);
+		if (noData.length) console.log('no data for:', noData);
+		await saveTeams(teamData);
+	}
 
 	for (const reign of reigns) {
 		await saveReign({ reign, id: reign._id ?? null });
