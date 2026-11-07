@@ -4,6 +4,7 @@
 	import type { PageData } from './$types';
 	import Statsbar from '../components/stats/Statsbar.svelte';
 	import Table from '../components/table/Table.svelte';
+	import CurrentHolder from '../components/currenHolder/CurrentHolder.svelte';
 	let { data }: { data: PageData } = $props();
 </script>
 
@@ -21,6 +22,15 @@
 
 	{#if data.current}
 		<Card
+			color={data.current.team?.color ?? 'E4E4E7'}
+			logoFile={data.current.team?.logoFile ?? 'default'}
+			teamName={data.current.team?.name ?? ''}
+			slug={data.current.team?.slug ?? ''}
+			startDate={data.current.startDate}
+			currentHolderTotalReigns={data.currentHolderTotalReigns}
+			currentDefenseCount={data.currentDefenseCount}
+		/>
+		<CurrentHolder
 			color={data.current.team?.color ?? 'E4E4E7'}
 			logoFile={data.current.team?.logoFile ?? 'default'}
 			teamName={data.current.team?.name ?? ''}
