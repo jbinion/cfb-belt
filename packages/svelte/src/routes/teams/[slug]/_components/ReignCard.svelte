@@ -26,10 +26,10 @@
 	let showGames = $state(false);
 </script>
 
-<div class="overflow-hidden rounded-lg border border-border bg-white shadow-sm">
+<div class="rounded border border-border">
 	<button
 		onclick={() => (showGames = !showGames)}
-		class="flex w-full items-center justify-between px-4 py-3 transition-colors hover:bg-card-hover"
+		class="flex w-full items-center justify-between border-b border-border px-4 py-3 transition-colors hover:bg-card-hover"
 	>
 		<div class="flex items-center gap-2">
 			<Icon src={showGames ? HiSolidChevronDown : HiSolidChevronRight} size="16" color="black" />
@@ -42,8 +42,32 @@
 	</button>
 
 	{#if showGames}
-		<div class="mx-auto w-full max-w-screen-sm space-y-3 border-t border-border p-4">
-			{@render children()}
+		<div class=" px-8">
+			<table class="bg-background-secondary w-full divide-y divide-border">
+				<thead>
+					<tr>
+						<th
+							class={`px-2 py-3 text-start text-xs font-semibold uppercase tracking-wide text-foreground-muted `}
+							>Date</th
+						>
+						<th
+							class={`px-2 py-3 text-start text-start text-xs font-semibold uppercase tracking-wide text-foreground-muted `}
+							>Opponent</th
+						>
+						<th
+							class={`px-2 py-3 text-start text-xs font-semibold uppercase tracking-wide text-foreground-muted `}
+							>Result</th
+						>
+						<th
+							class={`px-2 py-3 text-start text-xs font-semibold uppercase tracking-wide text-foreground-muted `}
+							>Belt</th
+						>
+					</tr>
+				</thead>
+				<tbody class="divide-y divide-border">
+					{@render children()}
+				</tbody>
+			</table>
 		</div>
 	{/if}
 </div>

@@ -56,7 +56,7 @@ th {
 	white-space: nowrap;
 }
 .sectionTitle {
-	@apply mb-4 text-sm font-semibold uppercase tracking-wide text-[#737373];
+	@apply mb-4 text-sm font-semibold uppercase tracking-wide text-foreground;
 	font-family: var(--font-heading);
 }
 

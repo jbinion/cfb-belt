@@ -43,7 +43,7 @@
 
 	<section>
 		<div class="mb-4 flex flex-row justify-between">
-			<h2 class="text-sm font-semibold uppercase tracking-wide text-foreground">Recent</h2>
+			<h2 class="sectionTitle">Recent</h2>
 			<a href="lineage" class="text-sm font-bold text-accent">Full lineage →</a>
 		</div>
 
