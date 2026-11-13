@@ -43,7 +43,7 @@
 
 	{#if showGames}
 		<div class=" px-8">
-			<table class="bg-background-secondary w-full divide-y divide-border">
+			<table class="w-full divide-y divide-border bg-background-secondary">
 				<thead>
 					<tr>
 						<th
