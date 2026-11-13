@@ -26,23 +26,34 @@
 	let showGames = $state(false);
 </script>
 
-<div class="rounded border border-border">
-	<button
-		onclick={() => (showGames = !showGames)}
-		class="flex w-full items-center justify-between border-b border-border px-4 py-3 transition-colors hover:bg-card-hover"
-	>
-		<div class="flex items-center gap-2">
-			<Icon src={showGames ? HiSolidChevronDown : HiSolidChevronRight} size="16" color="black" />
-			<span class="font-mono text-sm text-foreground">{startDate} — {endDate}</span>
-		</div>
+<tr class="border border-border">
+	<td>
+		<button
+			onclick={() => (showGames = !showGames)}
+			class="flex w-full items-center justify-between border-b border-border px-4 py-3 transition-colors hover:bg-card-hover"
+		>
+			<div class="flex items-center gap-2">
+				<Icon src={showGames ? HiSolidChevronDown : HiSolidChevronRight} size="16" color="black" />
+			</div>
+		</button>
+	</td>
+	<td>
+		<span class="font-mono text-sm text-foreground">{startDate}</span>
+	</td>
+	<td>
+		<span class="font-mono text-sm text-foreground"> {endDate}</span>
+	</td>
+	<td>
 		<span class="font-mono text-sm text-foreground-muted">
 			{defenses}
 			{defenses === 1 ? 'Defense' : 'Defenses'}
 		</span>
-	</button>
+	</td>
+</tr>
 
-	{#if showGames}
-		<div class=" px-8">
+{#if showGames}
+	<tr>
+		<td colspan="4" class="px-8">
 			<table class="w-full divide-y divide-border bg-background-secondary">
 				<thead>
 					<tr>
@@ -68,6 +79,9 @@
 					{@render children()}
 				</tbody>
 			</table>
-		</div>
-	{/if}
-</div>
+		</td>
+	</tr>
+	<!-- <div class=" px-8">
+	
+	</div> -->
+{/if}

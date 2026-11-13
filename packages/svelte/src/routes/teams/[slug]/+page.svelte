@@ -57,36 +57,60 @@
 		<!-- Reigns -->
 		<section aria-label="Championship History">
 			<h2 class="sectionTitle">Reigns</h2>
-			<div class="space-y-2">
-				{#each data.reigns as reign (reign.id)}
-					<ReignCard
-						start={reign.startDate}
-						end={reign.beltLossGame?.startDate || ''}
-						defenses={reign.defenseCount}
-					>
-						{#if reign.beltLossGame}
-							<GameCard
-								game={reign.beltLossGame}
-								points={reign.beltLossGame.homePoints}
-								awayPoints={reign.beltLossGame.awayPoints}
-								startDate={reign.beltLossGame.startDate}
-								title={'Belt Lost'}
-								reignTeamId={data.team.id}
-							/>
-						{/if}
+			<div>
+				<table class="w-full divide-y divide-border bg-background-secondary">
+					<thead>
+						<tr>
+							<th
+								class={`px-2 py-3 text-start text-xs font-semibold uppercase tracking-wide text-foreground-muted `}
+							></th>
+							<th
+								class={`px-2 py-3 text-start text-xs font-semibold uppercase tracking-wide text-foreground-muted `}
+								>Claimed</th
+							>
+							<th
+								class={`px-2 py-3 text-start text-start text-xs font-semibold uppercase tracking-wide text-foreground-muted `}
+								>Lost</th
+							>
 
-						{#each [...reign.games].reverse() as game, i}
-							<GameCard
-								{game}
-								points={game.homePoints}
-								awayPoints={game.awayPoints}
-								startDate={game.startDate}
-								title={i === reign.games.length - 1 ? 'Belt Won' : 'Defense'}
-								reignTeamId={data.team.id}
-							/>
+							<th
+								class={`px-2 py-3 text-start text-xs font-semibold uppercase tracking-wide text-foreground-muted `}
+								>Defenses</th
+							>
+						</tr>
+					</thead>
+					<tbody class="divide-y divide-border">
+						{#each data.reigns as reign (reign.id)}
+							<ReignCard
+								start={reign.startDate}
+								end={reign.beltLossGame?.startDate || ''}
+								defenses={reign.defenseCount}
+							>
+								{#if reign.beltLossGame}
+									<GameCard
+										game={reign.beltLossGame}
+										points={reign.beltLossGame.homePoints}
+										awayPoints={reign.beltLossGame.awayPoints}
+										startDate={reign.beltLossGame.startDate}
+										title={'Belt Lost'}
+										reignTeamId={data.team.id}
+									/>
+								{/if}
+
+								{#each [...reign.games].reverse() as game, i}
+									<GameCard
+										{game}
+										points={game.homePoints}
+										awayPoints={game.awayPoints}
+										startDate={game.startDate}
+										title={i === reign.games.length - 1 ? 'Belt Won' : 'Defense'}
+										reignTeamId={data.team.id}
+									/>
+								{/each}
+							</ReignCard>
 						{/each}
-					</ReignCard>
-				{/each}
+					</tbody>
+				</table>
 			</div>
 		</section>
 
