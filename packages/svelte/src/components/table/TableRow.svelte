@@ -18,12 +18,17 @@
 		startDate = '',
 		defendCount = 0,
 		dateFirst = false,
+		number = 0,
+		showIndex = false,
 	}: Props = $props();
 
 	const href = $derived(`/teams/${slug}`);
 </script>
 
 <tr class="transition-colors hover:bg-card-hover">
+	{#if showIndex}
+		<TableItem>{number}</TableItem>
+	{/if}
 	{#if dateFirst}
 		<TableItem collapse={true}>{formatDate(startDate)}</TableItem>
 	{/if}

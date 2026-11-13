@@ -11,7 +11,7 @@ export async function load() {
 			getHeroStats(),
 			getNextChallenger(),
 		]);
-
+		console.log(reigns);
 		return {
 			reigns,
 			...heroStats,

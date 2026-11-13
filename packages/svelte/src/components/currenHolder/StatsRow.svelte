@@ -1,6 +1,7 @@
 <script lang="ts">
 	import numberSuffix from '../../utils/numberSuffix';
 	import formatDate from '../../utils/formatDate';
+	import Stats from './Stats.svelte';
 
 	interface Props {
 		startDate?: string;
@@ -11,25 +12,12 @@
 	let { startDate = '', currentHolderTotalReigns = 0, currentDefenseCount = 0 }: Props = $props();
 </script>
 
-<div class=" hidden w-full flex-1 flex-row border-b-2 md:flex">
-	<div class="flex flex-1 flex-col justify-center border-r-2 p-2">
-		<p class="text-[11px] font-semibold uppercase tracking-wide">Claimed</p>
-		<p class="font-mono text-base">
-			{formatDate(startDate, { month: 'long' })}
-		</p>
-	</div>
+<div class=" hidden w-full flex-1 flex-row divide-x-[1px] border-b-[1px] md:flex">
+	<Stats title={'Claimed'} value={formatDate(startDate, { month: 'short' })} />
 
-	<div class="flex flex-1 flex-col justify-center border-r-2 p-2">
-		<p class="text-[11px] font-semibold uppercase tracking-wide">Reign</p>
-		<p class="font-mono text-base">
-			{`${currentHolderTotalReigns}${numberSuffix(currentHolderTotalReigns)}`}
-		</p>
-	</div>
-
-	<div class="flex flex-1 flex-col justify-center p-2">
-		<p class="text-[11px] font-semibold uppercase tracking-wide">Defenses</p>
-		<p class="font-mono text-base">
-			{currentDefenseCount}
-		</p>
-	</div>
+	<Stats
+		title={'Reign'}
+		value={`${currentHolderTotalReigns}${numberSuffix(currentHolderTotalReigns)}`}
+	/>
+	<Stats title={'Defenses'} value={currentDefenseCount.toString()} />
 </div>
