@@ -11,34 +11,30 @@
 
 	interface Props {
 		reigns: Reign[];
-		dateFirst?: boolean;
 	}
 
-	let { reigns, dateFirst = false }: Props = $props();
+	let { reigns }: Props = $props();
 </script>
 
 <table class="w-full border-collapse">
 	<thead class="border-b border-foreground">
 		<tr>
-			{#if dateFirst}
-				<TableHeader title="Claimed" />
-			{/if}
+			<TableHeader title="#" />
+
 			<TableHeader title="Team" />
-			{#if !dateFirst}
-				<TableHeader title="Claimed" />
-			{/if}
+			<TableHeader title="Claimed" />
 			<TableHeader title="Defenses" textEnd={true} />
 		</tr>
 	</thead>
 	<tbody class="divide-y divide-border">
 		{#each reigns as item (item.id)}
 			<TableRow
+				number={item.id}
 				name={item.team?.name}
 				logo={`${item.team?.logoFile}`}
 				slug={item.team?.slug}
 				startDate={item.startDate}
 				defendCount={item.defenseCount}
-				{dateFirst}
 			/>
 		{/each}
 	</tbody>

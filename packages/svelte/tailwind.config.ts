@@ -8,12 +8,16 @@ export default {
 		extend: {
 			colors: {
 				background: 'var(--background)',
+				'background-secondary': 'var(--background-secondary)',
 				foreground: 'var(--foreground)',
+				'foreground-secondary': 'var(--foreground-secondary)',
+
 				'foreground-muted': 'var(--foreground-muted)',
 				border: 'var(--border)',
 				link: 'var(--link)',
 				'link-hover': 'var(--link-hover)',
 				'card-hover': 'var(--card-hover)',
+				accent: 'var(--accent)',
 			},
 		},
 	},

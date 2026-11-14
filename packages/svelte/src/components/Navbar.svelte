@@ -2,7 +2,7 @@
 	import { page } from '$app/state';
 </script>
 
-<nav class="sticky top-0 z-50 border-b-[1px] border-gray-200 bg-background py-3">
+<nav class="sticky top-0 z-50 border-b border-border bg-background py-3">
 	<div class="container">
 		<div class="flex items-center justify-between">
 			<a href="/" class="text-lg font-semibold uppercase tracking-tight text-foreground">

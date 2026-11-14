@@ -98,7 +98,7 @@ export const load: PageServerLoad = async ({ params }) => {
 				defenseCount: Math.max(0, reignGames.length - 1),
 			};
 		});
-
+		console.log(reignsWithGames);
 		const teamsBeatenForBelt = reignsWithGames
 			.map((reign) => {
 				const firstGame = reign.games[0];

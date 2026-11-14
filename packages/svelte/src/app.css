@@ -4,26 +4,19 @@
 @import 'tailwindcss/utilities';
 @import '@fontsource/fira-mono';
 
-/* Local font: VarsityTeam (served from static/VarsityTeamFont) */
-@font-face {
-	font-family: 'Varsity Team';
-	src: url('/VarsityTeamFont/VarsityTeam-Bold.otf') format('opentype');
-	font-weight: 700;
-	font-style: normal;
-	font-display: swap;
-}
-
 :root {
 	--font-heading: 'Montserrat', Arial, sans-serif;
 	--font-body: 'Inter', 'Segoe UI', Arial, sans-serif;
 	--font-mono: 'Fira Mono', 'Roboto Mono', monospace;
-	--font-varsity: 'Varsity Team', 'Montserrat', Arial, sans-serif;
 
 	--background: #ffffff;
-	--foreground: #000000;
-	--foreground-muted: #737373;
-	--border: #e5e5e5;
+	--background-secondary: #fafafa;
+	--foreground: #09090b;
+	--foreground-secondary: #52525b;
+	--foreground-muted: #71717a;
+	--border: #e4e4e7;
 	--link: #3b82f6;
+	--accent: #1d4ed8;
 	--link-hover: #1d4ed8;
 	--card-hover: #f0f0f0;
 }
@@ -53,7 +46,7 @@ th {
 	white-space: nowrap;
 }
 .sectionTitle {
-	@apply mb-4 text-sm font-semibold uppercase tracking-wide text-[#737373];
+	@apply mb-4 text-sm font-semibold uppercase tracking-wide text-foreground;
 	font-family: var(--font-heading);
 }
 

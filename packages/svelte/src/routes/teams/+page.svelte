@@ -73,7 +73,7 @@
 			bind:value={search}
 			placeholder="Search teams…"
 			aria-label="Search teams"
-			class="rounded-md border border-[#e5e5e5] bg-white px-3 py-1.5 text-sm text-foreground placeholder:text-foreground-muted focus:border-foreground focus:outline-none"
+			class="rounded-md border border-border bg-white px-3 py-1.5 text-sm text-foreground placeholder:text-foreground-muted focus:border-foreground focus:outline-none"
 		/>
 	</div>
 
@@ -83,7 +83,7 @@
 		{#each sortedTeams as team (`${sortBy}-${sortDirection}-${team.slug}`)}
 			<a
 				href="/teams/{team.slug}"
-				class="flex flex-col overflow-hidden rounded-lg border border-[#e5e5e5] bg-white shadow-sm transition-colors hover:bg-card-hover"
+				class="flex flex-col overflow-hidden rounded-lg border border-border bg-white shadow-sm transition-colors hover:bg-card-hover"
 			>
 				<div class="h-1 w-full" style="background-color: #{team.color}"></div>
 				<div class="flex flex-col items-center gap-2 p-4">
