@@ -3,6 +3,7 @@
 	import ReignCard from './_components/ReignCard.svelte';
 	import GameCard from './_components/gameCard/GameCard.svelte';
 	import TeamsDisplay from '../../../components/TeamsDisplay.svelte';
+	import ReignTableHeader from './_components/ReignTableHeader.svelte';
 
 	let { data }: { data: PageData } = $props();
 
@@ -59,26 +60,7 @@
 			<h2 class="sectionTitle">Reigns</h2>
 			<div>
 				<table class="w-full divide-y divide-border bg-background-secondary">
-					<thead>
-						<tr>
-							<th
-								class={`px-2 py-3 text-start text-xs font-semibold uppercase tracking-wide text-foreground-muted `}
-							></th>
-							<th
-								class={`px-2 py-3 text-start text-xs font-semibold uppercase tracking-wide text-foreground-muted `}
-								>Claimed</th
-							>
-							<th
-								class={`px-2 py-3 text-start text-start text-xs font-semibold uppercase tracking-wide text-foreground-muted `}
-								>Lost</th
-							>
-
-							<th
-								class={`px-2 py-3 text-start text-xs font-semibold uppercase tracking-wide text-foreground-muted `}
-								>Defenses</th
-							>
-						</tr>
-					</thead>
+					<ReignTableHeader />
 					<tbody class="divide-y divide-border">
 						{#each data.reigns as reign (reign.id)}
 							<ReignCard
