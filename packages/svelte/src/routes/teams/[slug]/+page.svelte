@@ -1,8 +1,9 @@
 <script lang="ts">
 	import type { PageData } from './$types';
-	import ReignCard from '../../../components/ReignCard.svelte';
-	import GameCard from '../../../components/gameCard/GameCard.svelte';
+	import ReignTableRow from './_components/ReignTableRow.svelte';
+	import GameTableRow from './_components/GameTableRow.svelte';
 	import TeamsDisplay from '../../../components/TeamsDisplay.svelte';
+	import ReignTableHeader from './_components/ReignTableHeader.svelte';
 
 	let { data }: { data: PageData } = $props();
 
@@ -23,19 +24,18 @@
 	<div class="container space-y-12 py-12">
 		<!-- Header -->
 		<section aria-label="Team Overview">
-			<div class="overflow-hidden rounded-lg border border-[#e5e5e5] bg-white shadow-sm">
-				<div class="h-1.5 w-full" style="background-color: #{data.team.color}"></div>
-				<div class="flex flex-col items-center gap-6 p-6 sm:flex-row">
+			<div class="overflow-hidden rounded border border-border">
+				<div class="flex flex-row items-center gap-6 p-6 sm:flex-row">
 					<img
 						src={`/webp/original/${data.team.logoFile}.webp`}
 						class="h-24 w-24 shrink-0"
 						alt=""
 						aria-hidden="true"
 					/>
+					<h1 class="text-3xl font-extrabold tracking-tight text-foreground">
+						{data.team.name}
+					</h1>
 					<div class="flex flex-col gap-4 text-center sm:text-left">
-						<h1 class="text-3xl font-extrabold tracking-tight text-foreground">
-							{data.team.name}
-						</h1>
 						<dl class="flex justify-center gap-8 sm:justify-start">
 							<div>
 								<dt class="text-[10px] font-semibold uppercase tracking-wide text-foreground-muted">
@@ -55,9 +55,50 @@
 			</div>
 		</section>
 
-		<!-- Matchups -->
+		<!-- Reigns -->
+		<section aria-label="Championship History">
+			<h2 class="sectionTitle">Reigns</h2>
+			<div>
+				<table class="w-full">
+					<ReignTableHeader />
+					<tbody class="divide-y divide-border border-b">
+						{#each data.reigns as reign (reign.id)}
+							<ReignTableRow
+								start={reign.startDate}
+								end={reign.beltLossGame?.startDate || ''}
+								defenses={reign.defenseCount}
+							>
+								{#if reign.beltLossGame}
+									<GameTableRow
+										game={reign.beltLossGame}
+										points={reign.beltLossGame.homePoints}
+										awayPoints={reign.beltLossGame.awayPoints}
+										startDate={reign.beltLossGame.startDate}
+										title={'Belt Lost'}
+										reignTeamId={data.team.id}
+									/>
+								{/if}
+
+								{#each [...reign.games].reverse() as game, i}
+									<GameTableRow
+										{game}
+										points={game.homePoints}
+										awayPoints={game.awayPoints}
+										startDate={game.startDate}
+										title={i === reign.games.length - 1 ? 'Belt Won' : 'Defense'}
+										reignTeamId={data.team.id}
+									/>
+								{/each}
+							</ReignTableRow>
+						{/each}
+					</tbody>
+				</table>
+			</div>
+		</section>
+
+		<!-- Opponents -->
 		<section aria-label="Opponent Matchups">
-			<h2 class="sectionTitle">Teams Faced</h2>
+			<h2 class="sectionTitle">Opponents</h2>
 			<div class="overflow-hidden rounded-lg border border-border bg-white p-5 shadow-sm">
 				<div class="grid grid-cols-2 gap-6">
 					<TeamsDisplay title="Won belt from" teams={data.teamsBeatenForBelt} />
@@ -68,40 +109,6 @@
 						<TeamsDisplay title="Defended belt against" teams={data.teamsDefended} />
 					</div>
 				{/if}
-			</div>
-		</section>
-
-		<!-- Reigns -->
-		<section aria-label="Championship History">
-			<h2 class="sectionTitle">Reigns</h2>
-			<div class="space-y-2">
-				{#each data.reigns as reign (reign.id)}
-					<ReignCard
-						start={reign.startDate}
-						end={reign.beltLossGame?.startDate || ''}
-						defenses={reign.defenseCount}
-					>
-						{#if reign.beltLossGame}
-							<GameCard
-								game={reign.beltLossGame}
-								points={reign.beltLossGame.homePoints}
-								awayPoints={reign.beltLossGame.awayPoints}
-								startDate={reign.beltLossGame.startDate}
-								title={'Belt Lost'}
-							/>
-						{/if}
-
-						{#each [...reign.games].reverse() as game, i}
-							<GameCard
-								{game}
-								points={game.homePoints}
-								awayPoints={game.awayPoints}
-								startDate={game.startDate}
-								title={i === reign.games.length - 1 ? 'Belt Won' : 'Defense'}
-							/>
-						{/each}
-					</ReignCard>
-				{/each}
 			</div>
 		</section>
 	</div>

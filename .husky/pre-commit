@@ -1,1 +1,1 @@
-npm run format
+node_modules/.bin/prettier --check .
