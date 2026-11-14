@@ -27,6 +27,12 @@
 	let showGames = $state(false);
 </script>
 
+{#snippet tableCell(value: string)}
+	<td class="font-mono text-sm text-foreground">
+		{value}
+	</td>
+{/snippet}
+
 <tr class="border border-border">
 	<td>
 		<button
@@ -38,12 +44,9 @@
 			</div>
 		</button>
 	</td>
-	<td class="font-mono text-sm text-foreground">
-		{startDate}
-	</td>
-	<td>
-		<span class="font-mono text-sm text-foreground"> {endDate}</span>
-	</td>
+	{@render tableCell(startDate)}
+	{@render tableCell(endDate)}
+
 	<td>
 		<span class="font-mono text-sm text-foreground-muted">
 			{defenses}
@@ -63,7 +66,4 @@
 			</table>
 		</td>
 	</tr>
-	<!-- <div class=" px-8">
-	
-	</div> -->
 {/if}

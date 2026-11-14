@@ -59,7 +59,7 @@
 		<section aria-label="Championship History">
 			<h2 class="sectionTitle">Reigns</h2>
 			<div>
-				<table class="w-full divide-y divide-border bg-background-secondary">
+				<table class="w-full divide-y divide-border border">
 					<ReignTableHeader />
 					<tbody class="divide-y divide-border">
 						{#each data.reigns as reign (reign.id)}
