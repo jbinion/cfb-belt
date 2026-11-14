@@ -47,6 +47,6 @@
 			<a href="lineage" class="text-sm font-bold text-accent">Full lineage →</a>
 		</div>
 
-		<Table reigns={data.reigns} showIndex={true} />
+		<Table reigns={data.reigns} />
 	</section>
 </div>

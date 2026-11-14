@@ -11,26 +11,18 @@
 
 	interface Props {
 		reigns: Reign[];
-		dateFirst?: boolean;
-		showIndex?: boolean;
 	}
 
-	let { reigns, dateFirst = false, showIndex = false }: Props = $props();
+	let { reigns }: Props = $props();
 </script>
 
 <table class="w-full border-collapse">
 	<thead class="border-b border-foreground">
 		<tr>
-			{#if showIndex}
-				<TableHeader title="#" />
-			{/if}
-			{#if dateFirst}
-				<TableHeader title="Claimed" />
-			{/if}
+			<TableHeader title="#" />
+
 			<TableHeader title="Team" />
-			{#if !dateFirst}
-				<TableHeader title="Claimed" />
-			{/if}
+			<TableHeader title="Claimed" />
 			<TableHeader title="Defenses" textEnd={true} />
 		</tr>
 	</thead>
@@ -43,8 +35,6 @@
 				slug={item.team?.slug}
 				startDate={item.startDate}
 				defendCount={item.defenseCount}
-				{showIndex}
-				{dateFirst}
 			/>
 		{/each}
 	</tbody>
