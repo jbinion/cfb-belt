@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { PageData } from './$types';
-	import ReignCard from './_components/ReignCard.svelte';
-	import GameCard from './_components/gameCard/GameCard.svelte';
+	import ReignTableRow from './_components/ReignTableRow.svelte';
+	import GameTableRow from './_components/GameTableRow.svelte';
 	import TeamsDisplay from '../../../components/TeamsDisplay.svelte';
 	import ReignTableHeader from './_components/ReignTableHeader.svelte';
 
@@ -59,17 +59,17 @@
 		<section aria-label="Championship History">
 			<h2 class="sectionTitle">Reigns</h2>
 			<div>
-				<table class="w-full divide-y divide-border border">
+				<table class="w-full">
 					<ReignTableHeader />
-					<tbody class="divide-y divide-border">
+					<tbody class="divide-y divide-border border-b">
 						{#each data.reigns as reign (reign.id)}
-							<ReignCard
+							<ReignTableRow
 								start={reign.startDate}
 								end={reign.beltLossGame?.startDate || ''}
 								defenses={reign.defenseCount}
 							>
 								{#if reign.beltLossGame}
-									<GameCard
+									<GameTableRow
 										game={reign.beltLossGame}
 										points={reign.beltLossGame.homePoints}
 										awayPoints={reign.beltLossGame.awayPoints}
@@ -80,7 +80,7 @@
 								{/if}
 
 								{#each [...reign.games].reverse() as game, i}
-									<GameCard
+									<GameTableRow
 										{game}
 										points={game.homePoints}
 										awayPoints={game.awayPoints}
@@ -89,7 +89,7 @@
 										reignTeamId={data.team.id}
 									/>
 								{/each}
-							</ReignCard>
+							</ReignTableRow>
 						{/each}
 					</tbody>
 				</table>

@@ -1,6 +1,5 @@
 <script lang="ts">
-	import getLogoUrl from '../../../../../utils/getLogoUrl';
-	import GameRow from './GameRow.svelte';
+	import getLogoUrl from '../../../../utils/getLogoUrl';
 	import type { Team } from '@cfb/db';
 
 	interface Props {
@@ -37,37 +36,6 @@
 	const opponent = $derived(isAway ? game.homeTeam : game.awayTeam);
 </script>
 
-<!-- <div class="bg-background-secondary flex items-center justify-between px-4 py-2">
-	<span class="font-mono text-xs text-foreground-muted">
-		{new Date(startDate).toLocaleDateString('en-US', {
-			year: 'numeric',
-			month: 'short',
-			day: 'numeric',
-		})}
-	</span>
-	<div class="flex flex-row items-center space-x-2">
-		<div>{isAway ? '@' : 'vs'}</div>
-		<img
-			src={getLogoUrl({ logoFile: opponent.logoFile, size: 'small' })}
-			alt={`${opponent.name} logo`}
-			class="h-8 w-8"
-		/>
-		<p>{opponent.name}</p>
-	</div>
-
-	<div class="flex flex-row space-x-2">
-		<p class="font-bold">{title === 'Belt Loss' ? 'L' : 'W'}</p>
-		<p>{pointsDisplay}</p>
-	</div>
-	<span
-		class="rounded border px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide {badgeClass[
-			title
-		] ?? badgeClass['Defense']}"
-	>
-		{title}
-	</span>
-</div> -->
-
 <tr class="bg-background-secondary">
 	<td class="p-2 font-mono text-xs text-foreground-muted">
 		{new Date(startDate).toLocaleDateString('en-US', {
@@ -90,15 +58,17 @@
 	</td>
 	<td class="px-2">
 		<div class="flex flex-row space-x-2">
-			<p class="font-bold">{title === 'Belt Loss' ? 'L' : 'W'}</p>
+			<p class="font-bold">{title === 'Belt Lost' ? 'L' : 'W'}</p>
 			<p>{pointsDisplay}</p>
 		</div>
 	</td>
-	<td
-		class="rounded border px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide {badgeClass[
-			title
-		] ?? badgeClass['Defense']}"
-	>
-		{title}
+	<td class="px-2 align-middle">
+		<p
+			class="inline-block rounded border px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide {badgeClass[
+				title
+			] ?? badgeClass['Defense']}"
+		>
+			{title}
+		</p>
 	</td>
 </tr>
