@@ -1,7 +1,3 @@
-<script lang="ts">
-	// import LinkButton from './LinkButton.svelte';
-</script>
-
 <div>
 	<h1 class="mb-4 text-3xl font-bold tracking-tighter text-foreground">
 		The College Football Belt

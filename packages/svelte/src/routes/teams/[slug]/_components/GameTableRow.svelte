@@ -26,12 +26,12 @@
 	const badgeClass: Record<string, string> = {
 		'Belt Won': 'border-green-200 bg-green-50 text-green-700',
 		'Belt Lost': 'border-red-200 bg-red-50 text-red-700',
-		Defense: 'border-[#e5e5e5] bg-gray-50 text-foreground-muted',
+		Defense: 'border-border bg-gray-50 text-foreground-muted',
 	};
 	const pointsDisplay = $derived(
 		awayPoints > points ? `${awayPoints} - ${points}` : `${points} - ${awayPoints}`
 	);
-	const isHome = $derived(game.homeTeam?.id === reignTeamId);
+	// const isHome = $derived(game.homeTeam?.id === reignTeamId);
 	const isAway = $derived(game.awayTeam?.id === reignTeamId);
 	const opponent = $derived(isAway ? game.homeTeam : game.awayTeam);
 </script>

@@ -32,7 +32,7 @@
 				/>
 				{#if (team.count ?? 1) > 1}
 					<span
-						class="absolute -bottom-1 -right-1 rounded-full bg-black/80 px-1.5 py-0.5 text-[10px] font-semibold text-white shadow"
+						class="absolute -bottom-1 -right-1 rounded-full px-1.5 py-0.5 text-[10px] font-semibold text-white shadow"
 					>
 						×{team.count}
 					</span>
