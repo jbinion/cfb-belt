@@ -22,7 +22,7 @@
 				href={`/teams/${team.slug}`}
 				title={(team.name || team.slug || 'Team') +
 					((team.count ?? 1) > 1 ? ` ×${team.count ?? 1}` : '')}
-				class="relative inline-flex items-center justify-center rounded-full border border-border bg-white p-2 shadow-sm transition hover:shadow-md"
+				class="relative inline-flex items-center justify-center rounded-full border border-border bg-white p-2 transition hover:shadow-md"
 			>
 				<img
 					src={`/webp/original/${team.logoFile}.webp`}
@@ -32,7 +32,7 @@
 				/>
 				{#if (team.count ?? 1) > 1}
 					<span
-						class="absolute -right-1 -bottom-1 rounded-full px-1.5 py-0.5 text-[10px] font-semibold text-white shadow"
+						class="absolute -right-1 -bottom-1 rounded-full bg-white px-1.5 py-0.5 text-[10px] font-semibold text-foreground shadow"
 					>
 						×{team.count}
 					</span>

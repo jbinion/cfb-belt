@@ -18,15 +18,6 @@
 <div class="container mt-12 mb-24 flex flex-col gap-12">
 	<Hero />
 	{#if data.current}
-		<!-- <Card
-			color={data.current.team?.color ?? 'E4E4E7'}
-			logoFile={data.current.team?.logoFile ?? 'default'}
-			teamName={data.current.team?.name ?? ''}
-			slug={data.current.team?.slug ?? ''}
-			startDate={data.current.startDate}
-			currentHolderTotalReigns={data.currentHolderTotalReigns}
-			currentDefenseCount={data.currentDefenseCount}
-		/> -->
 		<CurrentHolder
 			color={data.current.team?.color ?? 'E4E4E7'}
 			logoFile={data.current.team?.logoFile ?? 'default'}

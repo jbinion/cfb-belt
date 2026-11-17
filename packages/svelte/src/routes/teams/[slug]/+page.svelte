@@ -24,7 +24,7 @@
 	<div class="container space-y-12 py-12">
 		<!-- Header -->
 		<section aria-label="Team Overview">
-			<div class="overflow-hidden rounded border border-border">
+			<div class="overflow-hidden rounded-sm border border-border">
 				<div class="flex flex-row items-center gap-6 p-6 sm:flex-row">
 					<img
 						src={`/webp/original/${data.team.logoFile}.webp`}
@@ -99,7 +99,7 @@
 		<!-- Opponents -->
 		<section aria-label="Opponent Matchups">
 			<h2 class="sectionTitle">Opponents</h2>
-			<div class="overflow-hidden rounded-lg border border-border bg-white p-5 shadow-sm">
+			<div class="overflow-hidden rounded-lg border border-border bg-white p-5">
 				<div class="grid grid-cols-2 gap-6">
 					<TeamsDisplay title="Won belt from" teams={data.teamsBeatenForBelt} />
 					<TeamsDisplay title="Lost belt to" teams={data.teamsLostTo} />

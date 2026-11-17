@@ -67,11 +67,6 @@ th {
 	@apply mb-8 text-start text-2xl font-semibold uppercase;
 }
 
-.card {
-	@apply rounded-lg border bg-white shadow-sm;
-	border-color: var(--border);
-}
-
 .sortButton {
 	@apply border-black text-foreground-muted;
 }

@@ -37,7 +37,7 @@
 
 {#snippet team()}
 	<a {href} class="flex items-center gap-3 font-semibold text-foreground">
-		<img src={`/webp/large/${logo}.webp`} class="h-10 w-10 flex-shrink-0" alt={`${name} logo`} />
+		<img src={`/webp/large/${logo}.webp`} class="h-10 w-10 shrink-0" alt={`${name} logo`} />
 		<span>{name}</span>
 	</a>
 {/snippet}
