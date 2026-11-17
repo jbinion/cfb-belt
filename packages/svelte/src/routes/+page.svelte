@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Hero from '../components/hero/Hero.svelte';
+	import Hero from '../components/Hero.svelte';
 	import type { PageData } from './$types';
 	import BeltStats from '../components/BeltStats.svelte';
 	import Table from '../components/table/Table.svelte';
