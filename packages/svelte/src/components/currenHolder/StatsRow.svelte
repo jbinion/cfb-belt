@@ -12,7 +12,7 @@
 	let { startDate = '', currentHolderTotalReigns = 0, currentDefenseCount = 0 }: Props = $props();
 </script>
 
-<div class=" hidden w-full flex-1 flex-row divide-x-[1px] border-b-[1px] md:flex">
+<div class=" hidden w-full flex-1 flex-row divide-x divide-border border-b border-border md:flex">
 	<Stats title={'Claimed'} value={formatDate(startDate, { month: 'short' })} />
 
 	<Stats

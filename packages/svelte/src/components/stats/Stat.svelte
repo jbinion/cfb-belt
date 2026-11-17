@@ -6,7 +6,7 @@
 	<p class="text-sm font-bold tracking-tight text-foreground sm:text-2xl">
 		{value.toLocaleString()}
 	</p>
-	<p class="text-xs font-bold uppercase tracking-wider text-foreground-muted">
+	<p class="text-xs font-bold tracking-wider text-foreground-muted uppercase">
 		{title}
 	</p>
 </div>

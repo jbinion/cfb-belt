@@ -29,9 +29,9 @@
 	}: Props = $props();
 </script>
 
-<a href="/teams/{slug}" class="overflow-hidden border-[1px] border-border">
+<a href="/teams/{slug}" class="overflow-hidden border border-border">
 	<div class="flex flex-row">
-		<div class="flex flex-[8] flex-row border-r-[1px] p-6 pr-0">
+		<div class="flex flex-[8] flex-row border-r border-border p-6 pr-0">
 			<TeamIcon {color} {teamName} {logoFile} />
 			<CurrentHolderText {teamName} />
 		</div>
@@ -40,7 +40,7 @@
 				<StatsRow {startDate} {currentHolderTotalReigns} {currentDefenseCount} />
 
 				<div class="flex flex-row items-center space-x-4 p-2">
-					<p class="text-[11px] uppercase tracking-wide text-foreground-muted">Next game</p>
+					<p class="text-[11px] tracking-wide text-foreground-muted uppercase">Next game</p>
 					<div class="flex flex-row items-center space-x-2">
 						<img
 							src={getLogoUrl({ logoFile: nextChallenger.logoFile, size: 'small' })}
@@ -51,7 +51,7 @@
 						</span>
 					</div>
 
-					<p class="text-[11px] uppercase tracking-wide text-foreground-muted">
+					<p class="text-[11px] tracking-wide text-foreground-muted uppercase">
 						{formatDate(nextGameStartDate, {
 							month: 'short',
 							day: 'numeric',

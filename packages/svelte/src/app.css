@@ -1,8 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Inter:wght@400;600&display=swap');
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
+@import 'tailwindcss';
 @import '@fontsource/fira-mono';
+
+@plugin '@tailwindcss/typography';
 
 :root {
 	--font-heading: 'Montserrat', Arial, sans-serif;
@@ -19,6 +19,19 @@
 	--accent: #1d4ed8;
 	--link-hover: #1d4ed8;
 	--card-hover: #f0f0f0;
+}
+
+@theme inline {
+	--color-background: var(--background);
+	--color-background-secondary: var(--background-secondary);
+	--color-foreground: var(--foreground);
+	--color-foreground-secondary: var(--foreground-secondary);
+	--color-foreground-muted: var(--foreground-muted);
+	--color-border: var(--border);
+	--color-link: var(--link);
+	--color-link-hover: var(--link-hover);
+	--color-card-hover: var(--card-hover);
+	--color-accent: var(--accent);
 }
 
 body {
@@ -46,17 +59,12 @@ th {
 	white-space: nowrap;
 }
 .sectionTitle {
-	@apply mb-4 text-sm font-semibold uppercase tracking-wide text-foreground;
+	@apply mb-4 text-sm font-semibold tracking-wide text-foreground uppercase;
 	font-family: var(--font-heading);
 }
 
 .pageTitle {
 	@apply mb-8 text-start text-2xl font-semibold uppercase;
-}
-
-.card {
-	@apply rounded-lg border bg-white shadow-sm;
-	border-color: var(--border);
 }
 
 .sortButton {

@@ -64,7 +64,7 @@
 	</td>
 	<td class="px-2 align-middle">
 		<p
-			class="inline-block rounded border px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide {badgeClass[
+			class="inline-block rounded-sm border px-2 py-0.5 text-[10px] font-semibold tracking-wide uppercase {badgeClass[
 				title
 			] ?? badgeClass['Defense']}"
 		>

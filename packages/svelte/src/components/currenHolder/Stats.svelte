@@ -8,7 +8,7 @@
 </script>
 
 <div class="flex flex-1 flex-col justify-center p-4">
-	<p class="text-[11px] uppercase tracking-wide text-foreground-muted">{title}</p>
+	<p class="text-[11px] tracking-wide text-foreground-muted uppercase">{title}</p>
 	<p class="font-mono text-base">
 		{value}
 	</p>
