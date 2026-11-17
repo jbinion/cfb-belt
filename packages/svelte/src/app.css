@@ -59,7 +59,7 @@ th {
 	white-space: nowrap;
 }
 .sectionTitle {
-	@apply text-foreground mb-4 text-sm font-semibold tracking-wide uppercase;
+	@apply mb-4 text-sm font-semibold tracking-wide text-foreground uppercase;
 	font-family: var(--font-heading);
 }
 
@@ -73,15 +73,15 @@ th {
 }
 
 .sortButton {
-	@apply text-foreground-muted border-black;
+	@apply border-black text-foreground-muted;
 }
 
 .sortButton:hover {
-	@apply text-foreground border-b-2;
+	@apply border-b-2 text-foreground;
 }
 
 .sortButton.active {
-	@apply text-foreground border-b-2;
+	@apply border-b-2 text-foreground;
 }
 
 @media (min-width: 480px) {

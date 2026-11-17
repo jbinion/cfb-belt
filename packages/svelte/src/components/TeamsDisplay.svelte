@@ -15,7 +15,7 @@
 </script>
 
 <div>
-	<h3 class="mb-3 text-xs font-semibold uppercase tracking-wide text-foreground-muted">{title}</h3>
+	<h3 class="mb-3 text-xs font-semibold tracking-wide text-foreground-muted uppercase">{title}</h3>
 	<div class="flex flex-wrap gap-2">
 		{#each teams as team}
 			<a
@@ -32,7 +32,7 @@
 				/>
 				{#if (team.count ?? 1) > 1}
 					<span
-						class="absolute -bottom-1 -right-1 rounded-full px-1.5 py-0.5 text-[10px] font-semibold text-white shadow"
+						class="absolute -right-1 -bottom-1 rounded-full px-1.5 py-0.5 text-[10px] font-semibold text-white shadow"
 					>
 						×{team.count}
 					</span>

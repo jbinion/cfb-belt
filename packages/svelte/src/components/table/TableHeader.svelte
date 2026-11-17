@@ -8,6 +8,6 @@
 </script>
 
 <th
-	class={`px-4 py-3 text-xs font-semibold uppercase tracking-wide text-foreground-muted ${textEnd ? 'text-end' : 'text-left'}`}
+	class={`px-4 py-3 text-xs font-semibold tracking-wide text-foreground-muted uppercase ${textEnd ? 'text-end' : 'text-left'}`}
 	>{title}</th
 >

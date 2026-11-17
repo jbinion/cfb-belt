@@ -5,7 +5,7 @@
 <nav class="sticky top-0 z-50 border-b border-border bg-background py-3">
 	<div class="container">
 		<div class="flex items-center justify-between">
-			<a href="/" class="text-lg font-semibold uppercase tracking-tight text-foreground">
+			<a href="/" class="text-lg font-semibold tracking-tight text-foreground uppercase">
 				CFB Belt
 			</a>
 			<ul class="space-x-8">

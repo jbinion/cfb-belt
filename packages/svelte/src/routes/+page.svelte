@@ -15,7 +15,7 @@
 	/>
 </svelte:head>
 
-<div class="container mb-24 mt-12 flex flex-col gap-12">
+<div class="container mt-12 mb-24 flex flex-col gap-12">
 	<Hero />
 	{#if data.current}
 		<!-- <Card

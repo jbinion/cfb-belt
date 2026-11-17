@@ -35,32 +35,32 @@
 
 				<div class="flex w-full flex-col items-center md:flex-row md:gap-24">
 					<div class="flex flex-col">
-						<p class="text-[11px] font-semibold uppercase tracking-wide text-white/60">
+						<p class="text-[11px] font-semibold tracking-wide text-white/60 uppercase">
 							Current Belt Holder
 						</p>
 
-						<h3 class="font-heading text-2xl font-bold leading-tight">
+						<h3 class="font-heading text-2xl leading-tight font-bold">
 							{teamName}
 						</h3>
 					</div>
 
 					<div class=" hidden flex-row gap-8 md:flex">
 						<div>
-							<p class="text-[11px] font-semibold uppercase tracking-wide text-white/60">Claimed</p>
+							<p class="text-[11px] font-semibold tracking-wide text-white/60 uppercase">Claimed</p>
 							<p class="font-mono text-base">
 								{formatDate(startDate, { month: 'long' })}
 							</p>
 						</div>
 
 						<div>
-							<p class="text-[11px] font-semibold uppercase tracking-wide text-white/60">Reign</p>
+							<p class="text-[11px] font-semibold tracking-wide text-white/60 uppercase">Reign</p>
 							<p class="font-mono text-base">
 								{`${currentHolderTotalReigns}${numberSuffix(currentHolderTotalReigns)}`}
 							</p>
 						</div>
 
 						<div>
-							<p class="text-[11px] font-semibold uppercase tracking-wide text-white/60">
+							<p class="text-[11px] font-semibold tracking-wide text-white/60 uppercase">
 								Defenses
 							</p>
 							<p class="font-mono text-base">

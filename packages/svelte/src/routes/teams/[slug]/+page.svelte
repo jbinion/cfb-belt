@@ -38,13 +38,13 @@
 					<div class="flex flex-col gap-4 text-center sm:text-left">
 						<dl class="flex justify-center gap-8 sm:justify-start">
 							<div>
-								<dt class="text-[10px] font-semibold uppercase tracking-wide text-foreground-muted">
+								<dt class="text-[10px] font-semibold tracking-wide text-foreground-muted uppercase">
 									Reigns
 								</dt>
 								<dd class="font-mono text-2xl font-bold text-foreground">{data.reigns.length}</dd>
 							</div>
 							<div>
-								<dt class="text-[10px] font-semibold uppercase tracking-wide text-foreground-muted">
+								<dt class="text-[10px] font-semibold tracking-wide text-foreground-muted uppercase">
 									Defenses
 								</dt>
 								<dd class="font-mono text-2xl font-bold text-foreground">{totalDefenses}</dd>
@@ -61,7 +61,7 @@
 			<div>
 				<table class="w-full">
 					<ReignTableHeader />
-					<tbody class="divide-y divide-border border-b">
+					<tbody class="divide-y divide-border border-b border-border">
 						{#each data.reigns as reign (reign.id)}
 							<ReignTableRow
 								start={reign.startDate}

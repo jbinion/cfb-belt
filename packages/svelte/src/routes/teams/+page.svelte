@@ -88,18 +88,18 @@
 				<div class="h-1 w-full" style="background-color: #{team.color}"></div>
 				<div class="flex flex-col items-center gap-2 p-4">
 					<img src="/webp/large/{team.logoFile}.webp" class="h-12 w-12" alt="" aria-hidden="true" />
-					<p class="text-center text-sm font-semibold leading-tight text-foreground">
+					<p class="text-center text-sm leading-tight font-semibold text-foreground">
 						{team.name}
 					</p>
 					<dl class="mt-1 flex w-full justify-around text-center">
 						<div>
-							<dt class="text-[10px] font-semibold uppercase tracking-wide text-foreground-muted">
+							<dt class="text-[10px] font-semibold tracking-wide text-foreground-muted uppercase">
 								Reigns
 							</dt>
 							<dd class="font-mono text-sm font-bold text-foreground">{team.reigns}</dd>
 						</div>
 						<div>
-							<dt class="text-[10px] font-semibold uppercase tracking-wide text-foreground-muted">
+							<dt class="text-[10px] font-semibold tracking-wide text-foreground-muted uppercase">
 								Defs
 							</dt>
 							<dd class="font-mono text-sm font-bold text-foreground">{team.defenses}</dd>
