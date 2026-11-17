@@ -35,7 +35,7 @@
 			<TeamIcon {color} {teamName} {logoFile} />
 			<CurrentHolderText {teamName} />
 		</div>
-		<div class=" flex-[7]">
+		<div class="flex-[7]">
 			<div class="flex h-full flex-col">
 				<StatsRow {startDate} {currentHolderTotalReigns} {currentDefenseCount} />
 				<NextGame {nextChallenger} {nextGameStartDate} />
