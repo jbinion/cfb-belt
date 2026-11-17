@@ -1,7 +1,7 @@
 <script lang="ts">
 	import Hero from '../components/hero/Hero.svelte';
 	import type { PageData } from './$types';
-	import Statsbar from '../components/stats/Statsbar.svelte';
+	import BeltStats from '../components/BeltStats.svelte';
 	import Table from '../components/table/Table.svelte';
 	import CurrentHolder from '../components/currenHolder/CurrentHolder.svelte';
 	let { data }: { data: PageData } = $props();
@@ -30,7 +30,7 @@
 			nextChallenger={data.nextChallenger}
 		/>
 	{/if}
-	<Statsbar />
+	<BeltStats />
 
 	<section>
 		<div class="mb-4 flex flex-row justify-between">
