@@ -5,7 +5,6 @@ interface CountAppearancesResult extends Team {
 }
 
 const countTeamAppearances = (teamArray: Team[]): CountAppearancesResult[] => {
-	// console.log(teamArray);
 	const r = teamArray.reduce<Record<string, CountAppearancesResult>>((acc, cur) => {
 		if (!acc[cur.slug]) acc[cur.slug] = { ...cur, count: 1 };
 		else acc[cur.slug]!.count += 1;
