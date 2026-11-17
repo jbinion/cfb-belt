@@ -14,5 +14,5 @@
 	<h3 class="font-heading text-3xl leading-tight font-bold">
 		{teamName}
 	</h3>
-	<p class="text-sm text-foreground-muted">Beat UCF 41-9 on Oct 30, 2026</p>
+	<p class="text-sm text-foreground-muted">Beat Baylor 28-7 on Nov 14, 2026</p>
 </div>
