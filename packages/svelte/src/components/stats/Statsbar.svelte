@@ -4,7 +4,7 @@
 	import Stat from './Stat.svelte';
 </script>
 
-<div class="grid grid-cols-4 divide-x-[1px] border-[1px] border-border">
+<div class="grid grid-cols-4 divide-x divide-border border border-border">
 	<Stat value={page.data.totalReigns} title={'Reigns'} />
 	<Stat value={page.data.teamCount} title={'Teams'} />
 	<Stat value={page.data.totalGames} title={'Games'} />
