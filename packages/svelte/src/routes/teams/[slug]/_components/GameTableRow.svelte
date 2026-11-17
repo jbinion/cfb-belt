@@ -4,14 +4,14 @@
 
 	interface Props {
 		game: {
-			homeTeam: Team | null;
-			awayTeam: Team | null;
+			homeTeam: Team;
+			awayTeam: Team;
 		};
 		points?: number | string;
 		awayPoints?: number | string;
 		startDate?: string;
 		title?: string;
-		reignTeamId: string;
+		reignTeamId: number;
 	}
 
 	let {
@@ -20,7 +20,7 @@
 		awayPoints = '',
 		startDate = '',
 		title = '',
-		reignTeamId = '',
+		reignTeamId = 0,
 	}: Props = $props();
 
 	const badgeClass: Record<string, string> = {
