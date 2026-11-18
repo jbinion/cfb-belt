@@ -24,7 +24,7 @@
 	<div class="container space-y-12 py-12">
 		<!-- Header -->
 		<section aria-label="Team Overview">
-			<div class="overflow-hidden rounded border border-border">
+			<div class="overflow-hidden rounded-sm border border-border">
 				<div class="flex flex-row items-center gap-6 p-6 sm:flex-row">
 					<img
 						src={`/webp/original/${data.team.logoFile}.webp`}
@@ -38,13 +38,13 @@
 					<div class="flex flex-col gap-4 text-center sm:text-left">
 						<dl class="flex justify-center gap-8 sm:justify-start">
 							<div>
-								<dt class="text-[10px] font-semibold uppercase tracking-wide text-foreground-muted">
+								<dt class="text-[10px] font-semibold tracking-wide text-foreground-muted uppercase">
 									Reigns
 								</dt>
 								<dd class="font-mono text-2xl font-bold text-foreground">{data.reigns.length}</dd>
 							</div>
 							<div>
-								<dt class="text-[10px] font-semibold uppercase tracking-wide text-foreground-muted">
+								<dt class="text-[10px] font-semibold tracking-wide text-foreground-muted uppercase">
 									Defenses
 								</dt>
 								<dd class="font-mono text-2xl font-bold text-foreground">{totalDefenses}</dd>
@@ -61,7 +61,7 @@
 			<div>
 				<table class="w-full">
 					<ReignTableHeader />
-					<tbody class="divide-y divide-border border-b">
+					<tbody class="divide-y divide-border border-b border-border">
 						{#each data.reigns as reign (reign.id)}
 							<ReignTableRow
 								start={reign.startDate}
@@ -71,9 +71,6 @@
 								{#if reign.beltLossGame}
 									<GameTableRow
 										game={reign.beltLossGame}
-										points={reign.beltLossGame.homePoints}
-										awayPoints={reign.beltLossGame.awayPoints}
-										startDate={reign.beltLossGame.startDate}
 										title={'Belt Lost'}
 										reignTeamId={data.team.id}
 									/>
@@ -82,9 +79,6 @@
 								{#each [...reign.games].reverse() as game, i}
 									<GameTableRow
 										{game}
-										points={game.homePoints}
-										awayPoints={game.awayPoints}
-										startDate={game.startDate}
 										title={i === reign.games.length - 1 ? 'Belt Won' : 'Defense'}
 										reignTeamId={data.team.id}
 									/>
@@ -99,7 +93,7 @@
 		<!-- Opponents -->
 		<section aria-label="Opponent Matchups">
 			<h2 class="sectionTitle">Opponents</h2>
-			<div class="overflow-hidden rounded-lg border border-border bg-white p-5 shadow-sm">
+			<div class="overflow-hidden rounded-lg border border-border p-5">
 				<div class="grid grid-cols-2 gap-6">
 					<TeamsDisplay title="Won belt from" teams={data.teamsBeatenForBelt} />
 					<TeamsDisplay title="Lost belt to" teams={data.teamsLostTo} />

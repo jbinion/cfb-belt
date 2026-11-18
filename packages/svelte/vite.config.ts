@@ -1,5 +1,6 @@
 import { defineConfig } from 'vitest/config';
 import { sveltekit } from '@sveltejs/kit/vite';
+import tailwindcss from '@tailwindcss/vite';
 import { findUp } from 'find-up';
 import dotenv from 'dotenv';
 
@@ -9,7 +10,7 @@ if (envPath) {
 }
 
 export default defineConfig({
-	plugins: [sveltekit()],
+	plugins: [tailwindcss(), sveltekit()],
 
 	ssr: {
 		// better-sqlite3 is a native CJS addon; bundling it into the ESM SSR

@@ -1,52 +1,46 @@
-import { db, reignsTable, teamTable, reignGamesTable } from '@cfb/db';
-import { count, inArray } from 'drizzle-orm';
+import { db, reignsTable, teamTable, reignGamesTable, gamesTable } from '@cfb/db';
+import { count, eq, inArray } from 'drizzle-orm';
+import reignDays from '$lib/reignDays';
 
 export const prerender = true;
 
 export async function load() {
 	try {
-		const teamIds = await db
-			.selectDistinct({ teamId: reignsTable.teamId })
-			.from(reignsTable)
-			.then((r) => r.map((x) => x.teamId));
-
-		if (!teamIds.length) return { teams: [] };
-
-		const [teams, reignCounts, allReigns] = await Promise.all([
-			db.select().from(teamTable).where(inArray(teamTable.id, teamIds)),
-			db
-				.select({ teamId: reignsTable.teamId, count: count() })
-				.from(reignsTable)
-				.where(inArray(reignsTable.teamId, teamIds))
-				.groupBy(reignsTable.teamId),
-			db
-				.select({ id: reignsTable.id, teamId: reignsTable.teamId })
-				.from(reignsTable)
-				.where(inArray(reignsTable.teamId, teamIds)),
-		]);
-
-		const reignIds = allReigns.map((r) => r.id);
-		const gameCounts = await db
-			.select({ reignId: reignGamesTable.reignId, count: count() })
-			.from(reignGamesTable)
-			.where(inArray(reignGamesTable.reignId, reignIds))
-			.groupBy(reignGamesTable.reignId);
-
-		const gameCountMap = new Map(gameCounts.map((gc) => [gc.reignId, gc.count]));
-		const reignCountMap = new Map(reignCounts.map((rc) => [rc.teamId, rc.count]));
-
-		const result = teams
-			.map((team) => {
-				const teamReigns = allReigns.filter((r) => r.teamId === team.id);
-				const defenses = teamReigns.reduce(
-					(acc, reign) => acc + Math.max(0, (gameCountMap.get(reign.id) ?? 1) - 1),
-					0
-				);
-				return { ...team, reigns: reignCountMap.get(team.id) ?? 0, defenses };
+		// One row per reign: when it ended (the game that lost the belt, none if still held)
+		// and how many games it had.
+		const reigns = await db
+			.select({
+				teamId: reignsTable.teamId,
+				startDate: reignsTable.startDate,
+				endDate: gamesTable.startDate,
+				games: count(reignGamesTable.gameId),
 			})
-			.sort((a, b) => a.name.localeCompare(b.name));
+			.from(reignsTable)
+			.leftJoin(gamesTable, eq(gamesTable.id, reignsTable.beltLossGameId))
+			.leftJoin(reignGamesTable, eq(reignGamesTable.reignId, reignsTable.id))
+			.groupBy(reignsTable.id);
 
-		return { teams: result };
+		const stats = new Map<
+			number,
+			{ reigns: number; defenses: number; daysHeld: number; longestReignDays: number }
+		>();
+		for (const { teamId, startDate, endDate, games } of reigns) {
+			const days = reignDays(startDate, endDate);
+			const s = stats.get(teamId) ?? { reigns: 0, defenses: 0, daysHeld: 0, longestReignDays: 0 };
+			s.reigns += 1;
+			// The first game of a reign wins the belt; every game after it is a defense.
+			s.defenses += Math.max(0, games - 1);
+			s.daysHeld += days;
+			s.longestReignDays = Math.max(s.longestReignDays, days);
+			stats.set(teamId, s);
+		}
+
+		const teams = await db
+			.select()
+			.from(teamTable)
+			.where(inArray(teamTable.id, [...stats.keys()]));
+
+		return { teams: teams.map((team) => ({ ...team, ...stats.get(team.id)! })) };
 	} catch (error) {
 		console.error('Error loading teams:', error);
 		return { teams: [] };

@@ -1,7 +1,7 @@
 <script lang="ts">
-	import Hero from '../components/hero/Hero.svelte';
+	import Hero from '../components/Hero.svelte';
 	import type { PageData } from './$types';
-	import Statsbar from '../components/stats/Statsbar.svelte';
+	import BeltStats from '../components/BeltStats.svelte';
 	import Table from '../components/table/Table.svelte';
 	import CurrentHolder from '../components/currenHolder/CurrentHolder.svelte';
 	let { data }: { data: PageData } = $props();
@@ -15,18 +15,9 @@
 	/>
 </svelte:head>
 
-<div class="container mb-24 mt-12 flex flex-col gap-12">
+<div class="container mt-12 mb-24 flex flex-col gap-12">
 	<Hero />
 	{#if data.current}
-		<!-- <Card
-			color={data.current.team?.color ?? 'E4E4E7'}
-			logoFile={data.current.team?.logoFile ?? 'default'}
-			teamName={data.current.team?.name ?? ''}
-			slug={data.current.team?.slug ?? ''}
-			startDate={data.current.startDate}
-			currentHolderTotalReigns={data.currentHolderTotalReigns}
-			currentDefenseCount={data.currentDefenseCount}
-		/> -->
 		<CurrentHolder
 			color={data.current.team?.color ?? 'E4E4E7'}
 			logoFile={data.current.team?.logoFile ?? 'default'}
@@ -37,9 +28,10 @@
 			currentDefenseCount={data.currentDefenseCount}
 			nextGameStartDate={data.nextGameStartDate}
 			nextChallenger={data.nextChallenger}
+			beltWon={data.beltWon}
 		/>
 	{/if}
-	<Statsbar />
+	<BeltStats />
 
 	<section>
 		<div class="mb-4 flex flex-row justify-between">

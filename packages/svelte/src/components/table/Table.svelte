@@ -1,5 +1,4 @@
 <script lang="ts">
-	import TableHeader from './TableHeader.svelte';
 	import TableRow from './TableRow.svelte';
 
 	interface Reign {
@@ -16,14 +15,20 @@
 	let { reigns }: Props = $props();
 </script>
 
+{#snippet tableHeader(title: string, textEnd: boolean = false)}
+	<th
+		class={`px-4 py-3 text-xs font-semibold tracking-wide text-foreground-muted uppercase ${textEnd ? 'text-end' : 'text-left'}`}
+		>{title}</th
+	>
+{/snippet}
+
 <table class="w-full border-collapse">
 	<thead class="border-b border-foreground">
 		<tr>
-			<TableHeader title="#" />
-
-			<TableHeader title="Team" />
-			<TableHeader title="Claimed" />
-			<TableHeader title="Defenses" textEnd={true} />
+			{@render tableHeader('#')}
+			{@render tableHeader('Team')}
+			{@render tableHeader('Claimed')}
+			{@render tableHeader('Defenses', true)}
 		</tr>
 	</thead>
 	<tbody class="divide-y divide-border">

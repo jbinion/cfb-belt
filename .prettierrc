@@ -5,6 +5,7 @@
 	"trailingComma": "es5",
 	"printWidth": 100,
 	"plugins": ["prettier-plugin-svelte", "prettier-plugin-tailwindcss"],
+	"tailwindStylesheet": "./packages/svelte/src/app.css",
 	"overrides": [
 		{
 			"files": "*.svelte",
