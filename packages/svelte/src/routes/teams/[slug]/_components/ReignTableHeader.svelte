@@ -7,7 +7,7 @@
 {/snippet}
 
 <thead>
-	<tr class="border-b border-black">
+	<tr class="border-b border-foreground">
 		{@render tableCell('')}
 		{@render tableCell('Claimed')}
 		{@render tableCell('Lost')}

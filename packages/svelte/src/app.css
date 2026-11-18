@@ -51,8 +51,6 @@ li,
 ul,
 ol {
 	font-family: var(--font-body);
-	font-weight: 400;
-	line-height: 1.6;
 }
 td,
 th {
@@ -65,24 +63,6 @@ th {
 
 .pageTitle {
 	@apply mb-8 text-start text-2xl font-semibold uppercase;
-}
-
-.sortButton {
-	@apply border-black text-foreground-muted;
-}
-
-.sortButton:hover {
-	@apply border-b-2 text-foreground;
-}
-
-.sortButton.active {
-	@apply border-b-2 text-foreground;
-}
-
-@media (min-width: 480px) {
-	footer {
-		padding: 12px 0;
-	}
 }
 
 .container {

@@ -3,9 +3,8 @@
 	import CurrentHolderText from './CurrentHolderText.svelte';
 	import StatsRow from './StatsRow.svelte';
 	import NextGame from './NextGame.svelte';
-	import { date } from 'drizzle-orm/mysql-core';
-	import formatDate from '../../utils/formatDate';
-	import getLogoUrl from '../../utils/getLogoUrl';
+	import type { BeltWon } from './CurrentHolderText.svelte';
+
 	interface Props {
 		color?: string;
 		logoFile?: string;
@@ -14,6 +13,9 @@
 		startDate?: string;
 		currentHolderTotalReigns?: number;
 		currentDefenseCount?: number;
+		nextGameStartDate?: string | null;
+		nextChallenger?: { name: string; logoFile: string } | null;
+		beltWon?: BeltWon | null;
 	}
 
 	let {
@@ -24,8 +26,9 @@
 		startDate = '',
 		currentHolderTotalReigns = 0,
 		currentDefenseCount = 0,
-		nextGameStartDate = date.now(),
-		nextChallenger = '',
+		nextGameStartDate = null,
+		nextChallenger = null,
+		beltWon = null,
 	}: Props = $props();
 </script>
 
@@ -33,34 +36,12 @@
 	<div class="flex flex-row">
 		<div class="flex flex-[8] flex-row border-r border-border p-6 pr-0">
 			<TeamIcon {color} {teamName} {logoFile} />
-			<CurrentHolderText {teamName} />
+			<CurrentHolderText {teamName} {beltWon} />
 		</div>
-		<div class=" flex-[7]">
+		<div class="flex-[7]">
 			<div class="flex h-full flex-col">
 				<StatsRow {startDate} {currentHolderTotalReigns} {currentDefenseCount} />
-
-				<div class="flex flex-row items-center space-x-4 p-2">
-					<p class="text-[11px] tracking-wide text-foreground-muted uppercase">Next game</p>
-					<div class="flex flex-row items-center space-x-2">
-						<img
-							src={getLogoUrl({ logoFile: nextChallenger.logoFile, size: 'small' })}
-							alt={`${nextChallenger.name} logo`}
-						/>
-						<span class="font-bold text-foreground">
-							{nextChallenger.name}
-						</span>
-					</div>
-
-					<p class="text-[11px] tracking-wide text-foreground-muted uppercase">
-						{formatDate(nextGameStartDate, {
-							month: 'short',
-							day: 'numeric',
-							hour: 'numeric',
-							minute: '2-digit',
-							timeZoneName: 'short',
-						})}
-					</p>
-				</div>
+				<NextGame {nextChallenger} {nextGameStartDate} />
 			</div>
 		</div>
 	</div>

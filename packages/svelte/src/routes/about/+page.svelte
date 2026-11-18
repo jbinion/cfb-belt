@@ -6,7 +6,7 @@
 	/>
 </svelte:head>
 
-<main class="container prose mt-12">
+<div class="container prose mt-12">
 	<article>
 		<h1 class=" text-3xl font-bold">About the College Football Belt</h1>
 
@@ -49,4 +49,4 @@
 			</p>
 		</section>
 	</article>
-</main>
+</div>
