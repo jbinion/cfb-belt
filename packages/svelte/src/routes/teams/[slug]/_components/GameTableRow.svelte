@@ -1,5 +1,6 @@
 <script lang="ts">
 	import getLogoUrl from '../../../../utils/getLogoUrl';
+	import formatDate from '../../../../utils/formatDate';
 	import type { Team } from '@cfb/db';
 
 	interface Props {
@@ -38,11 +39,7 @@
 
 <tr class="bg-background-secondary">
 	<td class="p-2 font-mono text-xs text-foreground-muted">
-		{new Date(startDate).toLocaleDateString('en-US', {
-			year: 'numeric',
-			month: 'short',
-			day: 'numeric',
-		})}
+		{formatDate(startDate)}
 	</td>
 	<td class="space-x-2 px-2">
 		<div class="flex flex-row items-center space-x-2">

@@ -4,6 +4,7 @@
 	import { Icon } from 'svelte-icons-pack';
 	import type { Snippet } from 'svelte';
 	import GameTable from './GameTable.svelte';
+	import formatDate from '../../../../utils/formatDate';
 
 	interface Props {
 		start?: string;
@@ -14,15 +15,8 @@
 
 	let { start = '', end = '', defenses = 0, children }: Props = $props();
 
-	const fmt = (d: string) => {
-		return new Date(d).toLocaleDateString('en-US', {
-			month: 'short',
-			day: 'numeric',
-			year: 'numeric',
-		});
-	};
-	const startDate = $derived(fmt(start));
-	const endDate = $derived(end ? fmt(end) : 'Present');
+	const startDate = $derived(formatDate(start));
+	const endDate = $derived(end ? formatDate(end) : 'Present');
 
 	let showGames = $state(false);
 </script>

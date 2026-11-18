@@ -1,5 +1,5 @@
 <script lang="ts">
-	import formatDate from '../../utils/formatDate';
+	import LocalTime from '../LocalTime.svelte';
 	import getLogoUrl from '../../utils/getLogoUrl';
 
 	interface Props {
@@ -24,13 +24,10 @@
 		</div>
 
 		<p class="text-[11px] tracking-wide text-foreground-muted uppercase">
-			{formatDate(nextGameStartDate, {
-				month: 'short',
-				day: 'numeric',
-				hour: 'numeric',
-				minute: '2-digit',
-				timeZoneName: 'short',
-			})}
+			<LocalTime
+				iso={nextGameStartDate}
+				options={{ month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit' }}
+			/>
 		</p>
 	</div>
 {/if}
