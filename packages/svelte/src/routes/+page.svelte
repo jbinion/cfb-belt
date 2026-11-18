@@ -28,6 +28,7 @@
 			currentDefenseCount={data.currentDefenseCount}
 			nextGameStartDate={data.nextGameStartDate}
 			nextChallenger={data.nextChallenger}
+			beltWon={data.beltWon}
 		/>
 	{/if}
 	<BeltStats />

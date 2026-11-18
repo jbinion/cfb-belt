@@ -22,7 +22,7 @@
 </script>
 
 {#snippet tableCell(value: string, className?: string)}
-	<td class={`font-mono text-sm text-foreground ${className}`}>
+	<td class={`font-mono text-sm text-foreground ${className && className}`}>
 		{value}
 	</td>
 {/snippet}

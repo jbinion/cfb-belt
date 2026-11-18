@@ -2,6 +2,7 @@ import { db, teamTable, reignsTable, reignGamesTable, gamesTable } from '@cfb/db
 import { desc, eq, inArray } from 'drizzle-orm';
 import { alias } from 'drizzle-orm/sqlite-core';
 import countTeamAppearances from '$lib/countTeamAppearances';
+import reignDays from '$lib/reignDays';
 import type { PageServerLoad, EntryGenerator } from './$types';
 
 export const prerender = true;
@@ -30,7 +31,15 @@ export const load: PageServerLoad = async ({ params }) => {
 			.orderBy(desc(reignsTable.startDate));
 
 		if (!reigns.length) {
-			return { team, reigns: [], teamsBeatenForBelt: [], teamsDefended: [], teamsLostTo: [] };
+			return {
+				team,
+				reigns: [],
+				daysHeld: 0,
+				longestReignDays: 0,
+				teamsBeatenForBelt: [],
+				teamsDefended: [],
+				teamsLostTo: [],
+			};
 		}
 
 		const reignIds = reigns.map((r) => r.id);
@@ -96,9 +105,13 @@ export const load: PageServerLoad = async ({ params }) => {
 				games: reignGames,
 				beltLossGame,
 				defenseCount: Math.max(0, reignGames.length - 1),
+				days: reignDays(r.startDate, beltLossGame?.startDate),
 			};
 		});
-		console.log(reignsWithGames);
+
+		const daysHeld = reignsWithGames.reduce((total, reign) => total + reign.days, 0);
+		const longestReignDays = Math.max(0, ...reignsWithGames.map((reign) => reign.days));
+
 		const teamsBeatenForBelt = reignsWithGames
 			.map((reign) => {
 				const firstGame = reign.games[0];
@@ -127,12 +140,22 @@ export const load: PageServerLoad = async ({ params }) => {
 		return {
 			team,
 			reigns: reignsWithGames,
+			daysHeld,
+			longestReignDays,
 			teamsBeatenForBelt: countTeamAppearances(teamsBeatenForBelt),
 			teamsDefended: countTeamAppearances(teamsDefendedAgainst),
 			teamsLostTo: countTeamAppearances(teamsLostTo),
 		};
 	} catch (error) {
 		console.error(`Error loading team from params ${JSON.stringify(params)}`, error);
-		return { team: null, reigns: [], teamsBeatenForBelt: [], teamsDefended: [], teamsLostTo: [] };
+		return {
+			team: null,
+			reigns: [],
+			daysHeld: 0,
+			longestReignDays: 0,
+			teamsBeatenForBelt: [],
+			teamsDefended: [],
+			teamsLostTo: [],
+		};
 	}
 };

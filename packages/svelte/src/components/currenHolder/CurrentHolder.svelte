@@ -3,6 +3,7 @@
 	import CurrentHolderText from './CurrentHolderText.svelte';
 	import StatsRow from './StatsRow.svelte';
 	import NextGame from './NextGame.svelte';
+	import type { BeltWon } from './CurrentHolderText.svelte';
 
 	interface Props {
 		color?: string;
@@ -14,6 +15,7 @@
 		currentDefenseCount?: number;
 		nextGameStartDate?: string | null;
 		nextChallenger?: { name: string; logoFile: string } | null;
+		beltWon?: BeltWon | null;
 	}
 
 	let {
@@ -26,6 +28,7 @@
 		currentDefenseCount = 0,
 		nextGameStartDate = null,
 		nextChallenger = null,
+		beltWon = null,
 	}: Props = $props();
 </script>
 
@@ -33,7 +36,7 @@
 	<div class="flex flex-row">
 		<div class="flex flex-[8] flex-row border-r border-border p-6 pr-0">
 			<TeamIcon {color} {teamName} {logoFile} />
-			<CurrentHolderText {teamName} />
+			<CurrentHolderText {teamName} {beltWon} />
 		</div>
 		<div class="flex-[7]">
 			<div class="flex h-full flex-col">

@@ -6,8 +6,8 @@
 	<a
 		href={`/${url}`}
 		class="border-b border-background text-sm font-medium text-foreground-muted transition-colors hover:text-foreground"
-		class:!text-foreground={page.url.pathname.startsWith(`/${url}`)}
-		class:!border-foreground={page.url.pathname.startsWith(`/${url}`)}>{title}</a
+		class:text-foreground!={page.url.pathname.startsWith(`/${url}`)}
+		class:border-foreground!={page.url.pathname.startsWith(`/${url}`)}>{title}</a
 	>
 {/snippet}
 

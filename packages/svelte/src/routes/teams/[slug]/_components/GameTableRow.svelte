@@ -1,28 +1,17 @@
 <script lang="ts">
 	import getLogoUrl from '../../../../utils/getLogoUrl';
 	import formatDate from '../../../../utils/formatDate';
-	import type { Team } from '@cfb/db';
+	import type { PageData } from '../$types';
+
+	type Game = PageData['reigns'][number]['games'][number];
 
 	interface Props {
-		game: {
-			homeTeam: Team;
-			awayTeam: Team;
-		};
-		points?: number | string;
-		awayPoints?: number | string;
-		startDate?: string;
+		game: Game;
 		title?: string;
 		reignTeamId: number;
 	}
 
-	let {
-		game,
-		points = '',
-		awayPoints = '',
-		startDate = '',
-		title = '',
-		reignTeamId = 0,
-	}: Props = $props();
+	let { game, title = '', reignTeamId = 0 }: Props = $props();
 
 	const badgeClass: Record<string, string> = {
 		'Belt Won': 'border-green-200 bg-green-50 text-green-700',
@@ -30,7 +19,9 @@
 		Defense: 'border-border bg-gray-50 text-foreground-muted',
 	};
 	const pointsDisplay = $derived(
-		awayPoints > points ? `${awayPoints} - ${points}` : `${points} - ${awayPoints}`
+		game.awayPoints > game.homePoints
+			? `${game.awayPoints} - ${game.homePoints}`
+			: `${game.homePoints} - ${game.awayPoints}`
 	);
 	// const isHome = $derived(game.homeTeam?.id === reignTeamId);
 	const isAway = $derived(game.awayTeam?.id === reignTeamId);
@@ -39,18 +30,20 @@
 
 <tr class="bg-background-secondary">
 	<td class="p-2 font-mono text-xs text-foreground-muted">
-		{formatDate(startDate)}
+		{formatDate(game.startDate)}
 	</td>
 	<td class="space-x-2 px-2">
 		<div class="flex flex-row items-center space-x-2">
 			<p>{isAway ? '@' : 'vs'}</p>
 
-			<img
-				src={getLogoUrl({ logoFile: opponent.logoFile, size: 'small' })}
-				alt={`${opponent.name} logo`}
-				class="h-6 w-6"
-			/>
-			<p>{opponent.name}</p>
+			{#if opponent}
+				<img
+					src={getLogoUrl({ logoFile: opponent.logoFile, size: 'small' })}
+					alt={`${opponent.name} logo`}
+					class="h-6 w-6"
+				/>
+			{/if}
+			<p>{opponent?.name ?? 'Unknown team'}</p>
 		</div>
 	</td>
 	<td class="px-2">

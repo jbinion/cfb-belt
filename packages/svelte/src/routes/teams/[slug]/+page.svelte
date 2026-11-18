@@ -71,9 +71,6 @@
 								{#if reign.beltLossGame}
 									<GameTableRow
 										game={reign.beltLossGame}
-										points={reign.beltLossGame.homePoints}
-										awayPoints={reign.beltLossGame.awayPoints}
-										startDate={reign.beltLossGame.startDate}
 										title={'Belt Lost'}
 										reignTeamId={data.team.id}
 									/>
@@ -82,9 +79,6 @@
 								{#each [...reign.games].reverse() as game, i}
 									<GameTableRow
 										{game}
-										points={game.homePoints}
-										awayPoints={game.awayPoints}
-										startDate={game.startDate}
 										title={i === reign.games.length - 1 ? 'Belt Won' : 'Defense'}
 										reignTeamId={data.team.id}
 									/>
@@ -99,7 +93,7 @@
 		<!-- Opponents -->
 		<section aria-label="Opponent Matchups">
 			<h2 class="sectionTitle">Opponents</h2>
-			<div class="overflow-hidden rounded-lg border border-border bg-white p-5">
+			<div class="overflow-hidden rounded-lg border border-border p-5">
 				<div class="grid grid-cols-2 gap-6">
 					<TeamsDisplay title="Won belt from" teams={data.teamsBeatenForBelt} />
 					<TeamsDisplay title="Lost belt to" teams={data.teamsLostTo} />

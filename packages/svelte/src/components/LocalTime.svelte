@@ -7,7 +7,7 @@
 -->
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import { GAME_TIME_ZONE, isKickoffTba } from '../utils/formatDate';
+	import { GAME_TIME_ZONE, isKickoffTba } from '../utils/kickoff';
 
 	interface Props {
 		iso: string;
